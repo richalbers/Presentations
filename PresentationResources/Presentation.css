@@ -1,0 +1,239 @@
+/*
+	File: 	Presentation. css
+	Version: v2.0
+
+	For use with Presentation.js, which allows control of background and text colors
+*/
+ 
+/*=============================================================*/
+	* {
+		margin: 0px;
+	}
+	
+	body {
+		background-color: black;
+		zbackground-size: 100% 100%;
+		zbackground-repeat: no-repeat;
+		font-family: Helvetica,  Arial; 
+		color: white;
+		font-size: 30px;
+	}
+	 
+/*=============================================================*/
+
+	#Outline {
+		position: absolute; 
+		top: 25px; 
+		left: 10px; 
+		z-index: 1;
+		border: 1px solid black; 
+		padding: 5px; 
+		background-color: #6699FF;
+		color: black;
+		font-size: 60%;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+	.OutlineNormal {
+		width: 180px;
+	}
+	.OutlineShrunk {
+		width: 20px;
+	}
+	div.OutlineItem { 
+		margin: 0px; 
+		border-bottom: inherit;
+		font-size: 20px; 
+	}
+	
+	.Practice {
+		text-align: center;		
+	}
+	
+	div.OutlineItem {
+		display: block; 
+		width:100%; height:100%; 
+		text-decoration: none; 
+		color: inherit;
+	} 
+
+	div.OutlineItem:hover {
+		background-color: darkgray;
+		cursor:pointer;
+	}
+	
+	#Outline .Selected {
+		background-color: gray;
+	}
+/*=============================================================*/
+
+	#Main {
+		position: absolute; 
+		min-width: 700px;
+		margin-top: 10px; margin-right: 10px; 
+		padding: 20px; 
+		zborder: 1px solid red;
+		border-radius: 10px;
+	}
+	
+	.MainNormal {
+		margin-left: 210px;
+	}
+	.MainBig {
+		margin-left: 30px;
+	}
+	
+	#Main h1 { 
+		margin: 0px; 
+		font-size: 120%; 
+		color: #ffff66;
+	}
+	
+	.Level0 > li { 
+		margin-top: 10px; 
+	}
+	
+	.Level1 li, .Level2 li, .Level3 li, .Level4 li { 
+		font-size: 90%; 
+	}
+	
+	.Code {
+		margin-left: 30px;		/*pushes left side of box in*/
+		background-color: rgb(230,230,230); /*color repeated in .Code li for border */
+		display: inline-block; /*moves right side of box up against text*/
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-radius: 5px;
+		zwhite-space:nowrap;
+	}
+
+	.Code li {
+		white-space: nowrap;
+		margin-top: 0px;
+		list-style-type:none; 
+		font-family:monospace; 
+		font-size: 70%;
+		font-weight: bold;
+		border: 1px solid rgb(230,230,230); /*same color as .Code */
+		color: black;
+		padding-right: 10px;
+		margin-left: -30px; /*undoes .Code property but only affects text, not background set on box*/
+	}
+	.Green {
+		color: green;
+	}
+	.Blue {
+		color: blue;
+	}
+	[data-linedesc] {
+		cursor: pointer; /* test */
+	}
+
+	[data-linedesc]:hover {
+		//background-color: lightgray;
+		border:1px dashed black;
+	}
+
+	#CodeLineDesc {
+		display: block;
+		position: absolute;
+		z-index: 5;
+		background-color: #cc6600;
+		padding: 3px 3px;
+		border-radius: 4px;
+		color: white;
+		font-size: 20px;
+	}
+	
+	img.small { 
+		zz-index: 20;
+		float: right; 
+		clear: right;
+		margin-bottom: 5px;
+		background-color: white; 
+		padding: 5px;
+		margin-left: 5px;
+		border-radius: 5px;
+	}
+	
+	div.lic {  /*large image container */
+		text-align: center;
+		position: absolute;
+		left: 10px; right: 10px;
+	}
+	
+	img.large { 
+		width: 600px;
+		background-color: white; 
+		padding: 5px;
+		margin-top: 10px;
+		margin-left: 5px;
+		border-radius: 5px;
+	}
+	
+	#Main a {
+		color: inherit;
+	} 
+
+	#Main a:hover {
+		zbackground-color: black; 
+	}
+/*=============================================================*/
+	#FullScreenOverlay {
+		display: none;
+		position: absolute;
+		top: 0px; left: 0px;
+		height: 100%;
+		width: 100%;
+		z-index: 2;
+		background-color: rgba(0,0,0, 0.5);
+	}
+
+	#FullScreenOverlay > div {
+		display: table-cell;		/* must be table-cell */
+		vertical-align: middle;		/* centers contents vertically */
+		text-align: center;			/* centers inline contents horizontally */
+	}
+	
+	#CenteredBox {
+		width: 25%;					/*js animation moves it to 80%*/
+		margin: 0px auto;
+		text-align: center;
+		padding: 10px;
+		background: white;
+		border-radius: 10px;
+		zborder: 2px solid black;
+		box-shadow: 10px 5px 10px #202020;
+	}
+	
+	#CenteredBox #BigImage {
+		padding: 0px;
+		padding-top: 20px;
+		zmargin: 0px;
+		zwidth: 100%;
+	}
+	
+	#FullScreenOverlay canvas {
+		position: absolute; top: 0px; left: 0px;
+		zborder: 1px solid red;
+	}
+	
+	#RedX {
+		border-radius: 5px;
+		background-color: red; 
+		float: right;
+		font-size: 24px;
+		cursor: pointer;
+	}
+	
+/*=============================================================*/
+	#Data {
+		display: none;
+	}
+
+/*=============================================================*/
+@media print {
+	#Outline { display: none; }
+	#Main { display: none; }
+	#Data { display: block; }
+}
