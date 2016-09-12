@@ -1,0 +1,89 @@
+------------------------------------------
+Ch 13 - Removable Media
+	Floppy Drives
+	USB flash drives
+	Flash Cards
+	Optical Disks
+	Optical Drives
+	Miscellaneous
+	
+------------------------------------------
+Floppy Drives
+	Floppy disks (3.5") store 1.44 MB [[img http://upload.wikimedia.org/wikipedia/commons/a/aa/Floppy_disk_2009_G1.jpg]]
+	Drives connect via Floppy cable [[img http://www.lextec.com/images/dx_rib210_lg.jpg]]
+		Connector before twist is B
+		Connector after twist is A
+	Data cable connectors are sometimes not keyed
+		If connected backwards, floppy light stays on
+	Power connector (berg) is keyed
+	Obsolete, replaced by USB flash drives
+ 	
+------------------------------------------
+USB flash drives
+	The defacto standard for portable storage
+	Commonly called
+		thumb drives
+		flash drives
+		USB drives
+	Capacities up to 32GB (or more)
+	Versions implementing encryption are available (but expensive)
+
+-------------------------------------------
+Flash cards
+	Used in cameras and other portable devices
+	Types
+		SD (most common)
+		xD (Olympus\Fujifilm)
+		memory stick (Sony)
+		Compact Flash (large & uncommon)
+		Smartmedia (obsolete)
+	You can get card readers for PCs
+		External connect via USB
+		Internal go in floppy bay
+
+-------------------------------------------
+Optical Disks
+	Store data using Pits and Lands
+	Data starts in the middle and spirals outward
+	Data is read (and written) using a laser
+	Audio, Video, and Data formats
+	Capacities (single side)
+		CDs - 650 to 700 MB
+		DVDs - 4.7 to 8.5 GB (DL)
+		Blue Ray disks - 25 to 50 GB (DL)
+	Data is near label, use caution when writing on them!
+
+--------------------------------------------
+Optical Drives
+	Mostly PATA, SATA are becoming more popular
+	Fit in standard 5 1/4" bay
+	New drives typically process both CDs and DVDs
+	Types	
+		CD-ROM
+		CD-R
+		CD-RW
+		DVD-ROM
+		DVD+R
+		DVD-R
+	Burners aren't much more expensive then readers
+
+--------------------------------------------
+Miscellaneous
+	XP can burn CDs but but not DVDs
+	Vista can burn both CDs and DVDs
+	Several 3rd party packages are available for both OSs 
+		NERO
+		Roxio
+		etc..
+	Lightscribe lets you burn a "label" onto the label side of a (lightscribe) CD or DVD
+
+--------------------------------------------
+Summary
+	Floppy Drives
+	USB flash drives
+	Flash Cards
+	Optical Disks
+	Optical Drives
+	Miscellaneous
+
+--------------------------------------------

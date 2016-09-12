@@ -1,0 +1,97 @@
+------------------------------------------
+Ch 13 - Removable Media
+	Floppy Drives
+	USB flash drives
+	Flash Cards
+	Optical Disks
+	Optical Drives
+	Miscellaneous
+	
+------------------------------------------
+Floppy Drives
+	Floppy disks (3.5") store 1.44 MB [[img http://upload.wikimedia.org/wikipedia/commons/a/aa/Floppy_disk_2009_G1.jpg]]
+	Drives connect via 34pin ribbon cable
+		Commonly called Floppy cable
+		Connector before twist is B [[img http://www.lextec.com/images/dx_rib210_lg.jpg]]
+		Connector after twist is A
+	Data cable connectors are sometimes not keyed [[img http://content.answcdn.com/main/content/img/CDE/_PSCONN.JPG]]
+		If connected backwards, floppy light stays on 
+	Power connector (berg) is keyed 
+	Obsolete, replaced by USB flash drives
+ 	 	
+------------------------------------------
+USB flash drives
+	The defacto standard for portable storage [[img http://upload.wikimedia.org/wikipedia/commons/1/11/USB_flash_drives.jpg]]
+	Commonly called [[img http://www.technicaljones.com/FlashDrives_Oct%202008.jpg]]
+		thumb drives
+		flash drives
+		USB drives
+	Capacities up to 64GB (or more)
+	Versions implementing encryption are available (but expensive)
+	Can be made bootable
+
+-------------------------------------------
+Flash cards
+	Used in cameras and other portable devices 
+	Types									[[img images/FlashMemoryCards.jpg]]
+		Smartmedia (obsolete)			
+		Compact Flash (uncommon)
+		memory stick (Sony)
+		SD (most common, )
+		xD (Olympus\Fujifilm)			[[img images/FlashMemoryReaders.jpg]]
+	You can get card readers for PCs  
+		External connect via USB
+		Internal go in floppy bay
+
+-------------------------------------------
+Optical Disks
+	Store data using Pits and Lands 	[[img http://cr4.globalspec.com/PostImages/200807/opticaldisc2_FEEE1615-98AC-26B4-0CD03F5340DCFF4D.jpg]]
+	Data starts in the middle and spirals outward
+	Data is read (and written) using a laser		[[img images/OpticalDiscs.jpg]]
+	Audio, Video, and Data formats
+	Capacities (single side)	[[img http://www.cdrinfo.com/Sections/Articles/Sources/Plasmon_UDO_DRIVE/Images/CD_DVD_UDO.gif]]
+		CDs - 650 to 700 MB
+		DVDs - 4.7 to 8.5 GB (Dual Layer)
+			17GB for Double-sided, Dual Layer - rare
+		Blue Ray disks - 25 to 50 GB (DL)
+	Minor scratches can be polished out of the non-label side
+	On CDs, data is near label, use caution when writing on them!
+	
+--------------------------------------------
+Optical Drives
+	Fit in standard 5 1/4" bay		[[img http://www.txcesssurplus.com/catalog/16659-Philips-DT490-Front.jpg]]
+	Both PATA and SATA are available
+		Most new ones are SATA
+	New drives typically process both CDs and DVDs
+	Types	
+		CD-ROM, CD-R, CD-RW
+		DVD-ROM, DVD-R, DVD+R, DVD-RW, DVD+RW, DVD+-RW
+		BD-ROM,	BD-R, BD-RE
+	Burners aren't much (if any) more expensive then readers
+
+--------------------------------------------
+Miscellaneous
+	XP can burn CDs but but not DVDs
+	Vista/7 can burn both CDs and DVDs
+	Windows 7 also enables you to burn an iso image
+		An .iso file is an exact image of an optical disk saved as a disk file
+		To burn the .iso to a CD/DVD, right click on it and select "burn disk image".
+	Several 3rd party packages are available for both OSs 
+		NERO
+		Roxio
+		etc..
+	Lightscribe lets you burn a "label" onto the label side of a (lightscribe) CD or DVD
+	autorun.inf file is used to provide autoplay/autorun functionality
+		See [[this link!http://www.techrepublic.com/blog/windows-and-office/how-do-i-create-the-autoruninf-file-for-my-cds-and-dvds/]] for details
+	
+	
+--------------------------------------------
+Summary
+	Floppy Drives
+	USB flash drives
+	Flash Cards
+	Optical Disks
+	Optical Drives
+	Miscellaneous
+
+--------------------------------------------

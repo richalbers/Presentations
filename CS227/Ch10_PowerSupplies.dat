@@ -1,0 +1,157 @@
+---------------------------------------------------
+Electricity and Power Supplies
+	Safety
+	Basics
+	Electrical Testing Tools
+	Power Equipment
+	Power Supply Connectors
+	Power Supply Versions
+	Misc
+	Troubleshooting
+
+---------------------------------------------------
+Safety
+	Treat electricity with respect 	[[img images/Zapped.jpg]]
+		Don't disassemble devices that can store electricity
+		Use extreme caution when working with high voltage
+		Common phrase is "Current Kills"
+	Not all fire extinguishers can be used on Electrical equipment! 
+		Fire Extinguisher classes		[[img http://img2.timeinc.net/toh/i/a/tools/fire-extinguishers-2-01.jpg]]
+			Class A - Wood, Paper, etc..
+			Class B - Flamable liquids
+			Class C - Live electrical equipment
+			Class D - Combustable metals
+			Most common is ABC
+---------------------------------------------------
+Basics
+	Electricity is the movement of electrons  [[img http://inspectapedia.com/electric/0501s.jpg]]
+	Volts, Ohms, Amps, Watts [[img images/volt_amp_ohms.jpg]]
+		Volts - How much force is being used to move electrons 
+		Ohms - How much resistance a material has to their movement
+		Amps - How many electrons are actually being moved
+		Watts - Amount of power being used (Volts x Amps)
+	AC vs DC  [[img http://www.techdose.com/tutorials/Repairing-an-Electrical-Plug-With-Ground-Pin-Cut-Off/370/images/outlet.jpg]]
+		AC - Alternating Current
+			Used to deliver power to your house
+		DC - Direct Current
+			Used by electronic devices
+		Rectifier converts from AC to DC
+	Outlet prongs			
+---------------------------------------------------
+Electrical Testing Tools
+	Multimeter [[img images/Multimeter.jpg]]
+		Multimeters can measure Voltage, Current, or Reistance
+		For troubleshooing, they're used to measure voltage
+	Power supply tester [[img images/PowerSupplyTester.jpg]]
+		ATX power supplies need to recieve the proper signals to turn on, a power supply tester is the easiest way to accomplish this
+	Outlet tester [[img images/OutletTester.jpg]]
+		Outlets can be easily tested using an outlet tester
+	For all tools, read the instructions before using
+---------------------------------------------------
+Power Equipment
+	Surge Suppressors [[img images/PowerStrip.jpg]]
+		Protect your equipment from voltage spikes
+		Oftentimes built into power strips
+	Power Conditioner
+		Clean up all the noise on the power line
+	UPS - Uninterruptable Power Supply [[img images/UPSSmall.jpg]]
+		Provide temporary power in the event of a power failure
+			Typically only 5-20 minutes of power, long enough for a backup generator to start or the system to shut down
+		Also include surge suppression and power conditioning
+		Use a power-calculator or on-line selection tools to determine the proper size
+			Companies that sell UPSs typically provide such tools (e.g. www.apc.com)
+---------------------------------------------------
+Power Supply Connectors
+	P1 - Main connector to motherboard [[img images/PowerConnectors.jpg]]
+		20 or 24 pins
+	P4 - Additional power for motherboard
+		Needed for Pentium 4 CPUs (hence the name)
+	Molex - Disk Drives 
+		4 pin, rectangular
+	SATA - Newer SATA disk drives
+	Berg or Mini-Molox - Floppy drives
+		4 pin
+	PCIe Connectors
+		6 or 8 pin
+		Primarily for video cards
+---------------------------------------------------
+Soft Power Feature
+	All ATX power supplies use soft power [[img images/ATX_PS_signals.png]]
+		Power supply doesn't have on/off switch, power supply is turned on/off by the motherboard via two of the wires in the P1 connector
+			These are usually labeled PS-ON and PWR-GOOD (or PWR_OK) in diagrams
+	When user presses power button on Case, the following occurs
+		Motherboard pulls PS-ON, which is normally 5v, to 0v
+		Power Supply then starts providing power on all power lines, and when they have reached their correct voltages, it brings PWR-GOOD to 5v.
+		Motherboard then starts boot process
+	[[Wikipedia has good ATX pinout diagram!http://en.wikipedia.org/wiki/ATX]]
+---------------------------------------------------
+Early Power Supply Versions
+	AT (obsolete)	[[img images/PowerSupplyAT.jpg]]
+		Molex, Berg, P8 &amp; P9
+		Big 115v power switch
+	ATX 
+		P1 replaced P8 &amp; P9
+		Soft Power feature replaced big switch
+	ATX12v 1.0
+		added P4 connector (for Pentium 4)
+		added 6-pin AUX connector (never used)
+		slightly increased power on 12v rails
+----------------------------------------------------
+ATX 2.x versions
+	ATX12V 2.0 [[img images/PowerSupplyATX.jpg]]
+		6-pin aux was removed
+		P1 became 24 pins
+			Extra 12v, 5v, 3.3v, and ground wires added
+		added Serial ATA connectors
+		reduced power on 3.3 &amp; 5v rails
+		increased power on 12v rails
+	ATX12V 2.1 [[img images/pcie6.jpg]]
+		Added 6pin PCIe connector
+	ATX 12V 2.2 [[img images/pcie8.jpg]]
+		Added 8pin PCIe connector
+	ATX 12V 2.3
+		Increased efficiency (70% min, 80% recommended)
+---------------------------------------------------
+ATX Wire Colors
+	Wire colors indicate voltages [[img images/ATX_ConnectorRef.png]]
+		Orange: 3.3v
+		Red: 5v
+		Yellow: 12v
+		Blue -12v
+		Purple 5v (standby)
+	Signal wires
+		Green: PS_ON
+		Gray: PWR_ON
+		
+---------------------------------------------------
+Misc
+	Rails [[img images/ATX_Rails.png]]
+		12v lines are current-limited to approximately 18A total
+		Multiple rails provided multiple "groups" of 18A sources
+		Many power supplies now just have one "higher than 18A" rail (and sometimes claim they have mulitple rails anyway!)
+	Modular Power Supplies  [[img images/ATX_Modular.jpg]]
+		You plug in the wires you want
+		Eliminates extra wires hanging around inside Case
+
+---------------------------------------------------
+Troubleshooting
+	Verify PS is getting power before replacing.  Check:
+		Cord (plugged in at both ends)
+		Outlet (providing power, circuit breaker not tripped)
+		power switch on back of power supply (is on)
+		115/230 switch on back of power supply (set to 115)
+	Because of Soft power feature, a good power supply might not start up because of
+		incorrectly wired power switch from case to motherboard
+		defective/dead motherboard 
+	Use Power supply tester to test PS without it hooked up to a computer
+  
+---------------------------------------------------
+Summary
+	Safety
+	Basics
+	Multimeter Use
+	Power Equipment
+	Power Supply Versions
+	Misc
+	Troubleshooting
+---------------------------------------------------

@@ -1,0 +1,164 @@
+------------------------------------------
+Ch 12 - Implementing Hard Drives
+	Partitioning Basics 
+	Partitioning Types
+		MBR
+		Dynamic
+		GPT
+	File System Basics
+	Windows File Systems
+		FAT
+		NTFS
+	Disk Partitioning and Managment tools
+	Disk Maintenance
+------------------------------------------
+Partitioning Basics
+	A Partition is a subdivision of a disk that can be used to store files (via a file system)
+	Disks can have multiple partitions
+		Each partition looks to the end user like a separate disk
+		In windows, each partition typically gets a drive letter
+		The install process and/or disk managment tool allows you to work with partitions
+	Why have multiple Partitions?	
+		To build a multi-boot system supporting several OSs, each in it's own partition (less common since the advent of VMs)
+		To provide separate partions for Software and Data
+
+------------------------------------------
+Partitioning Types
+	Three partitioning schemes
+		MBR - Industry standard
+		Dynamic Disks - Proprietary Microsoft Technology
+		GPT - Industry standard replacement for MBR
+	Microsoft refers to MBR and GPT partitioned disks as basic disks, a name they created after they invented Dynamic Disks
+	Only Microsoft supports Dynamic Disks
+-------------------------------------------
+MBR Disks
+	First Sector of drive (Master Boot Record) contains
+		MBR Program
+		Partition Table
+	Partitions (up to 4)
+		Primary
+			These are bootable
+		Extended (only 1)
+			Must contain Logical Drives 
+			These are not bootable
+	Maximum partition size is 2.2 TB
+	File systems are put on primary partitions and logical drives
+	These names (especially "logical drives") is less than ideal
+-------------------------------------------
+MBR Disks continued
+	Partition containing O.S. boot files is marked active
+	The first sector of each partition is called the partition boot sector
+	Booting
+		MBR program is loaded
+		MBR program loads volume boot sector from active partition 
+		Partition Boot Sector loads first O.S. boot program
+
+--------------------------------------------
+Dynamic Disks
+	Proprietary Microsoft technology introduced with Windows 2K and supported only by Microsoft OSs
+	Partitions replaced with Volumes, no logical drives
+	MBR still there for backwards compatibilty
+	Volume info is stored in a small hidden volume at the end of the disk
+
+--------------------------------------------
+Dynamic Disk Volume Types
+	Non-redundant - Supported by Windows Client OSs since 2K
+		Simple - similar to an old primary partition
+		Spanned - allows volume to span multiple disks (32)
+		Striped (RAID 0)
+	Redundant - Supported only by Windows Server OSs since 2K
+		Mirrored (RAID 1)
+			Also supported in Windows 7 Pro or better!
+		RAID 5
+-------------------------------------------
+GPT Disks
+	Globally Unique Identifer Partition Table
+	Similar to MBR but limitations have been fixed
+		Lots of Partitions (128 on MS systems)
+		Maximum Partition size in Zettabytes!
+			1 Zettabyte is 1 million terrabytes!
+		Eliminates LBA->CHS trickery
+	Utilizes GPT Header in place of MBR sector
+		Has a copy of this header at the beginning and ending of the disk for redundancy.
+--------------------------------------------
+Other Partition Types
+	Hidden partition - A partition that is hidden from the OS
+		Some Computer manufactures put one of these on the disk to contain a backup copy of the OS.
+			Commonly referred to as a "factory recovery partition"
+	Swap Partition - a partition used by Linux in place of a boot file
+--------------------------------------------
+File System Basics
+	Partitions/Volumes need file systems to manage the disk space
+	Disk drives manage the space at the sector level, but a sector (512 bytes) is so small there's too many of them for the OS to manage effeciently.
+	File systems break the disk space into manageable chunks called clusters
+	File Systems keep track of what clusters are used by what files
+	A file takes up at least 1 cluster.
+	Large clusters result in lots of wasted space
+		If clusters are 32K, a 1 byte file takes up 32K of disk space
+-------------------------------------------
+Windows File Systems
+	FAT
+		Supported by all Microsoft OSs since DOS
+		Utilizes a File Allocation Table
+		Versions: FAT16 & FAT32
+		FAT32 supports partitions up to 2 TB
+			but Windows can only format FAT partitions up to 32GB
+	NTFS
+		Introduced with NT, and supported by all versions of NT (NT/2K/XP/Vista/7/10)
+		Very similar to UFS (Unix File System)
+		Utilizes Master File table
+		Usable on partitions up to
+			2 TB on basic disks
+			16 TB on dynamic disks
+-------------------------------------------
+NTFS Features
+	More efficient use of space (smaller clusters)
+	Excellent Security (using ACLs)
+	Compression
+	Encryption
+	Disk Quotas
+--------------------------------------------
+Disk Partitioning and Managment tools
+	3rd party Tools (partition magic)
+	Windows XP/Vista/7 install process
+		XP's is primative looking (VGA)
+		Vista/7s looks nicer (GUI), but works the same
+	Disk Managment Tool
+		GUI tool available since Win2K+
+		diskmgmt.msc
+
+--------------------------------------------
+Disk Management Tool 
+	Shows partitions/volumes on a disk
+	Allows you to add/delete/format partitions/volumes
+		Right-click on drive or partition/volume for menu options
+	Drive statuses
+		Online - Healthy and working
+		Foreign - Dynamic disk moved from another computer
+		Failed - damaged or corrupted
+		Offline - corrupted?
+--------------------------------------------
+Disk Maintenance
+	Error Checking (ScanDisk, Chkdsk)
+		Finds bad clusters and denotes them as such
+	Defragmentation
+		Moves data around so files use contiguous clusters
+	Disk Cleanup
+		Deletes the deleted and/or temporary files off your drive
+			Files in the recycle bin
+			Temporary Files
+
+---------------------------------------------
+Summary
+	Partitioning Basics 
+	Partitioning Types
+		MBR
+		Dynamic
+		GPT
+	File System Basics
+	Windows File Systems
+		FAT
+		NTFS
+	Disk Partitioning and Managment tools
+	Disk Maintenance
+--------------------------------------------

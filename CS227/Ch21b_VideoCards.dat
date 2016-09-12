@@ -1,0 +1,132 @@
+------------------------------------------
+Ch 21b - Video Cards
+	Basics
+	Busses / Expansion Slots
+	Monitor connections
+	Replacing Video Card
+	Supporting Multiple Displays
+	Multiple GPUs with one Display
+	Direct X
+	Troubleshooting
+
+------------------------------------------
+Basics
+	Video cards generate and Output images to a display
+	Video
+		Deals with lots of information
+		requires very high bandwidth
+		requires lots of processing power
+	Video card Contains 
+		Video Circuitry
+			Evolved into specialized GPU
+			ATI and NVIDIA make most GPUs
+		Memory
+			Typically faster than system RAM
+			DDR, DDR2, GDDR3/4/5
+
+--------------------------------------------
+Busses / Expansion Slots
+	PCI
+		adequate for general use
+		Bandwidth is shared for all devices on bus
+		Video often requires more bandwidth
+	AGP
+		Dedicated to Video
+		2x, 4x, 8x flavors
+		2-16 times faster then PCI
+		Not general purpose
+		Now obsolete
+	PCIe-16
+		2-8 times faster then AGP 8x
+
+------------------------------------------
+Monitor Connections
+	VGA (RGB, DSub-15)  [[img http://www.crs-uk.biz/images/vga_dvi_card.jpg]]
+		15 pins, in three rows
+		Analog signal
+		Optimal for CRTs
+	DVI (Digital Video Interface) [[img images/DVI_Connectors.png]]
+		Several Flavors
+			DVI-A - analog
+			DVI-D - digital
+			DVI-I - integrated (both) [[img images/DMS_59.jpg]]
+		DVI-I and D
+			Single link - lower resolutions
+			Dual Link - higher resolutions
+	DMS-59 typically offers two DVI connectors 
+------------------------------------------
+Monitor Connections (continued)
+	HDMI (High-Definition Multimedia Interface) [[img images/DVI_HDMI_DisplayPort.jpg]]
+		Loosely described as: Single-link DVI + Audio
+		Associated software includes HDCP (high-def Content Protection)
+	DisplayPort
+		Supports higher bandwidth than HDMI [[img images/VideoConnectors.png]]
+		Manufacturers can use it "royalty free" (HDMI requires royalties)
+	For other video devices [[img images/VideoAdapters.jpg]]
+		[[S-Video!http://en.wikipedia.org/wiki/S-Video]] 
+		[[Composite!http://en.wikipedia.org/wiki/RCA_connector]] (RCA port)
+		[[Others!http://en.wikipedia.org/wiki/List_of_display_interfaces]]
+	An adapter can sometimes be used to convert from one type to another (but not always)
+------------------------------------------
+Replacing Video card
+	Remove any software related to your old card
+	Uninstall the driver for the old card
+	Shut off PC
+	Remove old card, install new card
+	Reboot (system will use generic VGA driver to boot)
+	Install new driver & Software
+	Configure video properties
+
+---------------------------------------------
+Multiple Displays
+	XP/Vista/7 support multiple displays
+	Many video cards support dual displays (some quad)
+		Referred to as "dual head"
+		multiple VGA/DVI ports
+	You can also use multiple video cards
+		You may need to modify video settings in BIOS
+	
+-------------------------------------------
+Multiple GPUs - one display
+	High-end video cards can use multiple video cards/GPUs to drive one display
+	Each card shares part of the workload to create the image
+	Two cards are installed and connected with a bridge
+	Nvidia technology 
+		SLI - Scalable Link Interface
+		Allows 2+ GPUs
+		GPUs MUST be same series
+	ATI (now AMD) technology
+		CrossFire
+		Allows up to 4 GPUs
+
+-------------------------------------------
+Direct X
+	A set of programming APIs for handling multimedia tasks used in game programming
+	Almost all Windows games use DirectX and video cards support it
+	Latest version
+		DirectX 11
+		Only works with Vista/7
+	XP supported up to 9
+	To determine the version on your PC, run DxDiag from run menu
+
+-------------------------------------------
+Troubleshooting
+	Video cards rarely fail
+	Version 1 AGP cards could creep out of slot
+		Simply reseat
+	Wrong driver will cause problems
+		You can boot into safe mode and update driver
+
+--------------------------------------------
+Summary
+	Basics
+	Busses / Expansion Slots
+	Monitor Connections
+	Replacing Video Card
+	Supporting Multiple Displays
+	Multiple GPUs with one Display
+	Direct X
+	Troubleshooting
+
+--------------------------------------------
+

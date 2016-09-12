@@ -1,0 +1,15 @@
+------------------------------------------
+CS 227 - Windows 7 install
+	Delete all non-OS partitions off both disks
+		Don't delete the partition containing XP!
+	Convert the disk that does NOT contain XP to basic
+		The windows install process cannot install on a dynamic disk
+	Configure BIOS to boot off optical drive first, followed by hard drive
+	Reboot off Windows 7 disk
+		Create a 50GB partition to hold Windows 7
+		Install on that partition
+		Answer prompts reasonably
+	Boot up XP to verify it still works
+	Boot up 7 to verify it works
+		Turn off automatic updates!
+		Install Motherboard drivers off driver CD

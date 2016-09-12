@@ -1,0 +1,139 @@
+------------------------------------------
+Ch 20 - Input Devices
+	Serial Ports
+	COM Port Settings
+	USB
+	Firewire
+	Keyboards
+	Mice
+	Scanners
+	Cameras
+	Other Devices
+
+------------------------------------------
+Serial Ports
+	Low speed I/O port 		[[img http://upload.wikimedia.org/wikipedia/commons/e/ea/Serial_port.jpg]]
+	Defined by RS-232 spec
+	Makes use of UART to convert between serial and parallal
+	9-pin male DB connector on PC
+	May be used by external modems or UPS
+		Internal modems have a serial port on the card
+		Most UPSs now use USB
+	Still used to connect to console port on routers
+	Referred to as COM port in software
+
+-------------------------------------------
+COM port settings
+	Two devices connected via a serial cable need to have the following settings configured the same way.
+		bits per second 		[[img http://images.picotech.com/nport_properties.jpg]]
+		data bits
+		parity (odd/even)
+		stop bits 
+		flow control
+	These can be set via the COM port properties page in the device manager
+
+--------------------------------------------
+USB 
+	Originally intended to support low speed external devices and replace serial, parallel, and PS/2 ports
+	Now supports both low and high speed devices 		
+	Versions 										[[img http://upload.wikimedia.org/wikipedia/commons/d/d6/Usb_connectors.JPG]]
+		1.1 - 1.5M, 12Mbps (lowspeed, fullspeed)	[[img http://photos.appleinsider.com/dual-bus-usb3-cables.jpg]]
+		2.0 - 480 Mbps (highspeed)					
+		3.0 - 5 GBps (superspeed)
+		All are backwards compatible
+	Connectors 		
+		Computer - Type A, mini A, micro A
+		Device - Type B, mini B (5 or 8 pin), micro B 
+	With USB, you typically install the drivers BEFORE plugging in the device - RTM
+
+-----------------------------------------------
+USB Specs
+		Max cable length: 		[[img images/usb-cable.jpg]]
+			5 meters for 1.1 and 2.0
+			3 meters for 3.0
+		Max repeaters: 5 		[[img http://www.c-lab.org/fileadmin/user_upload/zubehoer_produkte/usb_repeater.jpg]]
+		Max devices per controller: 127
+		Max Power provided per port
+			500ma for 2.0
+			900ma for 3.0
+
+------------------------------------------
+Firewire
+	Also known as IEEE1394 	[[img http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/FireWire_cables.jpg/800px-FireWire_cables.jpg]]
+	Supports high-speed external devices
+	Used primarily by Apple
+	Versions 				[[img http://www.cables.com/Merchant5/BVModules/Themes/CablesDotCom/images/Manufacturers/Datacomm/IEEE8009-9-2M.png]]
+		1394a - 400 Mbps
+		1394b - 800 Mbps
+	Specs
+		Max Cable Length: 4.5 meters
+		Max devices: 63
+------------------------------------------
+Keyboards
+	Connect via PS/2 or USB [[img http://www.unotron.com/us/images/prod/prod_s6000k_main.jpg]]
+	Minor configuration can be done via Keyboard Control Panel Applet
+		repeat delay
+		repeat rate [[img http://s3.hubimg.com/u/2425774_f520.jpg]]
+	If dirty, can be cleaned with rag and soapy water or isopropyl alchohol
+	Disconnect before cleaning, make sure it's dry before reconnecting
+
+------------------------------------------
+Mice
+	Connect via PS/2 or USB			[[img http://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/3-Tastenmaus_Microsoft.jpg/233px-3-Tastenmaus_Microsoft.jpg]]
+	Configuration can be done via Mouse Control Panel Applet
+	Two types						[[img http://www.logitech.com/assets/32954/3/logitech-wireless-trackball-m570.png]]
+		Ball (obsolete)
+		Optical
+	Ball mice collect dirt on rollers.  
+	Ball can be removed and rollers cleaned with almost any small, non-metalic, scraper
+	Mouse substitutes: trackball, touchpad, etc..
+------------------------------------------
+Scanners
+	Connect via PS/2 [[img http://cdn.ifanboy.com/wp-content/uploads/2011/10/scanner.jpg]]
+	Come with scanner software
+	Use TWAIN drivers
+	Optical resolution 
+		measured in dpi (dots per inch)
+		800-3000 dpi typical
+	Color depth
+		bits used to store each "pixel"
+		24, 36, or 48-bit
+
+-------------------------------------------
+Cameras
+	Digital cameras 	[[img http://www.english-online.at/news-articles/technology/sony-digital-camera.jpg]]
+		used for taking photos
+		Store photos on digital media
+		Photos typically uploaded via USB
+	Web Cams 	[[img http://www.holton.k12.ks.us/hhs/astronomy/elkcreekobservatory/images/webcam.jpg]]
+		small "movie cameras" connect to computer
+		Used for video conferencing
+		Connect via USB
+
+-------------------------------------------
+Other devices
+	Biometric Devices 	[[img http://www.payroll-software.in/images/Device.png]]
+		Used for security
+		Typically fingerprint readers
+		Not yet reliable
+	Bar Code readers	[[img http://www.tutorialspoint.com/computer_fundamentals/images/barcode_reader.jpg]]
+		Used to read UPCs on products
+	Touch Screens
+		Monitors with touch pad overlay which is used in place of a mouse
+		Used in info kiosks, POS systems, tablet PCs
+		Historically were relatively expensive, but price as has come down as production increased (due to use in tablets)
+	[[KVM Switch!http://en.wikipedia.org/wiki/KVM_switch]]
+		Allows multiple systems to share one Keyboard, mouse, and screen 
+--------------------------------------------
+Summary
+	Serial Ports
+	COM Port Settings
+	USB
+	Firewire
+	Keyboards
+	Mice
+	Scanners
+	Cameras
+	Other Devices
+
+--------------------------------------------

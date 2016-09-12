@@ -1,0 +1,45 @@
+------------------------------------------
+Ch 31 - PC and Component Selection
+	This presentation covers
+		The different purposes a PC may serve
+		How to choose components when building a PC from parts
+------------------------------------------
+Business Computers (as per CompTIA)
+	Standard Desktop (ie. Workstation) 
+		Meets recommended requirements for running Windows
+		Can run multiple apps at the same time
+		CompTIA calls this a "thick client"
+	Thin Client
+		Meets minimum requirements for running Windows
+		Sufficient to run one app at a time
+		Likely used for special purposes, such as a Point of Sale machine
+	Virtualization Workstation
+		Used to run Virtual Machines
+		Requires lots of RAM and decent CPU
+	Media Workstation
+		Used for editing video or 3-D modelling
+		Requires lots of RAM and Disk space, and good video card
+--------------------------------------------
+Specialized Consumer PCs
+	Home Server
+		Provides Centralized Storage space
+		Provides Media Streaming, File Sharing, Printing
+		Microsoft sells a version of Windows for this (Home Server)
+		A NAS (network attached Storage) box might also suffice.
+	Home Theater PC
+		Enables you to play music, watch TV and movies
+		Connected to TV (or projector) and surround sound speakers	
+		Microsoft provides software for this (Media Center)
+		There are also 3rd party versions (XBMC or Plex)
+	Gaming Machine
+		Runs latest video games well
+		A high-end machine; good graphics card is essential
+-----------------------------------------
+Picking components
+	Components are chosen based on purpose of system
+		Keep in mind the projected lifespan of the system.  Will it still be usable in X number of years?
+		Some things are easier to upgrade (memory) than others (CPU)
+	Read customer reviews to judge quality of choices
+	Some places sell "bare-bones" systems that include a case, Power Supply, Motherboard and CPU.
+	CPU and motherboard are typically chosen first; make sure all subsequent component selections work with the chosen motherboard.
+------------------------------------------

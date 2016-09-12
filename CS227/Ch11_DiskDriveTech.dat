@@ -1,0 +1,149 @@
+------------------------------------------
+Ch 11 - Hard Drive Technologies
+	Overview 		[[img http://images.wisegeek.com/hard-drive.jpg]]
+	Drive Basics
+		Magnetic Platter Drives
+		Solid State Drives
+	Common Terms
+	Interfaces/Busses
+		ATA History / Versions
+		Parallel ATA
+		Serial ATA
+		SCSI
+	RAID
+------------------------------------------
+Overview
+	Storage Mechanism [[img images/Drives.jpg]]
+		Traditional HDD - Magnetic Platters 
+		Solid State Drive - Flash memory
+	Bus (data connnection) 
+		IDE (not sometimes called Parallel ATA)
+		Serial ATA
+		SCSI (typically only on Servers)
+		Fiber Channel (typically only on Servers)
+------------------------------------------
+Magnetic Platter Drives
+	Drives Geometry consists of [[img http://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Cylinder_Head_Sector.svg/360px-Cylinder_Head_Sector.svg.png]]
+		Heads (platters * 2)
+		Cylinders (tracks)
+		Sectors
+	ZBR ([[Zone Bit Recording!http://www.pcguide.com/ref/hdd/geom/tracksZBR-c.html]]) makes number of sectors not the same for all cylinders [[img images/zbr.jpg ]]
+	LBA - Logical Block Addressing [[img http://www.pcstats.com/articleimages/201201/seagate3TBxt_LBA2.jpg]]
+	Spindle Speeds
+		5400
+		7200
+		10000
+		15000
+-------------------------------------------
+Solid State Drives
+	Have no moving parts [[img images/SSD.jpg]]
+	Use Flash memory to store data
+	Noiseless
+	Much Faster than traditional HDDs
+	More Expensive than traditional HDDs
+	Types of NAND
+		MLC - Multi-level cell
+			Slower, but less expensive
+		SLC - Single-level cell
+			Faster, but more Expensive
+	Lifespan is determined by maximum# read operations per cell
+		When it reaches EOL, you'll still be able to read it
+-------------------------------------------
+Common Terms	
+	IDE - Integrated Drive Electronics
+	ATA - Advanced Technology Attachment
+	EIDE - Enhanced IDE
+	SATA - Serial ATA
+	PATA - Parallel ATA
+		This term came about when SATA was invented
+		The terms PATA, IDE, and EIDE, are often times used interchangeably
+-------------------------------------------
+ATA History / Versions
+	ATA-1 (IDE)
+		Supported 2 drives
+		Utilized CHS
+		Supports drives up to 504 MB
+	ATA-2 (EIDE/ATAPI) 
+		Utilized LBA 
+		Supports drives up to 8.4 GB
+		Supported optical drives
+		Supported 4 drives
+
+--------------------------------------------
+ATA History continued
+	ATA-3 - Introduced [[S.M.A.R.T.!http://en.wikipedia.org/wiki/S.M.A.R.T.]]
+	ATA-4 - faster [[img images/PataCable.jpg]]
+	ATA-5 - 66 MBps (ATA/66)
+		needed 80 wire cable
+	ATA-6 - 100 MBps (ATA/100)
+		allowed drives > 128 GB
+	ATA-7 - introduced SATA
+
+--------------------------------------------
+PATA overview 
+	Utilizes 40 or 80 wire cable [[img images/PATA_Cable.png]]
+	Motherboard may have two interfaces (channels) [[img images/PATA_Cable2.jpg]]
+		Primary
+		Secondary
+	Each interface supports two drives
+		Master
+		Slave
+	Setting the drive to "CS" allowed would cause it to be configured as either Master or Slave depending on it's position on the Cable (assuming it was a Cable Select cable)
+--------------------------------------------
+SATA overview
+	Utilizes thin data cable [[img http://img.tomshardware.com/us/2005/11/23/pc_interfaces_101/hdd_sata_connected2.jpg]]
+	Potentially Hot-swappable
+	Much faster than PATA
+	Versions
+		Note: all speeds are given in bits, not Bytes.  And 1.5Gb/s was roughly equivalent to 150 MB/s of actual data transfer once overhead was accounted for.  Same applies to other speeds.
+		SATA I (revision 1.x) - 1.5 Gb/s (150 MB/s) [[img http://www.addonics.com/faq/images/aasa2sa100c.gif]]
+		SATA II (revision 2.x) - 3 Gb/s (300 MB/s)
+		SATA III (revision 3.x) - 6 Gb/s (600 MB/s) 
+		eSATA - external SATA
+---------------------------------------------
+AHCI
+	BIOS can support SATA drives typically in three modes
+		Parallal ATA Emulation (may be called compatibility mode)
+		AHCI - [[Advanced Host Controller Interface!http://en.wikipedia.org/wiki/AHCI]]
+		RAID - Redundant Array of Inexpensive Disks
+	AHCI 
+		is configured in BIOS
+		supported in Vista/7
+		necessary if hot-swappablility is to be implemented
+
+-------------------------------------------
+SCSI (scuzzy)
+	Small Computer Systems Interface
+	Commonly used on Servers to support large numbers of drives
+	Supports 8 or 16 devices on one bus
+	Devices are identified by a SCSI ID, oftentimes set using dip switches
+	Ends of the bus need Termination
+	There are numerous versions, types of cables, connectors, and terminators.
+-------------------------------------------
+RAID
+	Redundant Array of Inexpensive Disks [[img images/raid0.png]]
+	RAID 0 - Striping 
+		Requires 2+ drives
+	RAID 1 - Mirroring/Duplexing 	[[img images/raid1.gif]]
+		Requires 2 drives
+	RAID 5 - Striping with parity 	[[img images/raid5.png]]
+		Requires 3+ drives
+	RAID 6 - Striping with extra parity
+		Requires 5+ drives
+	RAID 10 (1+0) Striping and mirroring
+
+--------------------------------------------
+Summary
+	Overview
+	Drive Basics
+		Magnetic Platter Drives
+		Solid State Drives
+	Common Terms
+	Interfaces/Busses
+		ATA History / Versions
+		Parallel ATA
+		Serial ATA
+		SCSI
+	RAID
+
+--------------------------------------------

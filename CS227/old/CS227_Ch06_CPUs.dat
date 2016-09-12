@@ -1,0 +1,130 @@
+--------------------------------
+Ch 6 - CPUs
+	Core Components
+	Items Affecting Performance
+	CPU Sockets
+	Intel Desktop CPUs
+	AMD Desktop CPUs
+	Other CPUs
+	Cooling
+	Misc 
+	Installation
+	Additional Reading
+-----------------------------------
+CPU Components
+	Core Components
+		Registers [[img http://static.commentcamarche.net/en.kioskea.net/faq/images/KjBt8WVH4Epro7ik.png]]
+		ALU (Arithmetic Logic Unit)
+		FPU (Floating Point Unit)
+		Address/Data Bus	
+		Cache (L1, L2, L3) [[img  http://www.ni.com/cms/images/devzone/tut/image2840731961173341797.png]]
+	Modern CPUs often include 2-8 (or more!) separate "cores", with each core being almost a "separate" CPU and consisting of all the above items (although L2 or L3 cache may be shared) 
+
+-----------------------------------
+Items Affecting Performance
+	Clock Speed [[img http://common.ziffdavisinternet.com/encyclopedia_images/CLOCK.GIF]]
+		External/Internal
+		Related via multiplier   [[img http://img.tomshardware.com/us/2001/11/12/plastic_surgery/bios2.jpg]]
+		Set via factory/CMOS/Jumpers
+	Cache Size - L1, L2, L3 [[img  http://www.ni.com/cms/images/devzone/tut/image2840731961173341797.png]]
+	Number of Cores
+	Component Integration
+		Memory Controller
+		Graphics Processing Unit
+-----------------------------------
+CPU Sockets
+	CPU attaches to Motherboard using socket [[img http://www.cpushack.com/images/Socket939.jpg]]
+	Types
+		PGA - Pin grid array 
+			Pins are on processor
+			Small lever causes socket to grip pins
+				ZIF - zero insertion force
+		LGA - land grid array [[img http://www.pcstats.com/articleimages/200801/LGA775install_a3a.jpg]]
+			Pins are on socket (processor has lands)
+			Allows higher density of pins
+			Utilizes Surface plate to distribute force
+-----------------------------------
+Intel Desktop CPUs
+	Product lines
+		Core i7, i5, i3 [[img http://www.guru3d.com/miraserver/images/2009/corei5/IMG_9021.jpg]]
+		Core 2 duo
+		Pentium/Celeron
+	Sockets [[img http://glewit.com/wp-content/uploads/2012/10/Intel-CPU-Core-i5-3570K-Quad-Core-IvyBridge-Processor.jpg]]
+		LGA 2011
+		LGA 1366
+		LGA 1156
+		LGA 1155
+		LGA 775
+		PGA 478	
+---------------------------------------
+AMD Desktop CPUs
+	Product Lines	[[img http://hothardware.com/articleimages/Item1307/amd-phenom-ii-x4-955.jpg]]
+		FX
+		Phenom II 
+		A-Series
+		Phenom
+		Athlon X2, X3, X4
+	Sockets (All PGA) [[img http://images.highspeedbackbone.net/skuimages/large/A79-1045_chiclet01_aa_1724262.jpg]]
+		FM2
+		FM1
+		AM3+
+		AM3
+		AM2
+		939
+-----------------------------------
+Other CPUs
+	Mobile (Only) [[img http://www.blogcdn.com/www.engadget.com/media/2012/02/intel-rosepoint.jpg]]
+		Atom
+		Mobile versions of many of the desktop chips.  They generally run slower/cooler.
+	Server [[img http://starmicroinc.net/images/xeon.jpg]]
+		Intel Xeon/Itanium
+		AMD Opteron
+--------------------------------------
+Cooling
+	CPUs generate a lot of heat, which must be transferred away from the CPU [[img http://img.tomshardware.com/us/2008/03/03/cpu_cooler_charts_2008/cpu_cooler_charts_2008_part_iii___e6300_e6400_box.jpg]]
+	Common techniques
+		Heat Sink and Fan - cheap and easy
+		Liquid Cooling - more effective but expensive and more complex [[img http://content.hwigroup.net/images/products/xl/116639/larkooler_ku3241_cpu_liquid_cooling_kit_g14.jpg]]
+	Thermal Compound/Paste/Grease must be put between CPU and Heat Sink [[img http://images.xs-pc.com/product_images/large/ARTS5-02.jpg]]
+		Don't use too much... or too little
+	Heat sink must be installed flat against CPU
+	Modern CPUs generally shut down before they overheat and burn themselves up
+---------------------------------------
+Misc 
+	Parallel Execution (Hyperthreading)
+	Throttling
+	Turbo
+	64-bit processing
+	Connection between CPU and RAM
+		Frontside Bus / Backside Bus
+		QPI - Quick Path Interconnect
+	Overclocking
+	Retail vs OEM (Original Equipment Manufacturer)
+	[[CPUz!http://download.cnet.com/cpu-z-64-bit/3028-2086_4-75173045.html?c=SEM&s=fivemill&pid=dlcom_sem&aid=free%20cpu%20z%2064%20bit-&dlc=n&part=fivemill]]
+--------------------------------------
+Installation
+	Videos (all need sound - watch at home!)
+		[[Replacing PGA CPU!http://www.youtube.com/watch?v=vLVHFaokdgA]] (5:24)
+		[[Installing LGA CPU!http://www.youtube.com/watch?v=CifChFeIBR4]] (1:20)
+		[[Applying Thermal Paste!http://www.youtube.com/watch?v=nbm06Rm5kIM]] (1:06)
+--------------------------------------
+Additional Reading
+	System performance depends on more than one component or factor
+	To get real-world system performance, tests need to be run
+	Sites commonly performing and publishing test results (as well as general hardware reviews) are
+		[[Anandtech!http://www.anandtech.com/]]
+		[[Toms Hardware Guide!http://www.tomshardware.com/]]
+
+----------------------------------------
+Summary 
+	Core Components
+	Items Affecting Performance
+	CPU Sockets
+	Intel Desktop CPUs
+	AMD Desktop CPUs
+	Other CPUs
+	Cooling
+	Misc 
+	Installation
+	Additional Reading
+--------------------------------
