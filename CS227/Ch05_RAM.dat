@@ -1,0 +1,122 @@
+--------------------------------
+Ch 7 - RAM
+	Types
+	Packages
+		SIMMs (obsolete)
+		DIMMs
+		RiMMs (obsolete)
+	Misc
+-----------------------------------
+Types
+	SRAM
+		Static RAM
+		Fast, but expensive
+		used for processor Cache (on CPU)
+	SDRAM
+		Synchronous Dynamic RAM
+		Used for system Memory
+
+-----------------------------------
+Packages
+	SIMMs (obsolete) [[img images/SIMMDIMM.PNG]]
+		Single In-line Memory Module
+		Types
+			30 pin
+			72 pin
+	DIMMs (all SDRAM)
+		Dual In-line Memory Module
+		Types
+			SDR (originally just called SDRAM)
+			DDR
+			DDR2
+			DDR3 
+			DDR4
+	RIMMs
+		Rambus In-line memory Module
+		Now obsolete
+---------------------------------------
+SDRAM (SDR)
+	Syncronous Dynamic RAM [[img http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/SDR_SDRAM-1.jpg/800px-SDR_SDRAM-1.jpg]]
+	32-512 MB
+	168 pins
+	PC100, 133 (clock speed)
+	CAS Latency 2 or 3
+	Package has one notch off to one side
+	Now called Single Data Rate (SDR)
+
+-----------------------------------
+DDR
+	Double Data Rate SDRAM [[img http://www.intel.com/support/motherboards/desktop/sb/img/ddr.jpg]]
+	256 - 1000 MB
+	184 pins
+	DDR266, 333, 400, 500 (clock * 2)
+	PC 2100 - 4000 (bandwidth)
+	CAS Latency 2 or 3
+	Package has one notch near the middle
+--------------------------------------
+DDR2
+	Double Data Rate SDRAM [[img http://www.rigacci.org/wiki/lib/exe/fetch.php/doc/appunti/hardware/ddr2.jpg]]
+	256 MB - 4 GB
+	240 pins
+	DDR2 400 - 1200 (clock * 2)
+	PC2 3200 - 9600 (bandwidth)
+	CAS Latency 3-7
+	Package has one notch near the middle
+	Utilized BGA chips (no visible pins)
+	Some systems use dual channel
+
+--------------------------------------
+DDR3
+	Double Data Rate SDRAM [[img http://www.techspot.com/images2/news/bigimage/2014/11/2014-11-14_09-37-04.png]]
+	1 GB - 8 GB
+	240 pins
+	DDR3 1066 - 3100 (clock * 2)
+	PC3 8500 - 24800 (bandwidth)
+	CAS Latency 6-10
+	Package has one notch about 40% from edge
+	Utilized BGA chips (no visible pins)
+	Some systems use triple channel
+--------------------------------------
+DDR4
+	Double Data Rate SDRAM [[img http://www.techspot.com/images2/news/bigimage/2014/11/2014-11-14_09-37-04.png]]
+	4 GB - 16 GB
+	288 pins
+	DDR4 2133 - 3400 (clock * 2)
+	PC3 17000 - 27200 (bandwidth)
+	CAS Latency 15+
+	Package has one notch very close to the middle
+	Utilized BGA chips (no visible pins)
+	Many systems use quad channel
+--------------------------------------
+Identifying Modules
+	SDR and DDR can be identified using [[img images/MemoryCompared.jpg]]
+		Quantity & Location of bottom notch
+			SDR has 2 
+			All DDR has 1
+		Types of chips (BGA for DDR2+)
+		Shape of side notches (square for DDR3+)
+		Space between bottom notch and pins (DDR4)
+		
+--------------------------------------
+RIMMs
+	Rambus In-line memory module [[img http://www.oempcworld.com/Merchant2/graphics/00000001/184pin_-_16bit.gif]]
+	Used for short time with early P4s
+	Narrow bus but high speeds
+	Two notches near middle
+	Empty slots needed C-RIMMs
+	Expensive
+	Now obsolete
+--------------------------------------
+Misc
+	ECC vs non-ECC
+	Registered (Buffered) vs Unbuffered
+
+----------------------------------------
+Summary 
+	Types
+	Packages
+		SIMMs
+		DIMMs
+		RIMMs
+	Misc
+--------------------------------

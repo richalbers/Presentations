@@ -1,0 +1,162 @@
+------------------------------------------
+Ch 25 - Multimedia
+	Digitizing Sound Waves
+	Sound File Formats
+	Sound Card
+		Basics 
+		Jacks
+	Speaker Standards
+	Sound Card Installation
+	Common Sound Problems
+	A/V Capture
+	Codecs
+
+------------------------------------------
+Digitizing Sound Waves
+	Sound waves properties [[img http://content.answcdn.com/main/content/img/CDE/WAVELEN.GIF]]
+		Amplitude
+		Frequency
+	To digitize, wave is "sampled" at periodic intervals [[img CS227/Images/DigitisingWave.jpg]]
+		Sampling rate is measured in Khz
+		Bit Depth is number of bits per sample 
+	Tracks
+		One track - Monaural
+		Two Tracks - Stereo
+	CD quality is 44.1Khz, 16 bit depth, stereo
+
+--------------------------------------------
+Sound File Formats
+	Sound can be stored in a variety of file formats [[img http://a248.e.akamai.net/pix.crutchfield.com/ca/reviews/2007/0212/File-formats.gif]]
+	To process/interpret a sound file requires a codec
+		On Windows 7, use [[Media player!http://windows.microsoft.com/en-us/windows/codecs-frequently-asked-questions#codecs-frequently-asked-questions=windows-7]]	to find what codecs are installed (warning: technical info ahead!)
+	Uncompressed formats
+		.wav
+			common on PCs
+			large file size
+		.midi - stores musical info (notes, durations, instruments, etc..), not sampled sound waves
+			very small files	
+	Uncompressed sound files can be quite large, therefore numerous compression algorithms and file formats have been created
+-----------------------------------------
+Lossless Sound File Formats
+	Lossless Formats use math magic to alter the data to store it in less space
+	Some common Lossless(no info is lost) formats are: 
+		ALAC (Apple Lossless Audio Codec)
+			Originally proprietary, now open source
+			stored in .mp4 container
+		.wma lossless
+			proprietary to Microsoft
+		others...
+	Higher compression rates can be achieved via lossly formats, so they are more common for downloading
+------------------------------------------
+Lossy Sound File Formats
+	Lossy Formats discard less audible or meaningful sounds and then use math magic to alter the data to store it in less space
+	Common Lossy Formats
+		[[MP3!http://en.wikipedia.org/wiki/Mp3]] (MPEG-1 Layer 3) 
+			common for downloading
+			File Extension: .mp3
+		[[AAC!http://en.wikipedia.org/wiki/Advanced_Audio_Coding]] (Advanced Audio Coding)
+			designed to be successor to .mp3
+			File extensions: .m4a, .m4b, .m4p, .m4v, .m4r, .3gp, .mp4, .aac
+		[[WMA!http://en.wikipedia.org/wiki/Windows_Media_Audio]] (Windows Media Audio)
+			proprietary to Microsoft
+			File extensions: .wma
+		others...
+
+------------------------------------------
+Sound Card Basics
+	Sound cards contain [[img http://ixbtlabs.com/articles/geniussoundmakerlive51/geniuscardview.jpg]]
+		D/A (Digital/Analog) and A/D converters
+		Numerous external ports for speakers, microphone, etc..
+		Possible internal ports for connection to other internal devices
+			In the past it was common to connect the CD Drive directly to the sound card via a cable and one of these ports for the purpose of playing audio CDs using the CD Drive's built-in D/A converter
+			Now, music is treated like any other data and sent to the sound card digitally via the PCI (or PCIe) bus
+
+------------------------------------------
+Sound Card Jacks
+	Mini-audio connectors [[img http://4.bp.blogspot.com/_6QR_qOso91Y/S_ZolTka23I/AAAAAAAAAZo/_OI4VXtjivc/s1600/example+sound+card.jpg]]
+		Line out 
+		Line in 
+		Rear out 
+		Analog/Digital out [[img http://mrpaintersapluswiki.wikispaces.com/file/view/game-port.jpg/398058220/game-port.jpg]]
+		Microphone
+	DB connector (15 pin)	
+		Joystick/MIDI port
+	S/PDIF Connector [[img http://images.americas.creative.com/images/products/inline/1010_card_tour.jpg]]
+		allows direct digitial connection to 5.1/7.1 speaker system 
+	Examples
+		[[Example1!http://www.newegg.com/Product/ShowImage.aspx?CurImage=29-128-001-01.jpg&Image=29-128-001-02.jpg%2c29-128-001-01.jpg&S7ImageFlag=0&WaterMark=1&Item=N82E16829128001&Depa=1&Description=StarTech%20PCISOUND4CH%20Sound%20Card]]
+		[[Example2!http://www.newegg.com/Product/ShowImage.aspx?CurImage=29-126-004-07.jpg&Image=29-126-004-04.jpg%2c29-126-004-05.jpg%2c29-126-004-07.jpg%2c29-126-004-06.jpg%2c29-126-004-03.jpg%2c29-126-004-02.jpg&S7ImageFlag=0&WaterMark=1&Item=N82E16829126004&Depa=1&Description=PPA%201417v%20Sound%20Card]]
+
+---------------------------------------------
+Speaker Standards	
+	Stereo [[img http://4.bp.blogspot.com/_PmCtPsdiu-E/TBht8Wace4I/AAAAAAAAAFo/_GdL4lO4t8E/s1600/Logitech2.1speakers.jpg]]
+		two speakers
+	2.1
+		pair of stereo speakers
+		subwoofer [[img http://www.audioholics.com/images/img1.jpg]]
+	5.1 
+		front left, center, right,
+		left surround, right surround,
+		subwoofer
+	7.1 [[img http://www.audioholics.com/images/img2.jpg]]
+		5.1 + left and right rear
+-------------------------------------------
+Sound Card installation
+	Since sound is a basic requirement, many motherboards have integrated sound cards
+	You may want to install a separate card for better sound
+	If upgrading [[img http://img.tomshardware.com/us/2001/07/25/bios_tuning/io_2.gif]]
+		Disable the on-board sound in the BIOS [[img http://h10025.www1.hp.com/ewfrf-JAVA/Doc/images/993/c00377507.jpg]]
+		Install the new card & drivers
+		Plug speakers into the proper jacks in new card
+		Enjoy
+
+-------------------------------------------
+Common Sound Problems
+	Speaker volume can be controlled two ways
+		via software 
+		via hardware (volume control on speaker)
+	If there's no sound, verfify both are turned up (and not muted)
+	Other common connection issues
+		Speakers plugged into the wrong jacks
+		Speakers not plugged into the wall (many need external power source for a built in amp) 
+
+--------------------------------------------
+A/V Capture
+	Video Capture requires significant hardware
+	Video files contain both audio and video tracks
+		Must be synced (A/V snyc)
+	Compressed tracks are wrapped in a container file
+		.avi - Windows standard
+		.mov - Apple
+		.flv - Flash
+		.ogg - Open source
+	Codecs are required to process internal tracks
+	
+----------------------------------------------
+Video Codecs
+	There are many
+		WMA, WMV, H.263, Vorbis, Theora, etc..
+		[[Codec list from Wikipedia!http://en.wikipedia.org/wiki/List_of_codecs]]
+	To see which are installed
+		XP
+			Control Panel, Sounds and Audio Devices
+			Hardware tab -> Video Codecs -> Properties
+		Win 7
+			Start Windows Media player
+			Cntrl M, then Help->About
+			Tech Support link, scroll down...
+
+--------------------------------------------
+Summary
+	Sound Capture
+	Sound File Formats
+	Sound Card
+		Basics 
+		Jacks
+	Speaker Standards
+	Sound Card Installation
+	Common Sound Problems
+	A/V Capture
+	Codecs
+--------------------------------------------
+

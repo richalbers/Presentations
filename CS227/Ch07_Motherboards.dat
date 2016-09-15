@@ -1,0 +1,99 @@
+-----------------------------------
+Ch 9 - Motherboards
+	Form Factor 				[[img http://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/386_Baby_AT_motherboard_view.jpg/800px-386_Baby_AT_motherboard_view.jpg]]
+	Components on Motherboard  	
+	Chipset Evolution 			[[img http://www.ixbt.com/mainboard/gigabyte/ma790xt-ud4p/board.jpg]]
+	Expansion Busses
+	Onboard (Integrated) Components
+-----------------------------------
+Form Factor
+	Form factor defines 	[[img http://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Motherboards_form_factors.svg/719px-Motherboards_form_factors.svg.png]]
+		the size of the motherboard
+		general location of components and ports
+	Form Factors 	
+		Obsolete		[[img http://library.thinkquest.org/C0115420/Cyber-club%20800x600/Gif/pics/PC%20Tech%20Guide/MB%20NLX.gif]]
+			AT - The Original!
+			LPX & NLX - slimline
+			BTX - designed to address P4 heat issues, but was shortlived
+		Current		[[img http://upload.wikimedia.org/wikipedia/commons/1/11/VIA_Mini-ITX_Form_Factor_Comparison.jpg]]
+			ATX - Old, but still most common
+				Standard, Micro, Flex
+			ITX - Small Form Factor (SFF)
+				Mini, Nano, pico
+	[[Wikipedia page has lots more great info!http://en.wikipedia.org/wiki/Computer_form_factor]]	
+-----------------------------------
+Components on Motherboard
+	BIOS/CMOS			[[img http://static.ddmcdn.com/gif/motherboard-callouts.jpg]]
+	Processor Socket
+	Chipset
+		Northbridge/Southbridge
+	Memory Slots 	[[img http://www.computer-hardware-explained.com/images/motherboard-labelled5.jpg]]
+	Disk Drive Connectors (SATA/PATA)
+	Expansion Busses/Slots
+	Integrated components
+
+-----------------------------------
+Chipset Evolution
+	Northbridge 									[[img http://media.bestofmicro.com/K/S/116092/original/P35_Block_Diagram.jpg]]
+		Originally was mostly a memory controller	[[img http://techreport.com/r.x/core-i7/system-block-diagram.gif]]
+		Then high speed I/O was added to it			[[img http://zapp5.staticworld.net/images/article/2011/11/x79_blockdiagram-5236050.jpg]]
+		Then memory controller was moved to CPU		[[img http://techreport.com/r.x/llano-mobos/block.jpg]]
+	Southbridge
+		Low speed I/O hub
+		Originally connected to northbridge
+		Now directly connected to CPU (because northbridge is gone!)
+			And now sometimes called the northbridge...
+	Block diagrams on the right show the evolution of the chipsets
+		Intel
+			Core 2
+			First Generation i7
+			Second Generation i7
+		AMD
+			APU (Accelerated Processing Unit)
+				APUs a marketing term for a combined CPU/GPU 
+---------------------------------------
+Expansion Busses/Slots
+	Expansion busses/slots allow you to "expand" the capabilities of your computer
+	Current Common Ones			
+		PCI - Peripheral Component Interconnect [[img images/PCI_Keying.png]]
+			General purpose, been around a long time
+			3.3v (uncommon), 5.0v (common), or Universal
+		PCIe - PCI Express  [[img http://ww2.justanswer.com/uploads/operab/2010-07-08_021703_PCI_PCIe_Slots.jpg]]
+			Newest expansion bus - general purpose
+			Works in software like PCI, but hardware is completely different
+			Utilizes from 1 to 32 "lanes"
+---------------------------------------
+Expansion Busses/Slots Continued
+	Obsolete 		[[img http://www.csepedia.com/Images/Peripherals/AGP_PCA_ISA.jpg]]
+		ISA - Industry Standard Architecture
+			Original expansion slot.  
+		AGP - Accelerated Graphics port
+			Only used for video 
+	Others 		[[img images/pci-slots.jpg]]
+		[[PCI-X!http://en.wikipedia.org/wiki/PCI-X]] - PCI extended 
+			64-bit PCI bus used in high-end workstations and servers
+		Mini-PCI
+			Laptop PCI form factor
+-----------------------------------
+Onboard Components
+	As motherboards evolved, they've included components that used to be available only with expansion cards [[img images/MB_Ports3.jpg]]
+	Examples:				 [[img images/MB_Ports2.jpg]]
+		USB/Firewire
+			Ports on back
+			Connections to ports on case
+		Sound 				[[img images/MB_Ports.jpg]]
+		Video
+		Modems
+		NIC (Network Interface Cards)
+	Drivers for on-board components are obtained from the motherbaord manufacturer
+		Optical media (shipped with motherboard)
+		Website - for up-to-date drivers
+			For example: [[The ASRock Z87E-ITX Page!http://www.asrock.com/mb/Intel/Z87E-ITX/index.us.asp]]
+
+----------------------------------------
+Motherboard Summary
+	Form Factor 				[[img http://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/386_Baby_AT_motherboard_view.jpg/800px-386_Baby_AT_motherboard_view.jpg]]
+	Components on Motherboard  	
+	Chipset Evolution 			[[img http://www.ixbt.com/mainboard/gigabyte/ma790xt-ud4p/board.jpg]]
+	Expansion Busses
+	Onboard (Integrated) Components

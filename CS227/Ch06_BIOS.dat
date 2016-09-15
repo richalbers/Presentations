@@ -1,0 +1,79 @@
+-----------------------------------
+Ch 8 - BIOS and CMOS
+	Components on Motherboard
+	Terms: Hardware/Software/Firmware
+	BIOS
+	EFI/UEFI
+	CMOS
+	BIOS/CMOS Setup screens
+	Misc
+-----------------------------------
+Components on Motherboard
+	Chipset
+		Northbridge/Southbridge
+	BIOS - Basic I/O System
+	CMOS - Configuration settings
+	Battery - keeps CMOS alive when not plugged it 
+
+-----------------------------------
+Hardware/Software /Firmware
+	Hardware - Stuff you can touch
+	Software - 
+		Instructions for processor
+		Typically stored in volatile memory
+		Usually high-level, farily large 
+	Firmware
+		Very low-level code
+		Simple programs stored in less-volatile media
+		Often ROM or EEPROM
+
+---------------------------------------
+BIOS
+	Stores 
+		low-level I/O code (programs)
+		Bootstrap code
+	non-volatile (remembers without power)
+	Usually on EEPROM
+		Can be changed by "flashing"
+	Separate chip on motherboard
+	Major BIOS manufacturers
+		AMI
+		Award (/Phoenix)
+	Old technology - being replaced by EFI/UEFI
+-----------------------------------
+EFI/UEFI
+	(Unified) Extensible Firmware Interface
+	Direct replacement for BIOS; allows more functionality
+	Runs in 32 or 64 bit mode (BIOS runs in 16 bit mode)
+	Necessary to boot off drives larger than 2.2TB
+	Usually has fancy GUI setup screens
+	Linus Torvalds thinks poorly of it
+		"Not that I'd ever claim that the BIOS is wonderful either, but at least everybody knows that the BIOS is just a bootloader, and doesn't try to make it anything else."
+	[[Wikipedia has lots more info if you're interested!http://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface]]
+-----------------------------------
+CMOS
+	Often on Southbridge
+	Stores configuration settings 
+	Modified via CMOS Setup
+	Volatile - requires power to remember
+		That's why there's a battery on the motherboard
+------------------------------------
+BIOS/CMOS setup
+	To get to setup screens	Press ESC or some funtion key. 
+		Which key to press will be displayed on the screen during the boot process.
+	Can typically be password protected
+		If password is forgotten, there's usually a jumper that can clear it (it disconnects the battery); Consult the manual
+		Note: avoid removing the battery; the holder is fragile
+	Changes can make system faster, slower, or unable to boot
+		Default settings can be loaded if unwanted changes are made
+		If it's so messed up it won't boot even far enough to get to the Setup Screens, clear the CMOS via hardware as per the manual	
+--------------------------------------
+Misc
+	POST - Power on Self Test
+	Beep Codes
+		Communicate info during POST before video is ready
+
+	Drivers
+		Software OS uses to communicate with hardware
+
+----------------------------------------

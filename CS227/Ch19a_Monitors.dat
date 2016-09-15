@@ -1,0 +1,173 @@
+------------------------------------------
+Ch 21a - Monitors
+	Common Monitor Properties	
+	CRTs 			
+		Basics
+		Advantages and Disadvantages
+		Properties
+	LCDs 				
+		Basics
+		Advantages and Disadvantages
+		Properties
+	Projectors 			
+	Monitor Connections
+	Troubleshooting
+
+------------------------------------------
+Common Monitor Properties
+	Size 			[[img http://birnamwoodgames.com/wordpress/wp-content/uploads/2012/07/Aspect-Ratios.png]]
+		Diagonal measure, in inches
+		15, 17, 19, 22, 24, etc..
+	Aspect Ratio
+		Regular - 4:3
+		Widescreen - 16:9 	[[img http://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Vector_Video_Standards4.svg/1000px-Vector_Video_Standards4.svg.png]]
+	Resolution 
+		Horizontal X Vertical Pixels
+		Higher resolutions make things smaller on screen
+
+--------------------------------------------
+Properties continued...
+	Refresh Rate	[[img http://www.hauppauge.com/pics/HDPVR2_PC_setup_3.png]]
+		How often image is drawn
+	Somewhat different between CRTs and LCDs
+	Very important for CRTs (Vertical or VRR)
+		Too low causes eye strain
+		Too high can damage display
+		Higher is better, under 72 Hz is bad (with CRTs)
+	Set via display properties
+	
+------------------------------------------
+CRTs (Obsolete)
+	Make use of a really big vacuum tube [[img http://www.unc.edu/~driedell/crt.jpg]]
+	Draw image using three electron guns, one for Red, Green, and Blue
+	High-voltage coils "bend" the beams to cause them to scan across the screen [[img http://cs.fit.edu/~wds/classes/cse5255/thesis/images/crt.gif]]
+		May contain high voltage (15KV+) even when off and unplugged
+		Do not disassemble or attempt to repair them
+	Typically have a slight curve to the screen, causes reflections [[img http://www.worldofpwnage.com/wp-content/uploads/2007/08/crt_vs_lcd_b.jpg]]
+	Later ones came with "flat" fronts, referred to as flat-screens 
+		Oftentimes confused with LCDs, which are flat panels]]
+
+---------------------------------------------
+CRT Advantages and Disadvantages
+	Advantages
+		Great picture at all resolutions
+		Fast Response Times
+		Inexpensive
+	Disadvantages
+		Bulky (big and heavy)
+		Inefficient (electricity -> heat)
+		Emit possibly harmful radiation
+
+-------------------------------------------
+CRT Properties
+	Dot Pitch 		[[img http://static.ddmcdn.com/gif/display4.gif]]
+		Distance between phosphorous dots of same color
+	Resolution 		 [[img http://static.ddmcdn.com/gif/monitor-crt-diagonal.jpg]]
+		Actually less then specified.
+		19" was actually about 17.5"
+
+-------------------------------------------
+LCDs
+	Creates picture using:  [[img images/Backlights.jpg]]
+		backlight (and diffuser) [[img http://thumbs1.ebaystatic.com/d/l225/m/me7iMc7tRyBDl5wzvgiArRg.jpg]]
+			CCFL, require high AC voltage, provided by inverter
+			LED, lower power, thinner, brighter
+		Liquid Crystal - blocks Red, Green, or Blue light)
+	Two LCD technologies [[img http://www.lecerveau.org/images/02-7hh_illo2b.gif]]
+		Passive Matix
+			Older technology
+			Improved via Dual-Scan Passive Matrix
+			Now found only on low-end monitors
+		Active Matrix (or TFT)
+			More expensive
+			Provides faster, crisper image
+
+-------------------------------------------
+LCD Advantages and Disadvantages
+	Advantages (vs CRTs)
+		Thinner and Lighter
+		Lower Power Consumption
+		Flicker Free
+		Longer life
+	Disadvantages (vs CRTs)
+		Only look great at native resolution
+
+--------------------------------------------
+LCD Properties
+	Native Resolution		[[img http://img.bhs4.com/cf/d/cfd7bde7975bc19292f55e45429bfd88decc326f_large.jpg]]
+		The actual number of pixels on the screen
+	Refresh Rate
+		How often images are redrawn
+			Measured in HZ
+		60Hz was standard for a long time (16ms)
+		120Hz (or faster) are now available.
+		Does it matter?  [[Depends on the person/application!http://www.maximumpc.com/refresh_rate_2013?page=0,1]].
+	Response Rate
+		Time it takes to change a pixel from white to black
+		Low response rates don't display fast-moving images well
+		Old LCDs had response rates of 20+ms
+		8 ms or less is good (Some are now <= 2ms)
+			Note: different color trasitions take different amounts of times, and there's no designated test to determine a response rate, so manufactures typcially choose a value that makes their specs look as good as possible.
+--------------------------------------------
+LCD Properties continued...
+	Brightness (of backlight)
+		Measured in nits
+	Contrast Ratio (static)
+		Difference between black and white
+		Range from 250:1 and 1000:1
+	Contrast Ratio (Dynamic)
+		Achieves higher numbers by dimming the backlight
+		Don't compare dynamic to static ratios!
+
+------------------------------------------
+Monitor Connections
+	VGA (RGB, DSub-15)  [[img images/VgaHdmiDvi.jpg]]
+		15 pins, in three rows
+		Analog signal (Optimal for CRTs)
+	DVI (Digital Video Interface) [[img http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/DVI_Connector_Types.svg/500px-DVI_Connector_Types.svg.png]]
+		Several Flavors
+			DVI-A - analog
+			DVI-D - digital
+			DVI-I - integrated (both)
+		DVI-I and D
+			Single link - lower resolutions
+			Dual Link - higher resolutions
+	HDMI - High Definition Multimedia Interface
+		Basically, Single-link DVI + audio
+	DisplayPort
+		Higher Resolution support
+--------------------------------------------
+Projectors
+	Front View 		[[img http://www8.pcmag.com/media/images/304748-canon-realis-sx80-mark-ii.jpg?thumb=y]]
+	Typically use an 
+		LCD
+		Lamp (a Very bright backlight)
+	Lamp generates lots of heat
+	Throw Distance - projector to screen [[img http://htrgroup.com/images/doc_minmax_throwdistance.gif]]
+	Throw Ratio - throw/screen width 
+--------------------------------------------
+Troubleshooting
+	Adjustments are available for contrast/brightness/color
+	If one color goes out check cable for bent pin
+	CRTs
+		Degause button can remove big color splothes
+		CRTs should NOT be opened up by techs
+	LCDs
+		Inverter or backlight failure are most common problems
+			image will be visible with bright flashlight pointed at screen 
+		Both can sometimes be replaced, but may not be cost effective
+--------------------------------------------
+Summary
+	Common Monitor Properties
+	CRTs
+		Basics
+		Advantages and Disadvantages
+		Properties
+	LCDs
+		Basics
+		Advantages and Disadvantages
+		Properties
+	Projectors
+	Monitor Connections
+	Troubleshooting
+--------------------------------------------
