@@ -1,0 +1,163 @@
+------------------------------------------
+Ch 28 - Printers
+	Printer Types
+	Laser Printer Parts and Process
+	Printer Languages
+	Printer Connectivity
+	Terminology
+	Maintenance
+	Troubleshooting
+------------------------------------------
+Printer Types
+	Impact (Dot Matrix)
+	Inkjet
+	Dye-Sublimation
+	Solid Ink
+	Thermal
+	Laser
+------------------------------------------
+Impact
+	Create an image on paper by physcially strikin gan ink ribbon against the paper's surface [[img http://images.highspeedbackbone.net/skuimages/large/E17-3470-main2.jpg]]
+	Last type standing: Dot matrix
+	Didn't these things die in the 90s?
+		No!  Because they can do multipart forms!
+	Parts [[img http://indocashregister.com/wp-content/uploads/2008/04/images_diagrams_diagram1.gif]]
+		Printhead
+		Printwires
+	Types
+		9-pin - draft quality
+		24-pin Near Letter Quality
+	Typicallly use tractor feed paper
+------------------------------------------
+Inkjet
+	Sprays tiny dots of ink on paper [[img http://www.techfresh.net/wp-content/uploads/2006/10/dell_photo-all-in-one-926-inkjet-printer.jpg]]
+	Prints in color
+		Ink is stored in cartriges contained in the printhead, which moves back and forth across the page
+		Colors (CMYK)
+			Cyan, Magneta, Yellow, Black
+	Print quality features
+		Print Resolution - density of ink (dpi)
+		Print speed (pages per minute)
+	Cheap to buy, expensive to operate
+------------------------------------------
+Dye Sublimation
+	Uses heat to change solid ink to vapor and place on paper [[img http://www.togblog.biz/wp-content/uploads/2010/05/DyeSubDiagram-copy1-copy.jpg]]
+	Uses roll of heat sensitive plastic film embeded with page sized sections of each color
+	Prints very high-quality color documents or photos
+	Requires one pass for each color
+	Generally, slow and expensive to operate
+------------------------------------------
+Solid Ink
+	Prints color
+	Utilizes solid sticks of ink
+	Prints in one pass
+	Very expensive
+------------------------------------------
+Thermal Printer
+	Direct thermal printer [[img http://www.slxntech.com/images/products/printers/srp350g.gif]]
+		Uses heating element to burn dots on heat-sensitive paper
+		Commonly used to print receipts
+	Thermal Wax printer
+		Similar to Dye-sublimination but use film covered with colored wax
+------------------------------------------
+Laser Printer
+	Uses electro-photographic imaging [[img http://www.computershopper.com/var/ezwebin_site/storage/images/media/images/how-it-works-laser-printer/220996-1-eng-US/how-it-works-laser-printer.jpg]]
+		Toner (fine powder) is positioned and melted onto paper
+	Both Black and Color versions available
+	Somewhat expensive to purchase, but inexpensive to operate
+	Most common type of printer for general printing in business
+------------------------------------------
+Laser Printer Parts
+	Toner Cartridge [[img http://www.certiguide.com/aplush/diagrams/figure86.png]]
+		Toner
+		Photosensitive drum
+		Primary corona 
+		Other high wear parts 
+	Erase Lamp
+	Laser
+	Transfer corona
+	Fuser
+------------------------------------------
+Laser Process
+	1. Drum is Cleaned [[img http://bucarotechelp.com/computers/anatomy/images/laser.jpg]]
+		Particles and charge are removed 
+	2. Charge Applied to drum (Condition)
+		-600 volt charge is applied to drum via primary corona wire
+	3. Write Image to drum
+		Laser removes negative charge on drum where image goes
+	4. Develop
+		Negatively charged toner sticks to drum where charge was removed
+	5. Transfer
+		Toner particles are transferred to the paper (which is postively charged)
+	6. Fuse
+		Toner is burned onto paper via fuser
+------------------------------------------
+Laser Printer Maintenance
+	Toner and paper dust build up over time 
+	Clean printer each time toner cartridge is changed
+		Use compressed air to blow toner particles out (outside) or low-static vacuum
+		User alcohol and towel to clean rollers and possibly primary Corona wire
+		Ozone filter may need to be cleaned or replaced (to keep it trapping ozone!)
+		If instructions were provided with printer, follow them	
+	Memory can often be upgraded 
+	Danger Will Robinson!
+		Laser printer contains high-voltage transformer!  Never open it up without turning it off!!!	
+------------------------------------------
+Printer Languages
+	Printer languages allow the printer to do most of the work involved in creating a printed document
+		ASCII
+			Text (and a few symbols)
+		PCL
+			Primarily Text
+			Scalable fonts and line drawing
+		PostScript 
+			Graphics and text (scalable)
+			Fast (hardware support in printer)
+-------------------------------------------
+Windows Printing Systems
+	GDI 
+		Windows Graphics Device Interface
+		Work is done on computer, bitmapped image sent to printer
+	XPS
+		XML Paper Specification
+		Improvements to Windows GDI process
+-------------------------------------------
+Printer Connectivity
+	Parallel (IEEE1284)
+		Port Types (configurable in BIOS)
+			SPP - Standard Parallel Port
+			EPP - Enhanced Parallel Port (bidirectional)
+			ECP - Extended Capabilities Port (bidirectional, faster)
+		Uses DB25 and Centronics connector
+	USB
+	Network
+	Firewire (rare)
+-------------------------------------------
+Terminology
+	The terms "printer" and "network printer" don't mean the same thing to all people
+	CompTIA (A+) 
+		Printer is hardware (and software)
+		Network printer is a printer with a NIC attached directly to the network
+	Microsoft 
+		Printer is software (usually)
+		Printing Device is hardware (usually)
+		Local Printer is software installed locally to manage print jobs
+		Network Printer is a redirector that sends print jobs to another computers local printer
+------------------------------------------
+Troubleshooting
+	The most common laser printer problem is dirty printouts, which is caused by the printer never being cleaned
+	If toner "falls off" page, fuser has died
+	Many other (less common) problems are discussed in the book.
+	Oftentimes the cost of repairing an old printer is greater the replacment cost
+------------------------------------------
+Summary
+	Printer Types
+	Laser Printer Parts and Process
+	Printer Languages
+	Printer Connectivity
+	Terminology
+	Maintenance
+	Troubleshooting
+
+--------------------------------------------
+

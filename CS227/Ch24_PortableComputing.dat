@@ -1,0 +1,138 @@
+------------------------------------------
+Ch 26 - Portable Computing
+	Notebook Pros/Cons
+	Input Devices
+	Typical Ports
+	PC-Card slots
+	Port Replicators / Docking Stations
+	Battery Types
+	Power Managment
+	Care
+	Repairing
+
+------------------------------------------
+Notebook/Laptop Pros/Cons
+	Pros
+		Portable
+	Cons
+		Lower performance per dollar than Desktops
+		Many Proprietary Parts
+		More difficult and expensive to repair
+
+------------------------------------------
+Input Devices
+	Keyboards
+		Typically have a fn (function) key
+		No separate number pad to right
+	Pointing device
+		Touchpad is most common
+		Trackballs and trackpoints ([[pointing stick!http://en.wikipedia.org/wiki/Pointing_stick]]) have been used in the past
+		Touchscreens 
+	External USB mice can easily be plugged in
+
+------------------------------------------
+Typical Ports
+	Most have following ports
+		Audio Port (headphones)
+		Display port (for external monitor)
+		Ethernet
+		USB
+	Less common
+		firewire
+		eSata
+------------------------------------------
+PC-Card slots
+	Laptops don't have room for PCI or PCIe slots
+	Instead, some used PC Card (PCMCIA) or ExpressCard slots (newer)
+		All PC Card slots used an identical 68 pin connector
+			Type I - Flash memory -	3.3mm thick, 16 bit bus
+			Type II - Modems, NICs - 5.0 mm thick, 16/32 bit bus
+			Type III -Hard Drives - 10.5 mm thick, 13/32 bit bus
+			CardBus [[img http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/PCCard-ExpressCard_ZP.svg/500px-PCCard-ExpressCard_ZP.svg.png]]
+				Effectivly a 32bit PCI bus in the CardBus form factor
+				Backwards compatible with Type I-III 
+		Express Card
+			Physically incompatible with PC-Card & CardBus
+			Built around PCI Express & USB 2.0 standards
+			Two sizes
+				ExpressCard 34
+				ExpressCard 54
+		These are now pretty much obsolete
+------------------------------------------
+Port Replicators / Docking Stations
+	Port Replicators and Docking Stations are [[very similar devices!http://www.amazon.com/b?ie=UTF8&node=778660]]
+	Port replicators
+		Plugs into single port (USB or proprietary)
+		Provides many other ports (serial, parallel, USB, network, etc..)
+	Docking Station
+		Attaches via proprietary connector
+		Provides ports and possibly optical Drives
+------------------------------------------
+Battery Types
+	NiCd - Nickel-Cadnium
+		Least expensive
+		Loses capacity if not discharged all the way
+		Not common for PCs
+	Ni-MH - Nickel-Metal Hydride
+		Higher power density than NiCd
+		Better performance than NiCd
+	Lithium Ion (liIon)
+		Most common - High power density
+		Shorter Lifespan than Ni-MH
+		Lose about 5% a year even if well cared for
+		Heat kills them sooner
+		Explode if overcharged (contain circuitry to prevent this)
+	Lithium Polymer (LiPo)
+		Moldable into different shapes
+		Used in small electronics, tablets, some laptops
+------------------------------------------
+Power Management
+	Power Management powers off select components in order to allow longer opration
+	Versions
+		APM - Advanced Power Managment
+		ACPI - Advanced Configuration and Power Interface
+	Configured via BIOS or Windows (Power Managment Console)
+	ACPI Power States
+		GO (S0) Working State
+		G1 - Sleeping state
+			S1 - CPU stops, Power to CPU and RAM is maintained
+			S2 - CPU is powered down
+			S3 - Sleep or standby mode - RAM is still powered
+			S4 - Hibernation mode - memory is written to disk, everything's powered off
+		G2 - Soft Power Mode - Devices to wake system are on, everything else's off
+		G3 - OFF
+------------------------------------------
+Care
+	Avoid Heat!!!!
+		Don't place on soft surface (vents on bottom need air!)
+		Use Power Managment
+		Avoid keyboard protectors
+	If fan runs a lot look into why
+		Power settings?
+		Dust in vents?
+	Remove battery if storing for long time
+	Be careful about power connector in foreign countries
+------------------------------------------
+Repairing
+	Common Field Replacable Units
+		RAM
+			SO-DIMMs
+		Hard Drives
+			2.5"
+			PATA or SATA
+		Battery
+	Other items can be replaced but may require significant teardown
+		Keyboard, optical drive, LCD
+------------------------------------------
+Summary
+	Notebook Pros/Cons
+	Input Devices
+	Typical Ports
+	PC-Card slots
+	Port Replicators / Docking Stations
+	Battery Types
+	Power Managment
+	Care
+	Repairing
+
+--------------------------------------------
