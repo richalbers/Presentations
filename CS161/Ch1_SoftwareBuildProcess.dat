@@ -12,12 +12,12 @@ Essential Development Tools
 		Combines your source code with other source code (typically containing the definitions of things that are a part of the language but not used by all programs)
 	Compiler
 		Syntax checks the source code
-		Translates source code into machine code
+		Translates source code into object code (machine code)
 		Output is saved as a .obj file
 	Linker
 		Combines 
-				machine code from compiler 
-				with machine code of other things we used from libraries
+				object code from compiler 
+				with object code from libraries (of other things your program referenced)
 			to build executable (.exe file)
 -------------------------------------------
 Additional Tools
