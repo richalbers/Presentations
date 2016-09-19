@@ -1,0 +1,102 @@
+------------------------------------------
+CS 161 - Course Intro and Ch 1
+	Course Overview
+	Introductions
+	Chapter 1 - Overview of Computers and Programming Languages
+		Hardware and Software
+		Programming Overview
+			History
+			Languages
+			Methodologies
+		continued...
+------------------------------------------
+Course Overview
+	Get logged into Moodle
+	Go over syllabus
+	
+------------------------------------------
+Introductions
+	Who are you?
+		Name
+	Why are you here?
+		Degree?  Transfer?  Fun?  Lost?
+	What programming background do you have?
+		None?  High School Class?  Other College Class?  Self-taught?
+	Interesting fact/hobby/etc..
+
+------------------------------------------
+Hardware and Software
+	Hardware
+		CPU
+		Main Memory (RAM)
+		Secondary Storage (disk)
+		I/O Devices
+	Software
+		System Programs (OS)
+		Application Programs
+
+------------------------------------------
+Programming Language Evolution
+	In the beginning there was only	[[Machine Language!http://en.wikipedia.org/wiki/Machine_code]] 
+		Machine language is the CPUs native language.  
+		It's what all executable code is, even today. 
+		But writing in it is tedius and error prone.
+	Example (displayed in hex)
+	[[code]]
+		a5 45 23 a6 [[desc load a value from memory into CPU register eax]]
+		6b 45 23 aa [[desc Multiplies value in eax by value in memory, store result in eax]]
+		a5 23 ad 45 [[desc store value from eax to memory]]
+	Douglas Hofstadter (author of [[Hoftadter's law!https://en.wikipedia.org/wiki/Hofstadter%27s_law]]) compares machine code with the genetic code
+		"Looking at a program written in machine language is vaguely comparable to looking at a DNA molecule atom by atom."
+	That said, Paul Allen wrote a bootloader for DOS in machine language while on a plane to the first potential Microsoft Customer.  It worked.
+------------------------------------------
+Evolution continued
+	Machine code runs, but is difficult to work with, so Assembly was soon invented
+	[[Assembly!http://en.wikipedia.org/wiki/Assembly_language]] langauge is an "english" version of Machine code. 
+		Each assembly instruction is written as a mnemonic (short word)
+		One line of assembly equates to one line of machine code
+		For Intel-compatible processors, the Assembly used is the [[x86 instruction set!http://en.wikipedia.org/wiki/X86_instruction_listings]]
+	Example
+	[[code]]
+		mov     eax,dword ptr [length]  
+		imul    eax,dword ptr [width]  
+		mov     dword ptr [areaRectangle],eax
+	A program written in assembly requires an Assembler to translate the Assembly language to Machine Language
+		An assembler is also a program
+---------------------------------------------
+Evolution continued
+	Assembly is certainly better then machine code, but it's still very very tedius to write, so high level languages have been developed
+		"High-level language" refers to the higher level of abstraction from machine language
+		One line of a high level language might result in 100s of lines of machine code
+	Example
+	[[code]]
+		areaRectangle = length * width;
+	A program written in a high level language requires a compiler to translate the language to Machine Language
+	There are [[hundreds!http://en.wikipedia.org/wiki/List_of_programming_languages]] of high level languages. Some [[you may have heard of!http://en.wikipedia.org/wiki/Measuring_programming_language_popularity]] are
+		Fortran (the first, not popular anymore)
+		C, C++, Objective C, Java
+		Visual Basic, C#
+		PHP, Javascript
+-----------------------------------------------
+The goal of High Level Languages
+	When CPUs were slow and memory was expensive, program performance was king
+	As CPUs have gotten [[faster!http://en.wikipedia.org/wiki/Million_instructions_per_second#Million_instructions_per_second]] and memory cheaper, programmer productivity has became king.  
+	The goal of all high level languages is to increase programmer productivity. 
+-------------------------------------------
+Programming Methodologies
+	Structured
+		top-down / stepwise refinement / modular programming
+	Object Oriented (OOP)
+	[[More info than you probably ever wanted to know about software development methodologies!http://en.wikipedia.org/wiki/Programming_methodology]]
+
+-------------------------------------------
+Programming Process
+	Solving Problems by programming includes numerous steps as shown in the diagram on the right [[img images/ProblemToSolution.png]]
+	The hard part (requires intensive use of brain)
+		Analysis
+		Algorithm Design
+	The easy part (requires [[SDK!http://en.wikipedia.org/wiki/Software_development_kit]], made easier with [[IDE!http://en.wikipedia.org/wiki/Integrated_development_environment]])
+			Writing Code  and building executable
+	Note: Many (i.e. most) beginning programmers combine the Coding with the Analysis and Algorithm design
+		This makes the process harder than it should be
+		And wastes lots of time

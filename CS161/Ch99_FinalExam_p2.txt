@@ -1,0 +1,53 @@
+CS 161
+Final Exam, part 2 (version 3)
+
+For each of the following activities, write the solution (line(s) of code) necessary to accomplish the given task. Do NOT write complete programs, just the lines of code necessary to accomplish the given task (which will be from 1 to 5 lines or so).  Write your solutions immediately after each question.  
+
+
+1) (3 pts) Write a line of code to declare a variable which would hold the number of cats a person owns.
+
+
+
+2) (4 pts) Write the code to create a constant to store pi (3.14159).
+
+
+
+3) (4 pts) Write an if statement that prints out "Yes!" if amount is greater than 10 and less than 100 (amount is an integer)
+
+
+
+4) (4 pts) Write a loop that prints out all the numbers from 1 to 10, one per line.
+
+
+
+
+5) (4 pts) Write a loop that counts down from 100 to 0 by 5s (100, 95, 90, etc..) print one number per line.
+
+
+
+
+6) (4 pts) Write a function prototype for a function named circleArea that accepts a radius and returns an area (both radius and area are doubles).
+
+
+
+
+7) (4 pts) Write a function prototype for a void function named swap that receives two integers by reference.
+
+
+
+
+8) (5 pts) Write a function named rectangleArea that accepts two arguments, length and width, and returns the area of a rectangle with those measurements.  All values will be ints, the function comment block isn't necessary.
+
+
+
+
+9) (4 pts) Write a line of code to declare an array to store the number of wins a team has in each month of year (i.e. there will be 12 values), and initialize them all to 0.
+
+
+ 
+ 
+10) (4 pts) Referencing the array declared in problem 9, write a line of code that adds 2 to the last element of the array, and another line to print out the value in the first element.
+
+
+
+

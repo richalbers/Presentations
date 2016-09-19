@@ -1,0 +1,110 @@
+------------------------------------------
+Ch 8 - User Defined Simple Data Types, Namespaces, and Strings
+	User Defined Simple Data Types
+		enumerated type
+		typedef
+	Namespaces
+	C++ Strings
+------------------------------------------
+Enumerated type
+	Sometimes, you'll have variables that can only have certain values, with each value having a specific meaning
+		For example, in rock-paper-scissors, your hand can have one of three states: rock, paper, or sissors.
+	You could use a char variable, and store 'r', 'p', or 's' for the three states.  
+		Problems with this are:
+			'r', 'p', and 's' aren't meaningful (you'd need comments somewhere describing them)
+			There's the possibility of the state being invalid (e.g. 'z'?)
+	An Enumerated type solves those issues.  
+		An enumerated type
+			defines the datatype used for variables to hold the state
+			defines what the valid states are
+		Code looks like this
+		[[code]]
+			enum HandState {ROCK, PAPER, SCISSORS }
+		This gives meaningful names to both the type and the states
+---------------------------------------------
+Enum Example
+	Once an enumerated type is created
+		you can create variables of that type
+		assign those variables only the valid values
+		compare variables of that type
+	For example:
+	[[code]]
+		&nbsp;
+		enum HandState {ROCK, PAPER, SCISSORS};
+		...
+		&nbsp;
+		HandState hand1 = ROCK;
+		HandState hand2 = SCISSORS;
+		&nbsp;	
+
+		if (hand1 == ROCK && hand2 == SCISSORS)
+			cout << "Rock smashes scissors!  Hand one wins!";
+		else ....
+	Doing other operations would require you cast the enumerated type as an int
+		Each value is actually 0, 1, 2, etc..
+------------------------------------------
+typedef
+	typedef allows you to "define" your own type, by giving an existing type a new name
+		It's really just an alias
+	For example:
+		[[code]]
+		&nbsp;
+		typedef int integer;
+		typedef bool boolean;
+		...
+		integer x = 2;
+		boolean answer = true;
+		...
+
+-------------------------------------------
+Namespaces
+	Namespaces are used to solve the problem of overlapping global identifiers
+	This was sometimes a problem when using third party libraries that had conflicting names
+		each used the same name for something different
+	For example, two vendors might both define funcX(), and you might be including both their header files
+		Without namespaces, this would result in the 2nd attempting to redefine the first (compiler error)
+		With namespaces, each can be in it's own namespace!
+	You can specify a default namespace to look in with the "using namespace" keyword
+		System stuff in iostream, cmath, and iomanip are defined in the namespace std, which is we typically state to look in that namespace by default:
+		[[code]]
+			using namespace std;
+-------------------------------------------
+namespace example
+	To use something in a namespace that is not the default, you need to preface the items name with the namespace it's in:
+	[[code]]
+		namespace graphics {
+			void funcX();
+			...
+		}
+		namespace physics {
+			void funcX();
+			...
+		}
+		
+		void main() {
+			graphics::funcX();
+			physics::funcX();
+			...
+		}
+-------------------------------------------
+Strings
+	The string datatype is a structured data type (object) which allows you to store and manipulate alphanumeric data (names, sentences, etc..)
+	The string datatype exists in most languages
+		It wasn't in C
+		Prior to the ANSI/ISO C++ standard, it wasn't officially in C++ either but vendors typically provided one
+		It is now part of the c++ language, and is very useful
+	There are numerous methods you can use on strings
+		[[http://www.cplusplus.com/reference/string/string/!www.cplusplus.com/reference/string/string/]]
+-------------------------------------------
+String Example
+	For example:
+	[[code]]
+		&nbsp;
+		string name
+		...
+		cout << "Enter your name: ";
+		getline(cin, name);
+
+		cout << "Your name contains "
+			<< name.length() << "chars";
+-------------------------------------------

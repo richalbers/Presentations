@@ -1,0 +1,213 @@
+------------------------------------------
+Ch 3 - I/O, part 1
+	Overview
+	Using Functions and Objects
+	Using cin (an input stream)
+		Operators
+		Functions 
+		Handling Errors
+	Using cout (an output stream)
+		Operators
+		Manipulators (formatting)
+	I/O with strings
+	
+------------------------------------------
+Overview
+	Streaming I/O is a sequence of bytes either being read in or sent out
+		Input Stream - comes from input device
+		Output Stream - goes to output device
+	Pre-defined Streaming I/O Objects
+		cin - input (keyboard)
+		cout - output (console)
+		Defined in iostream, which you simply include as follows:
+		[[code]]
+			#include &lt;iostream&gt;
+	Since cin and cout are objects, you need to know some basics on how to use objects and functions
+------------------------------------------
+Using functions
+	Functions are named chunks of code.
+	Functions are called (ran) as follows:
+		[[code]]
+		SomeFunction();
+	Functions can be passed data as follows:
+		[[code]]
+		SomeFunction(x);
+	Functions can return data, which can be placed into a variable as follows:
+		[[code]]
+		a = SomeFunction(x, y);
+
+------------------------------------------
+Using Objects
+	Objects are collections of data and the code (functions) to operate on that data
+	You don't typically access the object data directly, but do so through the object's public functions/methods
+	This is done using the dot (.) notation as follows:
+		[[code]]
+		objectName.someFunction();
+	Operators can also be used on objects, if they're defined for that particular object
+		With I/O streams, the extraction(>>) and insertion (&lt;&lt;) operators are commonly used
+------------------------------------------
+Using cin
+	Data is commonly "read" from cin using the Extraction operator (>>)
+	By default cin data comes from the keyboard
+		Input is typically white space delimited
+		Input is "greedy", as many characters that match the specified input variable type will be read
+		Extra data is "buffered" for later extraction
+		Multiple input variables can be specified on one line
+	Examples
+	[[code]]
+		cin >> ch;
+		cin >> a >> b;
+		cin >> x >> y >> z;
+--------------------------------------------
+Examples
+	Given the following declarations
+	[[code]]
+		int a, b;
+		double z;
+		char ch;
+	The following statements would have the following results
+	[[code]]
+		Statement         Input       Value Stored in Memory
+		=========        =======      ======================
+		cin >> ch;        A             ch = 'A'
+		cin >> ch;        AB            ch = 'A'    B is left in buffer
+			
+		cin >> a;         48            a = 48
+		cin >> a;         46.35         a = 46      .35 is left in buffer
+		cin >> a >> z;    46.35         a = 46, z=0.35
+		
+		cin >> z;         39            z = 39.0
+		cin >> z >> a;    65.78 38      z=65.78, a=38
+		
+		cin >> a >> b;    4 60          a=4, b=60
+		cin >> a >> z;    46 32.4 68    a=46, z=32.4, 68 is left in buffer
+		
+		cin >> a >> ch >> z;  57A26.9   a=57, ch='A', z=26.9		
+--------------------------------------------
+More Examples
+	All white space (blanks, tabs, newlines) are treated as delimiters
+	Given the following declarations
+	[[code]]
+		int a, b;
+		double z;
+		char ch;
+	The following statements would have the following results
+	[[code]]
+		Statement            Input        Value Stored in Memory
+		=========            ==========   ======================
+		cin >> a >> ch >> z;  57 a 26.9    a=57, ch='a', z=26.9
+		 
+		cin >> a >> ch >> z;  57 a         a=57, ch='a', z=26.9
+		                      26.9
+			
+		cin >> a >> ch >> z;  57           a=57, ch='a', z=26.9
+		                      a
+		                      26.9
+--------------------------------------------
+Input Stream Functions
+	In addition to extraction operator, the following functions are commonly used
+	[[code]]
+		cin.get(x);           // reads one piece of data into x
+		&nbsp;
+		cin.ignore();         //ignores next character
+		cin.ignore(100);      //ignores next 100 characters
+		cin.ignore(100, '\n'); //ignores 100 chars or until \n
+		&nbsp;
+		z=cin.peek();       //puts a copy of the next char into z 
+		&nbsp;
+		cin.putback(x);     //puts x back into the stream
+------------------------------------------
+Practice
+	Write a program that 
+		Prompts the user for their first name
+		Reads and stores ONLY their first initial, and ignores the rest of the line.
+		Prompts the user for their last name
+		Reads and stores ONLY their last initial, and ignores the rest of the line.
+		Prints out their intitials
+	Output should look like this:
+	[[code]]
+		Enter your first name: Kelly
+		Enter your lastname: Brown
+		Your initials are K B
+
+------------------------------------------
+Input Stream Problems
+	If invalid data is provided when reading into cin, the stream will enter a "fail" state and stop reading data
+	You'd then need to 
+		Use the .clear() function to return the stream to a usable state. 
+		Use the .ignore() function to clear the buffer
+		[[code]]
+			cin.clear();
+			cin.ignore();
+	Since you don't know what the user is going to enter, using cin to get data from the user directly into a numeric type is dangerous.  
+		But, validating user input is too complicated for us at this point so for assignments:
+			We'll specify what type of data to enter
+			Assume the users will enter the proper values
+--------------------------------------------
+Example
+	Given the following declarations
+	[[code]]
+		int a;
+		double z;
+		char ch;
+	The following statements would have the following results
+	[[code]]
+		Statement         Input       Value Stored in Memory
+		=========        =======      ======================
+		cin >> z;          Help         z=??
+		                                'H' is not valid data for a double
+		                                stream will enter fail state			
+		
+		cin >> ch >> a >> z;  57A26.9   ch='5', a=7, z=??
+		                                'A' is not valid data for a double
+		                                stream will enter fail state	
+
+------------------------------------------
+Using cout
+	Commonly written to using the insertion operator (&lt;&lt;)
+	By default, output is sent to console
+	Examples
+	[[code]]
+		cout &lt;&lt; "hello\n";
+		cout &lt;&lt; "x is " &lt;&lt; x &lt;&lt; endl;
+-------------------------------------------
+Formatting output
+	Numbers can be formatted with several "manipulators" (things that manipulate the output stream)
+	Manipulators are defined in iomanip, which therefore needs to be included
+	[[code]]
+		#include &lt;iomanip&gt;
+	Common manipulators include:
+		[[setprecision(x)!http://www.cplusplus.com/reference/iostream/manipulators/setprecision/]] - specifies max # of digits to print
+		[[fixed!http://www.cplusplus.com/reference/iostream/manipulators/fixed/]] - specifies to interpret setprecision as decimal digits
+		[[showpoint!http://www.cplusplus.com/reference/iostream/manipulators/showpoint/]] - denotes decimal point should always be printed
+		[[setw(x)!http://www.cplusplus.com/reference/iostream/manipulators/setw/]] - sets width of output
+			[[left!http://www.cplusplus.com/reference/iostream/manipulators/left/]] - left justifies output (in setw() space)
+			[[right!http://www.cplusplus.com/reference/iostream/manipulators/right/]] - right justifies output (in setw() space)
+			[[setfill(x)!http://www.cplusplus.com/reference/iostream/manipulators/setfill/]] - sets fill character
+------------------------------------------
+Practice
+	Write a program that 
+		Stores the value 12.3456 in a double
+		Prints it out numerous times so the output looks like this:
+		[[code]]
+			12.3456
+			12.3
+				
+			12.3456
+			   12.3		
+------------------------------------------
+I/O with strings
+	Strings can contain spaces, and the extraction operator uses spaces as a delimiter, which can be problematic.
+		For example:
+			[[code]]
+			cin >> name;
+		if provided the data 
+			[[code]]
+			Steve Jobs
+		would put "Steve" into name, not "Steve Jobs"
+	Using the getline() function solves this problem because it uses the newline (\n) character as a delimiter
+		For example:
+			[[code]]
+			getline(cin, name);
+		would read in all characters up to the \n, so the entire string (Steve Jobs) would get put into the name variable
+-------------------------------------------

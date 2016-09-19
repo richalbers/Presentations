@@ -1,0 +1,273 @@
+------------------------------------------
+Ch 7 - Functions Continued
+	This presentation covers the following VERY VERY important topics
+		Value vs Reference Parameters
+			Pass by Value (or call by value)
+			Pass by Reference (or call by reference) 
+		Variable Scope
+	and the following less important topics
+		Function Overloading
+		Default Parameters
+	and the following much less important (optional) topic
+		Static Variables
+------------------------------------------
+Value vs Reference Parameters
+	There are two ways of passing in data to a function
+		Pass by Value
+		Pass by Reference
+	Pass by Value
+		The function gets a copy of the data
+		Changes made by the function don't change the arguments
+	Pass by Reference
+		The function gets the memory address of the argument variable (a reference to it)
+		The function can then change the contents of the argument variable
+------------------------------------------
+Examples
+	The following two slides show examples of
+		Passing by value
+		Passing by reference
+	They're identical except for an & on the function parameter list (and the comments)
+	This very minor syntactical difference makes a big operational difference
+		Without it it's "pass by value"
+			Function gets a copy of the data and can't modify our original data
+		With it it's "pass by reference"
+			Function gets a reference to the variable being passed and can modify it!
+------------------------------------------
+"Pass by Value" Example
+	The following code prints out 1 1
+	[[code]]
+		//function prototype
+		void funcA(int x);   
+		
+		// ==========================
+		int main()
+		{
+			int a=1;
+			funcA(a);        // passes contents of variable a (1)
+			cout << a << " ";
+			return 0;
+		}
+		
+		// ==========================
+		void funcA(int x)
+		{
+			cout << x << " ";
+			x++;             //modifies local variable x
+		}
+------------------------------------------
+"Pass by Reference" Example
+	The following code prints out 1 2
+	[[code]]
+		//function prototype
+		void funcA(int& x);  //& makes is "pass by ref"
+		
+		// ==========================
+		int main()
+		{
+			int a=1;
+			funcA(a);        // passes reference to variable a
+			cout << a << " ";
+			return 0;
+		}
+		
+		// ==========================
+		void funcA(int& x)
+		{
+			cout << x << " ";
+			x++;             //modifies variable a in main
+		}
+------------------------------------------
+When to use pass by reference
+	Pass by reference is used in two instances
+		When you want to get more than one piece of data out of a function.
+			pass by ref allows you to get data out of a function without it being "returned" via the return statement, which is limited to returning one item.
+		When you're passing in a LARGE piece of data (like an array of a zillion values) and don't want to have to copy it (which takes time and memory)
+	For now, we focus on the first reason (getting moredata out of function)
+	Note: The C language didn't have pass by reference, it used "pass by address", which is identical in concept to pass-by-reference but utilizes a different syntax.
+		And this is also still supported in C++ as it's a superset of C, so beware of code you find on the internet.
+------------------------------------------
+Practice
+	For each of the function prototypes below, denote
+		if it's valid (contains no syntax error)
+		if it's pass-by-value or pass-by-reference
+		[[code]]
+			// function prototypes
+			void fun1(int x);
+			
+			void fun2(int& x);
+			
+			void fun3(char);
+			
+			void fun4(char&);
+			
+			void fun5(int& x, int y);
+			
+			void fun6(int &x, int y);
+------------------------------------------
+Practice
+	Analyze	the following program (without typing it in and running it) and figure out what the value in X is after each function call.
+	[[code]]
+		//function prototype
+		void funcA(int z);
+		void funcB(int& z);  
+		
+		// ==========================
+		int main() {
+			int x=1;
+			funcA(x);      
+			funcB(x);
+			funcB(x);
+			funcA(x);
+			cout << x << " ";
+			return 0;
+		}
+		// ==========================
+		void funcA(int z) {	
+			z=z+3;
+		}
+		// ==========================
+		void funcB(int& z) {
+			z=z+4;
+		}
+------------------------------------------
+Practice
+	Write a void function that prompts a user for two integers and returns them to the caller via pass-by-reference parameters
+		note: a function can only "return" one value with a return statement but can "return" multiple values using pass-by-reference parameters!
+	Write a main that uses that function to get values for two variables and then prints out the contents of those variables to verify it worked.
+------------------------------------------
+Variable Scope
+	The scope of a variable is the block of code that has access to that variable
+		Global Variables (i.e. variables with global scope)
+			are declared above main
+			are accessible/modifiable by any routine in the current module (source file)
+			are to be avoided as they make problems more difficult to find since the variable could have been modifed anywhere
+		Local Variables (i.e. variables with local scope)
+			are declared inside a block (between { })
+			are available only within that block
+			make errors easier to find because there's a smaller chunk of code in which the error can exist
+		Constants are typically declared globally but since they can't be modified, declaring them global is not a problem
+------------------------------------------
+Scope Example
+	[[code]]
+		//Constants (declared global - OK for constants only!)
+		const int Z=42; //accessible everywhere but modifiable NOWHERE - GOOD
+		
+		//global variables (BAD BAD BAD)
+		int x; //accessible AND modifiable everywhere (BAD BAD BAD)
+		
+		
+		// ====================================
+		void main()
+		{
+			int y;  //local - accessible only in main (good!)
+			...
+			while (...) {
+				int z; //local - accessible only in loop body (good!)
+				...
+			}
+			...
+		}
+		// Declare variables as local as possible!
+		// Doing so localizes operation and potential bugs, 
+		// which makes the code easier to understand and debug.
+-------------------------------------------
+Variable Scope Continued
+	You CANNOT have two variables with the same name declared at the same scope level
+	[[code]]
+		int main() {
+			int x;
+			int x; //not allowed!  An x already exists in this scope
+			...
+	If you have two variables with the same name (which is a bad idea), the localest one will be used
+	[[code]]
+		int main()	{
+			int y; 
+			...
+			while (...) {
+				int y; 
+				y++; //modifies y declared in the loop body
+			}
+			y++; //modifies y declared in the function 
+			     //(loop y is gone at this point !)
+			...
+-------------------------------------------
+Scope - What to do
+	You should declare variables as local as possible
+	You should declare variables as local as possible
+	You should declare variables as local as possible
+		Doing so localizes operation and potential bugs, which makes the code easier to understand and debug.
+	Global scope should only be used by constants
+	Note: sometimes it turns out that having a variable accessible to several related functions makes things simpler and clearer, and Object Oriented Programming, through the use of classes, effectivly gives us that option (it provides a new level of scope, between global and function).   However, we're not yet creating classes (that's covered in CS162), and for the simple things we're doing in this course, it's unnecessary.  So for this class function and loop variables are sufficient.
+-------------------------------------------
+Function Overloading
+	In C++, you can declare the same function multiple times as long as the parameter list differs for each
+		Differences must be in parameter list (not return type)
+	For example
+		[[code]]
+		void funcA(int x);
+		void funcA(int x, int y);
+		void funcA(float z);
+		int funcA(float z); // not allowed
+	Many C++ functions are overloaded to accept multiple data types
+	Since identifies must be unique, C++ uses a process called "name-mangling" to change a function's name based on the parameter list (to make it unique).  You can sometimes see this in compiler error messages.
+-------------------------------------------
+Default Parameters
+	You can define default parameter values that a function will use for parameters that are not supplied argument values.
+	They are typically specified on the prototype.
+	Parameters without defaults must appear in the parameter list before those with defaults.
+	When called, if a parameter is not provided, the default will be used.
+	For example:
+		[[code]]
+		//given this prototype
+		void funcA(int x, int y=12, int z=24);
+		...
+		//the following are valid calls
+		funcA(1,2,3); 
+		funcA(10, 20);
+		funcA(3);
+	Note: When overloading functions, default parameters do NOT count towards the parameters that make the function unique
+-------------------------------------------
+Practice
+	Write a function prototype for a function named addInts that accepts 4 integer values and returns a single integer value.  Provide default values (of 0) for the last two parameters.
+	Write the function implemenation for the addInts function.  It should add up all the given numbers and return the resulting sum (via a return statement)
+	Write a main that tests addInts() and demonstrate calling it with 2, 3, and 4 values.  Print out the results of each call to verify it works.
+-------------------------------------------
+Static Variables (optional)
+	Variables can be either automatic or Static
+		Automatic Variables
+			are the most common
+			are created when declared
+				[[code]]
+				int x;
+			are destroyed when they go out of scope
+		Static Variables
+			are used rarely
+			are created when declared
+				[[code]]
+				static int x;
+			are NOT destroyed when they go out of scope
+			are destroyed when the program ends
+-------------------------------------------
+Static Example
+	The following code prints out 1 2
+	[[code]]
+		void funcA();    
+		
+		// =======================================
+		int main()
+		{
+			funcA();  
+			funcA();
+			return 0;
+		}
+		
+		// =======================================
+		void funcA()
+		{
+			static int x = 1; //initialization is only done first time
+			cout << x << " "
+			x++;
+		} 
+		// when functions end local auto variables are destroyed...
+		// but not static!  x lives on!  Until the program ends!
+-------------------------------------------

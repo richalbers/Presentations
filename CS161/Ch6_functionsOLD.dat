@@ -1,0 +1,165 @@
+------------------------------------------
+Ch 6 - Functions
+	Overview
+	Using Pre-defined functions 
+	Some Common pre-defined functions
+	User Defined Functions
+		void functions
+		value-returning functions
+	Arguments/Parameters
+
+------------------------------------------
+Overview
+	A function is a named block of code
+	Functions
+		Can recieve zero or more pieces of data (arguments/parameters)
+		Can return either no value or one value 
+		Must be declared (defined) before they can be called (so the compiler knows what it is and if it was passed the proper data types)
+	Functions synonyms
+		Functions are sometimes called procedures, routines, subroutines, or subprograms 
+			In C++, they're formally called functions, but informally sometimes called routines
+		In OOP, member functions are called methods
+------------------------------------------
+Using pre-defined function
+	To use a pre-defined function, you need to:
+		include the appropriate header file (which contains the function prototype; i.e. definition)
+		call it with the proper arguments (see function prototype in c++ reference to determine what those are)
+	For Example:
+		[[code]]
+		#include &lt;cmath&gt;
+		using namespace std;
+		&nbsp;
+		void main() {
+			//saving function result, then printing
+			double cube;
+			cube = pow(2,3);
+			cout << "2 cubed is " << cube << "\n";
+			&nbsp;
+			//printing function result directly
+			cout << "2 cubed is " << pow(2,3);
+		}
+-----------------------------------------------
+Some common pre-defined functions
+	from &lt;cstdlib&gt;
+		abs(x)
+	from &lt;cmath&gt;
+		fabs(x)
+		floor(x)
+		ceil(x)
+		pow(x,y)
+		exp(x)
+		cos(x)
+	from &lt;cctype&gt;
+		tolower(x)
+		toupper(x)
+	Note: you can look these up in the C++ documentation to get descriptions and how to use them
+-----------------------------------------------
+User Defined Void Function
+	void functions are functions that return no value
+	Example
+		[[code]]
+		void PrintHello()
+		{
+			cout << "Hello World! \n";
+			return;
+		}
+		&nbsp;
+		void main()
+		{
+			PrintHello();
+			PrintHello();
+			PrintHello();
+			&nbsp;
+			return;
+		}
+------------------------------------------------
+User Defined Value Function
+	Value returning functions return a value
+	Example
+		[[code]]
+		int getFavoriteNumber()
+		{
+			return 5;
+		}
+		&nbsp;
+		void main()
+		{
+			int favNum = 0;
+			&nbsp;
+			favNum = getFavoriteNumber();
+			cout << "My favorite number is << favNum;
+			&nbsp;
+			return;
+		}
+------------------------------------------
+Function Prototype
+	Before you can call a function, you must declare it (so the compiler knows it's a function, what the parameter list is, and what the return value data type is)
+	Functions are declared with a function prototype, which is just the function header.
+		[[code]]
+		void PrintHello(); //prototype
+		&nbsp;
+		void main()
+		{
+			PrintHello();
+			return;
+		}
+		&nbsp;
+		void PrintHello()
+		{
+			cout << "Hello World! \n";
+			return;
+		}
+------------------------------------------
+Arguments/ Parameters
+	The data passed to a function is referred to as arguments
+		When you call a function, you pass it arguments
+		Arguments are actual values (although those values may come from variables)
+	The variables a function uses to store the data it receives are called parameters
+		These variables are declared on the same line as the function name and are known as the parameter list
+	Sometimes these terms (arguments/parameters) are used interchangably
+	The book uses another (less common) terminology.  It refers to
+		arguments as actual parameters
+		parameters as formal parameters
+-------------------------------------------
+Example
+	[[code]]
+		// function prototypes
+		void PrintHello();         
+		void PrintMsg(string Msg); 
+		&nbsp;
+		// ==========================
+		void main()
+		{
+			int z;
+			&nbsp;
+			PrintHello();
+			z=PrintHello(); 	//doesn't compile
+			&nbsp;
+			PrintMsg("boo");
+			PrintMsg("boo", "hoo"); //doesn't compile
+			
+			return;
+		}
+-------------------------------------------
+Example 2
+	[[code]]
+		// function prototypes
+		int add(int num1, int num2);         
+		&nbsp;
+		// ==========================
+		void main()
+		{
+			int x=1, y=2, z;
+			float f;
+			&nbsp;
+			z = add(2, 3);
+			z = add(x, y);
+			z = add(1, y);
+			f = add(3, 4);
+			add(5, 6);
+			z = add(1, 2, 3); //doesn't compile
+			z = add(1, 2.0);  //doesn't compile
+			
+			return;
+		}
+-------------------------------------------

@@ -1,0 +1,182 @@
+------------------------------------------
+Ch 4 - Selection Structures, part 1
+	This presentation covers
+		Selection Structure Basics
+		What Relational Operators are available
+		Some basic comparison rules
+		The importance of indentation
+		The logical operators
+			Not (!)
+			And and Or (&& and ||)
+		How to specify compound statements in the if body
+
+------------------------------------------
+Selection Structure Basics
+	Selection structures allow you to conditionally execute blocks of code
+	Basic Formats
+		[[code]]
+		if (expression) 
+			statement done if true;
+		...
+		&nbsp;
+		if (expression) 
+			statement done if true;
+		else
+			statement done if false;
+		...
+	The expression must be something that evaluates to true or false
+		Typically, this is a boolean value
+		but integers work as well; any non-zero value is considered true;
+
+------------------------------------------
+Relational operators
+	Expressions usually make use of a relational operator
+		== equal to
+		!= not equal to
+		&lt; less than
+		&lt;= less than or equal to
+		> greater than
+		>= greater than or equal to
+	Examples of use:
+		[[code]]
+		if (x == 3)
+			...;
+		&nbsp;
+		if (x != 34)
+			...;
+		&nbsp;
+		if (x &lt;= 0)
+			...;
+
+------------------------------------------
+Comparison rules
+	Only similar types should be compared, integer to integer, float to float, etc. 	Comparing different types (int to float) can result in unexpected results
+	Comparing characters
+		The ascii value of the characters is used.
+		So 'a' > 'A', because 97 > 65
+		and 'A' > '9' because 65 > 57
+	Comparing strings
+		Character by character comparison is done until inequality is found.
+		"Sue" > "Sam" because u > a
+		"Bill" &lt "Billy" because null (the string terminator) is &lt; y
+	Comparing floats
+		Comparing floats for equality can be a problem.  Just don't do it.
+			(1.0)/3 * 3 should be equal to 1.0 but probably won't be...
+
+------------------------------------------
+Indentation
+	Indentation is for readability (which is crucial in avoiding bugs and lowering the cost of maintenance)
+	Good
+		[[code]]
+		if (x == 1)
+			cout &lt;&lt; "x is 1!";
+		else
+			cout &lt;&lt; "x is not 1.";
+	Bad
+		[[code]]
+		if (x == 1)
+		cout &lt;&lt; "x is 1!";
+		else
+		cout &lt;&lt; "x is not 1.";
+-------------------------------------------
+Practice
+	Enter (or cut and paste) the code below into the editor and add statements in the "do some comparisons" section to
+		print out "x is 42" if it's 42
+		print out "x is less than 0" if it's less than 0
+		or "x is greater than 0" if it's greater than 0
+		[[code]]
+			#include <iostream>
+			
+			using namespace std;
+			
+			int main() {
+				int x;
+				
+				//get user input
+				cout << "Enter an integer: ";
+				cin >> x;
+				
+				//do some comparisons
+				
+				
+				
+				//keep console window open
+				cin.ignore(100, '\n');
+				cin.get();
+				
+				return 1;
+			}
+
+-------------------------------------------
+Logical Operators
+	The logical (boolean) operators are
+		&& - and
+		|| - or
+		! - not
+	All these work with logical (true/false) operands
+	Notes: 
+		And is &&, not & (& is a bitwise operator, which is used for something entirely different)
+		Ditto for or (Use ||, not |, as | is also a bitwise operator)
+
+-------------------------------------------
+And and Or
+	And (&&) and Or (||) are used to combine multiple boolean values [[img images/TruthTable.png]]
+	Examples:
+		[[code]]
+		if ((x > 5) && (x &lt; 7))
+			...
+			&nbsp;
+		if ((X > 5) || (Y > 5))
+			...
+	Order of Precendence
+		&& and || are done after relational operators and &&s are done before ||s 
+		As always ( ) can change this or simply add clarification.
+	Short Circuit Evaluation:
+		Expression is evaluated from left to right and evaluation stops when answer is known, so the last part of the expression may not get evaulated.  Sometimes this matters, so remember it!
+--------------------------------------------
+Practice
+	Add code to the previous example to:
+		create another integer variable named y
+		prompt the user to enter another integer and store it in y
+		print "those are both over 100" if x and y are both greater than 100
+		print "those are both 0" if x and y are both 0
+		print "at least one of those is negative" if one of them is negative.
+--------------------------------------------
+Not
+	! (not) is a unary operator, it must be followed by one logical operand (i.e a true/false value)
+	It returns the opposite of the operand
+	examples:
+		!(2 > 5) returns true (because 2 > 5 is false)
+		!(1==1) returns false (because 1==1 is true)
+	Use it sparingly, as it can be confusing
+		!( 2 > 5) should be written as  ( 2 &lt;= 5 )
+		!(1==1) should be written as (1 != 1)
+	It's typically used in front of a function that returns a boolean
+		[[code]]
+		if (! DataValid(x,y,z))
+			....
+
+-------------------------------------------
+Compound Statements
+	If you wish to have more than one line conditionally executed (ie. in the body of the if), you need to use { }
+	Incorrect - prints "You're brilliant!" regardless of grade value
+		[[code]]
+		if (grade=='A')
+			cout &lt;&lt; "Your grade is an 'A'";
+			cout &lt;&lt; "You're brilliant!";
+	Correct - only prints "You're brilliant!" if grade is an A
+		[[code]]
+		if (grade=='A')
+		{
+			cout &lt;&lt; "Your grade is an 'A'";
+			cout &lt;&lt; "You're brilliant!";
+		}
+
+-------------------------------------------
+Practice
+	Add code to the previous example to:
+		check if x is equal to y and if so 
+			print out x is equal to y
+			add them together and store the result in sum
+			print out "the sum of those numbers is " followed by the contents of sum
+--------------------------------------------

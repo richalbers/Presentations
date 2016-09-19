@@ -1,0 +1,133 @@
+------------------------------------------
+Creating Software
+	Software Development Tools
+	Build Process
+	How to use an IDE 
+------------------------------------------
+Essential Development Tools
+	Text editor
+		Used to enter and edit source code (in whatever language you're writing)
+		Source program is saved as text, typically with a file extension denoting what language it was written in
+	Pre-processor (often invoked automatically by the compiler)
+		Combines your source code with other source code (typically containing the definitions of things that are a part of the language but not used by all programs)
+	Compiler
+		Syntax checks the source code
+		Translates source code into machine code
+		Output is saved as a .obj file
+	Linker
+		Combines 
+				machine code from compiler 
+				with machine code of other things we used from libraries
+			to build executable (.exe file)
+-------------------------------------------
+Additional Tools
+	Debugger
+		Allows you to pause your program at any point and view the state of any variables
+		Very useful for finding logic errors
+	[[IDE!https://en.wikipedia.org/wiki/Integrated_development_environment]] - Integrated Deveopment Environment
+		Combines all essential tools (text editor, compiler, linker) and oftentimes a debugger and other helfpul tools, into one cohesive package
+		Typically makes development quicker
+		Some Common IDEs
+			[[Visual Studio!https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx]] (Microsoft)
+			[[XCode!https://developer.apple.com/xcode/ide/]] (Apple)
+			
+-------------------------------------------
+Build Process
+[[img BuildProcess.png]]
+------------------------------------------
+How to use an IDE
+	Create project
+		Project includes information about 
+			what we'll be creating (executable, library, etc..) 
+			the pieces we'll be building it from (source files, libraries, etc.)
+	Add source file(s)
+	Repeat the following until the program works properly
+		Edit source file(s)
+		Compile/link/execute
+		Debug
+	Rejoice at your success!
+	
+-------------------------------------------
+Practice
+	Start up Visual Studio
+	Create a project
+	Add a source file
+-------------------------------------------
+Example - No Include file
+	The code below uses only stuff that is so common it's always available (no include file necessary).
+		[[code]]
+		int main() { [[desc This is a function declaration.<br>Function declarations gave a name to a sequence of instructions located between the { and } that follow it.  All C and C++ programs have a function named main because that's the function that executes when the program begins.<br> The int at the beginning says the program will return an integer value when it's finished running.]]
+			int x;        //declare an integer variable named x [[desc This is a variable declaration.<br>Variable declarations allocate memory to hold data and give the memory location a name so we can refer to it later.  In this case, the data will be a single integer value and the name will be x.]]
+			x = 4 + 2;    //add 4 and 2 and put the results in x [[desc This is an assignment statement.<br>The mathematical expression on the right side of the = is evaluated and the results are put into the variable on the left side of the = sign.  Only variable names (i.e. memory locations) can be on the left side of the equal sign.]]  
+		
+			return 1;     //return the value 1 to the operating system [[desc This is a return statement. <br>It causes the program to stop executing and return the value 1 to the operating system (since the OS called main).  Any statements that appeared after this wouldn't execute.]]
+		} [[desc This closes the opening { located after main() above, specifying the end of the block of code named main.]]
+-------------------------------------------
+Practice
+	Type (or cut and paste) the code from the previous example into the source file you created.
+	Complile/Link/Execute it
+--------------------------------------------
+Example - include file
+	Some programs want will read from or write to a console window.  In order to tell the compiler about the items necessary for that functionality, the programmer must include the <iostream> (Input/Output Stream) header file.
+	During the build process, the pre-processor will get that file from disk and "copy and paste" its entire contents in place of the "#include <iostream>" statement. 
+		[[code]]
+		#include <iostream>		//for console I/O (cin and cout) [[desc This is a preprocessor directive (lines that begin with a # are preprocessor directives).<br><br>Preprocessor directivies generally cause some change to be made to the source file before it's compiled.<br><br>This line causes the contents of the file iostream to be copied into this exact location before the code is sent to the compiler (a temporary file containing the combined source code is what gets sent to the compiler).<br><br>iostream contains C++ code that defines things related to using the console window.]] 
+		
+		int main() {		[[desc This is a function declaration.<br>Function declarations gave a name to a sequence of instructions located between the { and } that follow it.  All C and C++ programs have a function named main because that's the function that executes when the program begins.<br> The int at the beginning says the program will return an integer value when it's finished running.]]
+			int x;              [[desc Declares an integer variable named x<br>note: x is a poor variable name...]]
+			int y;				[[desc Declares an integer variable named y<br>note: y is a poor variable name...]]
+			
+			// get user input
+			std::cout << "Enter an integer: "; [[desc Sends text on the right side of the << to cout, which is the console window (cout stands for console output)<br><br>cout is preceded by std:: because it's in the std (standard) namespace]]
+			std::cin >> x;                     [[desc Gets data from cin, which is the keyboard (cin stands for console input, which is the keyboard by default), and puts it into the variable x.<br><br>cin is preceded by std:: because it's in the std (standard) namespace]]
+			
+			// compute and print output
+			y = x*2;           					[[desc Multiplies the contents of the variable x by 2, stores result in y]]	
+			std::cout << x << " doubled is " << y;  [[desc Sends the value of x, followed by some text, followed by the value of y, to cout (the console window)<br><br>cout is preceded by std:: because it's in the std (standard) namespace]]
+		
+			return 1;		[[desc Exits this function (main) and returns the value 1 to whoever called it.  Since this function is main(), it exits the program and returns the 1 to the operating system.]]
+		}
+-------------------------------------------
+Practice
+	Modify your source file so it looks like the previous example.
+	Complile/Link/Execute it
+--------------------------------------------
+Example - default namespace
+	We can provide a "default" namespace that the compiler will use when looking for the definitions of things. 
+	Note: namespaces aren't discussed until chapter 8, but knowing a little now will save us some typing.
+		[[code]]
+		#include <iostream>		//for console I/O (cin and cout) [[desc This is a preprocessor directive (lines that begin with a # are preprocessor directives).<br><br>Preprocessor directivies generally cause some change to be made to the source file before it's compiled.<br><br>This line causes the contents of the file iostream to be copied into this exact location before the code is sent to the compiler (a temporary file containing the combined source code is what gets sent to the compiler).<br><br>iostream contains C++ code that defines things related to using the console window.]] 
+		
+		using namespace std; [[desc This tells the compiler that whenever it comes across an undefined identifier, look in the standard namespace before giving up.<br><br>This allows us to not have to type std:: before everything we use from the standard namespace. (which in our case, is cin and cout)]]
+		
+		int main() {		[[desc This is a function declaration.<br>Function declarations gave a name to a sequence of instructions located between the { and } that follow it.  All C and C++ programs have a function named main because that's the function that executes when the program begins.<br> The int at the beginning says the program will return an integer value when it's finished running.]]
+			int x;              [[desc Declares an integer variable named x<br>note: x is a poor variable name...]]
+			int y;				[[desc Declares an integer variable named y<br>note: y is a poor variable name...]]
+			
+			// get user input
+			cout << "Enter an integer: "; [[desc Sends text on the right side of the << to cout, which is the console window (cout stands for console output)<br><br>cin is in the std namespace but we don't have to preced it with std:: because we've told the compiler to use that namespace by default with the using namespace std line above]]]]
+			cin >> x;                     [[desc Gets data from cin, which is the keyboard (cin stands for console input, which is the keyboard by default), and puts it into the variable x.<br><br>cin is in the std namespace but we don't have to preced it with std:: because we've told the compiler to use that namespace by default with the using namespace std line above]]
+			
+			// compute and print output
+			y = x*2;           					[[desc Multiplies the contents of the variable x by 2, stores result in y]]
+			cout << x << " doubled is " << y;  [[desc Sends the value of x, followed by some text, followed by the value of y, to cout (the console window)<br><br>cin is in the std namespace but we don't have to preced it with std:: because we've told the compiler to use that namespace by default with the using namespace std line above]]
+		
+			return 1;		[[desc Exits this function (main) and returns the value 1 to whoever called it.  Since this function is main(), it exits the program and returns the 1 to the operating system.]]
+		}
+-------------------------------------------
+Practice
+	Modify your source file so it looks like the previous example.
+	Complile/Link/Execute it
+-------------------------------------------
+Error Types
+	There are three different types of errors 
+		Syntax errors
+			Code is invalid, won't compile/link	(oftentimes just typos)
+			Compiler and/or linker finds these
+		Run Time Errors
+			Executable is created but crashes when ran
+			Problems with coding
+		Logic errors
+			Executable is created and runs but doesn't do what it's supposed to do
+			Problems with algorithm and/or coding
+	Programmer errors are often referred to as bugs

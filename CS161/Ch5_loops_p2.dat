@@ -1,0 +1,75 @@
+------------------------------------------
+Ch 5 - Repetition Structures, part 2
+	While loops revisited
+		reading files 
+		using eof() 
+		using getline() 
+	for revisited
+		multiple variables
+	Nested loops
+
+------------------------------------------
+Reading Files
+	While loops can be used to read a file until eof (end-of-file) is reached.
+		input stream returns false when eof has been reached
+	A character by character read example using the extraction operator is as follows:
+	[[code]]
+		ifstream infile;
+		char ch;
+		&nbsp;
+		infile.open("TextFile1.txt");
+		infile >> ch;
+		&nbsp;
+		while (infile) {
+			cout &lt;&lt; ch;
+			infile >> ch;
+		}
+	Note: extraction operator skips white space so blanks will not be read...
+-----------------------------------------------
+Example 2
+	Since the extraction operator returns a reference to itself, we can write the previous example even more tersely as shown below (we cover references later on)
+	[[code]]
+		ifstream infile;
+		char ch;
+		&nbsp;
+		infile.open("TextFile1.txt");
+		&nbsp;
+		while (infile >> ch) {
+			cout &lt;&lt; ch;
+		}
+		&nbsp;
+	Isn't C++ great!
+	While (answer != "Yes!) 
+		Ask again "Isn't C++ great!"
+
+
+-----------------------------------------------
+eof() function
+	The stream object end-of-file function (eof()) can be used to test for end of file as well
+	eof() returns true if end-of-file has been reached
+	This example is similar to the first example except it uses the eof and get functions.
+	[[code]]
+		ifstream infile;
+		char ch;
+		&nbsp;
+		infile.open("TextFile1.txt");
+		infile.get(ch);
+		&nbsp;
+		while (!infile.eof()) {
+			cout &lt;&lt; ch;
+			infile.get(ch);
+		}
+------------------------------------------
+getline example
+	getline can be used to read a file line by line
+	getline will return false if it fails (reaches eof), so it can be used in the condition
+	[[code]]
+		ifstream infile;
+		string line;
+		&nbsp;
+		infile.open("TextFile1.txt");
+		&nbsp;
+		while (getline(infile, line)) {
+			cout &lt;&lt; line &lt;&lt; "\n";
+		}
+	Note: getline uses newline character as delimiter so they're not read.  Therefore a "\n" was "re-added" to the output after each line.

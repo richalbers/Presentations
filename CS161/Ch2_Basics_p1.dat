@@ -1,0 +1,185 @@
+------------------------------------------
+Ch 2 - Basic Elements of C++, part 1
+	Comments
+	Special Symbols and Keywords
+	Identifiers
+	Data Types
+	Variable Declaration
+	Arithmetic Operators
+	Order of Precedence
+	Expressions
+------------------------------------------
+Comments
+	Comments and white space are used to make your code more readable and understandable
+		They typically should be used to add information, not restate the obvious
+	Two ways of specifying comments
+		[[code]]
+		// This is a single line comment
+		/* This is a multiline 
+		&nbsp; &nbsp; &nbsp; Comment.  On two lines! */
+	Whitespace
+		Whitespace includes blanks, tabs, newlines
+		Used to make code readable
+		All are ignored by compiler (except single blanks used to separate keywords/identifiers)
+--------------------------------------------
+Practice
+	Enter/Compile/run the following program in Visual Studio
+	[[code]]
+		//this is a comment
+		int main() {
+			int x;
+			x = 4 + 3;
+			
+			return x;
+		}
+	Then take out a ; and see what happens.
+	And then take out a bunch of whtite space and compile/run it again
+	[[code]]
+		int main() { int x;	x=4+3; return x; }	
+--------------------------------------------
+Special Symbols
+	[[code]]
+	+ - * /
+	. ; ? ,
+	<= != == >=
+	and others...
+Reserved words (keywords)
+	These have special meaning in the language
+	They cannot be used for anything other than their defined purpose
+	Editor displays them in blue (by default)
+	includes: int, float, char, const, void, and many others...
+----------------------------------------------
+Identifiers
+	Names of things (variables, functions, etc..)
+	Some are predefined, some you make up (variables, functions, etc.)
+	Rules (enforced by compiler)
+		Must begin with a letter or _
+		Can contain letters, numbers, and _
+		Case Sensitive
+	[[Conventions!http://en.wikipedia.org/wiki/Coding_conventions]] (enforced by company/instructor)
+		Should be self-documenting
+			Bad example
+				[[code]]
+				int x; //total students
+			Good Example
+				[[code]]
+				int totalStudents;
+		Variables should be [[camelCased!http://en.wikipedia.org/wiki/CamelCase]]
+		Constants should be ALL_CAPS
+------------------------------------------
+Practice
+	Of the following variable names 
+		which are valid (acceptable to the compiler)
+		which are good (valid and self-documenting)
+			x
+			angle
+			Angle2
+			2ndAngle
+			sideLength
+			Side-length
+			side_length
+			sideLengthFeet
+			_Angle3
+		Of all those variable names, which is best and why?
+------------------------------------------
+Data Type Categories
+	Defines how data is to be interpreted
+	Three categories
+		Simple data types
+		Structured Data Types
+		Pointers
+	For most of the course, we focus on Simple Data Types
+-------------------------------------------
+Numeric Data Types
+	Integers - numbers without a decimal point
+		char, short, int, long
+		unsigned char, unsigned short, unsigned int, unsigned long
+	Floating Point - decimal numbers
+		float, double, long double
+		Significant digits and decimal location are stored
+	Boolean (stores true(1) or false(0))
+		bool
+	Enumeration - user-defined type
+		Don't worry about these now
+-------------------------------------------
+Practice
+	What type of variable would be used to store each of the following?
+		Number of students in the class
+		Average number of students in each CCC class
+		Students letter grade
+		Whether a student is present or not
+		Distance to a destination
+		Distance to a star
+-------------------------------------------
+Variable declaration and initialization
+	Declaring a variable allocates memory to store some type of data
+	Data type and variable name must be provided
+	Variable can be initialized with a value using the assignment operator (=)
+	Examples
+		[[code]]
+		int x;	        //one integer, random value
+		int x, y, z;    //three random integers
+		int x=0, y=1;   //assigned values
+		double y = 3.0; //decimals are double by default
+		float z = 3.0f; //f makes 3.0 a float
+-------------------------------------------
+Arithmetic Operators
+	Operator list:
+		+ addition
+		- subtraction
+		* multiplication
+		/ division
+		% modulus (remainder)
+	Unary operators have only one operand
+		[[code]]
+		-3
+	Binary operators have two operands
+		[[code]]
+		5 - 2
+	Some operators (as seen) can be either
+-------------------------------------------
+Practice
+	What is the result of each of the following expressions
+		4 * 3
+		6 / 3
+		6 / 4
+		6.0 / 4.0
+		6 % 4
+		2541 % 2
+-------------------------------------------
+Order of precedence
+	* / % done first (from left to right)
+	+ - done next (from left to right)
+	( ) can be used to change order of precedence
+	Examples
+		2 + 4 / 2 evaluates to 4
+		(2 + 4) / 2 evaluates to 3
+---------------------------------------------
+Practice
+	What is the result of each of the following expressions
+		6 + 3 * 2
+		3 * 4 + 2 / 2
+		10 + 9 % 4 
+		4 * (2 + 2) / 2 - 1
+-------------------------------------------
+Expressions
+	If all operands (numbers) are integral, result is integral
+	If all operands are floating point, result is floating point
+	Mixed expressions are floating point
+	Examples
+		5.0 / 2.0 + 3 evaluates to 5.5
+		5 / 2 + 3 evaluates to 5
+	Result is often stored in a variable
+		[[code]]
+		sum = 3 + 5 + 6;
+		area = length * width;
+---------------------------------------------
+Practice
+	What is the result of each of the following expressions
+		6.0 + 3.0 / 2.0
+		6.0 + 3 / 2
+		6 + 3 / 2.0
+		3 * 2.0 + 3 / 2
+		10.0 + 9 % 4
+		3526 % 2 + 3 * 3 - 0 / 3.0
+------------------------------------------

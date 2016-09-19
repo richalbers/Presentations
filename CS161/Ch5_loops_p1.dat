@@ -1,0 +1,240 @@
+------------------------------------------
+Ch 5 - Repetition Structures, part 1
+	This presentation covers
+		What repetition structures (loops) are for
+		How and when to use each of the following repetition structures
+			while
+			for
+			do while
+		How the unstructured break and continue statements work and when they should and should not be used
+		How us use multiple variables in a for loop
+		How to write nested loops
+------------------------------------------
+Overview
+	Repetition structures (loops) allow you to repeat a block of code multiple times
+	C++ gives us three distinct ways to do this
+		While a condition is true execute a block of code
+		Execute a block of code while a condition is true
+		Execute a block of code a predetermined number of times using a counter
+	Many times the same results can be achieved using any one of these three types of structures, but there's typically a best choice for a given situation.
+	Loops are similar to ifs in that without { } the body of the loop is only one line.
+	
+------------------------------------------
+While 
+	In a while loop
+		condition is tested
+		if condition is true, loop body executes, then condition is retested
+		if condition is false, we jump to the statement following the loop
+		Note: the variable being tested MUST change in the loop body (or loop will be infinite)
+	Simplest possible Example:
+		Code:
+			[[code]]
+			int x=1;
+			while (x &lt; 4)
+				x++;
+			cout &lt;&lt; x;
+		Comparison (x&lt;4) is done 4 times
+		Loop body (x++) executes 3 times
+		When loop exited, x was equal to 4
+-------------------------------------------
+While example 2
+	If loop body will consists of more then one line, { } need to be used.
+		For example:
+			[[code]]
+			int x=2;
+			while (x &lt; 5) { 
+				cout &lt;&lt; x;
+				x+=2;
+			}
+		Comparison (x&lt;5) is done 3 times
+		Loop body (cout &lt;&lt; x; x+=2;) executes 2 times
+		When loop exited, x was equal to 6	
+------------------------------------------
+Practice
+	Write while loops to do the following
+		Print out the numbers from 1 to 10
+		Print out the even numbers from 2 to 100
+	Note: A for loop is a better choice for both of these...
+------------------------------------------
+Sentinel-controlled while
+	A sentinal is a value that signifies the loop is to end
+		Example:
+			[[code]]
+			char ch;
+			cout << "Guess my favorite lower-case letter? ";
+			cin >> ch;
+			&nbsp;
+			while (ch != 'z') { 
+				cout <<  "Wrong!  Try again: ";
+				cin >> ch;
+			}
+			cout << "Correct!\n";
+		The loop is controlled by ch.  Since this comes from the user, we need to obtain an initial value before our loop (since the test is done first).
+			This is often called "priming the pump"
+			We get all subsequent values at the end of the loop body, right before we test again.
+		We don't know ahead of time how many times the loop will run.
+
+------------------------------------------
+Practice
+	Write a simple program that 
+		requests the user enter an odd number
+		if the number entered is not odd
+			prints out an error message and asks the user to try again
+		repeat the previous steps until an odd number is entered
+		Then prints out a congratulations message
+------------------------------------------
+Multiple exit conditions
+	You can have multiple exit conditions by using boolean operators
+	[[code]]
+		int favNum=7;
+		int guessNum=0;
+		int tryCount=0;
+			
+		cout << "Guess my integer number.  (You have 10 tries): ";
+		cin >> guessNum;
+		while (guessNum!=favNum && tryCount<10) {
+			...
+	or
+	[[code]]
+		int num=0;
+		bool error=false;
+		...
+		while (num!=10 && error==false); {
+			...
+------------------------------------------
+Practice
+	Write a simple program that 
+		requests the user enter a vowel, and continues to do so until a vowel is entered.
+		whenever a non-vowel is entered print a message saying "that's not a vowel, try again".
+	After a vowel is entered print a congratulations message.
+-------------------------------------------
+Do while
+	"do while" is similar to "while", except:
+		the condition is tested after the body exectures
+		so the loop body always executes at least one time
+	Example:
+		[[code]]
+		int x=2;
+		do { 
+			cout &lt;&lt; x;
+			x+=2;
+		} while (x &lt; 5);
+	These are not used as often as while loops
+	I personally think its nice to see the loop exit condition without scrolling down...
+	Some languages have a do until instead of a do while.
+------------------------------------------
+For
+	The for loop is used when you know how many times the loop will be executed ahead of time
+	The counter variable is	initialized, tested, and incremented all on one line.
+		[[code]]
+		for ( initialization; condition; counter )
+	Example
+		[[code]]
+		for (x=0; x&lt;10; x++)
+			cout &lt;&lt; x &lt;&lt; " ";
+	Processing in example is as follows:
+		X is initialized to 0 (done only once)
+		Condition (x &lt; 10) is tested
+			if true, 
+				loop body (cout) is executed
+				Variable is incremented.
+			if false, loop is exited
+		
+-------------------------------------------
+For Examples
+	Counting down
+		[[code]]
+		for (x=5; x>0; x--)
+			cout &lt;&lt; x;
+	Counting up by two
+		[[code]]
+		for (x=0; x&lt;6; x+=2)
+			cout &lt;&lt; x;
+------------------------------------------
+Practice
+	Write for loops to do the following
+		Print out the numbers from 1 to 10
+		Print out the even numbers from 2 to 100
+		Print out the numbers from 10 down to 1
+		Print out the letters from a to z and their ascii values
+-------------------------------------------
+For Details
+	Crazy but true, all sections of the for loop are optional
+	The following example compiles and runs...forever
+		[[code]]
+		for (;;) cout &lt;&lt; "Help, i'm stuck!";
+	A more useful example of ommitting the initialization;
+		[[code]]
+		//print 0 to 9 on two lines
+		for (x=0; x&lt;5; x++)
+			cout &lt;&lt; x;
+		cout &lt;&lt; endl;
+		for ( ; x&lt;10; x++)
+			cout &lt;&lt; x;
+------------------------------------------
+For vs while
+	for loops can always be written as while loops, but there is an appropriate place for each
+	A for loop should be used when you know how many times the loop will execute when you start the loop
+		The for loop specifies the initial value, exit condition, and loop counter all on one line
+		Somone looking at the code knows a lot about the loop right away which is very helpful
+	A while loop should be used when you don't know how many times the loop will run when you begin the loop
+		i.e. it will be a sentinal controlled loop.  
+		Exit will be determined by something that happens within the loop that can't be predicted ahead of time
+-------------------------------------------
+Break and continue
+	break and continue interrupt the normal loop processing
+		continue causes the current iteration of the loop to exit
+		break causes the loop to exit entirely
+	In general the loop should exit because the condition specified in the loop condition was met
+	Break and continue are sometimes used to handle error conditions when it's the cleanest way to do so
+		Both of these are unstructured and should be used sparingly (if at all)
+		Our class coding standards forbid the use of break and/or continue for anything other than error handling which cannot be done more elegantly in any other way.
+	Example:
+		[[code]]
+		while (ch != 'z') {
+			...
+			if (we don't want to do the rest)
+				continue; //goes back up to test the condition
+			...
+			if (we want out of the loop entirely!)
+				break; //goes to line following loop body
+			...
+		}
+-------------------------------------------
+For With Multiple Variables
+	You can can intitialize and increment/decrement multiple variables
+	Each is separated by a comma (,)
+	[[code]]	
+		int x, y;
+		for (x=0, y=10; x&lt10; x++, y--)
+			cout &lt;&lt; x &lt;&lt; " " &lt;&lt; y &lt;&lt; endl;
+		&nbsp;
+	And you can declare variables in the for statement itself
+	[[code]]
+		for ( int x=0, y=10; x&lt10; x++, y-- )
+			cout &lt;&lt; x &lt;&lt; " " &lt;&lt; y &lt;&lt; endl;
+		&nbsp;
+	Notes: 
+		Variables declared in the for exist only for the duration of the loop
+		The condition expression must evaluate to a single boolean value (but you can use ands and ors)
+-------------------------------------------
+Nested Loops
+	You can nest loops
+	[[code]]
+		int row, col;
+		for (row=1; row&lt;10; row++) 
+		{
+			for (col=1; col&lt;10; col++)
+			{
+				cout &lt;&lt; row * col &lt;&lt; " ";
+			}
+			cout &lt;&lt endl;
+		}
+	or, written more tersely
+	[[code]]
+		for ( int row=1; row&lt;10; row++ ) {
+			for ( int col=1; col&lt;10; col++ )
+				cout &lt;&lt; row * col &lt;&lt; " ";
+			cout &lt;&lt; endl;
+		}
+-------------------------------------------

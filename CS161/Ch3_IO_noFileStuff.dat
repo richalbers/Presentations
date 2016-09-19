@@ -1,0 +1,105 @@
+------------------------------------------
+Ch 3 - I/O, part 1
+	Overview
+	Using Functions and Objects
+	Using cin (an input stream)
+		Operators
+		Functions 
+		Handling Errors
+	Using cout (an output stream)
+		Operators
+		Manipulators (formatting)
+	
+------------------------------------------
+Overview
+	Streaming I/O is a sequence of bytes either being read in or sent out
+		Input Stream - comes from input device
+		Output Stream - goes to output device
+	Pre-defined Streaming I/O Objects
+		cin - input (keyboard)
+		cout - output (console)
+		Defined in iostream, which you simply include as follows:
+		[[code]]
+			#include &lt;iostream&gt;
+	Since cin and cout are objects, you need to know some basics on how to use objects and functions
+------------------------------------------
+Using functions
+	Functions are named chunks of code.
+	Functions are called (ran) as follows:
+		[[code]]
+		SomeFunction();
+	Functions can be passed data as follows:
+		[[code]]
+		SomeFunction(x);
+	Functions can return data, which can be placed into a variable as follows:
+		[[code]]
+		a = SomeFunction(x, y);
+
+------------------------------------------
+Using Objects
+	Objects are collections of data and the code (functions) to operate on that data
+	You don't typically access the object data directly, but do so through the object's public functions/methods
+	This is done using the dot (.) notation as follows:
+		[[code]]
+		objectName.someFunction();
+	Operators can also be used on objects, if they're defined for that particular object
+		With I/O streams, the extraction(>>) and insertion (&lt;&lt;) operators are commonly used
+------------------------------------------
+Using cin
+	Data is commonly "read" from cin using the Extraction operator (>>)
+	By default cin data comes from the keyboard
+	Input is typically space delimited
+	Extra data is "buffered" for later extraction
+	Examples
+	[[code]]
+		cin >> ch;
+		cin >> a >> b;
+		cin >> x >> y >> z;
+	See examples in book (p 120)
+--------------------------------------------
+Input Stream Functions
+	In addition to extraction operator, the following functions are commonly used
+	[[code]]
+		cin.get(x); // reads one piece of data into x
+		&nbsp;
+		cin.ignore();    //ignores next character
+		cin.ignore(100); //ignores next 100 characters
+		cin.ignore(100, '\n'); //ignores 100 chars or until \n
+		&nbsp;
+		z=cin.peek(); //puts a copy of the next char into z 
+		&nbsp;
+		cin.putback(x); //puts x back into the stream
+		
+------------------------------------------
+Input Stream Problems
+	If invalid data is provided when reading into cin, the stream will enter a "fail" state and stop reading data
+	.clear() function will return the stream to a usable state. 
+	You'll then need to clear the buffer using .ignore() function.
+	Example:
+		[[code]]
+		cin.clear();
+		cin.ignore();
+
+------------------------------------------
+Using cout
+	Commonly written to using the insertion operator (&lt;&lt;)
+	By default, output is sent to console
+	Examples
+	[[code]]
+		cout &lt;&lt; "hello\n";
+		cout &lt;&lt; "x is " &lt;&lt; x &lt;&lt; endl;
+-------------------------------------------
+Formatting output
+	Numbers can be formatted with several "manipulators" (things that manipulate the output stream)
+	Manipulators are defined in iomanip, which therefore needs to be included
+	[[code]]
+		#include &lt;iomanip&gt;
+	Common manipulators include:
+		[[SetPrecision(x)!http://www.cplusplus.com/reference/iostream/manipulators/setprecision/]] - specifies max # of digits to print
+		[[fixed!http://www.cplusplus.com/reference/iostream/manipulators/fixed/]] - specifies to interpret setprecision as decimal digits
+		[[showpoint!http://www.cplusplus.com/reference/iostream/manipulators/showpoint/]] - denotes decimal point should always be printed
+		[[setw(x)!http://www.cplusplus.com/reference/iostream/manipulators/setw/]] - sets width of output
+			[[left!http://www.cplusplus.com/reference/iostream/manipulators/left/]] - left justifies output (in setw() space)
+			[[right!http://www.cplusplus.com/reference/iostream/manipulators/right/]] - right justifies output (in setw() space)
+			[[setfill(x)!http://www.cplusplus.com/reference/iostream/manipulators/setfill/]] - sets fill character
+-------------------------------------------

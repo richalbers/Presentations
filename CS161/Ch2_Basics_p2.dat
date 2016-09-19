@@ -1,0 +1,198 @@
+------------------------------------------
+Ch 2 - Basic Elements of C++, part 2
+	Type Conversions
+	Strings
+	Constants
+	Input into variables
+	Increment and Decrement Operators
+	PreProcessor Directives
+	Misc
+
+-------------------------------------------
+Type Conversions
+	Implicit conversions - done automatically
+	Explicit conversions - specified by programmer
+		Syntax:
+			[[code]]
+			static_cast<int>(7.9) 
+			results in 7
+		Example of use in code
+			[[code]]
+			float width = 4.0;
+			int length = 3;
+			int area = length * static_cast<int>(width);
+------------------------------------------
+char Data type
+	A character is a letter, digit, or symbol, etc..
+	The char datatype is used to store these values [[img CS161/AsciiTable.jpg]]
+		The data is stored as an 8 bit (one byte) number which represents the character
+		This number is the ascii value of the character
+		When outputted, by default, the character will be printed, not the number
+	Literal characters are enclosed in single quotes
+		There can be only one characters in the singlequotes
+		[[code]]
+			char FirstLetter = 'a';
+------------------------------------------
+Practice
+	Which of the statements below are valid? [[img CS161/AsciiTable.jpg]]
+	And what character do the valid ones end up storing? 
+		[[code]]
+		char c1 = 'a';
+		char c2 = 'zoo';
+		char c3 = "Z";
+		char c4 = '8'
+		char c5 = 9;
+		char c6 = 87;
+		char c7 = 10 * 10;
+		char c8 = c6 + 1;
+		char c9 = 'a' + 1;
+------------------------------------------
+strings
+	A string is s sequence of zero or more characters
+		Literal strings are enclosed in doublequotes
+		[[code]]
+			string name = "Rich";
+		A string with zero characters is called a null (or empty) string
+		The string data type is NOT a simple datatype, and a library is required for it's use (strings are covered in ch 10).  
+	string datatype support
+		The C language has no string data type (it uses arrays of characters)
+		C++ officially has a string data type (added when standardized by ANSI/ISO)
+	Note: we look at strings in detail later in the term
+------------------------------------------
+Constants
+	Constants are variables whose data cannot change
+	Constants are used to give a meaningful names to values
+		literal numbers should rarely appear in your code
+		those numbers should be instead be defined as constants
+	Constants are defined as follows:
+	[[code]]
+		const double TAX_RATE = 3.5;
+	const is a reserved word
+	Constants MUST be given a value when declared
+	By convention,
+		constant names are typically ALL_CAPS
+		constants are typcially declared at the top of the program (before main)
+------------------------------------------
+Practice
+	Try compiling the following code.  What happens and why?
+	[[code]]
+		const PI=3.14159;
+		
+		int main() {
+			int x = 7;
+		
+			x=3;
+			PI=3.14;
+			
+			return 1;
+		}
+------------------------------------------
+Input into variables
+	You can read from stdin (the keyboard by default) into variables using cin
+	[[code]]
+		cin >> x;
+	A prompt should be provided first
+	[[code]]
+		cout << "Please enter a number: ";
+		cin >> x;
+	Multiple inputs (white space delimited) are allowed:
+	[[code]]
+		cout << "Please enter two numbers: ";
+		cin >> x >> y;
+	I/O is covered in detail in chapter 3 (next week!)
+------------------------------------------
+Increment and Decrement Operators
+	Performing an operation on a variable and storing the result back into the same variable is very common.
+	So there's shortcuts for doing so.
+	Post-Increment and post-decrement
+	[[code]]
+		x++;  //equivalent to x = x + 1;
+		x--;  //equivalent to x = x - 1;
+	Pre-Increment and pre-decrement
+	[[code]]
+		++x;  // equivalent to x = x + 1;
+		--x;  // equivalent to x = x - 1;
+	Other shorthand notation (compound operators)
+		[[code]]
+		x*=2; //equivalent to x = x * 2;
+		x/=5; //equivalent to x = x / 5;
+------------------------------------------
+Practice
+	What is the value of x and y after each of the following lines.
+	[[code]]
+		int x=5, y=7;
+		
+		x++;
+		++y;
+		
+		x = y++;	[[desc I recommend avoiding doing this as it can be confusing]]
+		y = ++x;	[[desc I recommend avoiding doing this as it can be confusing]]
+		x = ++x - y-- + y++; [[desc I recommend avoiding doing this as it can be confusing]]
+		
+------------------------------------------
+Escape Sequences
+	Used to output "special" characters
+	Commonly used ones:
+	[[code]]
+		\n - newline
+		\t - tab
+		\\ - backslash
+		\' - single quote
+		\" - double quote
+	Example
+	[[code]]
+		cout << "\tMary\'s sheep are gone.\n\tPoor Mary.";
+		&nbsp;
+		Outputs:
+			Mary's sheep are gone.
+			Poor Mary.
+-------------------------------------------
+Practice
+	Write a program that outputs the following:
+	[[code]]
+		    \n does not print out a '
+		    it prints out a "newline" character
+	Be aware
+		Each of those lines begins with a tab
+		You should use escape sequences to print the tab, \, ', and "
+------------------------------------------
+PreProcessor Directives
+	Most C functions and symbols are provided in libraries
+	These are linked in with your code after it's compiled
+	But to use them the compiler needs to know their identifiers (names) and format
+	This is accomplished by "including" provided source code (containing the definitions) in your program
+	Format is as follows:
+	[[code]]
+		#include <headerFileName>
+	This goes at the top of your source
+------------------------------------------
+Namespaces 
+	Your program can include 3rd party code from multiple sources
+	Namespaces are used to deal with the possibility of having two things named the same (a possibility if they're coming from different libraries)
+	Specifying a namespace is done with ::namespace_name
+	[[code]]
+		void main() {
+			...
+			std::cin >> x; //cin will come from std namespace
+			...
+	If you're only using one namespace, you can state that's the default namespace with "using namespace namespace_name"
+	[[code]]
+		using namespace std;
+		...
+		void main() {
+			...
+			cin >> x; //cin will come from std namespace
+			...
+
+------------------------------------------
+Misc
+	Each C statement ends in a semicolon
+	[[Curley braces!http://en.wikipedia.org/wiki/Bracket]] (or brackets) are used to segment blocks of code.  They are NOT followed by semicolons.
+	[[code]]
+		void main() {
+			// all the code that is a part of main goes here
+		}
+	Commas are used to separate items in lists
+	[[code]]
+		int x, y, z; //all integers
+------------------------------------------
