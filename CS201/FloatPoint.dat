@@ -1,0 +1,141 @@
+------------------------------------------
+Floating Point
+	Bits and Bytes
+	Data Sizes
+	Byte Ordering
+	Bit Operators
+	Two's complement
+------------------------------------------
+Overview
+	Floating point operations are handled by the floating point unit (FPU_
+	The FPU was originally a separate chip (8087)
+	Modern CPUs have the FPU built into the CPU
+	Floating Point registers
+		There are 8: ST(0)-ST(7)
+		Each is 80 bits
+		They are treated as a stack
+	There are numerous Floating point Opcodes, including:
+			FLD - load floating point value
+			F
+			FDIV - divide
+			FMUL
+			many others...
+------------------------------------------
+Practice
+	Go over how to convert numbers as a class
+	Do some practice conversions
+------------------------------------------
+Data Sizes
+	In C, [[data type sizes!https://en.wikipedia.org/wiki/C_data_types]] can vary by implementation
+	Values might be	
+		Integers:
+			short - 2 bytes
+			int	- 4 bytes
+			long - 8 bytes
+			long long - 16 bytes
+		Floating Point
+			float - 4 bytes
+			double - 8 bytes
+		Other
+			pointer (char*, int*, long*, etc) - 
+				4 bytes on 32 bit machine
+				8 bytes on 64 bit machine
+	sizeof() function can be used to show the actual size for a particular implemention
+------------------------------------------
+Practice
+	Write a C program that displayes the sizes of each type using sizeof() 
+		Ideally, run it on both Windows and Linux
+------------------------------------------
+Byte ordering
+	Data is stored in memory in one of two ways
+		Big Endian - stores big end first
+		Little Endian - stores little end first
+	For example, an integer containing the value 0x12345678 would be stored in one of the two following ways
+		[[code]]
+			Big Endian:     0x12 0x34 0x56 0x78
+			Little Endian:  0x78 0x56 0x34 0x12
+	For most programmers, it doesn't usually matter    
+		Unless you're looking at a memory dump
+		or working on code that moves data from one machine to another
+		or other low-level situations I can't think of right now
+------------------------------------------
+Practice	
+	What will the example code below print
+		on a big endian machine?
+		on a little endian machine?
+	Example (untested!!!)
+	[[code]]
+		#include "stdio.h" [[desc provides definition of printf()]]
+		int main() {
+			unsigned int x=0x12345678; [[desc creates an unsigned int (named x) and initializes it with the hex value 0x12345678]]
+			unsigned char* xp;	[[desc creates a pointer to a character (named xp)]]
+			
+			xp = (unsigned char*) &x;	[[desc puts the address of x into xp<br>Since x is an int, and xp wants the address of a char, we have to cast &x as a char* to please the compiler gods<br>Casting is done in C by putting the data type in ()]]
+			printf("%u", *xp); [[desc prints the value (a single byte) pointed to by xp, as an unsigned number (as opposed to a character)]]
+			
+			return 1;
+		}
+------------------------------------------
+Bit Operators
+	C provides a few operators to do bit manipulation
+		& - Logical AND
+		| - logical OR
+		>> - shift right
+		<< - shift left
+	Examples (untested!!)
+		[[code]]
+		int x=0x0f;
+		int y=0xf0;
+		printf("%x \n", x & y);  // prints 0x00
+		printf("%x \n", x | y);  // prints 0xff
+		printf("%x \n", x >> 2); // prints 0x03
+		printf("%x \n", x << 2); // prints 0x3c
+	Note: for right shifts (>>) 
+		arithmetic shifts are used for signed data
+		logical shifts are used for unsigned data
+			the difference is what value fills vacated leftmost bits
+-------------------------------------------
+Two's Complement
+	For unsigned numbers, simple binary is used.
+		00000001 (binary) = 1 (base 10)
+		11111111 (binary) = 255 (base 10)
+	For signed numbers, [[two's complement!https://en.wikipedia.org/wiki/Two%27s_complement]] is used [[img CS201/TwosComplement.png]]
+		00000001 (binary) = 1 (base 10)
+		11111111 (binary) = -1 (base 10)
+	This system was chosen because it made the electrical circuitry simpler
+	In two's complment
+		if the high order bit is 1, it's negative
+		to go between + and -, toggle the bits and add 1
+-------------------------------------------
+Practice
+	Express each of the following in binary as an 8 bit integer using 2's complement
+		0
+		1
+		-1
+		7
+		-7
+	What are the following 2's complment numbers in base 10?
+		00000010
+		11111101
+		00001111
+		11110000	
+-------------------------------------------
+
+-------------------------------------------
+
+-------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

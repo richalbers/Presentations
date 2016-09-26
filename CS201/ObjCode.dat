@@ -1,0 +1,173 @@
+------------------------------------------
+Object Code, part 1
+	bla bla bla
+	bla bla bla
+------------------------------------------
+Overview
+
+------------------------------------------
+CPU Components
+	register: a named memory location on the CPU
+	register file: a group of registers organized in a way to easily access all of them.
+	ALU: the “Arithmetic Logic Unit” is the block of circuitry that performs adds, subtracts, shifts, compares, and other arithmetic and logical functions. It is usually connected to the register file so that any two register values can be input into the ALU and the output of the ALU can feed into any register file.
+	control unit: the logic which controls the datapath, access to memory, and which registers to access. Simply speaking, the control unit is the dispatcher and checker for all instructions running on the CPU.
+------------------------------------------
+Registers
+	General Purpose
+		EAX, EBX, ECX, EDX (32 bits)
+			AX, BX, CX, DX (16 bits - lower portion of each)
+				AH, AL ... (8 bits, high and low portion of AX)
+		Note: integer function return values are stored in eax
+	Segment (16 bit, used with segmented memory model)
+		CS, DS,	SS,	ES,	FS,	GS
+	Indicator
+		EFLAGS
+	Index and Pointer
+		EIP: instruction pointer
+		ESP: stack pointer
+		EBP: stack base (frame) pointer
+		ohters...
+------------------------------------------
+Memory Address Notation
+	There are flavors
+		AT&T mode
+			offset(baseReg,indexReg,scale)
+				address = offset + baseReg + indexReg * scale
+				scale can be 1,2,3,8,[16,32]
+				Examples
+					[[code]]
+						-0x4(%ebp) [[desc Address = value in ebp - 0x04]]
+		Intel mode
+			DWORD PTR [baseReg+indexReg*scale+offset]
+					[[code]]
+						DWORD PTR [ebp-0x4] [[desc Address = value in ebp - 0x04]]
+	Address don't need all components. Valid examples would include:
+		offset
+		offset(baseReg)
+		(baseReg)
+------------------------------------------
+Basic Instructions
+	mov, mov
+	add, sub, mul, div
+	shl, shr
+	cmp
+	
+------------------------------------------
+Stack Instructions
+	push	“pushes” a value onto the stack by subtracting the data size from esp and then writing the value to the address contained in esp
+	pop	“pops” a value off the stack by storing what esp points to and then adding the data size to esp
+	call	“calls” a function. Pushes the address of the instruction after the call instruction onto the stack (this is where the called function will return to) and then jumps to the start of the called function.
+	ret	pops the address on top of the stack and jumps to that address (the address was stored by the calling function)
+	enter	automates setting up a function’s stack frame. Pushes caller’s ebp onto stack, sets ebp to address of caller’s ebp on stack, subtracts size of memory needed for local variables from esp.
+	leave	automates “unwinding” called function’s stack frame. Restores calling function’s ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.
+------------------------------------------
+Tools
+	gcc -s ??
+	objdump
+	gdb
+
+------------------------------------------
+example
+	The following program, named simple.c
+	[[code]]
+		int main() {
+			int x=2;
+			int y=5;
+			int z;
+				
+			x=10;
+			z=x+y;
+			
+			return z;
+		}	
+	Was compiled and the object code generated as follows:
+	[[code]]
+		> gcc -m32 -std=gnu99 -Wall -g simple.c -o simple [[desc -m32 - generate 32 bit executable<br>-std=gnu99 -use ISO 1990 C standard with GNU extensions<br> -g - include debugger info<br>-o simple - name the output file simple]]
+		> objdump -S simple [[desc -S - intermix source code with disassembly ]]
+		> objdump -S --no-show-raw-insn simple [[desc -S - intermix source code with disassembly<br>--no-show-raw-insn = don't show raw instructions (binary) ]]
+		> objdump -S --no-show-raw-insn simple [[desc -S - intermix source code with disassembly<br>--no-show-raw-insn = don't show raw instructions (binary) ]]
+------------------------------------------
+objdump -S
+	Output of main() from: objdump -S simple
+		[[code]]
+		int main() {
+		 8048410:       55                      push   %ebp
+		 8048411:       89 e5                   mov    %esp,%ebp
+		 8048413:       83 ec 10                sub    $0x10,%esp
+			int x=2;
+		 8048416:       c7 45 fc 02 00 00 00    movl   $0x2,-0x4(%ebp)
+			int y=5;
+		 804841d:       c7 45 f8 05 00 00 00    movl   $0x5,-0x8(%ebp)
+			int z;
+				
+			x=10;
+		 8048424:       c7 45 fc 0a 00 00 00    movl   $0xa,-0x4(%ebp)
+			z=x+y;
+		 804842b:       8b 45 f8                mov    -0x8(%ebp),%eax
+		 804842e:       8b 55 fc                mov    -0x4(%ebp),%edx
+		 8048431:       01 d0                   add    %edx,%eax
+		 8048433:       89 45 f4                mov    %eax,-0xc(%ebp)
+			
+			return z;
+		 8048436:       8b 45 f4                mov    -0xc(%ebp),%eax
+		}
+		 8048439:       c9                      leave
+		 804843a:       c3                      ret
+	Note: the objdump produces a fair amount of additional output, but we're only concerned with this portion
+------------------------------------------
+objdump -S --no-show-raw-insn
+	Output of main() from: objdump -S --no-show-raw-insn simple
+		[[code]]
+		int main() {
+		 8048410:       push   %ebp
+		 8048411:       mov    %esp,%ebp
+		 8048413:       sub    $0x10,%esp
+			int x=2;
+		 8048416:       movl   $0x2,-0x4(%ebp)
+			int y=5;
+		 804841d:       movl   $0x5,-0x8(%ebp)
+			int z;
+				
+			x=10;
+		 8048424:       movl   $0xa,-0x4(%ebp)
+			z=x+y;
+		 804842b:       mov    -0x8(%ebp),%eax
+		 804842e:       mov    -0x4(%ebp),%edx
+		 8048431:       add    %edx,%eax
+		 8048433:       mov    %eax,-0xc(%ebp)
+			
+			return z;
+		 8048436:       mov    -0xc(%ebp),%eax
+		}
+		 8048439:       c9                      leave
+		 804843a:       c3                      ret
+	Note: the objdump produces a fair amount of additional output, but we're only concerned with this portion
+
+------------------------------------------
+objdump -S -M intel 
+	Output of main() from: objdump -S simple
+		[[code]]
+		int main() {
+		 8048410:       55                      push   ebp
+		 8048411:       89 e5                   mov    ebp,esp
+		 8048413:       83 ec 10                sub    esp,0x10
+			int x=2;
+		 8048416:       c7 45 fc 02 00 00 00    mov    DWORD PTR [ebp-0x4],0x2
+			int y=5;
+		 804841d:       c7 45 f8 05 00 00 00    mov    DWORD PTR [ebp-0x8],0x5
+			int z;
+			
+			x=10;
+		 8048424:       c7 45 fc 0a 00 00 00    mov    DWORD PTR [ebp-0x4],0xa
+			z=x+y;
+		 804842b:       8b 45 f8                mov    eax,DWORD PTR [ebp-0x8]
+		 804842e:       8b 55 fc                mov    edx,DWORD PTR [ebp-0x4]
+		 8048431:       01 d0                   add    eax,edx
+		 8048433:       89 45 f4                mov    DWORD PTR [ebp-0xc],eax
+			
+			return z;
+		 8048436:       8b 45 f4                mov    eax,DWORD PTR [ebp-0xc]
+		}
+		 804843a:       c3                      ret
+
+------------------------------------------

@@ -1,0 +1,89 @@
+
+#include <stdio.h>
+
+//----------------------------------------
+int funcMath() {
+	int x;
+	int y;
+
+	x=4;
+
+	x*=2;
+	y*=x;
+
+	return(y);
+}
+
+//----------------------------------------
+int funcIfs() {
+	int x=2;
+	int y=3;
+
+	// if
+	if (x==4) {
+		x=x+5;
+		y=y+2;
+	}
+
+	// if else
+	if (y==7) {
+		x--;
+		y--;
+	} else {
+		x++;
+		y++;
+	}
+
+	return y;
+}
+//----------------------------------------
+int funcLoops() {
+	int x=2;
+	int y=3;
+
+	// for loop
+	for(x=0; x<4; x++) {
+		y=y+4;
+	}
+
+	x++;
+	y++;
+
+	// while loop
+	x=0;
+	while (x<4) {
+		y=y+4;
+		y=y-1;
+		x++;
+	}
+
+	return 1;	
+}
+
+//------------------------------
+// parameters
+int funcArgs(int p1, int p2) {
+	int x=0;
+	int y=2;
+	
+	x=p1 + p2 + y;
+
+	return x;
+}
+
+//------------------------------
+//funcCall
+int funcCall() {
+	int y;
+	y=funcArgs(5,10);
+	return y;
+}
+//------------------------------
+int main() {
+	int x,y;
+	x=funcMath();
+	x=funcIfs();
+	x=funcLoops();
+	y=funcArgs(5, 10);
+	return x+y;
+}

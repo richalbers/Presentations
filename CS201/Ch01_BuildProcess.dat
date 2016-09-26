@@ -1,0 +1,14 @@
+-------------------------------------------
+Build Process and tools
+	Build Process
+	gcc (compiler)
+-------------------------------------------
+Build Process
+[[img CS201/BuildProcess.png]]
+--------------------------------------------
+gcc
+	[[gcc!https://gcc.gnu.org/]] is the compiler/linker we'll be using
+	Examples of it's use
+	[[code]]
+		gcc hello.c  [[desc compiles source file named hello.c<br>resulting executable is named a.out]]
+		gcc -o hello hello.c  [[desc compiles source file named hello.c<br>resulting executable is named hello]]

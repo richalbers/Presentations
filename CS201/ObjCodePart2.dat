@@ -1,0 +1,327 @@
+------------------------------------------
+Object Code, part 2
+	Overview/Tools
+	Examples
+		Simple Math
+		If statement
+		For Loop
+		While Loop
+		Function Call
+	Stack Frame
+--------------------------------------------
+Overview/Tools
+	Our end goal is to be able to read through assembly code and track what it does
+		what registers and memory locations get modified
+		what values those registers and memory locations end up with
+	To begin our understanding of assembly we first look at examples that show the assembly along with the C that it was generated from.
+	The following slides show the assembly generated from a variety of different types of C statements/structures.
+		The complete source code is [[here!demo.txt]]
+		It was compiled as follows
+		[[code]]
+			> gcc -m32 -std=gnu99 -Wall -g demo.c -o demo [[desc -m32 - generate 32 bit executable<br>-std=gnu99 -use ISO 1990 C standard with GNU extensions<br> -g - include debugger info<br>-o demo - name the output file demo]]
+		The object code/assembly was generated as follows:
+		[[code]]
+			> objdump -S demo > demo.od [[desc -S - intermix source code with disassembly<br>Send the output to a file named demo.od (object dump)]]
+------------------------------------------
+Stack Usage
+	A stack is used to [[img cs201/stackIntro.png]]
+		Store arguments sent to function
+		Store return address 
+		Store local variables
+	The stack begins at some high address and counts down
+		Stack pointer denotes the "top" of the stack
+		When things are added, they're places at LOWER address
+	In order to access the parameters & variables
+		a "base pointer" is used store where local variables start
+		Local variables are at (base pointer - some value)
+		Parameters are at (base pointer + some value)
+	[[Here's an excellent explanation of it!http://duartes.org/gustavo/blog/post/journey-to-the-stack/]]
+------------------------------------------
+Stack Instructions
+	You'll see these stack instruction used when making a function call
+		push - pushes a value onto the stack by subtracting the data size from esp and then writing the value to the address contained in esp
+		call - calls a function. Pushes the address of the instruction after the call instruction onto the stack (this is where the called function will return to) and then jumps to the start of the called function.
+	And you'll see these used inside a function
+		ret	pops the address on top of the stack and jumps to that address (the address was stored by the calling function)
+		leave - automates "unwinding" called function’s stack frame. Restores calling function’s ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.
+	And here are some others
+		enter - automates setting up a function’s stack frame. Pushes caller’s ebp onto stack, sets ebp to address of caller’s ebp on stack, subtracts size of memory needed for local variables from esp.
+		pop	- pops a value off the stack by storing what esp points to and then adding the data size to esp
+
+------------------------------------------
+Making Function Call
+	This
+	[[code]]
+		y=funcArgs(5,10);
+	Results in this (from objdump)
+	[[code]]
+		 80484cd:	6a 0a                push   $0xa [[desc pushes a value (10) onto the stack by subtracting the data size from esp and then writing the value to the address contained in esp]]
+		 80484cf:	6a 05                push   $0x5 [[desc pushes a value (5) onto the stack by subtracting the data size from esp and then writing the value to the address contained in esp]]
+		 80484d1:	e8 c8 ff ff ff       call   804849e <funcArgs> [[desc 		call - calls a function. Pushes the address of the instruction after the call instruction onto the stack (this is where the called function will return to) and then jumps to the start of the called function.]]
+		 80484d6:	83 c4 08             add    $0x8,%esp	[[desc "removes" the two argumens from the stack]]
+		 80484d9:	89 45 fc             mov    %eax,-0x4(%ebp)	
+-------------------------------------------
+Entering/Leaving Function
+	This
+	[[code]]
+		int funcArgs(int p1, int p2) {
+			int x=0;
+			int y=2;	
+			x=p1 + p2 + y;
+			return x;
+		}
+	Results in this (from objdump)
+	[[code]]
+		int funcArgs(int p1, int p2) {
+		 804849e:	55                   	push   %ebp	[[desc Saves the current base pointer value, which the calling function is using to reference it's local variables]]
+		 804849f:	89 e5                	mov    %esp,%ebp [[desc saves the current "top-of-stack" as the base pointer for this functions stack frame]]
+		 80484a1:	83 ec 10             	sub    $0x10,%esp [[desc gives us some working space at the top of the stack for our local variables]]
+			int x=0;
+		 80484a4:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp) [[desc x will be at ebp-8, this sets the value of x]]
+			int y=2;
+		 80484ab:	c7 45 fc 02 00 00 00 	movl   $0x2,-0x4(%ebp) [[desc y will be at ebp-4, this sets the value of y]]
+						
+			x=p1 + p2 + y;
+		 80484b2:	8b 55 08             	mov    0x8(%ebp),%edx
+		 80484b5:	8b 45 0c             	mov    0xc(%ebp),%eax
+		 80484b8:	01 c2                	add    %eax,%edx
+		 80484ba:	8b 45 fc             	mov    -0x4(%ebp),%eax
+		 80484bd:	01 d0                	add    %edx,%eax
+		 80484bf:	89 45 f8             	mov    %eax,-0x8(%ebp)
+				
+			return x;
+		 80484c2:	8b 45 f8             	mov    -0x8(%ebp),%eax [[desc puts the functions return value into eax]]
+		}
+		 80484c5:	c9                   	leave  [[desc Restores calling function’s ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.]]
+		 80484c6:	c3                   	ret    [[desc pops the address on top of the stack and jumps to that address (the address was stored by the calling function)]]
+			
+		080484c7 <funcCall>:	
+	
+--------------------------------------------
+Simple Math
+	The following example shows the object code generated from this:
+	[[code]]
+		int funcMath() {
+			int x;
+			int y;
+				
+			x=4;
+				
+			x*=2;
+			y*=x;
+				
+			return(y);
+		}
+------------------------------------------
+objdump -S 
+[[code]]
+	int funcMath() {
+	 80483eb:	55                   	push   %ebp
+	 80483ec:	89 e5                mov    %esp,%ebp
+	 80483ee:	83 ec 10             	sub    $0x10,%esp
+		int x;
+		int y;
+			
+		x=4;
+	 80483f1:	c7 45 f8 04 00 00 00 	movl   $0x4,-0x8(%ebp)
+			
+		x*=2;
+	 80483f8:	d1 65 f8             	shll   -0x8(%ebp)
+		y*=x;
+	 80483fb:	8b 45 fc             	mov    -0x4(%ebp),%eax
+	 80483fe:	0f af 45 f8          imul   -0x8(%ebp),%eax
+	 8048402:	89 45 fc             	mov    %eax,-0x4(%ebp)
+			
+		return(y);
+	 8048405:	8b 45 fc             	mov    -0x4(%ebp),%eax
+	}
+	 8048408:	c9                   	leave  
+	 8048409:	c3                   	ret 
+------------------------------------------
+C/Obj combined
+	This
+	[[code]]
+		int funcMath() {
+			int x;
+			int y;
+				
+			x=4;
+			x*=2;
+			y*=x;
+				
+			return(y);
+		}
+	Generates this
+	[[code]]
+		 80483eb:	55                   	push   %ebp
+		 80483ec:	89 e5                mov    %esp,%ebp
+		 80483ee:	83 ec 10             	sub    $0x10,%esp
+		 80483f1:	c7 45 f8 04 00 00 00 	movl   $0x4,-0x8(%ebp)
+		 80483f8:	d1 65 f8             	shll   -0x8(%ebp)
+		 80483fb:	8b 45 fc             	mov    -0x4(%ebp),%eax
+		 80483fe:	0f af 45 f8          imul   -0x8(%ebp),%eax
+		 8048402:	89 45 fc             	mov    %eax,-0x4(%ebp)
+		 8048405:	8b 45 fc             	mov    -0x4(%ebp),%eax
+		 8048408:	c9                   	leave  
+		 8048409:	c3                   	ret 	
+------------------------------------------
+If statements
+	The following examples shows the object code generated from this:
+	[[code]]
+		int funcIfs() {                             
+			int x=2;
+			int y=3;
+				
+			// if
+			if (x==4) {
+				x=x+5;
+				y=y+2;
+			}
+				
+			// if else
+			if (y==7) {
+				x--;
+				y--;
+			} else {
+				x++;
+				y++;
+			}
+				
+			return y;
+		}
+------------------------------------------
+if objdump -S 
+[[code]]
+	int funcIfs() {
+	 804840a:	55                   	push   %ebp
+	 804840b:	89 e5                	mov    %esp,%ebp
+	 804840d:	83 ec 10             	sub    $0x10,%esp
+		int x=2;
+	 8048410:	c7 45 f8 02 00 00 00 	movl   $0x2,-0x8(%ebp)
+		int y=3;
+	 8048417:	c7 45 fc 03 00 00 00 	movl   $0x3,-0x4(%ebp)
+			
+		// if
+		if (x==4) {
+	 804841e:	83 7d f8 04          	cmpl   $0x4,-0x8(%ebp)
+	 8048422:	75 08                	jne    804842c <funcIfs+0x22>
+			x=x+5;
+	 8048424:	83 45 f8 05          	addl   $0x5,-0x8(%ebp)
+			y=y+2;
+	 8048428:	83 45 fc 02          	addl   $0x2,-0x4(%ebp)
+		}
+------------------------------------------
+if else objdump -S 
+[[code]]
+		// if else
+		if (y==7) {
+	 804842c:	83 7d fc 07          	cmpl   $0x7,-0x4(%ebp)
+	 8048430:	75 0a                	jne    804843c <funcIfs+0x32>
+			x--;
+	 8048432:	83 6d f8 01          	subl   $0x1,-0x8(%ebp)
+			y--;
+	 8048436:	83 6d fc 01          	subl   $0x1,-0x4(%ebp)
+	 804843a:	eb 08                	jmp    8048444 <funcIfs+0x3a>
+		} else {
+			x++;
+	 804843c:	83 45 f8 01          	addl   $0x1,-0x8(%ebp)
+			y++;
+	 8048440:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+		}
+		
+		return y;
+	 8048444:	8b 45 fc             	mov    -0x4(%ebp),%eax
+	}
+	 8048447:	c9                   	leave  
+	 8048448:	c3                   	ret    
+------------------------------------------
+Loops
+	The following examples shows the object code generated from this:
+	[[code]]
+		int funcLoops() {                 
+			int x=2;
+			int y=3;
+					
+			// for loop
+			for(x=0; x<4; x++) {
+				y=y+4;
+			}
+				
+			x++;
+			y++;
+				
+			// while loop
+			x=0;
+			while (x<4) {
+				y=y+4;
+				y=y-1;
+				x++;
+			}
+				
+			return 1;	
+		}
+	Note: the objdump repeats some of the source lines.  It looks weird...
+------------------------------------------
+for obj code
+[[code]]
+	int funcLoops() {
+	 8048449:	55                   	push   %ebp
+	 804844a:	89 e5                	mov    %esp,%ebp
+	 804844c:	83 ec 10             	sub    $0x10,%esp
+		int x=2;
+	 804844f:	c7 45 f8 02 00 00 00 	movl   $0x2,-0x8(%ebp)
+		int y=3;
+	 8048456:	c7 45 fc 03 00 00 00 	movl   $0x3,-0x4(%ebp)
+			
+		// for loop
+		for(x=0; x<4; x++) { [[desc Initialization happens once, right here, then we go do the comparison]]
+	 804845d:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+	 8048464:	eb 08                	jmp    804846e <funcLoops+0x25>
+			y=y+4;
+	 8048466:	83 45 fc 04          	addl   $0x4,-0x4(%ebp)
+	int funcLoops() {	[[desc objdump put this here but it doesn't seem to belong.  Ignore it.]]
+		int x=2;		[[desc objdump put this here but it doesn't seem to belong.  Ignore it.]]
+		int y=3;		[[desc objdump put this here but it doesn't seem to belong.  Ignore it.]]
+				
+		// for loop
+		for(x=0; x<4; x++) {	[[desc  This is repeated because the x++ part, and comparison, happen after the loop body executes]]
+	 804846a:	83 45 f8 01          	addl   $0x1,-0x8(%ebp)
+	 804846e:	83 7d f8 03          	cmpl   $0x3,-0x8(%ebp)
+	 8048472:	7e f2                	jle    8048466 <funcLoops+0x1d>
+			y=y+4;	[[desc objdump put this here but it doesn't seem to belong.  Ignore it.]]
+		}		
+		x++;	[[desc this is NOT part of the loop. <br>it is the line following the loop.]]
+	 8048474:	83 45 f8 01          	addl   $0x1,-0x8(%ebp)
+		y++;	[[desc this is NOT part of the loop.]]
+	 8048478:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+------------------------------------------
+While Loop
+[[code]]
+		// while loop
+		x=0;
+	 804847c:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+		while (x<4) {
+	 8048483:	eb 0c                	jmp    8048491 <funcLoops+0x48>
+			y=y+4;
+	 8048485:	83 45 fc 04          	addl   $0x4,-0x4(%ebp)
+			y=y-1;
+	 8048489:	83 6d fc 01          	subl   $0x1,-0x4(%ebp)
+			x++;
+	 804848d:	83 45 f8 01          	addl   $0x1,-0x8(%ebp)
+		x++;
+		y++;
+					
+		// while loop
+		x=0;
+		while (x<4) {
+	 8048491:	83 7d f8 03          	cmpl   $0x3,-0x8(%ebp)
+	 8048495:	7e ee                	jle    8048485 <funcLoops+0x3c>
+			y=y+4;
+			y=y-1;
+			x++;
+		}
+					
+		return 1;	
+	 8048497:	b8 01 00 00 00       	mov    $0x1,%eax
+	}
+------------------------------------------

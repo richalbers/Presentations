@@ -1,0 +1,41 @@
+------------------------------------------
+Development Tools
+	Text Editors
+		VIM
+		EMACS
+	Text Editors
+		vi - text editor
+		vim - improved vi
+		emacs - text editor
+	Build Tools
+		gcc - gcc compiler
+			compiles and links, executable is created if all goes well
+		make - creates executable from multiple files
+			Instructions are put into a make file
+			This can be pretty verbose.  We won't need it.
+		gdb - runs gnu debugger
+			Feature laden, but difficult to use.
+	Note:  All these are fairly complex.  We'll discuss them in more detail later.
+-----------------------------------------
+VI
+	
+--------------------------------------------
+Emacs
+
+--------------------------------------------
+gcc
+
+--------------------------------------------
+make
+
+--------------------------------------------
+Summary
+	What is a CLI and why use it?
+	unix/linux (*nix) Command Shells
+	Filename Rules
+	Command Syntax
+	man (manual) pages
+	Fundamental Commands
+	Wildcards
+	Path
+--------------------------------------------

@@ -1,0 +1,176 @@
+------------------------------------------
+Command Line Interface
+	What is it, why use it?
+	CLI access
+	Unix/Linux (*nix) Command Shells
+	Command Syntax
+	man (manual) pages
+	Fundamental Commands
+	Filename Rules
+	Wildcards
+	Path
+	Programming Tools
+-----------------------------------------
+What and Why
+	What is a CLI
+		A command line interface is a text based user interface that requires the users type in commands
+	Why learn a CLI?
+		It's faster for many operations (experts love it!)
+		Scripts can be written that automate tasks
+		Large organizations often use it
+		Many (most?) universitie's computer science and engineering departments use it
+--------------------------------------------
+CLI access
+	There are two ways CLI windows are accessed
+		Log into a *nix system locally, run a windowing system, and open up CLI windows
+			This would be ideal, and effecient
+			You could have one window for editing, another for compiling
+		Log in remotely using telnet (unsecure) or ssh (secure)
+			This requires a local telnet/ssh client
+			This is what we'll do (We'll use PuTTY as our client)
+--------------------------------------------
+Practice
+	Start up PuTTY
+	Connect to progdev.streetercs.net using ssh
+	Log in using the following credentials
+		Username: first initial + last name
+		Password: supplied in class
+	When you get logged in
+		Change your password using the passwd command
+		[[code]]
+			passwd
+		Type exit to log out
+	Reconnect and log in again using your new password
+--------------------------------------------
+*nix Command Shells
+	sh (Bourne Shell)
+		The original unix command line shell
+	ksh (Korn Shell)
+		Updated sh with new features (like history!)
+	csh (C-shell)
+		A shell with C-like scripting utilities developed by Sun Microsystems (they no longer matter)
+		It kinda sucked. 
+		Lets not ever speak of it again	
+	bash (Bourne Again Shell)
+		An improved ksh!  Even more features!
+		It's what we'll be using.  
+------------------------------------------
+Command Syntax
+	Basic Syntax
+		[[code]]
+		command -option argument 
+	options/switches/flags affect the way the command behaves
+		Note: options, switchs, and flags are all synonymous
+	argument(s) are what the command operates on (typically a file or folder name)
+	Examples
+	[[code]]
+		ls -a [[desc -a flag causes all files to be shown]]
+		ls -al [[desc -a flag causes all files to be shown<br>-l flag causes long listing to be produced<br>-al is a combination of those.]] 
+		ls -al /home [[desc -/home is the direcory the listing will be shown for]] 
+------------------------------------------
+man pages
+	There is a manual page (man page) for every command describing it's usage, options, and arguments
+	These are available at the CLI	
+		[[code]]
+		man ls
+	They are also available on the web
+		be aware not all versions of *nix have the same command options)
+		A google search for "man ls" finds [[this!http://linuxcommand.org/man_pages/ls1.html]]
+------------------------------------------
+Fundamental Commands
+	pwd - tells you your present working directory 
+	ls - directory listing
+	cd - change directory	
+	cp - copies a file (or dir)
+	mv - move (or rename) file or dir
+	rm - remove file (or directory)
+	mkdir - make directory
+	chmod - changes permissions on a file 
+		permissions control who can do what to the file
+		there are 3 permissions: read, write, execute
+		there are 3 groups they can apply to: owner, group, everyone
+	exit - exits shell
+		if you exit from your login shell it logs you off
+------------------------------------------
+Practice
+	Practice using the ls command
+	[[code]]
+		ls		[[desc lists all non-hidden files in the current dir]]
+		ls -a	[[desc lists all files in the current dir]]
+		ls -al	[[desc provides long listing of all files in current dir]]
+	Practice using the cd command
+	[[code]]
+		cd ..	[[desc moves to parent dir (which should be /home)]]
+		ls
+		cd ralbers	[[desc changes to the dir ralbers, assuming it's a subdirectory of your current dir<br>This is an example of using a relative path.  The destination dir (ralbers in this case) is relative to the current dir]]
+		ls
+		cd /home	[[desc changes to /home regardless of where you are when the command is run<br>This is an example of using an absolute path]]
+	Practice creating and deleting files
+	[[code]]
+		cd		[[desc changes to your home dir<br>When given no argument, the default destination of cd is your home dir]]
+		mkdir tmp	[[desc makes a directory named tmp]]
+		cd tmp		[[desc changes to the dir tmp]]
+		touch a		[[desc creates an empty file named a<br>touch updates the last modified date/time stamp on a file.<br>If the file doesn't exist, it creates it.]]
+		touch b		[[desc creates an empty file named b<br>touch updates the last modified date/time stamp on a file.<br>If the file doesn't exist, it creates it.]]
+		ls -l		[[desc produces a long listing of the files in the current dir. The files we just created should be there.]]
+		rm *		[[desc removes all files in the current dir]]
+		ls -l		[[desc files a and b should now be gone]]
+------------------------------------------
+Filename rules
+	Filenames are typically composed of letters, numbers, and dots (.), but may contain many other characters.
+		I recommend sticking with characters, numbers,(_), and dots (.).
+	Avoid characters thave have special meaning to the shell (*,#,[,],/,\,etc)
+		Using special characters will make your life much less fun
+	Extensions are optional (for files and directories), but should be used if appropriate
+	*nix is case sensitive, so Hello.c and hello.c are NOT the same file
+-------------------------------------------
+Wildcards
+	Wildcards can be used in file and folder argument names
+		[[code]]
+		* - matches multiple characters
+		? - matches a single character
+	Examples
+		[[code]]
+		ls *.txt [[desc lists all files in the current directory that end in .txt]]
+		ls xyz.*	[[desc lists all files in the current directory that begin with xyz.]]
+		cp * somedir [[desc copies all files from the current directory to the directory named somedir]]
+-------------------------------------------
+path
+	path contains a list of directories that specify where the system will look for commands
+	When a command is typed, the system looks only in those directories specfied by the path from left to right
+	If the command is not found in any of those locations, you'll get an error message.
+	To see your path, type
+		[[code]]
+		path
+	The current directory is NOT in your path by default, so to execute a file from the current direcory, you'll need to preface it with ./
+		[[code]]
+		gcc hello.c 	[[desc compiles the file hello.c<br>output file is named a.out by default]] 
+		./a.out 		[[desc executes the file a.out from the current directory]]
+		gcc -o hello hello.c	[[desc compiles the file hello.c<br>output file is named hello]]
+		./hello			[[desc executes the file hello from the current directory]]
+-------------------------------------------
+Programming tools
+	Text Editors
+		vi - text editor
+		vim - improved vi
+		emacs - text editor
+	Build Tools
+		gcc - gcc compiler
+			compiles and links, executable is created if all goes well
+		make - creates executable from multiple files
+			Instructions are put into a make file
+			This can be pretty verbose.  We won't need it.
+		gdb - runs gnu debugger
+			Feature laden, but difficult to use.
+	Note:  All these are fairly complex.  We'll discuss them in more detail later.
+--------------------------------------------
+Summary
+	What is a CLI and why use it?
+	unix/linux (*nix) Command Shells
+	Filename Rules
+	Command Syntax
+	man (manual) pages
+	Fundamental Commands
+	Wildcards
+	Path
+--------------------------------------------
