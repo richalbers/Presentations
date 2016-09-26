@@ -66,7 +66,7 @@ The goal of High Level Languages
 	The goal of all high level languages is to increase programmer productivity. 
 -------------------------------------------
 Programming Methodologies
-	Programming methodologies are ways to break complex systems (or tasks) into pieces that can then be implmented.
+	Programming methodologies are ways to break complex systems (or tasks) into pieces that can then be implemented.
 	Structured Programming (top-down / stepwise refinement / modular programming)
 		breaks a task down into smaller steps, then each of those steps into small steps
 			This continues until the steps are small enough to be written as lines of code
