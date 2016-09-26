@@ -21,7 +21,7 @@ Programming Language Evolution
 	In the beginning there was only	[[Machine Language!http://en.wikipedia.org/wiki/Machine_code]] 
 		Machine language is the CPUs native language.  
 		It's what all executable code is, even today. 
-		But writing in it is tedius and error prone.
+		But writing in it is tedious and error prone.
 	Example (displayed in hex)
 	[[code]]
 		a5 45 23 a6 [[desc load a value from memory into CPU register eax]]
@@ -46,7 +46,7 @@ Evolution continued
 		An assembler is also a program
 ---------------------------------------------
 Evolution continued
-	Assembly is certainly better then machine code, but it's still very tedius to write, so high level languages have been developed
+	Assembly is certainly better then machine code, but it's still very tedious to write, so high level languages have been developed
 		"High-level language" refers to the higher level of abstraction from machine language
 		One line of a high level language might result in 10s or 100s of lines of machine code
 	Example
