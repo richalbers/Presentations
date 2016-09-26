@@ -18,7 +18,7 @@ What and Why
 		It's faster for many operations (experts love it!)
 		Scripts can be written that automate tasks
 		Large organizations often use it
-		Many (most?) universitie's computer science and engineering departments use it
+		Many university's computer science and engineering departments use it
 --------------------------------------------
 CLI access
 	There are two ways CLI windows are accessed
@@ -31,6 +31,8 @@ CLI access
 --------------------------------------------
 Practice
 	Start up PuTTY
+		Downloable from [[www.putty.org!www.putty.org]]
+		Available inclass in the CS201 folder
 	Connect to progdev.streetercs.net using ssh
 	Log in using the following credentials
 		Username: first initial + last name
