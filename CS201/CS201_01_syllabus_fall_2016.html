@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head>
+<title>CS201 Syllabus - Fall 2016</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- stylesheet ================================================== -->
+<style type="text/css">
+
+	body {
+		margin: 0px; padding: 0px; border: 0px;
+		font-family: Arial;
+		background-color: rgb(111, 165, 55);
+	}
+
+	div { margin: 0px; padding: 0px; border: 0px; }
+		
+	h1, h2, h3 { margin: 0px; padding: 0px; border: 0px; }
+		
+	#Heading {
+		position: absolute;
+		left: 0px; right: 0px; top: 10px; 
+		text-align: center;
+		z-index: 2;
+		color: black;
+		min-width: 500px;
+	}
+
+	#Heading h2 { color: white; }
+	#Heading h3 { color: white; }
+  
+	#Menu {
+		position: absolute;
+		left: 10px; top: 130px; 
+		height: 30px;
+		z-index: 2;
+		min-width: 500px;
+	}
+
+
+	.MenuOffset {
+		float: left;
+		padding: 3px 1px;
+		z-index: 0;
+	}
+
+	.MenuItem {
+		float: left;
+		padding: 3px 10px;
+		background-color: #dddddd; /*also in js, constants */
+		border: 1px solid black;   
+		border-bottom: 2px solid black; /*also in js, ShowTab() */
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	
+	.MenuItem a {text-decoration: none; color: black; } 
+
+	.MenuItem a:hover {background-color: #ffffff; }
+
+	.Content {
+		position: absolute;
+		left: 10px; top: 157px;
+		width: 93%;
+		z-index: 1;
+		border: 1px solid black;
+		padding: 10px;
+		visibility: hidden;
+		background-color: white; /*also in js, contants and ShowTab() */
+		min-width: 500px;
+		border-radius: 5px;
+	}
+	
+	#Schedule table {
+		margin-left: 30px;
+	}
+	
+	#Schedule .week, #Schedule .date, .center {
+		text-align: center;
+	}
+	
+	.holiday {
+		color: red;
+	}
+		
+	#PrintButton {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 80px;
+		z-index: 10;
+	}
+	
+@media print {
+	#Heading { position: relative;display: block; }
+	#Menu { display: none; }
+	#PrintButton { display: none; }
+	.Content { position: relative; top: 10px; display: block; visibility: visible; }
+	h2, h3 {color: black; }
+
+}
+</style>
+
+<!-- javascript ================================================== -->
+<script type="text/javascript">
+//<![CDATA[
+
+// Colors (constants)
+var sColorContent="#ffffff";  //white
+var sColorTabs="#dddddd";
+
+//data
+var aContentPageIDs = []; //IDs of content pages (strings)
+var sVisibleTabID="";
+
+
+//--------------------------------------------------------------
+function Initialize()
+{
+	//get IDs of content pages
+	var x=myGetElementsByClass("Content");
+	for (var i=0; i<x.length; i++)
+		aContentPageIDs[i] = x[i].id;
+	//alert(aContentPageIDs);
+	
+	//build cooresponding menu item divs and put them inside the menu div
+	var sMenuItemTemplate = "<div id=\"MenuX\" class=\"MenuItem\" ><a href=\"Javascript: ShowTab('X')\">X<\/a><\/div>"
+	var sMenuItemText = "<div class=\"MenuOffset\">&nbsp;<\/div>"
+	for (var i=0; i<aContentPageIDs.length; i++)
+		sMenuItemText = sMenuItemText + sMenuItemTemplate.replace(/X/g, aContentPageIDs[i]);
+	document.getElementById("Menu").innerHTML=sMenuItemText;
+
+	//show the first tab
+	ShowTab(aContentPageIDs[0]);
+}
+
+//-------------------------------------------------------------
+function myGetElementsByClass(className)
+{
+	var elements = [];
+	var x=document.getElementsByTagName("div");
+	//alert(x.length);
+	for (var j=0, i=0;i<x.length;i++)
+		if (x[i].className == className)
+		{
+			elements[j] = x[i]; j++;
+		}
+	//alert(elements.length);
+	return elements;
+}
+
+//---------------------------------------------------------------
+function ShowTab(sTabToShow)
+{
+	if (sVisibleTabID != "") //only happens first time
+	{
+		//hide current content page
+		document.getElementById(sVisibleTabID).style.visibility="hidden";
+
+		//gray out menu tab and fix bottom line
+		var x = document.getElementById("Menu" + sVisibleTabID)
+		x.style.backgroundColor=sColorTabs;
+		x.style.borderBottomStyle="solid";
+		x.style.borderBottomWidth="2px";
+		x.style.borderBottomColor="black";
+	}
+
+	//show new tab
+	document.getElementById(sTabToShow).style.visibility="visible";
+
+	//update menu tab to reflect shown tab
+	var x = document.getElementById("Menu" + sTabToShow)
+	x.style.backgroundColor=sColorContent;
+	x.style.borderBottomStyle="solid";
+	x.style.borderBottomWidth="4px";
+	x.style.borderBottomColor="white";
+
+	sVisibleTabID=sTabToShow;
+
+}
+
+//---------------------------------------------------------------
+function ShowPrintingInstructions()
+{
+	alert('Papercuts are painful, so I recommend against printing a paper copy.  Consider yourself warned.\n\nFor those brave souls who really must have a paper copy, you need to print it before clicking on any of the tabs. \n\nIf you have already clicked on one of the tabs, you should reload the page before printing.  Otherwise, you will get some blank pages where there should be words.\n\nIf you only want to print one tab, do a print preview (after reloading the page) and select the page containing the tab you want.');
+}
+//---------------------------------------------------------------
+//]]>
+</script>
+</head>
+
+
+<!-- html ===================================================================== -->
+<body id="Body" onload="Initialize()">
+
+<button id="PrintButton" type="button" value="PrintingInstructions" onclick="javascript:ShowPrintingInstructions();">Printing<br />Instructions</button>
+
+<!-- ============ Heading =========== -->
+<div id="Heading">
+<h2>CS 201 - Computer Systems II</h2>
+<h2>Fall 2016 Syllabus</h2>
+<h3>Section 01 - MW 2:30-4:20</h3>
+
+</div>
+
+<!-- ============ Menu =========== -->
+
+<div id="Menu">
+	<!-- note: this div is filled with MenuItem divs (each representing a "tab") via javascript when page loads -->
+</div>
+
+
+<!-- ============ Course =========== -->
+<div id="Course" class="Content">
+<h2> Course Info</h2>
+
+<p><b>Course Description:</b>  Introduction to computer systems from a software perspective. Topics include: Basic machine organization, system programming in C and assembly language, introduction to system programming tools (gcc, makefile, gdb), data representation (bits & bytes, characters, integers, floating point numbers), implementation of control flow, procedure calls, and complex data types at the machine level, linking and loading, exceptions and interrupts, process control and signals, system calls, file I/O, timing and improving program performance, basic memory hierarchy, and dynamic memory allocation techniques. Prerequisite: CS-162.</p>
+
+<p><b>Course Objectives:</b> Upon completion of this course, each student should be able to:</p>
+<ul>
+<li>describe basic computer system organization including the operating system (processes, files, virtual memory) and the underlying hardware (CPU, registers, memory hierarchy)</li>
+<li>describe the compilation system (preprocessing, assembling, compiling, and linking) and the function of object/executable files and shared libraries, as well as how basic system utilities such as debuggers and Makefiles work</li>
+<li>write C programs to illustrate basic systems programming concepts, including file I/O, system calls, memory management, exception handling and process management</li>
+<li>perform arithmetic in hexadecimal, decimal, octal, and binary notation, and convert among these notations</li>
+<li>explain how data types such as integers, characters, floating point numbers, arrays, pointers, and structures are represented</li>
+<li>describe the basic instruction set architecture for the IA32 family (or similar machine), including the arithmetic/logic instructions, registers, memory model and addressing, and control instructions</li>
+<li>explain how high-level programming constructs such as loops and stack-based function calls are implemented in underlying machine code</li>
+<li>explain how exceptions, traps, and context switches occur and how they are handled at the machine level</li>
+<li>explain the performance impact of hardware features such as pipelining, and architecture principles such as memory locality</li>
+<li>use profiling and timing facilities to identify performance bottlenecks in C programs</li>
+</ul>
+
+<p><b>Prerequisites:</b> CS162</p>
+
+<p>The class is a combination of theory and practice. The student will use the textbook, the WWW, homework assignments, and interaction with the instructor and fellow students to gain insight into the topics covered. Because of the collaborative nature of the class, and the fact that material may may be presented that is not in the textbook, regularly attending class is essential.</p>
+</div>
+
+
+<!-- =========== Instructor ============ -->
+<div id="Instructor" class="Content">
+<h2> Instructor Info</h2>
+<p><b>Name: &nbsp;</b>Richard Albers<br />
+<b>Email:&nbsp;</b> richa@clackamas.edu<br />
+<b>Office:</b> Streeter - S126<br />
+<b>Hours:</b> Mon-Thur 1:00-2:00, or by appointment<br />
+<b>Phone:</b> 503-594-3166 (email is preferred)</p>
+
+<p>I have an A.A.S. in Data Processing, a B.S. and M.S. in Computer Systems Engineering, and am fluent in several programming langauges.  Prior to becomming a full-time College Instructor, I worked as a software developer/engineer in a variety of industries on a number of different types of projects, ranging from developing applications to doing systems programming on the HP-UX Kernel.</p>
+</div>
+
+<!-- =========== Materials ============ -->
+<div id="Materials" class="Content">
+<h2> Materials</h2>
+<p><b>Textbook:</b> Computer Systems: A Programmer's Perspective (2nd Edition) by Bryant/O'hallaron. &nbsp;  ISBN: 9780136108047</p>
+
+<p><b>Website:</b> We will be using Moodle for announcements, distribution of class materials, quizzes, and the final exam. Your Moodle login is the same as your myClackamas login, and the login page can be found at:</p>
+<blockquote>
+<p><a href="http://online.clackamas.edu" target="_blank">http://online.clackamas.edu</a></p>
+</blockquote>
+
+<p><b>Development Environment:</b> - We'll be using a Linux system and standard linux development tools (vi/emacs, gcc, makefile, gdb) for program development.  There is an internet-connected server set up with this environment which you'll connect to using ssh.  Development will be done using the command line.  System details are as follows:</p>
+<blockquote>
+Hostname: progdev.streetercs.net<br>
+IP addr: 198.176.185.250<br>
+Username: first letter of your first name, followed by your last name. (all lowercase)<br>
+Password: Initial passwords will be given out in class (and you'll immediatly change it).</b>
+</blockquote>
+
+<p><b>Client-side tools:</b>You'll need an SSH client installed on your computer in order to connect to the Linux server (required), and an FTP tool to copy files back and forth (optional).  Recomendations (for Windows) are as follows:</p>
+<blockquote>
+	SSH Client: required for for establishing remote login session on Linux server.
+	<ul>
+		<li>putty (<a href="http://www.putty.org/" target="_blank">free download</a>)
+	</ul>
+	ftp tool:	useful if you want to copy files between the Linux server and your local PC.
+	<ul>
+		<li>filezilla (<a href="https://filezilla-project.org/" target="_blank">free download</a>)
+	</ul>
+</blockquote>
+</div>
+
+<!-- =========== Grading ============ -->
+<div id="Grading" class="Content">
+<h2> Grading</h2>
+<p>Graded work will consist of assignments, quizzes, and a final exam, weighted as follows:</p>
+
+<table align="center">
+<tr><td>Assignments (mostly programs):</td>	<td>40%</td></tr>		
+<tr><td>Quizzes:</td>		<td>20%</td></tr>	
+<tr><td>Final Exam:</td>		<td>40%</td></tr>
+</table>
+
+<p><b>Assignments:</b>   There will be numerous assignments (mostly programs) given throughout the term.   Some of your work might simply be code-reviewed by your peers, but some (possibly all) will be submitted for a grade.   These assignments, ideally, will be done independently, but you may discuss the assignment with other class members to get clarification and/or assistance.  However, keep in mind the goal of the class is to learn (not just write a bunch of code) so make sure you fully understand all the code you write.  If you simply copy someone else's work, both you and the person from whom you copied will, at a minimum, receive a zero on the assignment. Due dates and times will be posted; programs submitted late will have a substantial penalty (at least 5% per calendar day). </p>
+
+<p><b>Review Quizzes:</b> After attending class and reading the chapter, you should take any <a href="https://richalbers.github.io/quiz/Quiz.html?id=1Ro7O8Nh-9fEFkax1MYqIyUxFXEzYssw2s42FXsoS58Y" target="_blank">interactive review quizzes</a> that are available for that weeks content.  These are meant as learning exercises, and while the grades on these will not be recorded, similar (or identical!) questions will appear on the weekly in-class quizzes.</p>
+
+<p><b>In-class Quizzes:</b> Each week, there will be a quiz over the previous weeks content. The questions on this quiz will typically be similar to those on the review quizzes (see above). This quiz must be taken in class.</p>
+   
+<p><b>Exam:</b> A final exam will be given. Details of the exams will be specified in class. </p>
+
+<p>
+Grading scale: 90%-100% = A, 80%-89.9% = B, 70%-79.9% = C, 60%-69.9% = D, &lt; 60% = F
+</p>
+</div>
+
+<!-- =========== Misc ============ -->
+<div id="Misc" class="Content">
+<h2> Misc</h2>
+<p><b>Attendance:</b> Regular attendance is essential to your success in this course. Students are responsible for everything that takes place during class, whether covered in written materials or not.  Additionally, some of each class day will be devoted to hand-on activities, and if a class must be missed, there will not be time to make up those activities in the future.</p>
+
+<p><b>Professionalism:</b> All participants in the class will are required to conduct themselves in a courteous, professional manner at all times. This includes communications in person, via phone, via e-mail or through an online chat or discussion.</p>
+
+<p><b>Ethics: </b>Plagiarism or cheating of any variety will be dealt with in accordance with the policies expressed in the student handbook. Possible consequences for academic dishonesty are: receiving no credit for the assignment in question, failing the course, and/or appearing before the college disciplinary board.</p>
+
+<p><b>Food / Drink Policy:</b> Eating is not allowed while class is in session.  Drinking beverages is acceptable provided the beverage is in a sealable container and you aren't interfering with the learning environment of the class.</p>
+
+<p><b>Cell Phones:</b> Cell phones should not interfere with the learning environment of the class.  Each time your cell phone rings during class, &frac12; % will be deducted from your grade.  That's &frac12; % per ring, not per call, and if you phone plays music instead of ringing, every 3 seconds of music will be considered one ring.  If you believe you must have your phone on during class, please discuss this with the instructor before class begins to see if an exception will be allowed.  If the instructor's phone rings, everyone gets &frac12; %.</p>
+
+<p><b>Special Needs:</b> If you are a student with a disability and you believe that your opportunities to be successful in this class are affected by that disability, please contact the Clackamas CC Disability Resource Center.  Their website is <a href="http://www.clackamas.edu/DisabilityResourceCenter/" target="_blank">http://www.clackamas.edu/DisabilityResourceCenter/</a>.</p>
+
+<p><b>Incomplete Grades:</b>  An incomplete grade can be given at the discretion of the instructor if you have satisfactorily (C or better) completed at least 75% of the class work. Arrangements must be made with the instructor before finals week in order to be considered for an incomplete.</p>
+
+
+</div>
+
+<!-- =========== Schedule ============ -->
+
+<div id="Schedule" class="Content">
+<h2> Schedule</h2>
+<p>The outline below is tentative and subject to change as circumstances warrant</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+	<td class="week">Week</td>
+	<td>Topic</td>
+	<td>Reading</td>
+</tr>
+
+<tr>
+	<td class="week">1</td>
+	<td>Course Intro <br />Linux Intro<br />Numbering Systems: Bin/Hex/Dec</td>
+	<td>Chapter 1</td>
+</tr>
+
+<tr>
+	<td class="week">2</td>
+	<td>Integers / Floating Point</td>
+	<td>Chapter 2</td>
+</tr>
+
+<tr>
+	<td class="week" >3</td>
+	<td>Understanding Object Code</td>
+	<td>Chapter 3</td>
+</tr>
+
+<tr>
+	<td class="week" >4</td>
+	<td>Understanding Object Code (continued)</td>
+	<td>Chapter 3</td>
+</tr>
+
+<tr>
+	<td class="week">5</td>
+	<td>Understanding Object Code (continued)</td>
+	<td>Chapter 3</td>
+</tr>
+
+<tr>
+	<td class="week">6</td>
+	<td>Dynamic Memory Allocation, File I/O, makefiles</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td class="week">7</td>
+	<td>Exceptional Control Flow and Processes</td>
+	<td>Chapter 8 & 12.5</td>
+</tr>
+
+<tr>
+	<td class="week">8</td>
+	<td>Optimization</td>
+	<td>Chapter 5.1-6</td>
+</tr>
+
+<tr>
+	<td class="week">9</td>
+	<td>Memory</td>
+	<td>Chapter 6 & 9</td>
+</tr>
+
+<tr>
+	<td class="week">10</td>
+	<td>Internal Structure of the IA-32 Architecture</td>
+	<td>Chapter 5.7-11</td>
+</tr>
+
+<tr>
+	<td class="week">Finals</td>
+	<td>Final Exam</td>
+	<td>&nbsp;</td>
+</tr>
+
+</table>
+</div>
+
+
+</body>
+</html>
