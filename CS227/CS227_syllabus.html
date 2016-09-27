@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<title>CS227 Syllabus - Fall 2016</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- stylesheet ================================================== -->
+<style type="text/css">
+
+	body {
+		margin: 0px; padding: 0px; border: 0px;
+		font-family: Arial;
+		background-color: rgb(111, 165, 55);
+	}
+
+	div { margin: 0px; padding: 0px; border: 0px; }
+		
+	h1, h2, h3 { margin: 0px; padding: 0px; border: 0px; }
+		
+	#Heading {
+		position: absolute;
+		left: 0px; right: 0px; top: 10px; 
+		text-align: center;
+		z-index: 2;
+		color: black;
+		min-width: 500px;
+	}
+
+	#Heading h2 { color: white; }
+	#Heading h3 { color: white; }
+  
+	#Menu {
+		position: absolute;
+		left: 10px; top: 130px; 
+		height: 30px;
+		z-index: 2;
+		min-width: 500px;
+	}
+
+
+	.MenuOffset {
+		float: left;
+		padding: 3px 1px;
+		z-index: 0;
+	}
+
+	.MenuItem {
+		float: left;
+		padding: 3px 10px;
+		background-color: #dddddd; /*also in js, constants */
+		border: 1px solid black;   
+		border-bottom: 2px solid black; /*also in js, ShowTab() */
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	
+	.MenuItem a {text-decoration: none; color: black; } 
+
+	.MenuItem a:hover {background-color: #ffffff; }
+
+	.Content {
+		position: absolute;
+		left: 10px; top: 157px;
+		width: 93%;
+		z-index: 1;
+		border: 1px solid black;
+		padding: 10px;
+		visibility: hidden;
+		background-color: white; /*also in js, contants and ShowTab() */
+		min-width: 500px;
+		border-radius: 5px;
+	}
+	
+	#Grading table {
+		margin-left: 30px;
+	}
+	
+	#Schedule_01 table, #Schedule_02 table {
+		margin-left: 30px;
+	}
+	
+	.Week, .center {
+		text-align: center;
+	}
+	
+	.holiday {
+		color: red;
+	}
+		
+	#PrintButton {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 80px;
+		z-index: 10;
+	}
+	
+@media print {
+	#Heading { position: relative;display: block; }
+	#Menu { display: none; }
+	#PrintButton { display: none; }
+	.Content { position: relative; top: 10px; display: block; visibility: visible; }
+	h2, h3 {color: black; }
+
+}
+</style>
+
+<!-- javascript ================================================== -->
+<script type="text/javascript">
+//<![CDATA[
+
+// Colors (constants)
+var sColorContent="#ffffff";  //white
+var sColorTabs="#dddddd";
+
+//data
+var aContentPageIDs = []; //IDs of content pages (strings)
+var sVisibleTabID="";
+
+
+//--------------------------------------------------------------
+function Initialize()
+{
+	//get IDs of content pages
+	var x=myGetElementsByClass("Content");
+	for (var i=0; i<x.length; i++)
+		aContentPageIDs[i] = x[i].id;
+	//alert(aContentPageIDs);
+	
+	//build cooresponding menu item divs and put them inside the menu div
+	var sMenuItemTemplate = "<div id=\"MenuX\" class=\"MenuItem\" ><a href=\"Javascript: ShowTab('X')\">X<\/a><\/div>"
+	var sMenuItemText = "<div class=\"MenuOffset\">&nbsp;<\/div>"
+	for (var i=0; i<aContentPageIDs.length; i++)
+		sMenuItemText = sMenuItemText + sMenuItemTemplate.replace(/X/g, aContentPageIDs[i]);
+	document.getElementById("Menu").innerHTML=sMenuItemText;
+
+	//show the first tab
+	ShowTab(aContentPageIDs[0]);
+}
+
+//-------------------------------------------------------------
+function myGetElementsByClass(className)
+{
+	var elements = [];
+	var x=document.getElementsByTagName("div");
+	//alert(x.length);
+	for (var j=0, i=0;i<x.length;i++)
+		if (x[i].className == className)
+		{
+			elements[j] = x[i]; j++;
+		}
+	//alert(elements.length);
+	return elements;
+}
+
+//---------------------------------------------------------------
+function ShowTab(sTabToShow)
+{
+	if (sVisibleTabID != "") //only happens first time
+	{
+		//hide current content page
+		document.getElementById(sVisibleTabID).style.visibility="hidden";
+
+		//gray out menu tab and fix bottom line
+		var x = document.getElementById("Menu" + sVisibleTabID)
+		x.style.backgroundColor=sColorTabs;
+		x.style.borderBottomStyle="solid";
+		x.style.borderBottomWidth="2px";
+		x.style.borderBottomColor="black";
+	}
+
+	//show new tab
+	document.getElementById(sTabToShow).style.visibility="visible";
+
+	//update menu tab to reflect shown tab
+	var x = document.getElementById("Menu" + sTabToShow)
+	x.style.backgroundColor=sColorContent;
+	x.style.borderBottomStyle="solid";
+	x.style.borderBottomWidth="4px";
+	x.style.borderBottomColor="white";
+
+	sVisibleTabID=sTabToShow;
+
+}
+
+//---------------------------------------------------------------
+function ShowPrintingInstructions()
+{
+	alert('Papercuts are painful, so I recommend against printing a paper copy.  Consider yourself warned.\n\nFor those brave souls who really must have a paper copy, you need to print it before clicking on any of the tabs. \n\nIf you have already clicked on one of the tabs, you should reload the page before printing.  Otherwise, you will get some blank pages where there should be words.\n\nIf you only want to print one tab, do a print preview (after reloading the page) and select the page containing the tab you want.');
+}
+//---------------------------------------------------------------
+//]]>
+</script>
+</head>
+
+
+<!-- html ===================================================================== -->
+<body id="Body" onload="Initialize()">
+
+<button id="PrintButton" type="button" value="PrintingInstructions" onclick="javascript:ShowPrintingInstructions();">Printing<br />Instructions</button>
+
+<!-- ============ Heading =========== -->
+<div id="Heading">
+<h2>CS 227 - PC Hardware & Repair I</h2>
+<h2>Fall 2016 Syllabus</h2>
+<h3>Section 02: TuTh 3:00-5:50  &nbsp; | &nbsp; S183</h3>
+</div>
+
+<!-- ============ Menu =========== -->
+<div id="Menu">
+	<!-- note: this div is filled with MenuItem divs (each representing a "tab") via javascript when page loads -->
+</div>
+
+
+<!-- ============ Course =========== -->
+<div id="Course" class="Content">
+<h2> Course Info</h2>
+
+<p><b>Course Description:</b> An in-depth course in computer hardware. Covers operational concepts, identification, installation, configuration, and troubleshooting of power supplies, motherboards, microprocessors, memory modules, disk drives, optical drives, and expansion cards.  This course, in conjunction with CS-228, covers the topics on the CompTIA A+ certification exam.</p>
+
+<p><b>Course Objectives:</b> Upon completion of this course, each student should be able to:</p>
+<ol>
+<li>explain and implement proper safety procedures when working with computer components
+</li>
+<li>use PC repair tools, techniques, and procedures appropriately</li>
+<li>explain concepts, organization, and operation of PC hardware and associated software</li>
+<li>identify different case, power supply, and motherboard form factors and components</li>
+<li>identify PC hardware components, and explain the advantages and disadvantages of different types of components</li>
+<li>upgrade a computers power supply, CPU, memory, disk drives, video cards, and other internal components</li>
+<li>completely disassemble and reassemble a PC</li>
+<li>diagnose and repair common hardware and driver problems</li>
+<li>evaluate and select appropriate components to meet a customer's specifications or needs </li>
+</ol>
+
+<p><b>Prerequisites:</b> CS-140 or equivalent experience</p>
+
+<p>The class is offered in a lab environment and is a combination of theory and practice. The student will use the textbook, web research, and interaction with the instructor and fellow students to gain insight into the topics covered. Because of the collaborative nature of the class, and the fact that material will be presented that is not available in the textbooks, regularly attending class is essential.</p>
+</div>
+
+
+<!-- =========== Instructor ============ -->
+<div id="Instructor" class="Content">
+<h2> Instructor Info</h2>
+<p><b>Name: &nbsp;</b>Richard Albers<br />
+<b>Email:&nbsp;</b> richa@clackamas.edu<br />
+<b>Office:</b> Streeter - S126<br />
+<b>Hours:</b> Mon-Thur 1:00-2:00, or by appointment<br />
+<b>Phone:</b> 503-594-3166  (email is preferred)</p>
+
+<p>I have degrees in Computer Systems Engineering, have been been working with computer hardware for many years, have been teaching A+ courses for over 10 years, and am A+ certified.</p>
+</div>
+
+<!-- =========== Materials ============ -->
+<div id="Materials" class="Content">
+<h2> Materials</h2>
+<p><b>Textbook:</b> Mike Meyers' CompTIA A+ Certification Exam Guide (220-901 & 220-902) 9th edition</p>
+<p>This book is used for both this course (227) and the follow-on course (228, PC Hardware &amp; Repair II)</p>
+
+<p><b>Website:</b> We will be using Moodle for announcements, distribution of class materials, quizzes, and exams. </p>
+
+<p><b>Optional Tools:</b> Technician toolkit (screwdriver, etc.) and anti-static kit (wrist strap, lead, alligator clip).  Additional information will be provided in class.
+</p>
+</div>
+
+<!-- =========== Grading ============ -->
+<div id="Grading" class="Content">
+<h2> Grading</h2>
+<p>Graded work will consist of labs, quizzes, and exams, weighted as follows:</p>
+
+<table>
+<tr><td>Labs:</td><td>30%</td></tr>		
+<tr><td>Quizzes:</td><td>25%</td></tr>		
+<tr><td>Exams:		</td><td>45%</td></tr>	
+</table>
+
+<p><b>Labs:</b> Numerous lab exercises will be done during the course.  The labs will consist of hand-on activities and web research/activities.  Many of the lab activities must be done in the lab while the class is in session. If you miss a class, there may not be time to make it up later in the term.</p>
+
+<p><b>Review Quizzes:</b> After reading the chapter, you should take the interactive review quizzes for the chapter.  While the grades on these will not be recorded, similar (or identical!) questions will appear on the in-class chapter quiz.
+</p>
+
+<p><b>Chapter Questions:</b>  After reading the chapter, you should read, answer, and understand all the "Multiple-Choice Quiz" questions at the end of the chapter.  These will not be collected or graded, but the questions may appear on the in-class chapter quiz.  </p>
+
+<p><b>In-class Quizzes:</b>  The week after a chapter is covered, a quiz over that chapter will be taken in class.  The questions on this quiz will come from the review quizzes and/or "Multiple-Choice Quiz" questions at the back of each chapter.</p>
+   
+<p><b>Exams:</b> 2 exams will be given, a midterm and a final.   Details of the exams will be specified in class.</p>
+
+<p>Grading scale: 90%-100% = A, 80%-89.9% = B, 70%-79.9% = C, 60%-69.9% = D, &lt; 60% = F</p>
+</div>
+
+<!-- =========== Misc ============ -->
+<div id="Misc" class="Content">
+<h2> Misc</h2>
+<p><b>Attendance:</b> Regular attendance is essential to your success in this course. Students are responsible for everything that takes place during class, whether covered in written materials or not.  Additionally, some of each class day will be devoted to hand-on activities, and if a class must be missed, there will not be time to make up those activities in the future.</p>
+
+<p><b>Professionalism:</b> All participants in the class will are required to conduct themselves in a courteous, professional manner at all times. This includes communications in person, via phone, via e-mail or through an online chat or discussion.</p>
+
+<p><b>Ethics: </b>Plagiarism or cheating of any variety will be dealt with in accordance with the policies expressed in the student handbook. Possible consequences for academic dishonesty are: receiving no credit for the assignment in question, failing the course, and/or appearing before the college disciplinary board.</p>
+
+<p><b>Food / Drink Policy:</b> Eating is not allowed while class is in session.  Drinking beverages is acceptable provided there are not disassembled computers on the tables, the beverage is in a sealable container, and you aren't interfering with the learning environment of the class.</p>
+
+<p><b>Cell Phones:</b> Cell phones should not interfere with the learning environment of the class.  Each time your cell phone rings during class, &frac12;% will be deducted from your final grade.  That's &frac12;% per ring, not per call, and if you phone plays music instead of ringing, every 3 seconds of music will be considered one ring.  If you believe you must have your phone on during class, please discuss this with the instructor before class begins to see if an exception will be allowed.  If the instructor's phone rings, everyone gets &frac12;% added to their final grade.</p>
+
+<p><b>Special Needs:</b> If you are a student with a disability and you believe that your opportunities to be successful in this class are affected by that disability, please contact the Clackamas CC Disability Resource Center.  Their website is <a href="http://www.clackamas.edu/DisabilityResourceCenter/" target="_blank">http://www.clackamas.edu/DisabilityResourceCenter/</a>.</p>
+
+<p><b>Incomplete Grades:</b>  An incomplete grade can be given at the discretion of the instructor if you have satisfactorily (C or better) completed at least 75% of the class work. Arrangements must be made with the instructor before finals week in order to be considered for an incomplete.</p>
+
+
+</div>
+
+<!-- =========== Schedule ============ -->
+<div id="Schedule" class="Content">
+<h2>Schedule</h2>
+<p>The outline below is tentative and subject to change as circumstances warrant</p>
+<blockquote>
+<table border="1" cellspacing="0" cellpadding="2" style="width: 450px">
+<tr>
+	<td class="Week">&nbsp; Week &nbsp;</td>
+	<td> Topic </td>
+	<td> Reading </td>
+</tr>
+
+<tr>
+	<td class="Week">1</td>
+	<td>Course Intro <br />A+ Exams <br />Operational Procedures/Safety<br />PC Component Overview</td>
+	<td>Ch 1 (18 pg)<br>Ch 2 (28 pg)<br>Ch 3, p47-60 (13 pg)</td>
+</tr>
+
+<tr>
+	<td class="Week">2</td>
+	<td>Power Supplies</td>
+	<td>Ch 8 (40 pg)</td>
+</tr>
+
+<tr>
+	<td class="Week">3</td>
+	<td>Motherboards<br />BIOS and CMOS</td>
+	<td>Ch 7 (46 pg)<br>Ch 6 (42 pg)</td>
+</tr>
+
+<tr>
+	<td class="Week">4</td>
+	<td>CPUs<br />Memory</td>
+	<td>Ch 4 (52 pg)<br>Ch 5 (38 pg)</td>
+</tr>
+
+<tr>
+	<td class="Week">5</td>
+	<td>Hard Drives<br />Midterm Review</td>
+	<td>Ch 9 (30 pg)</td>
+</tr>
+
+<tr>
+	<td class="Week">6</td>
+	<td>Midterm / Lab Makeup Time<br />Implementing Hard Drives</td>
+	<td>Ch 10 (66 pg)</td>
+</tr>
+
+<tr>
+	<td class="Week">7</td>
+	<td>Essential Peripherals</br>Display Technologies<br /><span class="holiday">Fri, Nov 11 - Veterans Day - College is closed</span> </td>
+	<td>Ch 11 (66 pg)<br>Ch 19 (62 pg)</td>
+</tr>
+
+<tr>
+	<td class="Week">8</td>
+	<td>Display Tech continued<br />Building a PC<br>Portable Computing</td>
+	<td><br>Ch 12, p475-491<br>Ch 24 (54 pg)</td>
+</tr>
+
+<tr>
+	<td class="Week">9</td>
+	<td>Printers</br><span class="holiday">Thurs, Nov 29 - Thanksgiving - College is closed</span></td>
+	<td>Ch 27 (52 pg)</td>
+</tr>
+
+<tr>
+	<td class="Week">10</td>
+	<td>PC & Component Selection<br />Review<br />Troubleshooting</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td class="Week">Finals</td>
+	<td>Final Exam</td>
+	<td></td>
+</tr>
+
+</table>
+</blockquote>
+</div>
+
+<!-- =========== Schedule ============ -->
+<!--
+<div id="Schedule_02" class="Content">
+<h2>Schedule for Section 2, which meets TuTh</h2>
+<p>The outline below is tentative and subject to change as circumstances warrant</p>
+<blockquote>
+<table border="1" cellspacing="0" cellpadding="2" style="width: 450px">
+<tr>
+	<td class="Week">&nbsp; Week &nbsp;</td>
+	<td> Topic </td>
+</tr>
+
+<tr>
+	<td class="Week">1</td>
+	<td>Course Intro <br />A+ Exams <br />Operational Procedures/Safety<br />PC Component Overview</td>
+</tr>
+
+<tr>
+	<td class="Week">2</td>
+	<td>Power Supplies<b</td>
+</tr>
+
+<tr>
+	<td class="Week">3</td>
+	<td>Motherboards<br />BIOS and CMOS</td>
+</tr>
+
+<tr>
+	<td class="Week">4</td>
+	<td>CPUs<br />Memory</td>
+</tr>
+
+<tr>
+	<td class="Week">5</td>
+	<td>Hard Drives<br />Midterm Review</td>
+</tr>
+
+<tr>
+	<td class="Week">6</td>
+	<td>Midterm / Lab Makeup Time<br />File Systems</td>
+</tr>
+
+<tr>
+	<td class="Week">7</td>
+	<td><span class="holiday">Mon, Nov 11 - Veterans Day - College is closed</span><br />Removable Media<br />Input Devices</td>
+</tr>
+
+<tr>
+	<td class="Week">8</td>
+	<td>Multimedia<br />Video - Monitors</td>
+</tr>
+
+<tr>
+	<td class="Week">9</td>
+	<td>Video - Video Cards<br /><span class="holiday">Thurs, Nov 29 - Thanksgiving - College is closed</span></td>
+</tr>
+
+<tr>
+	<td class="Week">10</td>
+	<td>PC & Component Selection<br />Review<br />Troubleshooting</td>
+</tr>
+
+<tr>
+	<td class="Week">Finals</td>
+	<td>Final Exam</td>
+</tr>
+
+</table>
+</blockquote>
+</div>
+-->
+
+</body>
+</html>
