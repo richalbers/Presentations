@@ -1,5 +1,10 @@
 ----------------------------------------------------
 Procedures and Components
+	Operational Procedures
+	Troubleshooting
+	Computer Components
+----------------------------------------------------
+Operation Procedures
 	Professional Tech
 		Appearance and Behaviour
 		Communication
@@ -8,8 +13,18 @@ Procedures and Components
 	Safety
 		You
 		Computer (ESD)
+		EMI/RFI
 	Tools
-	Computer Components
+------------------------------------------------------
+Troubleshooting
+	Identify the Problem
+	Establish a theory of probable cause
+	Test the theory
+		if confirmed, determine next steps to resolve
+		if not confirmed, re-establish new theory
+	Establish a plan of action to resolve the problem and implement the solution
+	Verify full system functionality, and if applicable implement preventative measures
+	Document findings, actions, and outcomes
 ----------------------------------------------------
 Computer Components
 	Case
@@ -23,4 +38,3 @@ Computer Components
 		Video
 		Sound
 		Networking
-------------------------------------------------------
