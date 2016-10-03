@@ -1,5 +1,5 @@
 ------------------------------------------
-Ch01 - Info Storage, part 1
+Ch02 - Info Storage, part 1
 	Bits and Bytes
 	Data Sizes
 	Byte Ordering
@@ -92,7 +92,7 @@ Two's Complement
 	For unsigned numbers, simple binary is used.
 		00000001 (binary) = 1 (base 10)
 		11111111 (binary) = 255 (base 10)
-	For signed numbers, [[two's complement!https://en.wikipedia.org/wiki/Two%27s_complement]] is used [[img CS201/TwosComplement.png]]
+	For signed numbers, [[two's complement!https://en.wikipedia.org/wiki/Two%27s_complement]] is used [[img CS201/TwosComplement.PNG]]
 		00000001 (binary) = 1 (base 10)
 		11111111 (binary) = -1 (base 10)
 	This system was chosen because it made the electrical circuitry simpler
