@@ -76,7 +76,7 @@ Constants
 Practice
 	Try compiling the following code.  What happens and why?
 	[[code]]
-		const PI=3.14159;
+		const double PI=3.14159;
 		
 		int main() {
 			int x = 7;
