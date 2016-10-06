@@ -24,7 +24,7 @@ Type Conversions
 ------------------------------------------
 char Data type
 	A character is a letter, digit, or symbol, etc..
-	The char datatype is used to store these values [[img CS161/AsciiTable.jpg]]
+	The char datatype is used to store these values [[img AsciiTable.jpg]]
 		The data is stored as an 8 bit (one byte) number which represents the character
 		This number is the ascii value of the character
 		When outputted, by default, the character will be printed, not the number
@@ -34,7 +34,7 @@ char Data type
 			char FirstLetter = 'a';
 ------------------------------------------
 Practice
-	Which of the statements below are valid? [[img CS161/AsciiTable.jpg]]
+	Which of the statements below are valid? [[img AsciiTable.jpg]]
 	And what character do the valid ones end up storing? 
 		[[code]]
 		char c1 = 'a';
