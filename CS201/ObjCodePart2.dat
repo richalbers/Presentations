@@ -24,7 +24,7 @@ Overview/Tools
 			> objdump -S demo > demo.od [[desc -S - intermix source code with disassembly<br>Send the output to a file named demo.od (object dump)]]
 ------------------------------------------
 Stack Usage
-	A stack is used to [[img cs201/stackIntro.png]]
+	A stack is used to [[img stackIntro.png]]
 		Store arguments sent to function
 		Store return address 
 		Store local variables
@@ -43,9 +43,9 @@ Stack Instructions
 		call - calls a function. Pushes the address of the instruction after the call instruction onto the stack (this is where the called function will return to) and then jumps to the start of the called function.
 	And you'll see these used inside a function
 		ret	pops the address on top of the stack and jumps to that address (the address was stored by the calling function)
-		leave - automates "unwinding" called function’s stack frame. Restores calling function’s ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.
+		leave - automates "unwinding" called functionâ€™s stack frame. Restores calling functionâ€™s ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.
 	And here are some others
-		enter - automates setting up a function’s stack frame. Pushes caller’s ebp onto stack, sets ebp to address of caller’s ebp on stack, subtracts size of memory needed for local variables from esp.
+		enter - automates setting up a functionâ€™s stack frame. Pushes callerâ€™s ebp onto stack, sets ebp to address of callerâ€™s ebp on stack, subtracts size of memory needed for local variables from esp.
 		pop	- pops a value off the stack by storing what esp points to and then adding the data size to esp
 
 ------------------------------------------
@@ -92,7 +92,7 @@ Entering/Leaving Function
 			return x;
 		 80484c2:	8b 45 f8             	mov    -0x8(%ebp),%eax [[desc puts the functions return value into eax]]
 		}
-		 80484c5:	c9                   	leave  [[desc Restores calling function’s ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.]]
+		 80484c5:	c9                   	leave  [[desc Restores calling functionâ€™s ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.]]
 		 80484c6:	c3                   	ret    [[desc pops the address on top of the stack and jumps to that address (the address was stored by the calling function)]]
 			
 		080484c7 <funcCall>:	
