@@ -9,13 +9,13 @@ Object Code, part 1
 		objdump
 ------------------------------------------
 CPU Internals
-	CPU does the following	[[img CS201/CPU.jpg]]
+	CPU does the following	[[img CPU.jpg]]
 		Moves data
 		Does math (including comparisons)
 	CPU Components
 		register: a named memory location on the CPU
 		register file: a group of registers organized in a way to easily access all of them.
-		ALU: the ìArithmetic Logic Unitî is the block of circuitry that performs adds, subtracts, shifts, compares, and other arithmetic and logical functions. It is usually connected to the register file so that any two register values can be input into the ALU and the output of the ALU can feed into any register file.
+		ALU: the ‚ÄúArithmetic Logic Unit‚Äù is the block of circuitry that performs adds, subtracts, shifts, compares, and other arithmetic and logical functions. It is usually connected to the register file so that any two register values can be input into the ALU and the output of the ALU can feed into any register file.
 		control unit: the logic which controls the datapath, access to memory, and which registers to access. Simply speaking, the control unit is the dispatcher and checker for all instructions running on the CPU.
 ---------------------------------------------	
 CPU Registers
@@ -32,7 +32,7 @@ CPU Registers
 		ohters...
 --------------------------------------------
 History
-	Current IA-32 archetecture is result of evolution [[img CS201/x86-registers.png]]
+	Current IA-32 archetecture is result of evolution [[img x86-registers.png]]
 	Registers have expanded from 8 bit to 32 bit (and beyond!)
 		8 bit 
 			A,B,C,D
@@ -86,8 +86,8 @@ Stack Instructions
 	pop	- pops a value off the stack by storing what esp points to and then adding the data size to esp
 	call - calls a function. Pushes the address of the instruction after the call instruction onto the stack (this is where the called function will return to) and then jumps to the start of the called function.
 	ret	pops the address on top of the stack and jumps to that address (the address was stored by the calling function)
-	enter - automates setting up a functionís stack frame. Pushes callerís ebp onto stack, sets ebp to address of callerís ebp on stack, subtracts size of memory needed for local variables from esp.
-	leave - automates "unwinding" called functionís stack frame. Restores calling functionís ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.
+	enter - automates setting up a function‚Äôs stack frame. Pushes caller‚Äôs ebp onto stack, sets ebp to address of caller‚Äôs ebp on stack, subtracts size of memory needed for local variables from esp.
+	leave - automates "unwinding" called function‚Äôs stack frame. Restores calling function‚Äôs ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.
 ------------------------------------------
 Tools to view Obj Code
 	gcc - run it on .c file with -S switch
