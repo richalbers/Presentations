@@ -9,13 +9,13 @@ Object Code, part 1
 		objdump
 ------------------------------------------
 CPU Internals
-	CPU does the following	[[img CPU.jpg]]
+	CPU does the following	[[img http://faculty.etsu.edu/tarnoff/ntes2150/uproc/cpublock.gif]]
 		Moves data
 		Does math (including comparisons)
 	CPU Components
 		register: a named memory location on the CPU
 		register file: a group of registers organized in a way to easily access all of them.
-		ALU: the “Arithmetic Logic Unit” is the block of circuitry that performs adds, subtracts, shifts, compares, and other arithmetic and logical functions. It is usually connected to the register file so that any two register values can be input into the ALU and the output of the ALU can feed into any register file.
+		[[ALU!https://en.wikipedia.org/wiki/Arithmetic_logic_unit]]: the “Arithmetic Logic Unit” is the block of circuitry that performs adds, subtracts, shifts, compares, and other arithmetic and logical functions. It is usually connected to the register file so that any two register values can be input into the ALU and the output of the ALU can feed into any register file.
 		control unit: the logic which controls the datapath, access to memory, and which registers to access. Simply speaking, the control unit is the dispatcher and checker for all instructions running on the CPU.
 ---------------------------------------------
 General Purpose Registers
@@ -33,15 +33,17 @@ General Purpose Registers
 			RAX, RBX, RCX, RDX
 ---------------------------------------------
 Additional Registers
-	Segment (16 bit, used with old segmented memory model)
-		CS, DS,	SS, ES, FS, GS
-	Indicator
-		EFLAGS: flags set from math operations
+
 	Index and Pointer
 		EIP: instruction pointer
 		ESP: stack pointer
 		EBP: stack base (frame) pointer
 		others...
+	Indicator
+		EFLAGS: flags set from math operations
+	Segment (16 bit, used with old segmented memory model)
+		CS, DS,	SS, ES, FS, GS
+	Others..
 	[[More info on registers!https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture]]
 ------------------------------------------
 Assembly
