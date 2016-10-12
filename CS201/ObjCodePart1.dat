@@ -9,7 +9,7 @@ Object Code, part 1
 		objdump
 ------------------------------------------
 CPU Internals
-	CPU does the following	[[img http://faculty.etsu.edu/tarnoff/ntes2150/uproc/cpublock.gif]]
+	CPU does the following	[[img CPU_SuperSimplified.jpg]]
 		Moves data
 		Does math (including comparisons)
 	CPU Components
