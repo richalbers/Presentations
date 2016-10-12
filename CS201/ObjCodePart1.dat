@@ -17,23 +17,10 @@ CPU Internals
 		register file: a group of registers organized in a way to easily access all of them.
 		ALU: the “Arithmetic Logic Unit” is the block of circuitry that performs adds, subtracts, shifts, compares, and other arithmetic and logical functions. It is usually connected to the register file so that any two register values can be input into the ALU and the output of the ALU can feed into any register file.
 		control unit: the logic which controls the datapath, access to memory, and which registers to access. Simply speaking, the control unit is the dispatcher and checker for all instructions running on the CPU.
----------------------------------------------	
-CPU Registers
-	General Purpose
-		EAX, EBX, ECX, EDX
-	Segment (16 bit, used with segmented memory model)
-		CS, DS,	SS,	ES,	FS,	GS
-	Indicator
-		EFLAGS
-	Index and Pointer
-		EIP: instruction pointer
-		ESP: stack pointer
-		EBP: stack base (frame) pointer
-		ohters...
---------------------------------------------
-History
+---------------------------------------------
+General Purpose Registers
+	Data the CPU is going to operate on is loaded into General Purpose Registers
 	Current IA-32 archetecture is result of evolution [[img RegisterBreakdown.jpg]]
-	Registers have expanded from 8 bit to 32 bit (and beyond!)
 		8 bit 
 			A,B,C,D
 		16 bit (eXtended)
@@ -44,6 +31,18 @@ History
 	And for x64 bit machines:
 		64 bit (Really extended!)
 			RAX, RBX, RCX, RDX
+---------------------------------------------
+Additional Registers
+	Segment (16 bit, used with old segmented memory model)
+		CS, DS,	SS, ES, FS, GS
+	Indicator
+		EFLAGS: flags set from math operations
+	Index and Pointer
+		EIP: instruction pointer
+		ESP: stack pointer
+		EBP: stack base (frame) pointer
+		others...
+	[[More info on registers!https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture]]
 ------------------------------------------
 Assembly
 	Object code can be viewed as assembly
