@@ -32,7 +32,7 @@ CPU Registers
 		ohters...
 --------------------------------------------
 History
-	Current IA-32 archetecture is result of evolution [[img x86-registers.png]]
+	Current IA-32 archetecture is result of evolution [[img RegisterBreakdown.jpg]]
 	Registers have expanded from 8 bit to 32 bit (and beyond!)
 		8 bit 
 			A,B,C,D
@@ -41,6 +41,9 @@ History
 			Used segment registers as well
 		32 bit (Extended again!)
 			EAX, EBX, ECX, EDX
+	And for x64 bit machines:
+		64 bit (Really extended!)
+			RAX, RBX, RCX, RDX
 ------------------------------------------
 Assembly
 	Object code can be viewed as assembly
