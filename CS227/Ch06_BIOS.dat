@@ -21,7 +21,7 @@ Hardware/Software /Firmware
 	Software - 
 		Instructions for processor
 		Typically stored in volatile memory
-		Usually high-level, farily large 
+		Usually high-level, fairly large 
 	Firmware
 		Very low-level code
 		Simple programs stored in less-volatile media
@@ -30,7 +30,7 @@ Hardware/Software /Firmware
 ---------------------------------------
 BIOS
 	Stores 
-		low-level I/O code (programs)
+		Low-level I/O code (programs)
 		Bootstrap code
 	non-volatile (remembers without power)
 	Usually on EEPROM
