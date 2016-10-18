@@ -29,7 +29,7 @@ CPU Components
 		ALU (Arithmetic Logic Unit)
 		FPU (Floating Point Unit)
 		Address/Data Bus	
-		Cache (L1, L2, L3) [[img  http://http://tutorial.programming4.us/image/1207/CPU%20architecture.jpg]]
+		Cache (L1, L2, L3) [[img http://tutorial.programming4.us/image/1207/CPU%20architecture.jpg]]
 	Modern CPUs often include 2-8 (or more!) separate "cores", with each core being almost a "separate" CPU and consisting of all the above items (although L2 or L3 cache may be shared) 
 
 -----------------------------------
@@ -47,7 +47,7 @@ Speeds
 	1 GHz - 1 billion cycles per second
 -----------------------------------
 Other Items Affecting Performance
-	Cache Size - L1, L2, L3 [[img  http://www.ni.com/cms/images/devzone/tut/image2840731961173341797.png]]
+	Cache Size - L1, L2, L3 [[img http://www.ni.com/cms/images/devzone/tut/image2840731961173341797.png]]
 	Number of Cores
 	Component Integration
 		Memory Controller
