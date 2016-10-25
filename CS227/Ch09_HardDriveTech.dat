@@ -77,7 +77,7 @@ SATA overview
 		SATA II - 3 Gb/s (300 MB/s)
 		SATA III - 6 Gb/s (600 MB/s) 
 		SATAe (SATA 3.2) - 16 Gb/s (2 GB/s)
-			New, (backwards compatible) connector
+			New (backwards compatible) connector
 		eSATA - external SATA, 2 meter shielded cable
 ---------------------------------------------
 AHCI
