@@ -96,11 +96,12 @@ Interface Summary
 			PATA (Parallel ATA)
 			SATA (Serial ATA)
 			eSATA  (External SATA, this is not SATAe)
+			USB (external)
 			Serial Attached SCSI, (SAS)
-			Fiber Channel (typically only on Servers)
 		SDD
 			PATA (Parallel ATA)
 			SATA (Serial ATA)
+			USB (external)
 			SATAe (SATA 3.2, PCIe lanes on SATA connectors)
 			mSATA (mini-SATA, PCIe lanes on special slot)
 			M.2 (replaces mSATA, uses PCIe lanes on special slot)
