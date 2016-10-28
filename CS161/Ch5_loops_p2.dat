@@ -1,12 +1,9 @@
 ------------------------------------------
 Ch 5 - Repetition Structures, part 2
-	While loops revisited
-		reading files 
-		using eof() 
+	Using while loops to read files
+		using extraction operator (>>)
+		using get() and eof() 
 		using getline() 
-	for revisited
-		multiple variables
-	Nested loops
 
 ------------------------------------------
 Reading Files
