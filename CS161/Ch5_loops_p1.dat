@@ -237,4 +237,10 @@ Nested Loops
 				cout &lt;&lt; row * col &lt;&lt; " ";
 			cout &lt;&lt; endl;
 		}
+------------------------------------------
+Practice
+	Modify the previous code
+		To print out the multiplication table from 1x1 to 12x12
+		Format the output so the columns are right-aligned
+			review the Week 2 formatting slides if you've forgotten how to do that
 -------------------------------------------
