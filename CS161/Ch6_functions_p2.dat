@@ -145,28 +145,7 @@ Practice
 		returns: Whichever of the two arguments is lowest
 		Call it from main a few times with different values to verify it works in all cases
 
-------------------------------------------------
-Function Documentation
-	A common convention is to precede each function with a comment block providing information about the function and its arguments and return value
-	For Example:
-	[[code]]
-		//===========================================================
-		// Function: isVowel
-		// Description: determines if the given character is a vowel
-		//
-		// Argument List:
-		// &nbsp; &nbsp; letter (I) - Letter to check	[[desc The I means input.  Later we'll learn you can use arguments for output!]]
-		//
-		// Return Value:
-		// &nbsp; &nbsp; true - if it is a vowel
-		// &nbsp; &nbsp; false - if it is not a vowel
-		//===========================================================
-		bool isVowel(char letter) {
-			...
-	This will be required on assignments for all functions you write
------------------------------------------------
-Practice
-	Add function headers to the previously written functions isEven() and lowest()
+	Note: don't forget the function documentation!
 ------------------------------------------------
 Misc
 	The prototype doesn't technically need the parameter names, just the data types
