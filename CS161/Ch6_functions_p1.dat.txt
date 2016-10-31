@@ -1,0 +1,346 @@
+------------------------------------------
+Ch 6 - Functions
+	This presentation covers
+		What functions are
+		How to use pre-defined functions 
+		How to write and call your own functions in C/C++
+		Function Arguments and Parameters
+
+------------------------------------------
+Overview
+	A function is a named block of code
+	Functions
+		Can receive zero or more pieces of data (arguments/parameters)
+		Can return either zero or one value 
+		Must be declared (defined) before they can be called (so the compiler knows what it is and if it was passed the proper data types)
+	Function synonyms
+		Functions are sometimes called procedures, routines, subroutines, or subprograms 
+			In C++, they're formally called functions, but informally sometimes called routines
+		In OOP, member functions are called methods
+------------------------------------------
+Using pre-defined functions
+	To use a pre-defined function, you need to:
+		include the appropriate header file (which contains the function prototype; i.e. definition)
+		call it with the proper arguments (see function prototype in c++ reference to determine what those are)
+	For Example, to use the pow function:
+		cmath needs to be included because it contains the prototype
+		When the function is called it needs to be passed 2 arguments because that's what it expects (as per the [[documentation!http://www.cplusplus.com/reference/cmath/pow/]])
+		[[code]]
+			#include <cmath>	//needed for pow
+			 
+			using namespace std;
+			 
+			void main() {
+				//saving result of pow() function, then printing
+				double cube;
+				cube = pow(2,3); //call to pow function [[desc Call to function pow()<br>2 and 3 are passed to the function.  Items passed to a function are called arguments, so 2 and 3 are arguments.<br>pow() returns a value that is then saved in the variable cube]]
+				cout << "2 cubed is " << cube << "\n";
+				&nbsp;
+				//printing function result directly
+				cout << "2 cubed is " << pow(2,3);
+			}
+-----------------------------------------------
+Some common pre-defined functions
+	from <cstdlib>
+		abs(x)
+	from <cmath>
+		fabs(x)
+		floor(x)
+		ceil(x)
+		pow(x,y)
+		exp(x)
+		cos(x)
+	from <cctype>
+		tolower(x)
+		toupper(x)
+	Note: you can look these up in the C++ documentation to get descriptions and how to use them
+-----------------------------------------------
+Practice
+	Find the C++ documentation for the hypot() function:
+		determine what header file needs to be included
+		determine the number and datatypes of the arguments it expects
+		determine what type of data it will return
+	Write a program that used the hypot function to find the hypotenuse of a right triangle whose legs are 2.5 and 4.3 units in length.
+		
+-----------------------------------------------
+User Defined Function Design
+	User defined functions are functions you write yourself
+	For each function you create you'll need to:
+		Determine what the function will do
+			And come up with a descriptive name
+		Determine what the function will return
+		Determine the function arguments (if any)
+			Arguments are pieces of data passed to the function when it's called
+		Determine the logic required to accomplish the function's task
+-----------------------------------------------
+Practice	
+	Determine the following:
+		name
+		return value (what the function returns)
+		arguments (data passed to the function)
+		logic
+	For each of the following.  A function that:
+		computes the area of square
+		computes the perimeter of a rectangle
+		computes the area of a circle
+		determines if a given character is a vowel or not		
+-----------------------------------------------
+Writing User Defined Functions
+	For each function you create you'll need to:
+		Write a function prototype.
+			specifies:
+				The function name
+				The type of data that is being sent to the function
+				The type of data being returned from the function
+		Write the function itself
+			First line is function header, looks just like prototype 
+			The rest is the function implementation (the function body)
+------------------------------------------------
+User Defined Void Function Example
+	void functions are functions that return no value
+	Example
+		[[code]]
+		// Function Prototype
+		void PrintHello();		[[desc This is a function prototype.<br>Function prototypes specify the function name, argument types, and return type.<br>Prototypes are necessary if the call to the function occurs in the code before the function itself, so when the compiler sees the function call, it knows about the function (it's name, argument types, and return value)]]
+		
+		//============================================
+		//main - entry point for all C and C++ programs
+		int main()
+		{
+			PrintHello();      //function call  [[desc This is a function call.<br>When the code is compiled, the compiler must know that PrintHello() is a valid function, what arguments it wants, and what type of data it returns.<br>When the program executes, this function call results in all the code within the function to be run before we go to the next line.]]
+			PrintHello();      //function call
+			PrintHello();      //function call
+		
+			return 1;
+		}
+		
+		//============================================
+		// PrintHello() Function - ran when called
+		void PrintHello()                 // function header [[desc This is a function header.<br>It must match the prototype]]
+		{
+			cout << "Hello World! \n";    // function body
+		} 	[[desc since the function is a void function (and therefore doesn't return anything) the return statement is optional.  When we reach the end of the function we return to where we were called from automatically]]
+-----------------------------------------------
+Prototype Examples
+	Function prototypes 
+		are declared at the top of the program (after the includes)
+		specify:
+			The function name
+			The type of data that is being sent to the function
+			The type of data being returned from the function	
+	Examples:
+	[[code]]
+		#include <iostream>
+			
+		//prototypes
+		void printHello();
+		void printCube(int number);
+		int sum(int num1, int num2, int num3);
+		bool isPrime(int num);
+			
+		//==========================================
+		int main() {
+			...
+-----------------------------------------------
+Practice
+	Write function prototypes (just the prototype, NOT the function!) for the following functions:
+		A function named printName
+			that accepts no arguments
+			prints your name on the screen
+			return nothing
+		A function named printSquare
+			that accepts an integer argument 
+			prints the square of that value to the screen
+			returns nothing
+		A function named add
+			that accepts two double arguments
+			adds them together
+			and returns the result 
+		A function named isPrime
+			that accepts an integer argument
+			determins if it's prime or not
+			and returns TRUE if it is, and FALSE otherwise
+-----------------------------------------------
+Practice
+	Write the implementation of the printName function.
+	The function
+		accepts no arguments
+		prints your name on the screen
+		return nothing	
+	Then call it from main 10 times using a loop.
+------------------------------------------------
+User Defined Value Function
+	Value returning functions return a value
+	Example
+		[[code]]
+		// Function Prototype
+		int getFavoriteNumber();
+		
+		//==========================================
+		int main()
+		{
+			int favNum = 0;
+			
+			favNum = getFavoriteNumber(); //function call
+			cout << "My favorite number is << favNum;
+			
+			return 1;
+		}
+		
+		//=======================================
+		int getFavoriteNumber()
+		{
+			return 42; [[desc return statements are required if the function returns a value. <br>When the return statement is reached, the function ends and returns the value specified on the retun statement.<br>If there were lines in the function after the return statement, they wouldn't execute.]]
+		}
+-------------------------------------------
+Function (local) variables
+	Variables declared inside functions are "local" to the function. 
+	They are:
+		created when the function is called
+		accessible only within the function.
+		destroyed when the function exits
+	For example
+		[[code]]
+		//=======================================
+		int getFavoriteNumber()
+		{
+			int favNum;
+			
+			favNum = 40 + 2;
+			
+			return favNum;
+		}		
+		
+-------------------------------------------
+Practice
+	Write a function called getLetter() that
+		prompts the user for a capital letter
+		verifies what was enter is a capital letter
+			prints an error message and reprompts until a letter entered
+		returns the letter (as a character)
+	Then...
+		Call this function twice from main() putting the returned results into variables named letterOne and letterTwo.
+	
+------------------------------------------
+Arguments/ Parameters
+	The data passed to a function is referred to as arguments
+		When you call a function, you pass it arguments
+		Arguments are actual values (although those values may come from variables)
+		[[code]]
+			//function call
+			x=pow(3,5); //3 and 5 are arguments
+	The variables a function uses to store the data it receives are called parameters
+		These variables are declared on the same line as the function name and are known as the parameter list
+		[[code]]
+			//function prototype: base and exponent are parameters
+			double pow( double base, double exponent ); 
+	Sometimes these terms (arguments/parameters) are used interchangeably
+	The book uses another (less common) terminology.  It refers to
+		arguments as actual parameters
+		parameters as formal parameters
+-------------------------------------------
+Example 
+	[[code]]
+		// function prototype
+		int add( int num1, int num2);   //num1 and num2 are parameters       
+		
+		// ===========================================
+		int main()
+		{
+			int x=1, y=2, z;
+			
+			z = add(2, 3);      // 2 and 3 are arguments
+			cout << z << endl;
+			z = add(x, y);      // 1 & 2 (contents of x & y) are args
+			cout << z << endl;
+			z = add(1, y);      // 1 and 2 (content of y) are args
+			cout << z << endl;
+			
+			return 1;
+		}
+		
+		// ===========================================
+		// Function implementation (header + body)
+		int add( int num1, int num2)
+		{
+			return num1 + num2;
+		}
+-------------------------------------------
+Example 
+	[[code]]
+		// function prototype
+		int add( int num1, int num2);   //num1 and num2 are parameters       
+		
+		// ==========================
+		int main()
+		{
+			int x=1, y=2, z;
+			float f;
+			
+			x = add(1, 2);    //return an int, stores it in an int
+			f = add(1, 2);    //works fine, implicit conversion occurs
+			
+			z = add(1, 2, 3); //doesn't compile, too many args
+			z = add(1, 2.0);  //doesn't compile, wrong arg type
+			  
+			add(5, 6);		  //calls function but ignores result
+					
+			return 1;
+		}
+-----------------------------------------------
+Practice
+	Write a function named isEven() that:
+		accepts an integer as an argument
+		returns true if it's even [[(note: 0 is even)!http://en.wikipedia.org/wiki/Parity_of_zero]]
+		returns false if it's odd
+
+	Write a function named lowest that:
+		receives two integer values as arguments
+		returns: Whichever of the two arguments is lowest
+		Call it from main a few times with different values to verify it works in all cases
+
+------------------------------------------------
+Function Documentation
+	A common convention is to precede each function with a comment block providing information about the function and its arguments and return value
+	For Example:
+	[[code]]
+		//===========================================================
+		// Function: isVowel
+		// Description: determines if the given character is a vowel
+		//
+		// Argument List:
+		// &nbsp; &nbsp; letter (I) - Letter to check	[[desc The I means input.  Later we'll learn you can use arguments for output!]]
+		//
+		// Return Value:
+		// &nbsp; &nbsp; true - if it is a vowel
+		// &nbsp; &nbsp; false - if it is not a vowel
+		//===========================================================
+		bool isVowel(char letter) {
+			...
+	This will be required on assignments for all functions you write
+-----------------------------------------------
+Practice
+	Add function headers to the previously written functions isEven() and lowest()
+------------------------------------------------
+Misc
+	The prototype doesn't technically need the parameter names, just the data types
+		This works:
+			[[code]]
+			void PrintHello( int );
+		But supplying the name provides additional information, so this is preferred:
+			[[code]]
+			void PrintHello( int NumberOfTimesToPrint );
+	If the function is located in the source file BEFORE it's called, the prototype isn't necessary at all, as the function header will double as the prototype.
+		[[code]]
+		//Print Hi on the screen
+		void PrintHi() { //function header doubles as prototype
+			cout << "Hi";
+		}
+		
+		//=======================================================
+		int main() {
+			...
+			printHi();  //calling a function located early in source file
+			...
+		}
+	The coding conventions for the class mandate you use prototypes and have main() as the first function.
