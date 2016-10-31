@@ -100,12 +100,11 @@ Function Documentation
 		// &nbsp; &nbsp; true - if it is a vowel
 		// &nbsp; &nbsp; false - if it is not a vowel
 		//===========================================================
-		bool isVowel(char letter) {
-			...
+	
 	This will be required on assignments for all functions you write
 -----------------------------------------------
 Practice
-	Write the function comment block for the area of a square function designed previouly
+	Write the function comment block for the area of a square function designed previously
 -----------------------------------------------
 Writing User Defined Functions
 	For each function you create you'll need to:
@@ -186,9 +185,12 @@ Practice
 			and returns TRUE if it is, and FALSE otherwise
 -----------------------------------------------
 Practice
-	Write the implementation of the printName function.
-	The function
-		accepts no arguments
-		prints your name on the screen
-		return nothing	
+	Write the implementation of the following function.
+	[[code]]
+		//==================================================
+		// Function: printName
+		// Description: Prints my name on screen 
+		// Arguments: none:
+		// Return value: none:
+		//==================================================
 	Then call it from main 10 times using a loop.
