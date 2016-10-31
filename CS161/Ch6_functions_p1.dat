@@ -79,11 +79,33 @@ Practice
 		return value (what the function returns)
 		arguments (data passed to the function)
 		logic
-	For each of the following.  A function that:
+	For functions that do the following:
 		computes the area of square
 		computes the perimeter of a rectangle
 		computes the area of a circle
-		determines if a given character is a vowel or not		
+		determines if a given character is a vowel or not	
+------------------------------------------------
+Function Documentation
+	A common convention is to precede each function with a comment block providing information about the function and its arguments and return value
+	For Example:
+	[[code]]
+		//===========================================================
+		// Function: isVowel
+		// Description: determines if the given character is a vowel
+		//
+		// Argument List:
+		// &nbsp; &nbsp; letter (I) - Letter to check	[[desc The I means input.  Later we will learn you can use arguments for output!]]
+		//
+		// Return Value:
+		// &nbsp; &nbsp; true - if it is a vowel
+		// &nbsp; &nbsp; false - if it is not a vowel
+		//===========================================================
+		bool isVowel(char letter) {
+			...
+	This will be required on assignments for all functions you write
+-----------------------------------------------
+Practice
+	Write the function comment block for the area of a square function designed previouly
 -----------------------------------------------
 Writing User Defined Functions
 	For each function you create you'll need to:
@@ -115,7 +137,9 @@ User Defined Void Function Example
 		}
 		
 		//============================================
-		// PrintHello() Function - ran when called
+		// Function: PrintHello
+		// Description: Prints Hello World on screen.
+		//============================================
 		void PrintHello()                 // function header [[desc This is a function header.<br>It must match the prototype]]
 		{
 			cout << "Hello World! \n";    // function body
@@ -299,28 +323,7 @@ Practice
 		returns: Whichever of the two arguments is lowest
 		Call it from main a few times with different values to verify it works in all cases
 
-------------------------------------------------
-Function Documentation
-	A common convention is to precede each function with a comment block providing information about the function and its arguments and return value
-	For Example:
-	[[code]]
-		//===========================================================
-		// Function: isVowel
-		// Description: determines if the given character is a vowel
-		//
-		// Argument List:
-		// &nbsp; &nbsp; letter (I) - Letter to check	[[desc The I means input.  Later we'll learn you can use arguments for output!]]
-		//
-		// Return Value:
-		// &nbsp; &nbsp; true - if it is a vowel
-		// &nbsp; &nbsp; false - if it is not a vowel
-		//===========================================================
-		bool isVowel(char letter) {
-			...
-	This will be required on assignments for all functions you write
------------------------------------------------
-Practice
-	Add function headers to the previously written functions isEven() and lowest()
+
 ------------------------------------------------
 Misc
 	The prototype doesn't technically need the parameter names, just the data types
