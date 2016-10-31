@@ -94,7 +94,7 @@ Function Documentation
 		// Description: determines if the given character is a vowel
 		//
 		// Argument List:
-		// &nbsp; &nbsp; letter (I) - Letter to check	[[desc The I means input.  Later we will learn you can use arguments for output!]]
+		// &nbsp; &nbsp; letter (I) - Letter to check	[[desc The I means input.  Later we will learn you can use arguments for output]]
 		//
 		// Return Value:
 		// &nbsp; &nbsp; true - if it is a vowel
