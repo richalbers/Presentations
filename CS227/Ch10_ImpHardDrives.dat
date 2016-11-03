@@ -88,6 +88,21 @@ Other Partition Types
 		Some Computer manufactures put one of these on the disk to contain a backup copy of the OS.
 			Commonly referred to as a "factory recovery partition"
 	Swap Partition - a partition used by Linux in place of a swap file
+------------------------------------------
+Vocabulary/Terms Summary
+	Physical Partitions of the Disk
+		Partitions - MBR & GPT
+		Volumes* - Dynamic (Microsoft terms)
+	Logical Disks - what user/OS see as drive
+		Partitions (MBR & GPT)
+		Logical drive in extended partition (MBR)
+		Volumes* - Dynamic 
+			Simple, Span, Stripe, Mirror, RAID5
+	Microsoft Disk Types
+		Basic - MBR & GPT
+		Dynamic 
+
+	* The term Volume is used for two different things
 --------------------------------------------
 File System Basics
 	Partitions/Volumes need file systems to manage the disk space
