@@ -1,5 +1,5 @@
 ------------------------------------------
-Ch 12 - Implementing Hard Drives
+Ch 10 - Implementing Hard Drives
 	Partitioning Basics 
 	Partitioning Types
 		MBR
@@ -19,8 +19,10 @@ Partitioning Basics
 		In windows, each partition typically gets a drive letter
 		The install process and/or disk managment tool allows you to work with partitions
 	Why have multiple Partitions?	
-		To build a multi-boot system supporting several OSs, each in it's own partition (less common since the advent of VMs)
+		To build a multi-boot system supporting several OSs, each in it's own partition
+			This is less common since the advent of VMs
 		To provide separate partions for Software and Data
+		To provide a non-accessible-to-the-user partition for essential system files 
 
 ------------------------------------------
 Partitioning Types
@@ -85,7 +87,7 @@ Other Partition Types
 	Hidden partition - A partition that is hidden from the OS
 		Some Computer manufactures put one of these on the disk to contain a backup copy of the OS.
 			Commonly referred to as a "factory recovery partition"
-	Swap Partition - a partition used by Linux in place of a boot file
+	Swap Partition - a partition used by Linux in place of a swap file
 --------------------------------------------
 File System Basics
 	Partitions/Volumes need file systems to manage the disk space
