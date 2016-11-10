@@ -1,5 +1,5 @@
 ------------------------------------------
-Ch 25 - Multimedia
+Ch 11b - Multimedia
 	Digitizing Sound Waves
 	Sound File Formats
 	Sound Card
@@ -121,8 +121,8 @@ Common Sound Problems
 		Speakers not plugged into the wall (many need external power source for a built in amp) 
 
 --------------------------------------------
-A/V Capture
-	Video Capture requires significant hardware
+Video Capture
+	Video Capture requires proper hardware/software
 	Video files contain both audio and video tracks
 		Must be synced (A/V snyc)
 	Compressed tracks are wrapped in a container file
@@ -137,14 +137,10 @@ Video Codecs
 	There are many
 		WMA, WMV, H.263, Vorbis, Theora, etc..
 		[[Codec list from Wikipedia!http://en.wikipedia.org/wiki/List_of_codecs]]
-	To see which are installed
-		XP
-			Control Panel, Sounds and Audio Devices
-			Hardware tab -> Video Codecs -> Properties
-		Win 7
-			Start Windows Media player
-			Cntrl M, then Help->About
-			Tech Support link, scroll down...
+	To see which are installed (on Win 7)
+		Start Windows Media player
+		Cntrl M, then Help->About
+		Tech Support link, scroll down...
 
 --------------------------------------------
 Summary
