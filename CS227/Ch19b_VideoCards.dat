@@ -41,7 +41,7 @@ Busses / Expansion Slots
 
 ------------------------------------------
 Monitor Connections
-	VGA (RGB, DSub-15)  [[img http://www.crs-uk.biz/images/vga_dvi_card.jpg]]
+	VGA (RGB, HD15)  [[img http://s11.postimg.org/5mvy7xi0z/vga_dvi_card.jpg]]
 		15 pins, in three rows
 		Analog signal
 		Optimal for CRTs
@@ -62,6 +62,9 @@ Monitor Connections (continued)
 	DisplayPort
 		Supports higher bandwidth than HDMI [[img images/VideoConnectors.png]]
 		Manufacturers can use it "royalty free" (HDMI requires royalties)
+	[[Thunderbolt!https://en.wikipedia.org/wiki/Thunderbolt_(interface)]] [[img http://www.intel.com/content/dam/www/public/us/en/images/illustrations/RWD/thunderbolt-3-illustration-rwd.png.rendition.intel.web.416.234.png]]
+		Thunderbolt 1 and 2 use the same connector as Mini DisplayPort
+		Thunderbolt 3 uses USB Type-C
 	For other video devices [[img images/VideoAdapters.jpg]]
 		[[S-Video!http://en.wikipedia.org/wiki/S-Video]] 
 		[[Composite!http://en.wikipedia.org/wiki/RCA_connector]] (RCA port)
@@ -93,9 +96,9 @@ Multiple GPUs - one display
 	Two cards are installed and connected with a bridge
 	Nvidia technology 
 		SLI - Scalable Link Interface
-		Allows 2+ GPUs
+		Allows 2-4 GPUs
 		GPUs MUST be same series
-	ATI (now AMD) technology
+	AMD (previously ATI) technology
 		CrossFire
 		Allows up to 4 GPUs
 
@@ -103,10 +106,8 @@ Multiple GPUs - one display
 Direct X
 	A set of programming APIs for handling multimedia tasks used in game programming
 	Almost all Windows games use DirectX and video cards support it
-	Latest version
-		DirectX 11
-		Only works with Vista/7
-	XP supported up to 9
+	Latest version: DirectX 12
+		Only works with Win 10
 	To determine the version on your PC, run DxDiag from run menu
 
 -------------------------------------------
