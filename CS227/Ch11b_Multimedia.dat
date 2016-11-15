@@ -16,7 +16,7 @@ Digitizing Sound Waves
 	Sound waves properties [[img http://content.answcdn.com/main/content/img/CDE/WAVELEN.GIF]]
 		Amplitude
 		Frequency
-	To digitize, wave is "sampled" at periodic intervals [[img CS227/Images/DigitisingWave.jpg]]
+	To digitize, wave is "sampled" at periodic intervals [[img images/audio_sampling.gif]]
 		Sampling rate is measured in Khz
 		Bit Depth is number of bits per sample 
 	Tracks
@@ -29,7 +29,7 @@ Sound File Formats
 	Sound can be stored in a variety of file formats [[img http://a248.e.akamai.net/pix.crutchfield.com/ca/reviews/2007/0212/File-formats.gif]]
 	To process/interpret a sound file requires a codec
 		On Windows 7, use [[Media player!http://windows.microsoft.com/en-us/windows/codecs-frequently-asked-questions#codecs-frequently-asked-questions=windows-7]]	to find what codecs are installed (warning: technical info ahead!)
-	Uncompressed formats
+	Uncompressed formats 		[[img images/Audio_Data_Sizes.gif]]
 		.wav
 			common on PCs
 			large file size
