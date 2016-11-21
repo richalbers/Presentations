@@ -2,12 +2,11 @@
 Ch 8, part 2 - C Strings
 	This presentation covers
 		What strings and c-strings are
-		And details about how to work with C-strings, including
+		Details about how to work with C-strings, including
 			Initializing
 			Doing I/O with
 			Copying
 			Comparing
-	Note: Strings are covered in the next courses
 ------------------------------------------
 string vs C-String
 	strings and c-strings are both used to store words (or a sequence of characters), but are very different in how they operate internally.
