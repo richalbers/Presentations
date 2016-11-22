@@ -100,12 +100,12 @@ String Example
 	For example:
 	[[code]]
 		string name;
-	
+		
 		cout << "Enter your name: ";
 		getline(cin, name);
-
+		
 		cout << "Your name contains " << name.length() << " chars";
-			
+				
 		if (name != "Bob")
 			cout << "Your name is not Bob." << endl;
 			
