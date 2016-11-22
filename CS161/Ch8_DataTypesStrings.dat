@@ -100,12 +100,11 @@ Strings
 		[[http://www.cplusplus.com/reference/string/string/!www.cplusplus.com/reference/string/string/]]
 -------------------------------------------
 String Example
-	For example:
 	[[code]]
 		string name; 
 		
-		cout << "Enter your name: ";
-		getline(cin, name); [[desc getline reads all characters up to a newline and puts them into the given string]]
+		cout << "Enter your name: "; 
+		getline(cin, name); [[desc getline reads  all characters up to a newline and puts them into the given string]]
 		
 		cout << "Your name contains " << name.length() << " chars"; [[desc the .length() function returns the length of the string]]
 				
