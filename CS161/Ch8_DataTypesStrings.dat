@@ -88,26 +88,31 @@ namespace example
 		}
 -------------------------------------------
 Strings
-	The string datatype is a structured data type (object) which allows you to store and manipulate alphanumeric data (names, sentences, etc..)
+	The string datatype is a structured data type (object) which allows you to more easily store and manipulate alphanumeric data (names, sentences, etc..)
 	The string datatype exists in most languages
 		It wasn't in C
 		Prior to the ANSI/ISO C++ standard, it wasn't officially in C++ either but vendors typically provided one
 		It is now part of the c++ language, and is very useful
-	There are numerous methods you can use on strings
+	It supports
+		assignment operator (at any time, not just initialization)
+		comparison operators (==, !=, <, <=, >, >=)
+	and there are numerous methods you can use on strings
 		[[http://www.cplusplus.com/reference/string/string/!www.cplusplus.com/reference/string/string/]]
 -------------------------------------------
 String Example
 	For example:
 	[[code]]
-		string name;
+		string name; 
 		
 		cout << "Enter your name: ";
-		getline(cin, name);
+		getline(cin, name); [[desc getline reads all characters up to a newline and puts them into the given string]]
 		
-		cout << "Your name contains " << name.length() << " chars";
+		cout << "Your name contains " << name.length() << " chars"; [[desc the .length() function returns the length of the string]]
 				
-		if (name != "Bob")
+		if (name != "Bob") [[desc strings can be compared using all the comparison operators]]
 			cout << "Your name is not Bob." << endl;
 			
-		cout << "The first letter of your name is " << name[0];
+		cout << "The first letter of your name is " << name[0]; << endl; [[desc You can treat the string like a character array to access individiual characters.<br>There's also a .at() function that accomplishes the same thing.]]
+
+		name="Bob"; [[desc You can use the assignment operator on strings even after they're declared.]]
 -------------------------------------------
