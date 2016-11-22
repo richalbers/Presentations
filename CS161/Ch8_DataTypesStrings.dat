@@ -111,7 +111,7 @@ String Example
 		if (name != "Bob") [[desc strings can be compared using all the comparison operators]]
 			cout << "Your name is not Bob." << endl;
 			
-		cout << "The first letter of your name is " << name[0]; << endl; [[desc You can treat the string like a character array to access individiual characters.<br>There's also a .at() function that accomplishes the same thing.]]
+		cout << "The first letter of your name is " << name[0] << endl; [[desc You can treat the string like a character array to access individiual characters.<br>There's also a .at() function that accomplishes the same thing.]]
 		
 		name="Bob"; [[desc You can use the assignment operator on strings even after they're declared.]]
 -------------------------------------------
