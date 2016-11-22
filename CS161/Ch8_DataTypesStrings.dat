@@ -1,5 +1,5 @@
 ------------------------------------------
-Ch 8 - User Defined Simple Data Types, Namespaces, and Strings
+Ch 7 - User Defined Simple Data Types, Namespaces, and Strings
 	User Defined Simple Data Types
 		enumerated type
 		typedef
@@ -99,12 +99,15 @@ Strings
 String Example
 	For example:
 	[[code]]
-		&nbsp;
-		string name
-		...
+		string name;
+	
 		cout << "Enter your name: ";
 		getline(cin, name);
 
-		cout << "Your name contains "
-			<< name.length() << "chars";
+		cout << "Your name contains " << name.length() << " chars";
+			
+		if (name != "Bob")
+			cout << "Your name is not Bob." << endl;
+			
+		cout << "The first letter of your name is " << name[0];
 -------------------------------------------
