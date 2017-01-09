@@ -1,13 +1,12 @@
 ------------------------------------------
-Ch 9, part 1 - Single Dimensional Arrays
-	This presentation covers Arrays, including:
-		What they are
-		Why they're used
-		How to declare them
-		How to access individual elements
-		Different ways to initialize them
-		How to pass arrays to functions
-	Note: multi-dimensional arrays are not covered until next term
+Ch 8, part 1 - Single Dimensional Arrays
+	At the end of this presentation, you should be able to
+		Explain what an array is
+		Declare an array
+		Access individual elements
+		Explain array boundries
+		Initialize an array using several different methods
+		Pass arrays to functions
 
 ------------------------------------------
 Array Introduction
