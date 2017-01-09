@@ -1,13 +1,12 @@
 ------------------------------------------
-Ch 9, part 2 - MultiDimensional Arrays
+Ch 8, part 2 - MultiDimensional Arrays
 	Single Dimensional arrays were covered last term
-	This presentation covers multidimensional Arrays, including:
-		Two dimensional arrays 
-			How to declare them
-			How to access individual elements
-			Different ways to initialize them
-			Passing them to functions
-		More dimensions
+	At the end of this presentation, you should be able to
+		Explain what a multi-dimensional array is and how it's stored in memory
+		Declare and initialize multi-dimensional array
+		Access individual elements
+		Use multideminsional arrays as function parameters
+		Uass a single row of a 2-deminsional array to a function
 		
 ------------------------------------------
 Two dimensional array
