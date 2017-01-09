@@ -1,0 +1,59 @@
+------------------------------------------
+Ch 3 - File I/O
+	This presentation covers writing to a file (file output).  Reading from a file (file input) is covered later.
+		Overview
+		Example
+		I/O mode
+
+------------------------------------------
+Overview
+	Everything we've done with cout can be done with a file as well.
+	The only difference several things are done automatically when using cout
+	cout is:
+		declared for us automatically in iostream
+		opened automatically when the program begins
+		closed automatically when the program ends
+	So, we need to
+		#include &lt;fstream&gt; (for access to the file stream object definition)
+		declare our file stream variable
+		open it
+		close it
+------------------------------------------
+Output File Example
+	This example shows how to use a file for output
+		[[code]]
+		#include &lt;fstream&gt; //for file I/O  [[desc necessary for ofstream declaration.  ofstream provides all the necessary funtionality to write to output files.]]
+		using namespace std;				
+		&nbsp;
+		void main() {
+			ofstream outputFile;		[[desc ofstream is the mechanism (a class actually, but we haven't covered those yet) which facilitates writing to an output file.<br>'of' stands for 'output file'<br>outputFile is the variable name we made up to store our ofstream object<br>In the rest of the program we'll use outputFile just like we've previously used cout]]
+			&nbsp;
+			//open the file
+			outputFile.open("myOutputFile.txt"); [[desc This associates a disk file with our output stream, and opens the file and prepares it to be written to.<br><br>Since we didn't provide a path, the file will be opened in the current working directory.  If ran from the command line or by clicking on the .exe the current working directory is usually where the executable is.  But when ran in the IDE the CWD is specfied by the project settings (which are configurable).  I forget what the default CWD setting is, so after running this code, you'll need to look around in your project folders and find the output file.<br><br>If the file doesn't exist, it will be created.  If it exists, it will be overwritten.]]
+			&nbsp;
+			//write the data
+			outputFile &lt;&lt; "hello world!";			[[desc This is just like sending data to cout, except instead of the console window, the data will go to the disk file assoicated with outputFile (which was determined when we ran the open function above).]]
+			outputFile &lt;&lt; 10 &lt;&lt; 3.45;		[[desc This is just like sending data to cout, except instead of the console window, the data will go to the disk file assoicated with outputFile (which was determined when we ran the open function above).]]
+			&nbsp;		
+			//close the file
+			outputFile.close();		[[desc It's good practice to close any files you opened. <br>Technically, it's not necessary here as it will be closed automatically when the program ends, but it's a good habit to get into.  So do it.  Always.]]
+		} [[desc This signifies we've come to the end of yet another glorious example program]]
+--------------------------------------------
+Practice
+	Write a small program that outputs to a file (see previous slide)
+	Run it and find the output file and verify it contains what it should
+	Run it again and see if it appends to or overwrites the file
+------------------------------------------
+I/O Mode
+	When opening a file, you can specify the "i/o mode" to be used.
+	For output files, this can be used to specify wether we should
+		append to an existing file
+		overwrite an existing file's contents completely
+	Details on the possibilities can be found in the [[C++ documentation for ofstream::open!http://www.cplusplus.com/reference/iostream/ofstream/open/]]
+--------------------------------------------
+Practice
+	Modify the original program 
+		if it appended by default, add a parameter to the open statement so it overwrites
+		if it overwrote by default, add a parameter to the open statement to it appends
+
+------------------------------------------

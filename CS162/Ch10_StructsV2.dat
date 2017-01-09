@@ -1,0 +1,210 @@
+------------------------------------------
+Structs (Ch 10)
+	This presentation covers
+		What structs are
+		How to create a struct types
+		How to work with struct variables
+			using with streaming I/O
+			Copying
+			Comparing
+			using with functions
+	
+------------------------------------------
+Overview
+	Data structures are ways of storing and organizing data
+	A struct (or record) is one type of data structure, which allows us to group together other related variables as one unit.  
+	For example, for every student we may want to store:
+		name
+		address
+		id#
+		program of study
+	For this we could use a struct
+		Each instance of the struct would contain all that information for one student.
+---------------------------------------------
+Defining
+	If we were drawing items on a screen, we'd need to store the location of those items using x and y coordinates.
+	A struct to do that could be defined as follows:
+	[[code]]
+		struct Vector { [[desc Defines the beginning of a new datatype named Vector.<br>struct is a keyword.<br>Vector is a name we made up for this datatype.]]
+			int x; [[desc This states an int named x will be a part of each Vector.<br>The variables that make up the struct are called member variables.<br>Members of the struct may be of any already-defined type.]]
+			int y;	[[desc This states an int named x will be a part of each Vector.<br>The variables that make up the struct are called member variables.<br>Members of the struct may be of any already-defined type.]]
+		}; [[desc Ends the definition of Vector.<br>The ; is necessary]]
+	This is just a definition of the datatype (named [[Vector!http://en.wikipedia.org/wiki/Position_(vector)]]).
+		struct is a keyword.
+		Vector is a name we made up.
+		x and y are called member variables.
+		The ; after the closing } is necessary.
+	No memory is allocated at this point, but we can now create variables of type Vector.
+	Note: The name Vector is already defined in the std namespace, so don't include the line "using namespace std;" in your program if you're creating a new Vector type.  
+---------------------------------------------
+Practice
+	Create a new variable type (a struct) to store information about a car.  The information will consist of:
+		Make (a string)
+		Model (a string)
+		Year (an integer)
+		Mileage (an integer)
+		Price (a float)
+---------------------------------------------
+Declaring struct variables 
+	Once we have defined our new datatype, we can then create variables of those types
+	The members of our struct variables can be initialized using the ={ } notation, as shown below.
+	For example:
+	[[code]]
+		struct Vector { [[desc defines the beginning of a new datatype named Vector]]
+			int x; [[desc States an int named x will be a part of the datatype.<br>Members of the struct may be of any already-defined type.]]
+			int y;	[[desc States an int named y will be a part of the datatype.<br>Members of the struct may be of any already-defined type.]]
+		}; [[desc denotes the end of our Vector datatype definition<br>The ; at the end is necessary.]]
+			
+		int main() {
+			Vector point1;	        //Declared, but not initialized[[desc Creates a variable of type Vector.<br>  Each Vector will consist of both an x and y value<br>Since we don't initialize x and y here, they will contain junk values.]]
+			Vector point2 = {1,4};	//declared and initialized.[[desc Creates another variable of type Vector<br>Initializes the x value to 1 and the y value to 4]]
+			...
+
+-------------------------------------------
+Accessing individual members
+	Accessing the individual members of the struct variables is done using the dot (.) notation.
+		The . is referred to as the "member access operator"
+	For example:
+	[[code]]
+		struct Vector { [[desc defines the beginning of a new datatype named Vector]]
+			int x; [[desc states an int named x will be a part of the datatype.<br>Members of the struct may be of any already-defined type.]]
+			int y;	[[desc states an int named y will be a part of the datatype.<br>Members of the struct may be of any already-defined type.]]
+		}; [[desc denotes the end of our Vector datatype definition]]
+			
+		int main() {
+			Vector point1;	        //Declared, but not initialized[[desc Creates a variable of type Vector.<br>  Each Vector will consist of both an x and y value<br>Since we don't initialize x and y here, they will contain junk values.]]
+				
+			//assign values to member variables of point1
+			point1.x=1;	[[desc assigns the x value of point1 to 1]]
+			point1.y=3;	[[desc assigns the y value of point1 to 3]]
+			...
+-------------------------------------------
+Assignment Operator
+	The assignment operator can be used to copy one struct into another
+	[[code]]
+		struct Vector { [[desc defines the beginning of a new datatype named Vector]]
+			int x; [[desc states an int named x will be a part of the datatype.<br>Members of the struct may be of any already-defined type.]]
+			int y;	[[desc states an int named y will be a part of the datatype.<br>Members of the struct may be of any already-defined type.]]
+		}; [[desc denotes the end of our Vector datatype definition]]
+			
+		int main() {
+			Vector point1 = {1,3};	[[desc Creates a variable of type Vector.<br>Assign 1 to the x member, and 3 to the y member]]
+			Vector point2;	[[desc Creates another variable of type Vector]]
+				
+			//make point 2 an exact copy of point 1
+			point2=point1;
+			...
+-------------------------------------------------------
+Practice
+	Write a small program that does the following:
+		Creates a datatype called Vector that consists of x and y values (floats)
+		Creates a Vector variable (named point1) and initialize it's x and y to 1 and 7
+		Creates two more Vector variables (point2 and point3) but don't initialize their data
+		Uses the dot notation (member access operator) to assign values to the 2nd Vector variable (point2)
+	Run the code in the debugger and view the contents of all three Vector variables
+	Caution: 
+		Vector is defined in the std namespace, so don't include the "using namespace std;" line in your code!
+
+
+-------------------------------------------------------
+Outputting
+	Streams (such as cin and cout) don't know how to deal with structs.
+	[[code]]	
+		...
+		//Outputting
+		std::cout << point1; //Doesn't work! [[desc This won't compile.  Streams (such as cin and cout) don't know how to deal with structs.<br><br>Note: The std:: tells the compiler that cout is defined in the std namespace.  Given this is here, it implies we did not have the 'using namespace std' line at the top of the program.]]
+		...	
+	You must instead send the individual components
+	[[code]]
+		...
+		std::cout << "(" 				[[desc sends a ( to cout]]
+		std::cout << point1.x << ", "; 	[[desc sends the x value of point 1, followed by a comma, to cout]]
+		std::cout << point1.y << ")";	[[desc sends the y value of point 1, followed by a ), to cout]]
+		std::cout << "\n";				[[desc sends an endl character to cout]]
+
+------------------------------------------------------
+Comparing
+	You cannot compare two structs using the comparison operators
+	[[code]]	
+		//comparing 
+		if (point1 == point1) // doesn't work [[desc You can't compare struct variables this easily]]
+	You must instead do an item-by-item comparison of each of the struct's members
+	[[code]]
+		if (point1.x == point2.x && point1.y == point2.y)) [[desc compares each member of the Vectors to determine if they are identical)]]
+			std::cout << "points are identical!\n";
+	Or write a function that does it and use that function
+	[[code]]
+		if (comparePoints(point1, point2)) [[desc calls a function (which you'd need to write) which returns a boolean value (true if they point each have the same x and y values)]]
+			std::cout << "points are identical!\n";
+----------------------------------------------------------
+Use with functions
+	Structs can be use as function arguments/parameters
+		They can be passed by value (the default) or reference
+	For example
+	[[code]]
+		// compare the given points
+		bool comparePoints(Vector point1, Vector point2) 
+		{
+			if (point1.x == point2.x && point1.y == point2.y)
+				return true;
+			else
+				return false;
+		}
+			
+	Structs can also be returned from functions
+	[[code]]
+		Vector someFunction() 
+		{
+			Vector z;
+			z.x=5;
+			z.y=10;
+			return z;
+		}
+-------------------------------------------
+Practice
+	Write a simple program that works with Vectors
+		The Vectors should store the components (x and y) as floats
+		In main, create two vectors. 
+			The first should store (1,2)
+			The second should store (4,3)
+		Write functions that:
+			Output a Vector in the format (x,y) to the screen
+				accepts a single vector as an argument
+				prints that vector to the screen (e.g. (x,y))
+				returns nothing.
+			Find the distance between two vectors
+				accepts two vectors as arguments
+				computes the distance between them (as a float)
+				returns the distance (a float) 
+		Call each of those functions from main
+	When complete, your program should show the two original vectors and distance between them.
+---------------------------------------------
+Practice
+	Vectors can be stored as x,y values (relative to 0,0), or as magnitudes and angles (picture a line from (0,0) to your (x,y) value.
+	[[This page!http://www.mathsisfun.com/algebra/vectors.html]] has some simple info on vectors. 
+	Add functions to your program to do the following
+		Add two vectors together (just add the x's and y's)
+			Accepts two vectors as arguments
+			returns a vector that is the sum of the two 
+		Create and return a vector given an angle and magnitude
+			Accepts an angle (in degrees, not radians) and magnitude
+			returns a Vector
+	Test it after completing each function!  
+-------------------------------------------
+More Info
+	structs 
+		are available in C and C++
+		In C they could only contain variables (as shown in this presentation)
+		In C++ they can also contains functions, but that's best done using classes, which we'll cover starting next time
+	Classes build upon the concept of structs
+--------------------------------------------
+Summary
+	This presentation covered
+		What structs are
+		How to create struct types
+		How to work with struct variables
+			using with streaming I/O
+			Copying
+			Comparing
+			using with functions
+

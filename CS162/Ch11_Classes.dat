@@ -1,0 +1,233 @@
+------------------------------------------
+Classes (Ch 11)
+	This presentation covers
+		An Introduction to classes
+		How to create classes and objects from those classes
+		Why and how to make members public and/or private
+		How to use the scope operator (::)
+		How to separate your code into header and implementation files
+		How to use your classes in a project
+------------------------------------------
+Introduction
+	Like structs, classes allow us to group together related variables as one unit
+	But classes also allow us to
+		control access to that data
+		maintain the integrity of the data
+		provide an easy-to-use interface to the data
+		i.e. implement [[data abstraction!http://en.wikipedia.org/wiki/Data_abstraction]]
+	The components of a class
+		are called members
+		may be variables or functions
+		may be hidden from the person using the class 
+	Classes are how C++ implements Object Oriented Programming
+---------------------------------------------
+Creating classes and objects  
+	You use the class keyword to define what the class looks like. 
+		Note: this creates a new variable type, not a variable.
+			[[code]]
+			class Clock { 	[[desc This begins the definition of our new datatype, called Clock.<br>class is a reserved word.<br>Clock is a word we made up.]]
+				...			[[desc More code goes here.  We'll get to that next.]]
+			}; 				[[desc This ends the class header.<br>The ; is necessary]]
+	You can then create variables of those types.
+		[[code]]
+		Clock bigBen;	//creates a variable of type Clock named bigBen
+	Terminology
+		An object is a variable created using a class definition
+		An object is referred to as an instance of the class
+		Creating an instance of a class is called instantiating, or instantiation 
+---------------------------------------------
+Public and Private members
+	Class members (data/functions) can be public or private
+		Private members (typically data) can only be accessed by functions that are a part of the class
+		Public members (typically functions) 
+			can be accessed outside the class.
+			have access to all the classes members (public or private)
+		The public functions of a class are how users of the class (other programmers) interact with the data.
+	For example:
+		[[code]]
+		class Timer { 		[[desc This begins the definition of our new datatype, called Timer.<br>class is a reserved word.<br>Timer is a word we made up.]]
+			public:			[[desc This signifies that the class members that follow will be accessible outside the class.<br>The public functions of a class are how users of the class (other programmers) interact with the data]]
+				void setTimer(int sec) { [[desc This function allows the user of the class to set the Timer.  i.e. Set the seconds value.<br>Note: while complete functions can be typed in the class definition, it's more common to just have the prototypes here]]
+					if (sec > 0)		[[desc The given data is checked for validity]]
+						seconds = sec; 	[[desc The given data is stored in the class variable]]
+				}
+				...			[[desc there would be more code here... it was left off for brevity]]
+			private:		[[desc This signifies that the class members that follow will not be directly accessible outside the class<br>Typically, data members of a class are private.  This allows us to do data validation and maintain data integrity.<br><br>Note: Although usually used, the private keyword is actually optional, as members are private by default.]]
+				int seconds;
+				...			[[desc there would be more code here... it was left off for brevity]]
+			}; [[desc This ends the class definition.<br>The ; is necessary.]]
+			
+		void main() {
+			Timer timer1;		[[desc This creates and instance of the class Timer ]]
+			timer1.seconds = 0; //doesn't compile. Seconds are inaccessible here. [[desc Just as with structs, the dot (.) notation is used to access class members.<br>But this attempts to directly access a private member of the Timer class (seconds), which is not allowed.]]
+			timer1.setTimer(0); //proper way to set timer to 0.  [[desc This calls a public function of the timer class.  The public functions of a class are the interface to the class's data]]
+			...				[[desc there would be more code here... it was left off for brevity]]
+---------------------------------------------
+Complete Class definition Example
+	Below is an example of a class definition that creates a Clock datatype.
+		Members in the private section are NOT directly accessible outside the class
+		Members in the public section are directly accessible outside the class
+	MouseOver each line for an explanation
+	[[code]]
+		class Clock { [[desc This begins the definition of our new datatype, called Clock<br>class is a reserved word<br>Clock is a word we made up]]
+			public: 	[[desc This signifies that the class members that follow will be accessible outside the class.<br>The public functions of a class are how users of the class (other programmers) interact with the data]]
+				//constructor [[desc Constructors are special functions that are called when instances of the class are created (variables of the type Clock in this example).<br>Constructors have the same name as the class.<br>Constructors typically initialize the class's data members]]
+				Clock();  [[desc This is a prototype for the default contructor.<br>The default constructor is called when instances of the class are created without providing any data.  e.g.<br>Clock BigBen();]]
+					
+				//mutators [[desc Mutators are functions that allow a user of the class to set or modify (ie. mutate) internal class variables.<br>Mutators should validate the given data before using it to modify our internal class data members to maintain data integrity]]
+				bool setTime(int hour, int Minute, int Second); [[desc  This is a prototype for a mutator function that accepts data to change all our internal variables at once.<br>It's not uncommon to have a separate mutator function for each internal variable that we want users of the class to be able to modify]]
+					
+				//accessors [[desc Accessors are functions that allow a user of the class to get copies of the values stored in internal class variables.]]
+				int getHour() const; [[desc Prototype for a function that returns the value stored in hour.<br>The keyword const at the end signifies that this function will not change the object.]]
+				int getMinute() const; [[desc Prototype for a function that returns the value stored in minute.<br>The keyword const at the end signifies that this function will not change the object.]]
+				int getSecond() const; [[desc Prototype for a function that returns the value stored in second.<br>The keyword const at the end signifies that this function will not change the object.]]
+					
+				//other [[desc Many functions will manipulate internal variables, not just set them (mutators) or get them (accessors)]]
+				void showClock(); // Displays the clock [[desc Prototype for a function that displays the clock]]
+				void tick(); 	//add one second to the clock [[desc Prototype for a function that adds one second to the clock.  This may modify the second, minute, and hour variables]]
+			private: 	[[desc This signifies that the class members that follow will not be directly accessible outside the class<br>Typically, data members of a class are private.<br>This allows us to maintain data integrity]]
+				int hour;     // 1-12 [[desc Private class member variable to store the hour]]
+				int minute;   // 0-59 [[desc Private class member variable to store the minute]]
+				int second;   // 0-59 [[desc Private class member variable to store the minute]]
+		}; [[desc This ends the class definition.<br>The ; is necessary]]
+---------------------------------------------
+Function categories
+	As shown in the previous example, a classes functions generally fall into one of the following categories
+		Constructors
+			A constructor is called when an object is instantiated.
+			Constructors are named the same as the class and have no return type.
+			The constructor that accepts no arguments is called the default constructor.
+		Accessors
+			These functions return copies of a classes private data members to the caller.
+			These should be declared as const functions as they don't modify the object
+		Mutators
+			These functions provide an interface to modify a classes private variables.  
+			The data provided to the function is validated before being used to change the objects data.
+		Other
+			There may be other functions that manipulate the objects data in some way.
+----------------------------------------------
+Practice
+	Starting with the code below (partial clock class), write the constructor and accessor/mutator for minute.  Then test it by running it the debugger
+	[[code]]
+		class Clock {
+			public:
+				Clock() {
+					//add code to initialize minute to 0
+				};
+				bool setMinute(int min) {
+					//add code here to 
+					//	validate min (must be >=0 and < 60)
+					//	and use it to set minute
+					//	if min was valid, return true, else return false
+				};
+				int getMinute() const {
+					//add code to return the value in minute
+				};
+			private:
+				int minute;
+		};
+		
+		int main() {
+			//add code there to:
+			//	declare a variable of type clock
+			// 	test setMinute with both valid and invalid values
+			//	test getMinute
+		}
+----------------------------------------------
+Interface and Implementation
+	A class consists of two significant parts
+		Interface - A list of the functions needed to use the class 	
+			This is needed by anyone (programmers) who wants to use the class (i.e. create and manipulate objects of the class.)
+			It consists a list of the public methods of the class
+		Implementation - the nitty gritty details about the class works internally.  
+			This is only needed by the person writing or maintaining the class
+	Users of a class need to know only what the class does, not how it does it.
+		This is data abstraction.
+	You've previously worked with objects of the string class, but don't really know (or care) how it operated internally.  This is good.  You don't have the time to learn the details about how everything works, you just need to know how to use it.
+		This is similar to a car.  People need to know how to operate a car, but don't need to know how a car accomplishes what it does. 
+----------------------------------------------
+Source Files
+	Class code is usually put into two files
+		The header file (.h) contains the class definition (which includes the interface). 
+			It is then included in all source files that are going to use the class.
+				Note: in an ideal world, or better language, the user of the class wouldn't be given the entire definition, but instead just the public functions (interface)
+		The implementation file (.cpp) contains the class implementation.
+			At the top it includes the header file 
+			It then contains the function implementations for all class functions
+			When compiled, it produces an object file containing all the compiled class functions
+			This is then linked (via a project/makefile) in with any code using the class.
+	Anyone who is going to use your class needs the following:
+		The header file
+		The object file (or library) containing the implementation
+			Users of the class don't need the source code of the implementation.
+----------------------------------------------
+scope operator
+	In the previous exercises we implemented some functions within the definition.  This is atypical.
+	The class definition doesn't typically contain functions, just function prototypes, like this:
+		[[code]]
+		class Clock { [[desc This begins the definition of our new datatype, called Clock<br>class is a reserved word<br>Clock is a word we made up]]
+			...
+			Clock();  [[desc Prototype for the default constructor.]]
+			int getHour() const; [[desc Prototype for a function that returns the value stored in hour]]
+			...
+	Functions would then be written after the definition, and the Scope Resolution Operator (::) is used to tell the compiler these functions are a part of the class.
+		[[code]]
+		Clock::Clock() { 	[[desc The beginning ''Clock::'' says this is a function in the Clock Class.<br>The ''Clock()'' says this function name is Clock() (it's named the same as the class because it's the constructor)<br>The function has no return type becuase Constructors have no return types.]]
+			hour=0; minute=0; second=0; [[desc These lines initialize the member variables of the class. (given those variables aren't defined here, they must be member variables)]]
+		}
+			
+		int Clock::getHour() const {	[[desc int is the return type (that always comes first).<br>''Clock::'' says this is a function in the Clock class (that immediately precedes the function name).<br>''getHour'' is the function name.]]
+			return hour;
+		}
+	
+---------------------------------------------
+Sample Header file
+
+	All header files have their contents surrounded by preprocessor directives
+		These keep the code contained within from being included twice in the event the file is included twice (which can easily happen with nesting)
+		The directives are #ifndef, #define, and #endif, and are used as follows:
+			[[code]]
+			#ifndef CLOCK_H [[desc Preprocessor directive that says: If CLOCK_H is not defined, continue.<br>CLOCK_H is a name we made up that needs to be unique.<br>And this #ifndef needs a closing #endif at the end of the file.]]
+			#define CLOCK_H [[desc Preprocessor directive that says: Define the term CLOCK_H. It's not defined as anything special, but the name is now known to the pre-processor.]]
+			
+			class Clock { 	[[desc Entire class definition would be here. Omitted for brevity]]
+				... 		[[desc Entire class definition would be here. Omitted for brevity]]
+			};				[[desc Entire class definition would be here. Omitted for brevity]]
+				
+			#endif [[desc Preprocessor directive that closes the earlier #ifndef.<br> It says: This is the end of the stuff to be skipped if CLOCK_H was defined.]]
+	You can look at any of the system header files and see that similar directives are in them.
+
+---------------------------------------------
+Sample implementation file
+	The implementation file includes the header file and then has the implementations for all class functions.
+		[[code]]
+			
+		#include "clock.h"	 [[desc This includes the class definition. <br>Note the use of doublequotes in place of the < > used when including system files.<br>This is because these reside in a different location on disk.<br>The project keeps track of where they are.]]
+			
+		Clock::Clock() { 	[[desc The beginning ''Clock::'' says this is a function in the Clock Class.<br>The ''Clock()'' says this function name is Clock() (it's named the same as the class because it's the constructor)<br>The function has no return type because Constructors have no return types.]]
+			hour=0; minute=0; second=0; [[desc These lines initialize the member variables of the class. (given those variables aren't defined here, they must be member variables)]]
+		}
+			
+		int Clock::getHour() const {	[[desc int is the return type (that always comes first).<br>''Clock::'' says this is a function in the Clock class (that immediately precedes the function name).<br>''getHour'' is the function name.]]
+			return hour;
+		}
+
+-------------------------------------------
+Using your class in a program
+	To use your class code in another project, you'll need to do the following [[img CS162/images/ProjectMultifile.PNG]]
+		Create a project as usual
+		In the source file section
+			Add a source file (.cpp) to hold your programs main code
+			Add a source file for each class you'll be using (.cpp)
+		In the header file section
+			Add header files (.h) for each class you'll be using 
+	The example to the right shows a project named FunGame that contains
+		A .cpp file for the main code (FunGame.cpp)
+		.cpp files containing class implementations for three different classes
+		.h files for class definitions for three different classes
+	When you build this project, it will compile the 4 .cpp files into 4 .obj files, then link them together into an executable.
+		
+		
+-------------------------------------------
+-------------------------------------------------------
+

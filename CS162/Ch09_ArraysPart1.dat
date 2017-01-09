@@ -1,0 +1,196 @@
+------------------------------------------
+Ch 9, part 1 - Single Dimensional Arrays
+	This presentation covers Arrays, including:
+		What they are
+		Why they're used
+		How to declare them
+		How to access individual elements
+		Different ways to initialize them
+		How to pass arrays to functions
+	Note: multi-dimensional arrays are not covered until next term
+
+------------------------------------------
+Array Introduction
+	What is an array?
+		An array is a fixed number of items all of the same data type
+		Each item in an array is considered an element
+	Why use them?
+		Often times your program has numerous similar variables, such as
+			Sales amounts for each month (12 sales amounts)	
+			Letter Grades of 25 students (25 characters)
+			Counts for each letter of the alphabet (26 integers)
+-------------------------------------------
+Declaring arrays
+	The number of elements an array holds is specified when the array is declared
+	Arrays are declared as follows:
+		[[code]]
+		int numbers[10]; //holds 10 integers
+		char letters[5]; //holds 5 chars
+	Since the array size is oftentimes used in multiple places in the code, putting the size in a constant is common
+		[[code]]
+		const int ARRAY_SIZE = 10;
+		...
+		float nums[ARRAY_SIZE]; 
+---------------------------------------------
+Practice
+	Create a main() and declare the following in it:
+		an array of monthly sales totals (12 of them, one for each month)
+		an array of 10 letter grades (one for each student)
+		an array of 5 numeric quiz grades (one for each quiz; integer values)
+---------------------------------------------
+Accessing array elements
+	An index (or subscript) must be used to access an individual element
+	The first element is accessed with the index 0 (zero)
+	Examples:
+		[[code]]
+		int num[10];
+		num[0] = 5;
+		num[1] = 10;
+		num[9] = num[0] + num[1];
+		cout << num[9]; //prints 15
+	To process all the elements of an array use a loop
+		[[code]]
+		for (int index=0; index<10; index++)
+			num[x] = 42;
+----------------------------------------------
+Practice
+	Write the code necessary:
+		put a 10 in each of the first two elements of the sales array.
+			remember, the first element is element 0!!
+		print out the first two elements of the sales array (elements 0 and 1)
+	Write a for loop to
+		put an 'A' in each element of the letter grade array
+	Write another for loop to
+		print out each element of the letter grade array, space delimited
+	Write a for loop to 
+		put the numbers 91 through 95 in the elements of the quiz array
+----------------------------------------------
+Array boundries
+	Specifying an index that is too large results in an "out of bounds" error
+	The C/C++ compiler will NOT catch this, so it's up to the programmer to make sure the array index is not out of bounds.
+		Writing to an array elment that is out-of-bounds can alter other variables!!! 
+		This is such a common problem that Java built bounds-checking into the system.
+		But C++ programmers are on their own.  Proceed with caution.
+	Examples:
+		[[code]]
+		int num[5];
+		num[0] = 7; //OK
+		num[4] = 3; //OK
+		num[5] = 4; //out of bounds!!!
+		num[10] = 7; //out of bounds!!!
+------------------------------------------
+Practice
+	Given the following declarations:
+	[[code]]
+		const int TOTAL_STUDENTS = 10;
+		int grades[TOTAL_STUDENTS];
+		char counts[10];
+	Which of the following lines contains an "out of bounds" error?
+	[[code]]
+		counts[-1] = 5;
+		counts[0] = 10;
+		counts[9] = 56;
+		cout << counts[10];
+		cout << counts[ 50/10 ];
+		
+		grades[1] = 6;
+		grades[TOTAL_STUDENTS] = 5;
+		cout << grades[ grades[1] ];
+	Will the C++ compiler catch any of those "out of bounds" errors?
+------------------------------------------
+Initializing arrays
+	By default, arrays are not initialized (just like other variables)
+	Array can be initialized multiple ways
+	Method 1 - initialize each element with loop
+		[[code]]
+		int nums[10];
+		&nbsp;
+		for(x=0;x<10;x++)
+			nums[x]=0;
+		&nbsp;
+	Method 2 - provide values in { } when declaring
+		[[code]]
+		int nums[3] = {2, 10, 44}; 
+		int sides[100] = {4, 3}; //all others are zero
+		int counts[99] = {};    //size=99, all 0
+		int count[] = {0, 0, 0}; //size=3, all 0
+-------------------------------------------
+Practice
+	Do the following in the simplest way possible:
+		Initialize the first 4 elements of the letter grades array to A,B,C,D, and all the rest to Cs.
+		Initialize the counts array to zeros in the simplest way possible.
+-------------------------------------------
+Arrays as function parameters
+	Arrays can be large, so they're automatically passed by reference
+	Normal "pass-by-reference" syntax (the &) is NOT used
+		Instead, this syntax is used
+			[[code]]	
+				//function prototype showing array parameter
+				void initialize(int data[], int size);
+	Note:
+		The [ ] tells the function it will be recieving an array (by ref)
+		You do NOT specify the array size between the [ ]
+		However, the function needs to know the size so it's typically sent in as a separate variable.
+			This allows the function to operate on arrays of any size.
+-------------------------------------------------
+Array Parameter example
+	Example:
+		[[code]]
+		void initialize(int data[], int size);
+		&nbsp;
+		const int ARRAY_SIZE=10;
+		const int ARRAY2_SIZE=5;
+		&nbsp;
+		void main() {
+			int totals[ARRAY_SIZE];
+			int totals2[ARRAY2_SIZE];
+			...
+			initialize(totals, ARRAY_SIZE);
+			initialize(totals2, ARRAY2_SIZE);
+			...
+		}
+		...
+		void initialize(int data[], int size) {
+			//initialize all elements to -1
+			for(int x=0; x<size; x++)
+				data[x] = -1;
+		}
+
+---------------------------------------------
+Using const in place of "pass by value"
+	If the array is NOT going to be changed in the function, you should put const before the array parameter
+		This makes it impossible for the function to change it
+		This makes it clear the array is input to the function (and not output)
+	Example:
+		[[code]]
+		void print( const int data[], int size );
+		
+		const int ARRAY_SIZE=10;
+		
+		void main() {
+			int totals[ARRAY_SIZE];
+			...
+			print(totals, ARRAY_SIZE);
+			...
+		}
+		
+		void print( const int data[], int size ) {
+			for(int x=0; x<size; x++)
+				cout << data[x] << endl;
+		}
+-------------------------------------------
+Practice
+	Write a program that
+		declares an array of 5 ints called dataSet1
+		calls a function to initialize them to their index * 2 (0,2,4,6 ...)
+			You'll need to write that function
+				it should recieve the array and the size as parameters
+		calls a function to print them out, space delimited, with a endl at the end.
+			You'll need to write that function
+				it should recieve the array and the size as parameters
+	Add another array of 100 ints to main called dataSet2.
+		initialize and print them using the exact same functions that were used to process dataset1.
+	Time permitting...
+		Write another function that computes and returns the average of the values in the given array.
+		Add statements in main to call this and print out the results to cout for each of the arrays.
+-------------------------------------------

@@ -1,0 +1,179 @@
+------------------------------------------
+Dynamically Allocated Objects (Ch 13), Part 2
+	This presentation covers
+		Using new and delete with classes
+		Object Pointer Notation
+		Constructors and Destructors
+		Arrays of object pointers
+		friend functions
+
+---------------------------------------------
+new and delete with classes
+	We can dynamically allocate memory for objects just as we did for simple variables
+	For example:
+	[[code]]
+		class Cat {
+			...
+		}
+		...
+		main() {
+			Cat* p1=0;	//declares a Cat pointer 
+			p1 = new Cat;	//allocates memory for a Cat
+			...
+			delete p1;		//frees up allocated memory
+		}
+---------------------------------------------
+Practice
+	Open/Create a project with three source files
+		ConsoleDemo.cpp
+		Cat.cpp
+		Cat.h
+	Define and implement a Cat class with the following members
+		Data (private)
+			int weightLbs;
+			bool alive;
+		Constructor
+			initialize weightLbs to 1 and alive to true
+			print out "Constructor Called!";
+		feed()
+			if alive, add foodWeightLbs to weightLbs.
+			if weightLbs > 30 set alive to false
+	Add main() from previous slide to code and test.  Step through in the debugger to see when the Constructor is called.
+---------------------------------------------
+Object Pointer Notation
+	To access methods of a dynamically allocated object, pointer notation is used
+	For Example
+	[[code]]
+		class Cat {
+			...
+		}
+		...
+		main() {
+			Cat* p1 = new Cat;	//declares pointer, creates object 
+			
+			//to use . notation, we'd need to dereference the pointer
+			(*p1).feed(); //calls feed function for object pointed to by p1.
+			
+			//pointer notation is easier and clearer
+			p1->feed();	//calls feed function for object pointed to by p1.
+			
+			delete p1;		//frees up allocated memory
+		}	
+---------------------------------------------
+Practice
+	Add a call to feed using pointer notation.
+	Run it in the debugger and see values of variables (p1) and when feed is called.
+	
+---------------------------------------------
+Destructor
+	Objects can have a destructor, a special function that gets called when an object is being destroyed.
+	Cases when objects are destroyed:
+		When a locally declared object is going out of scope
+		When delete is called on an object pointer
+	The primary purpose of a destructor is to give the object an opportunity to free up any dynamically allocated memory that the object points to
+		i.e. the class may contain pointers as members and these may be pointing to dynamically allocated memory. If we don't free this up before the object is destroyed there will be a memory leak.
+	The destructor name is the same as the constructor name except it begins with a ~
+	Example
+		[[code]]
+		class Cat {
+			...
+			public:
+				Cat(); //Constructor [[desc Constructor is called automatically when an object is being created]]
+				...
+				~Cat(); //Destructor [[desc Destructor is called automatically when an object is being destroyed]]
+		}	
+
+---------------------------------------------
+Practice
+	Add an int pointer to the Cat class named testPtr
+	In the constructor 
+		dynamically allocate an array of 10 integers, saving the address in the int pointer
+	Add a destructor to your Cat class
+	In the destructor
+		free up the memory pointed to by testPtr
+		Print out "Constructor Called!\n"
+	Run the program and step through the code, taking note of when the constructor and destructor are called
+	You might also add a function that contains a Cat object, and see when it's constructor and destructor are called.
+---------------------------------------------
+Arrays of Pointers
+	You can have an array of pointers
+	Since pointers should either contain a valid memory address or Null, it'd be wise to initialize them to null
+		This allows you to keep track of which ones are valid
+	You'd then need to call new for each element in the array to create the actual Objects
+	Simple Example:
+	[[code]]
+		//Create an array of 10 Cat pointers and initialize them to null
+		Cat* pCat[10] = {0}; [[desc This allocates memory for 10 Cat pointers and initializes them to NULL (0).<br>It only allocates memory for the pointers, not the objects themselves.<br>So it would allocate 40 bytes (10 pointers at 4 bytes each).]]
+		...
+		pCat[0] = new Cat; //create a cat [[desc Allocates memory for a Cat object, calls the constructor for that object, and saves the address of that object in pCat[0].]]
+		...
+		delete pCat[0]; //deletes Cat pointed to by pCat[0] [[desc This calls the constructor for the Cat object pointed to by pCat[0] and then frees up the memory that object occupies (which had been allocated by the new operation above)]]
+		delete pCat[1]; //ERROR!  pCat[1] is NULL! [[desc This line is an error.<br>delete must be given a pointer to memory allocated via new.<br>pCat[1] currently contains a null pointer, as new was never called for pCat[1].]]
+		...
+	The next example will show how to process pointer arrays using loops	
+
+------------------------------------------------------------
+Using loops to process arrays of pointers
+	When you have an array of pointers, it's common to use a loop to process them
+	You must be sure to not call any methods (member functions) for pointers that are NULL
+		[[code]]
+		//Create an array of 10 Cat pointers and initialize them 
+		Cat* pCat[10] = {0}; [[desc This allocates memory for 10 Cat pointers and initializes them to NULL (0).<br>It only allocates memory for the pointers, not the objects themselves.<br>So it would allocate 40 bytes (10 pointers at 4 bytes each).]]
+		...
+		//put some cats in the array
+		for (int x=0; x<5; x++) [[desc Process the first 5 elements of the array]]
+			pCat[x] = new Cat; //creates a Cat object [[desc Allocates memory for a Cat object, calls the constructor for that object, and saves the address in the array at position x.]]
+		pCat[9] = new Cat; //add a Cat at the end [[desc Allocates memory for a Cat object, calls the constructor for that object, and saves the address in the array at position 9.]]
+		...
+		//free up all the non-null cat pointers
+		for (int x=0; x<10; x++) [[desc Look at all elements of the array]]
+			if (pCat[x] != NULL) [[desc But skip those that are null]]
+				delete pCat[x]; //free up memory allocated with new
+			
+----------------------------------------------------------------
+Practice
+	Replace your main with the code from the last slide and step through it, noting when entries in the array contain pointers and which are null.
+	
+-----------------------------------------------------------------
+Passing pointers to functions
+	Pointers are passed to functions as follows
+	[[code]]
+		void feedCatTwice(Cat* cat) {
+			cat->feed(10);
+			cat->feed(20);
+		}
+		...
+		Cat felix;
+		Cat* pCat = new Cat;
+		...
+		//put some cats in the array
+		...
+		feedCatTwice(&felix); //send pointer to cat to function [[desc Sends address of cat variable (a pointer) to the function)]]
+		feedCatTwice(pCat); //send the pointer to the function
+		...
+------------------------------------------------------------------
+Passing pointer arrays to functions
+	Pointers arrays are passed to functions as follows
+	[[code]]
+		void feedSomeCats(Cat* cats[]) {
+			cats[0]->feed(1);
+			cats[1]->feed(2);
+			cats[2]->feed(30);
+			cats[8]->feed(4);
+		}
+		...
+		//Create an array of 10 Cat pointers and initialize them 
+		Cat* apCat[10] = {0}; [[desc This allocates memory for 10 Cat pointers and initializes them to NULL (0).<br>It only allocates memory for the pointers, not the objects themselves.<br>So it would allocate 40 bytes (10 pointers at 4 bytes each).]]
+		...
+		//put some cats in the array
+		for (int x=0; x<5; x++) [[desc Process the first 5 elements of the array]]
+			apCat[x] = new Cat; //creates a Cat object [[desc Allocates memory for a Cat object, calls the constructor for that object, and saves the address in the array at position x.]]
+		...
+		feedSomeCats(apCat);
+		...
+-----------------------------------------------------------------
+Practice
+	Add the FeedSomeCats() function to your practice code, and change feed to accept an amount of food (as a float).
+	Then run it and look at the array after the feedSomeCats function call.
+
+-----------------------------------------------------------------

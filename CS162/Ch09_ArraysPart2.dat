@@ -1,0 +1,210 @@
+------------------------------------------
+Ch 9, part 2 - MultiDimensional Arrays
+	Single Dimensional arrays were covered last term
+	This presentation covers multidimensional Arrays, including:
+		Two dimensional arrays 
+			How to declare them
+			How to access individual elements
+			Different ways to initialize them
+			Passing them to functions
+		More dimensions
+		
+------------------------------------------
+Two dimensional array
+	What are they? [[img CS162/images/twoDimensionalArray.jpg]]
+		A two dimensional array is an array that looks like a spreadsheet. 
+			It has rows and columns
+			Two indexes are needed to specify an element
+	Why use them?
+		Oftentimes your program has numerous similar variables, such as
+			Sales amounts for each month and salesperson 	
+			Letter Grades for 10 quizzes for 24 students
+-------------------------------------------
+Declaring 2D arrays
+	The number of rows and columns an array contains are specified when the array is declared
+	Two-dimensional Arrays are declared as follows:
+		[[code]]
+		int grades[4][5]; //20 ints organized in 4 rows and 5 columns
+		float sales[3][12]; //3 rows, 12 in each row 
+	Since the array size is oftentimes used in multiple places in the code, putting the sizes in a descriptively-named constants is wise. 
+		[[code]]
+		const int TOTAL_STUDENTS = 4;
+		const int TOTAL_QUIZZES = 5;
+		...
+		int grades[TOTAL_STUDENTS][TOTAL_QUIZZES]; 
+	 Note: If you don't use descriptive names for the sizes, it's easy to forget which index represents what. e.g. Is the first index the student number or quiz number?  
+		So always use descriptive constant names.
+---------------------------------------------
+Practice
+	Create a main() and declare the following in it:
+		an array to store monthly sales totals for 3 salespeople (12 months)
+			Sales amounts may contain decimals
+		an array for daily attendence for 24 students and 20 class days
+			here=true, absent=false
+		an array to represent a 9x9 [[suduku puzzle!http://en.wikipedia.org/wiki/Sudoku]]
+			Suduku puzzles contain the numbers 1-9, and blank spaces
+---------------------------------------------
+Accessing array elements
+	Two indexes (or subscripts) must be used to access an individual element
+	Valid index values are from 0 (zero) to size-1
+	Examples:
+		[[code]]
+		const int ROWS=3;
+		const int COLS=5;
+		
+		int num[ROWS][COLS];		[[desc Declares a two dimensional array of integers]]
+			
+		num[0][0] = 5;					[[desc puts 5 in first row, first column.<br>Or maybe better stated as zeroth row and zeroth column]]
+		num[0][2] = 10;					[[desc puts 10 in the 3rd element of the first row]]
+		num[2][4] = num[0][0] + num[0][2]; [[desc Puts value in last row, last column]]
+			
+		cout << num[2][4]; //prints out last element in the array
+	To process all the elements of a 2D array use nested loops
+		[[code]]
+		for (int row=0; row<ROWS; row++)		[[desc Process every row.]]
+			for (int col=0; col<COLS; col++)	[[desc Process every element in each row]]
+				num[row][col] = 42;
+----------------------------------------------
+Practice
+	Write the code necessary to:
+		put a 7 in the 5th row and 3rd column of the suduku puzzle.
+			remember, the first element is element 0,0!!
+		mark every student as here (true) for the first day (day 0) of class (use a for loop).
+------------------------------------------
+Initializing 2D arrays
+	By default, arrays are not initialized (just like other variables)
+	Array can be initialized multiple ways
+	Method 1 - initialize each element with loop
+		[[code]]
+		int nums[2][3];
+		&nbsp;
+		for(row=0; row<2; row++)
+			for(col=0;col<3;col++)
+				nums[row][col]=0;
+	Method 2 - provide values in { } when declaring
+		[[code]]
+		//Simplest form.  All elements get zero
+		int a1[10][20] = {}; [[desc Puts 0's in all elements]]
+		
+		//a 2D array is really multiple 1D arrays.
+		int nums[2][3] =	[[desc Since we've provided data for all values, the 2 and 3 aren't really necessary.<br>The following also work:<br>int nums[][3];<br>int nums[][];]]
+		{
+			{ 1, 2, 3 },  [[desc This initializes the first row]]
+			{ 4, 5, 6 }	  [[desc This initializes the 2nd row<br>A comma is necessary between each row but not after the last row]]
+		};
+-------------------------------------------
+Practice
+	Initialize all elements of the sales array to 0 in the simplest way possible
+	Initialize all elements in the attendence array to false using nested loops
+	Initialize the suduku puzzle to mostly blanks with a few numbers here and there
+		
+----------------------------------------------
+Arrays in memory
+	Each row of the array is actually it's own single-dimensional array. [[img CS162/images/twoDimensionalArrayInMemory.PNG]]
+	And each row is stored contiguously one-after-another in memory.
+	So if you access an element using a column index that's "out of bounds" you might be accessing an element in a subsequent row!
+		[[code]]
+		//given this array
+		char letterGrid[3][3];
+		
+		//what actual element is changed by each of the following lines?
+		letterGrid[1][1] = 'a';
+		letterGrid[0][3] = 'b'; 
+		letterGrid[1][4] = 'c'; 
+		letterGrid[3][3] = 'd';
+
+-------------------------------------------
+2D Arrays as function parameters
+	As we learned when dealing with 1D arrays
+		They're automatically passed by reference
+		Normal "pass-by-reference" syntax (the &) is NOT used
+		The array paramenter doesn't need the number elements in the array specified
+			[[code]]
+			//function prototype showing 1D array parameter
+			void initialize(int data[], int size); [[desc array can be of any size<br>each element is the size of an int (4 bytes)]]
+				
+	As we saw previously
+		a 2D array is really a bunch of 1D arrays contiguously in memory
+		In order to get access to elements in the 2nd row, knowing how big the first row is is essential.
+	Therefore, the size of each row must be specified.
+			[[code]]
+			//function prototype showing 2D array parameter
+			void initialize(int data[][3], int size); [[desc array can have any number of rows.<br>each row is 3 integer elements (12 bytes)]]
+				
+	However, the function needs to know how many rows there are so it's typically sent in as a separate variable.
+			This allows one function to operate on arrays with different numbers of rows.
+-------------------------------------------------
+Array Parameter example
+	Example:
+		[[code]]
+		const int ROWS=10;
+		const int COLS=5;
+		const int ROWS2=2;
+		&nbsp;
+		void initialize(int data[][COLS], int size);
+		&nbsp;
+		void main() {
+			int totals[ROWS][COLS];
+			int totals2[ROWS2][COLS];
+			...
+			initialize(totals, ROWS);
+			initialize(totals2, ROWS2);
+			...
+		}
+		...
+		void initialize(int data[][COLS], int size) {
+			//initialize all elements to -1
+			for(int row=0; row<size; row++)
+				for(int col=0; col<COLS; col++)
+					data[row][col] = -1;
+		}
+
+---------------------------------------------
+Using const in place of "pass by value"
+	Just as with 1D arrays, or any parmeter that is passed by reference but is NOT going to be changed, you should put const before the parameter
+		This makes it impossible for the function to change it
+		This makes it clear the array is input to the function (and not output)
+	Example:
+		[[code]]
+		void print( const int data[][3], int size );
+
+-------------------------------------------
+Practice
+	Write a program that
+		declares a 2D array of 9 rows and 8 cols called timesTable
+		calls a function to initialize all values in the times table to (rowIndex+1) * (colIndex+1)
+			You'll need to write that function
+				it should recieve the array and the size as parameters
+		calls a function to print out the times table, space delimited, with a endl at the end.
+			You'll need to write that function
+				it should recieve the array and the size as parameters
+-------------------------------------------
+More dimensions
+	You can have more than two dimensions
+		3 dimensions is farily easy to visualize (rubik's cube)
+		4+ gets harder, but your lack of imagination doesn't affect the computer
+	Examples
+		[[code]]
+		//Store sales data for the last 10 years
+		const SALESPEOPLE=3;
+		const YEARS=10;
+		const MONTHS=12;
+		float sales[SALESPEOPLE][YEARS][MONTHS];
+		
+		//some crazy made-up 4D array
+		int lotsOfData[2][5][7][3];
+	When passing multidimensional arrays to a function only the first index can be left out.
+		[[code]]
+		void initialize(float sales[][YEARS][MONTHS], size);
+-------------------------------------------
+Practice
+	Create a three dimensional array to hold an image.  
+		The array should be 3 pixels wide by 10 pixels high
+		Each pixel should consist of 3 bytes of data to represent what color it is as RGB
+			one byte to represent the Red (0-255)
+			one byte to represent the Green (0-255)
+			one byte to represent the Blue (0-255)
+	Write a function to initilize the image
+		This should contain a loop to set every pixel to green.
+	Write a function that dumps the image data to the screen (as a bunch of space delimited numbers)
+-------------------------------------------

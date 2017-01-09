@@ -1,0 +1,110 @@
+------------------------------------------
+Inheritance and Composition (Ch 12)
+	This presentation covers
+		Inheritance
+		Composition
+------------------------------------------
+Overview
+	Classes can be created using existing classes using Inheritance and/or Composition
+	Inheritance 
+		Implements an "is-a" relationship
+		One class is based on another
+		For example:
+			Animal
+				Dog (dog is a type of animal)
+	Composition (or aggregation) 
+		Implements a "has-a" relationship
+		One class contains another 
+		For example:
+			Farm
+				Horse (farm has a horse)
+------------------------------------------
+Inheritance
+	An example of an "is-a" relationship would be Animals. [[img images/classdiagram.png]]
+	You might have the following classes
+		Animal
+			Dog
+			Fish
+			Bird
+	Dog, Fish, and Bird are all types of Animals.
+	Inheritance would make implementing these take less code
+		Code that applied to all animals would be in the Animal class
+		Dog, Fish, and Bird classes would be built from the Animal class
+			They would inherit all the generic data/code
+			They would add their own specific data/code
+	In this Example
+		Animal is called the Base Class
+		Dog, Fish, and Bird are called Deriveded Classes
+---------------------------------------------
+Basic inheritance code
+	Inheritance is implemented as follows:
+		[[code]]
+		class Animal {
+			... (generic animal data and functions) [[desc This can consist of public and private data and functions. ]]
+		};
+		class Dog : public Animal { [[desc This states that the Dog class will use the Animal class as it's base class.<br>Any private Animal data/functions are still private to the Animal class<br>Any public Animal data/functions will be public in the Dog class]]
+			... (specific Dog data and functions [[desc This can consist of public and private data and functions. ]]
+		};
+	Note the ": public Animal" after "class Dog"
+	Any object of type Dog would contain all the Animal and Dog data and functions.
+		Some of the data/functions would be "inherited" from the Animal class
+		Some of the data/functions would be written in the Dog class
+		Private membrs of the Animal class would remain private to that class and need to be accessed using accessors/mutators, even from the Dog class
+---------------------------------------------
+Practice
+	Write a simple Implementation for the following Animal and Dog classes
+		[[code]]
+		class Animal {
+			private:
+				float weightLbs;
+				bool isAlive; 
+			public:
+				Animal(); //initializes variables
+				bool alive(); //returns true if alive
+				void feed(); //adds 1 to weight
+		}
+		class Dog : public Animal {
+			private: 
+				int numLegs;
+			public:
+				Dog(); //initialize variables
+				void Run(); //subtracts 1 from weight.  At 0 it dies.
+		}
+	Put cout statements in the functions so you can see when they're called, then create an object of type Dog and call all the functions.
+---------------------------------------------
+Composition
+	An example of a "has-a" relationship would be a Farm. 
+	You might have the following classes
+		Farm
+			Pig
+			Cow
+			Horse
+	Pig, Cow, and Horse are all things that a farm has.
+	The farm class would contain instances of Pig(s), Cow(s), and Horse(s)
+
+---------------------------------------------
+Basic composition code
+	Composition is implemented as follows:
+		[[code]]
+		class Pig { 
+			... (Pig data and functions) [[desc This can consist of public and private data and functions. ]]
+		};
+		class Cow { 
+			... (Cow data and functions) [[desc This can consist of public and private data and functions. ]]
+		};
+		class Farm {
+			private:
+				Pig favoritePig; 
+				Cow cows[10];
+			... (other data and functions) 
+		};
+	Any object of type Farm would contain a Pig object and 10 cow objects.
+---------------------------------------------
+Practice
+	Starting with the previous example, 
+		write simple implementation for each class
+		put cout statements in each constructor so you can see when they're called
+		declare an object of type farm and view it in the debugger.
+	
+---------------------------------------------
+

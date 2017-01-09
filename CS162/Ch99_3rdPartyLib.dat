@@ -1,0 +1,117 @@
+------------------------------------------
+Using 3rd Party Libraries
+	This presentation covers
+		Why we may want to use 3rd party libraries
+		What they contain
+		How to download and install SFML
+		Static vs Dynamic linking
+		Where Dynamic Libraries should be located
+		How to configure a project to use SFML
+------------------------------------------
+Introduction
+	C++, like many languages, provides the basic building blocks to construct applications to do just about anything you can so with software.
+		But the stuff provided by the language is fairly low-level (relatively simple).
+		Doing complex (high-level) things, such as those listed here, requires lots of low-level code.
+			Graphics (2D and/or 3D)
+			Physics engines (mathematically modelling the real world)
+			Game Engines (graphics/sound/networking/etc..)
+	To keep everyone from having to write all this code themselves (ie. "reinventing the wheel"), there are many available 3rd party packages you can get that provide this high-level functionality.  
+		These are a type of SDKs (Software Development Kit)
+		Some are free / Some are not
+	Here's a [[list of game engines!http://en.wikipedia.org/wiki/List_of_game_engines]] available for various languages.
+		Most are written in C/C++ for performance reasons. 
+---------------------------------------------
+What's in a 3rd Party Package
+	Header Files
+		Contain the definitions and prototypes for all the items (classes/prototypes/etc..) provided by the package
+		These will need to be 
+			put somewhere on disk where your build environment (IDE) can access them
+			included in your source files via #include statements
+	Libraries
+		Contains the implementation (compiled code) for all the classes and/or functions provided by the package
+		These will need to be 
+			put somewhere on disk where your build environment (IDE) can access them
+			linked with your code by configuring your project properties
+	Documentation
+		Descriptions of the Classes and Functions and how to use them (usually web pages)
+
+----------------------------------------------
+Practice
+	We'll now download and look at an example of a 3rd party game engine: [[SFML!http://www.sfml-dev.org/]]
+		SFML is a Simple and Fast Multimedia Library for game development
+	Download the latest version of the SFML game engine
+		Do a Google search for SFML (or click the link above)
+		Choose the one for building 32 bit Windows applications
+	Look at the download file to see what it contains
+		Note: SFML is open-source so in addition to the include files, libraries, and documentation, you can get all the source files used to build the libraries if you wanted to.		
+
+----------------------------------------------
+Installing SFML
+	After downloading SFML, you'd need to "install it" in order to use it
+		Google "SFML installation"
+	According to [[the SFML Visual Studio instructions!http://www.sfml-dev.org/tutorials/2.1/start-vc.php]]
+		"You can then unpack the SFML archive wherever you like. Copying headers and libraries to your installation of Visual Studio is not recommended, it's better to keep libraries in their own separate location, especially if you intend to use several versions of the same library, or several compilers"
+	For the classroom computers
+		The entire package was unpacked into C:\SFML-2.1
+		We then put the dynamic libraries into C:\Windows\SysWOW64
+			Dynamic Libraries are discussed next
+			This may not have been optimal
+---------------------------------------------
+Static vs Dynamic Linking
+	Libraries can be linked two ways:
+		Static
+			These are linked at build time and the code from the library is put into the executable (.exe)
+			Doing static linking makes your executable larger, but it then "stands alone" and doesn't require other files to run
+		Dynamic
+			These are not combined with your .exe; they're stored on disk as separate files (.dll's)
+			They are linked at run time, when your program needs them
+			The Operating System loads them into memory when your executable (.exe) calls the routines contained within
+			This makes a smaller .exe, but the .dll's must be available at run-time for your .exe to run
+	Your project will specify how you're going to link the libraries.  
+		You can change the method during development.
+---------------------------------------------
+Dynamically Linked Library Location
+	When using dynamic linking, Windows will look is certain locations for the .dlls as described here:
+		[[http://msdn.microsoft.com/en-us/library/7d83bc18.aspx!http://msdn.microsoft.com/en-us/library/7d83bc18.aspx]]
+		Note: the "PATH" can be viewed using the path command from the cmd prompt
+	On 64 bit machines, 32bit and 64bit .dlls are stored in different locations
+		\Windows\System32 will contain 64 bit versions
+		\Windows\SysWOW64 will contain 32 bit versions
+		Yes, this seems backwards, but it's the way it is.
+	Note: Unless your app needs more than 4GB of RAM, it should be compiled as 32bit, that way it can run on both 32 and 64 bit machines
+-------------------------------------------
+SFML Project Configuration
+	To use SFML in your project, you'll need to configure a project as described here:
+		[[http://www.sfml-dev.org/tutorials/2.0/start-vc.php!http://www.sfml-dev.org/tutorials/2.0/start-vc.php]]
+		We'll do that in the following practice session
+	Notes:
+		In the example at the link above:
+			It references drive D:, you'll most likely be using C:
+			The Linker "Additional Dependencies" need to be ; delimited (the example shoes them space delimited)
+		If using dynamic linking, the SFML .dlls need to be in one of the locations specified by the previous slide
+			Classroom computers have them in the SysWOW64 folder
+			The project folder with your .exe might have been a better choice 
+			Static linking might be the best choice of all when it's all done.
+-------------------------------------------
+Practice
+	If you haven't already done so, verify the location of the SFML header files and .dlls. 
+		On the classroom computers:
+			header files are in C:\SFML-2.1\include
+			copies of the .dlls are in C:\Windows\SysWOW64
+				Go there and look for files beginning with "sfml-"
+-------------------------------------------
+Practice
+	Now we'll configure an SFML project step by step and see the results of each step.
+		Step 1: Create a console project
+		Step 2: Cut and paste the example code from the end of [[SFML Visual Studio Page!http://www.sfml-dev.org/tutorials/2.3/start-vc.php]] 
+			Note that a lot text turns red, including the #include file. That's because it can't find the include file, which defines a bunch of stuff the code uses (all the stuff that's red!).
+		Step 3: Update the project configuration with the location of the include files, as shown near the top of [[SFML VS Page!http://www.sfml-dev.org/tutorials/2.3/start-vc.php]]. 
+			Note: Your path may be a bit different; it references D:, you'll most likely be using C:
+		Step 4: After you've properly configured the include directory setting (text will no long be red), try compiling.  
+			Note that you now get linker errors.  That's becuase it can't find the libraries that implemented all items (classes, functions, etc..) in the include files.
+		Step 5: Update the project configuration with the location and list of libraries as shown near the top of [[SFML VS Page!http://www.sfml-dev.org/tutorials/2.3/start-vc.php]]. 
+			BUT COMMA DELIMIT the library list! (the instructions have them space delimited), And don't delete the libraries already in the list!
+			Your code should now compile and link.
+		Step 6: If you now get a "missing dll" error, make sure the SFML .dlls are in the SysWOW64 folder
+-------------------------------------------------------
+

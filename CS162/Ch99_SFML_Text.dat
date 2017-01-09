@@ -1,0 +1,152 @@
+------------------------------------------
+SFML Text Drawing
+	Overview
+	TrueType Fonts
+	SFML Font Object
+	SFML Text Object
+	Common (non code) Problems
+-----------------------------------------------------
+Overview
+	Drawing text on an SFML graphics window requires several steps.
+		Creating and configuring a Font object
+			This will make use of a TrueType Font
+		Creating and configuring a Text object
+		Drawing the Text object on the screen
+	This is pretty straightforward once you have an example
+	
+-------------------------------------------------
+TrueType Fonts
+	[[Computer Fonts!http://en.wikipedia.org/wiki/Computer_font]] are basically instructions to tell the computer how to draw characters
+	[[TrueType!http://en.wikipedia.org/wiki/TrueType]] is a computer font standard developed by Apple and Microsoft in the late 1980s
+		It has become the most common font standard on the Mac, Windows, and Web.
+		Truetype font files end in .ttf
+		Windows stores them in C:\Windows\Fonts
+	Older versions of SFML had a default font (or two?) built in.  Later versions dropped those but support (all?) truetype fonts, of which are are many (thousands!).
+	You can find truetype fonts at [[https://www.google.com/fonts!https://www.google.com/fonts]]
+		These are the same format as fonts used by OSs and Web pages
+---------------------------------------------
+Practice
+	Download a truetype font
+		Go to [[https://www.google.com/fonts!https://www.google.com/fonts]]
+		Add a font to your collection
+		Click the arrow in the upper right corner to download it
+			select Download the font families in your Collection as a .zip file
+		Note: if we were using the font on a web page, we wouldn't need to download it, but we're using it in SFML, so we DO need to download it.
+	Unpack the font
+		If viewing the zip contents, click on extract files
+		Or right-click on it, select extract all 
+	Take a look at the different files that make up the font
+	Double-click on one of the .ttf files to open it and see what the font looks like
+-----------------------------------------------
+SFML Font Object
+	In SFML, font information is stored in a Font object
+		The Font object is created
+		Data from a .ttf (TrueType Font) file is loaded into it
+	Example
+	[[code]]
+		sf::Font myFont;	[[desc Creates a font object named myFont]]
+		if (!myFont.loadFromFile("arial.ttf")) {[[desc Loads the arial.ttf font into the font object<br>Note: since no path is specified, this font file must be in the current working directory<br>loadFromFile returns true if it was successful.  false otherwise]] 
+			// error ...
+		}
+	Caution: In the example above no path was provided to the arial.ttf file, so it must be in the current working directory.
+		What directory that is depends on how you're running your app.
+			If you double-clicked on it, the cwd is the same directory as the one containing the executable
+			If you're in Visual Studio, the cwd is configured via a project property
+				Configuration Properties -> Debugging -> Working Directory
+				It's either the source code directory, or where the executable is (I forget)
+	After the Font object is created/configured, it is used by a Text object to draw text
+	SFML 2.2 Font class documentation is [[here!http://www.sfml-dev.org/documentation/2.2/classsf_1_1Font.php]]
+---------------------------------------------
+WARNING!!
+	When using fonts, you must link the proper SFML libraries
+		In debug mode, use the debug libraries
+		In release mode, use the release libraries
+	Using the release library in debug mode will cause weird jibberish to be spewed all over the console window
+		This, for whatever reason, is the only "error message" you get.
+		And nothing works.
+	SO MAKE SURE YOUR PROJECT IS CONFIGURED PROPERLY
+--------------------------------------------
+Practice
+	In visual studio, create or open an SFML project.  (you could start with the SFML example code).
+	Using Windows explorer, copy a .ttf file to the proper directory (where the source files are?)
+	At the top of main, create a Font and load your .ttf into it. 
+		Check for errors (return from loadFromFile()) and fix any that occur.
+---------------------------------------------
+SFML Text Object
+	In SFML, a text object is used to store:
+		the text you want to draw on the screen
+		where and how that text will be drawn
+	This example shows how the text object is created and how to set common properties
+	[[code]]
+		//create and configure text object
+		sf::Text myText; [[desc Creates text object]]
+				
+		myText.setFont(myFont); 			//myFont must already exist! [[desc sets the font to use when drawing this text object<br>Here, the font myFont is specified.<br>myFont must be a font object that is already created and configured]]
+		myText.setColor(sf::Color::Red);
+		myText.setStyle(sf::Text::Bold);
+		
+		myText.setString("Drink Your Ovaltine");
+		myText.setCharacterSize(50); // in pixels, not points!
+		myText.setPosition(left, top);	//left and top are integers
+	SFML 2.2 Text object documenation is [[here!http://www.sfml-dev.org/documentation/2.2/classsf_1_1Text.php]]
+---------------------------------------------
+Drawing text
+	After the text object is created, it's drawn on the screen as follows:
+	[[code]]
+		//configure font and text object
+		...
+		// draw new frame
+		window.clear(sf::Color::White);
+		
+		window.draw(myText); //draw myText object on screen [[desc myText should be a Text object]]
+		
+		window.display();	
+			
+---------------------------------------------
+Drawing more text
+	After the text is drawn, there is no longer any association between the text object and the text on the screen
+		So one text object can be used to draw multiple lines of text
+		[[code]]
+			//configure font and text object
+			...
+			// draw new frame
+			window.clear(sf::Color::White);
+			
+			myText.setString("This is the first line of text); [[desc myText is a Text object with all it's properties, except the string and position, already configured]]
+			myText.setPosition(left, top);	[[desc left and top are ints with valid values]]
+			window.draw(myText);
+						
+			myText.setString("Another line drawn with same text object");
+			top+=40;
+			myText.setPosition(left, top);
+			window.draw(myText);
+			
+			window.display();	
+---------------------------------------------
+Where to create objects
+	Font objects are fairly heavy
+			i.e. they take a fair amount of time to load
+		So you should:
+			create and configure them at the beginning of the program
+			Share the same configured font(s) for all your text drawing
+				i.e. associate all text objects with same font object
+			Pass it around BY REFERENCE if necessary
+	Text objects are lightweight
+			i.e. they can be created quickly
+			But they can also be reused 
+		So you should
+			Create one in each routine it's needed
+			Reuse it within that routine to do all the text drawing
+--------------------------------------------
+Common Problems
+	When using fonts, there are problems you may encounter that aren't fixed by changing C++ code
+		Using incorrect libraries (heed the WARNING!!)
+		Having your font file in the wrong location
+			Make sure the font file is in the Current Working Directory
+		Having a space in the font file name might also be an issue
+--------------------------------------------
+Practice
+	Add code to your Practice project to print your name on the graphics window
+	Time permitting, add event handlers so you can move the text around by pressing the arrow keys.
+	
+---------------------------------------------

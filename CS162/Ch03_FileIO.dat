@@ -1,0 +1,147 @@
+------------------------------------------
+Ch 3 & 4 - File I/O
+	File I/O
+		declaring stream variable
+		opening
+		writing/reading
+		closing
+
+------------------------------------------
+File I/O
+	Everything we've done with cin and cout can be done with files as well.
+	The only difference several things are done automatically when using cin and cout
+	cin and cout are:
+		declared for us automatically in iostream
+		opened automatically when the program begins
+		closed automatically when the program ends
+	So, we need to
+		#include &lt;fstream&gt; (for access to the file stream object definitions)
+		declare our file stream variable
+		open it
+		close it
+------------------------------------------
+Output File Example
+	This example shows how to use a file for output
+		[[code]]
+		#include &lt;fstream&gt; //for file I/O
+		using namespace std;
+		&nbsp;
+		void main() {
+			ofstream outputFile;
+			&nbsp;
+			//open the file
+			outputFile.open("myOutputFile.txt");
+			&nbsp;
+			//write the data
+			outputFile &lt;&lt; "hello world!";
+			outputFile &lt;&lt; 10 &lt;&lt; 3.45;
+			&nbsp;		
+			//close the file
+			outputFile.close();
+		}
+--------------------------------------------
+Practice
+	Write a small program that outputs to a file (see previous slide)
+	Run it and find the output file and verify it contains what it should
+	Run it again and see if it appends to or overwrites the file
+------------------------------------------
+Additional Info
+	When opening a file, you can specify a the "i/o mode" to be used.
+	Details on the possibilities can be found in the [[C++ documentation for open!http://www.cplusplus.com/reference/iostream/ofstream/open/]]
+--------------------------------------------
+Practice
+	Modify the original program 
+		if it appended by default, add a parameter to the open statement so it overwrites
+		if it overwrote by default, add a parameter to the open statement to it appends
+--------------------------------------------
+Input Example 1
+	This example shows how to use a file for input
+		[[code]]
+		#include &lt;fstream&gt; //for file I/O
+		#include &lt;string&gt; // to use getline
+		using namespace std;
+		&nbsp;
+		void main() {
+			int x;
+			string sLine;
+			ifstream inputData;
+			&nbsp;
+			//open the file
+			inputData.open("filename.txt");
+			&nbsp;
+			//read the data
+			getline(inputData,sLine); //reads first line
+			inputData >> x; //reads an integer from 2nd line
+			&nbsp;		
+			//close the file
+			inputData.close();
+		}
+-------------------------------------------
+Practice
+	Create a program containing the code on the previous slide
+	Create a text file for it to read and figure out where it needs to be so it will be found when running in Visual Studio
+	See if it also works if you doubleclick on the file
+
+--------------------------------------------
+Input Example 2
+	This example shows how to use a file for input, reading each character until eof is reached
+		[[code]]
+		#include &lt;fstream&gt; //for file I/O
+		#include &lt;string&gt; // to use getline
+		using namespace std;
+		&nbsp;
+		void main() {
+			char ch;
+			int count;
+			ifstream inputData;
+			&nbsp;
+			//process the file
+			inputData.open("filename.txt");
+			&nbsp;
+			while (inputData >> ch)
+				count++;
+			&nbsp;
+			inputData.close();
+			&nbsp;		
+			// print the results
+			cout << "There are " << count <<
+					" bytes in the file\n";
+		}
+	Note: There are several ways to check for eof.  Consult the textbook.
+------------------------------------------
+Input file issues
+	There can be numerous issues when trying to read an input file
+		Most common, is the location of the file
+			You can provide an absolute path but that's a bad idea, as the path may change
+			If you don't provide an absolute path the file, then it will look for it in the "current working directory".
+				Problem is at compile time you can't be sure of where that is. 
+				When in Visual Studio, it's not the same location as it is if you doubleclick on the file or run it from the command line
+		Other problems can occur after you've opened it
+			Most common is trying to read data into variables that can't contain that type of data
+				Reading a decimal point or letter into an integer
+	So, file data either needs to be properly formatted or you need to be able to deal with different types of errors
+		For now, we're going to make sure it's formatted, and if it's not just bail out 
+
+-------------------------------------------
+Handling Stream I/O Problems (Ch 4)
+	If an invalid operation is attempted on a stream, the stream variable will subsequently evaluate to false.
+	This can be used to allow the programmer to detect and handle errors as follows:
+	[[code]]
+		#include &lt;fstream&gt;
+		#include &lt;string&gt;
+		using namespace std;
+		&nbsp;
+		int main() {
+			string fileName = "myfile.txt";
+			ifstream inputData;
+			&nbsp;
+			//open the file, if error, bail out
+			inputData.open(fileName);
+			if (! inputData) {
+				cout &lt;&lt; "File " &lt;&lt; fileName &lt;&lt; " could not be opened.\n";
+				cout &lt;&lt; "program terminated.\n";
+				return -1;
+			}
+			&nbsp;
+			...
+------------------------------------------

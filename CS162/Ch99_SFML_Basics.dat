@@ -1,0 +1,271 @@
+------------------------------------------
+SFML Overview
+	SFML is a library that provides a simple interface for the creation of games and multimedia applications
+	SFML stands for Simple and Fast Multimedia Library
+	It provides support for
+		graphics windows
+		event driven input from keyboards, mice, and joysticks
+		2D & 3D graphics
+		Audio and Networking
+	It supports numerous OSs
+		Windows, Linux, Mac OS X
+		Android and iOS support is in progress
+	It's written in C++, but can be used in C, C++, Java, Python, and other languages
+	More info can be found on the [[SFML website!http://www.sfml-dev.org/index.php]]
+-----------------------------------------------------
+SFML Basics
+	Graphics and game development are pretty significant topic, but we're just going to look at the basics we need for our project.
+	These include
+		Creating a Graphics Window into which we can draw
+		Handling events (window closing, key presses, etc..)
+		Drawing rectangles and text.
+	The following slides cover those topics, and provide links to the SFML tutorial pages on each.
+	The full SFML 2.3 tutorial can be found here:
+		[[http://www.sfml-dev.org/tutorials/2.3/!http://www.sfml-dev.org/tutorials/2.3
+	
+-------------------------------------------------
+Overview
+	The basic functional design of a game is as shown in the following pseudocode
+		[[code]]
+		Create Window 	[[desc The command window is insufficient for graphics so we need to create a better one.<br>We will, however, still have our command window available for outputting debugging information.<br>When we're all done, we can eliminate the command window entirely.]]
+		While window is open 	[[desc This &quot;game loop&quot; will run until the window is closed.<br>The window is closed as a result of some &quot;event&quot;, such as clicking on the X in the upper-right corner.]]
+			process user input	[[desc We don't wait for user input, we simply see of something has happened (i.e., and event) since the last time we checked.<br> The event can be a mouse movement or click, keyboard key press, etc.<br> SFML takes care of queuing up the events that have occurred since the last time we checked and we can easily ask for them.]]
+			update state of game objects.  [[desc All the things that appear on the screen have their information stored in some kind of &quot;data structure&quot; in memory.  In our case (and almost every other case), that will be objects.]]
+			draw new&nbsp;frame.  [[desc Every time through the loop we redraw the entire window from scratch. <br> SFML provides &quot;double buffering&quot; which means that there are two frames.  The one the user is currently seeing and the one that they'll see next, which we draw in the background.  After we've completed the new frame, it's switched instantaneously with the one they're seeing. ]]
+	The loop is referred to as the "game loop".  It will easily run 1000's of times a second if we let it.  
+		Fortunately, we can also very easily get it to run slower, such as 30 times a second, for a framerate of 30 fps.  SFML will add whatever "delay" is necessary after drawing each frame to get the framerate we desire.
+
+---------------------------------------------
+Simple SFML program template
+	We'll use the following template to begin our pseudocode implementation. The ... will be replaced with code.
+		[[code]]
+		#include <SFML/Graphics.hpp>
+			
+		int main()
+		{
+			//create window and set framerate
+			... [[desc Code to create the window and set the framerate will be added here.]]
+				
+			// run the program as long as the window is open
+			while (window.isOpen()) [[desc window is the name of our window object.<br>isOpen() is a method of that object that returns true as long as the window is open]]
+			{
+				// check for and handle events 
+				...
+						
+				// update state of game objects
+				...
+					
+				// draw new frame
+				window.clear(sf::Color::White);
+				...
+				window.display();	
+			}
+			
+			return 0;
+		}
+--------------------------------------------
+Practice
+	Create (or open) an empty project which is configured to use the SFML libraries.
+	Copy the previous template code into the source file.
+		Note: it will NOT yet compile, as we haven't created the window object.  We'll do that next
+---------------------------------------------
+Details
+	We'll now look at how to use the SFML objects and functions to implement a simple 2-D game.
+		All the examples given on the following slides are similar to those given in the SFML tutorials.
+		You do NOT need to understand the details of each line, only how to use them.
+		For the most part, you'll use them as shown, with possible minor modifications.
+---------------------------------------------
+Graphics Window
+	To draw graphics you'll need a window into which to draw them.
+		(our regular command window is insufficient)
+	In SFML, this is created as a RenderWindow object
+		The constructor accepts 3 arguments
+			A VideoMode object specifying the width and height
+			A title (that appears on the title bar)
+			Styles (optional)
+	A window can be created with this line of code:
+	[[code]]
+		sf::RenderWindow window(			[[desc we're creating an object of type RenderWindow which we'll name window<br>RenderWindows is in the sf namespace, as is all SFML stuff]]
+			sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), [[desc This will set the width and height (WINDOW_WIDTH and WINDOW_HEIGHT need to be previously defined as constants)]]
+			"Asteroids - The Sequal",		[[desc This is the text that will appear in the window's title bar]]
+			sf::Style::Titlebar | sf::Style::Close 		[[desc This line &quot;or's&quot; together two styles.<br>We want a title bar and a standard close button in the upper right corner<br>We don't want it resizeable, which it would be if we left off this third argument.<br>Understanding this isn't essential, just use it like this.]]
+		);
+	Note: Everything in the SFML library is in the sf namespace, so any reference to an SFML object will be prefaced with sf::
+	More details can be found in the [[SFML Window tutorial!http://sfml-dev.org/tutorials/2.3/window-window.php]]
+---------------------------------------------
+Framerate
+	Each time through the game loop, a new frame will be drawn
+	In order to make our game run at a constant rate we need to draw a fixed number of frames per second
+	The window objects setFramerateLimit() method allows us to do that
+	[[code]]
+		sf::RenderWindow window(			[[desc we're creating an object of type RenderWindow which we'll name window<br>RenderWindows is in the sf namespace, as is all SFML stuff]]
+			sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), [[desc This will set the width and height (WINDOW_WIDTH and WINDOW_HEIGHT need to be previously defined as constants)]]
+			"Tetris 2014 - A New Beginning",			[[desc This is the text that will appear in the window's title bar]]
+			sf::Style::Titlebar | sf::Style::Close 		[[desc This line &quot;or's&quot; together two styles.<br>We want a title bar and a standard close button in the upper right corner<br>We don't want it resizeable, which it would be if we left off this third argument.<br>Understanding this isn't essential, just use it like this.]]
+		);
+		window.setFramerateLimit(30); [[desc sets the minimum framerate to 30 frames per second<br>Caution: if it takes over 1/30 a second to create a frame, the framerate for that frame will be longer.]]
+	This causes SFML to add a delay after drawing the frame so 1/30th of a frame elapses between frames
+	Additional details can be found on the [[SFML setFrameRate() doc page!http://www.sfml-dev.org/documentation/2.3/classsf_1_1Window.php#af4322d315baf93405bf0d5087ad5e784]]
+---------------------------------------------
+Practice
+	Add the previously given window and framerate code to your source file and compile/run it.
+	When ran, it will
+		Display a console window
+		Display a graphics window
+	To close it you'll need to close the console window, as we aren't yet handling the "close window" event in the graphics window
+	
+---------------------------------------------
+Events
+	When a key is pressed or a button is clicked on, an event is generated that your program can respond to.
+		Event info is passed to your program as an object
+	In SFML, that is done as follows:
+	[[code]]
+		//read and process all events that have occurred
+		// since the last time we checked
+		sf::Event event;
+		while (window.pollEvent(event))	{
+			//was Window's close button pressed?
+			if (event.type == sf::Event::Closed)
+				window.close();
+			
+			//Was the space key pressed?
+			if (event.type == sf::Event::KeyPressed 
+			&& event.key.code == sf::Keyboard::Space ) 
+				doSomething();
+		}	
+	The SFML Events tutorial:
+		[[http://sfml-dev.org/tutorials/2.3/window-events.php!http://sfml-dev.org/tutorials/2.3/window-events.php]]
+---------------------------------------------
+Practice
+	Add code to your source file to handle
+		When window's close button is pressed
+			closed the windows (as in previous example)
+		When a "space bar is pressed" event occurs
+			cout "spacebar! " to console window
+		When a "left arrow is pressed" event occurs
+			cout "left arrow!" to console window
+	Note: when you type sf::Keyboard:: in the editor, you'll be shown all the possible keycodes it can recognize
+		
+---------------------------------------------
+Status of keys
+	You can also check the status of a key to see if it's currently being pressed.
+	This is different than an event.  
+		When you press a key, it generates an event
+		When you let the key up, in generates an event
+		But between those times, it's being held down, which is not in itself an event.
+	The code to check on the status of a key is below.  Notice there's no event object being dealt with
+		[[code]]
+		// determine the state of an individual keyboard key
+		//	   (this is not an event)
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			doSomething();
+	The SFML Keyboard, Mouse, and Joystick tutorial:
+		[[http://sfml-dev.org/tutorials/2.3/window-inputs.php!http://sfml-dev.org/tutorials/2.3/window-inputs.php]]
+---------------------------------------------
+Practice
+	Add code to your source file to detect
+		when the down arrow key being held down
+			cout "down!" to the console
+	When running your code, note how many more times this occurs than a keypress event
+
+----------------------------------------------
+Drawing shapes
+	Numerous shapes can be easily drawn on the screen
+		rectangles, circles, regular polygons, etc..
+	All shapes have similar properties
+		Size and Location (both are specified in pixels)
+		Outline and Fill Colors (specified using RGB values)
+		Outline Thickness
+	Drawing shapes is a two step process
+		Create a shape object consisting of all the shapes properties
+			Can be done just once 
+		Actually draw the shape as specified on the frame
+			Is done each time a frame is drawn
+	Shape properties can be mofified between frames to create animation
+	The SFML shape tutorial can be found [[here!http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php]]
+	A comprehensive rectangle example is given on the following slide
+----------------------------------------------
+Drawing Rectangles
+	[[code]]
+		//values we'll use for our rectangle
+		int width=10, height=20;	[[desc The rectangle will be 10 pixels wide and 20 pixels high]]
+		int x=50, y=100;			[[desc The rectangle will be positioned at 50,100<br>Coordinates are given from the top left corner, so this equates to:<br>50 pixels from the left side<br>100 pixels down from the top]].
+			
+		// Create rectangle object and specify properties 
+		//  This can be done anywhere, as long is it's done before being drawn
+		//	Doing it before the game loop makes sense
+		sf::RectangleShape myRectangle;	[[desc creates a RectangleShape object named myRectangle.<br>This object will hold all the properties of a rectangle which we'll then draw sometime in the future]]
+		myRectangle.setSize(sf::Vector2f(width, height)); [[desc Sets the rectangles width and height to the given values, which are in pixels.<br>The setSize function wants a single Vector2f object as a parameter, so this code first creates that object with the given width and height, then passes this just-created object to the setSize function as an argument.]]
+		myRectangle.setOutlineThickness(1); [[desc Sets the outline thickness to 1 pixel.]]
+		myRectangle.setOutlineColor(sf::Color(255, 0, 0)); [[desc Sets the outline color to Red.<br>setOutlineColor wants the color specified by a Color object.<br>Color objects consist of three values, a red, green, and blue.  Each of those values can be from 0 (none) to 255 (all there is).<br>So this code first creates a color object specifying all red (and no green or blue), and then passes this object to the setOutlineColor() method.]]
+		myRectangle.setFillColor(sf::Color(0,255,0)); [[desc Sets the fill color to green.<br>Bright green and red are a horrible combination.  Prepare to be blinded.]]
+		myRectangle.setPosition(x,y); [[desc Sets the position to be at that specified, in pixels.<br> X is how many pixels over from the left side.<br>y is how many pixels down from the top<br>Clipping occurs automatically, so any parts of the rectangle that are outside the window aren't drawn.]]
+			
+		//draw the rectangle on the frame
+		//   this must be done between the window.clear() 
+		//   and window.display() function calls)
+		window.draw(myRectangle);
+		
+		// note: once the rectangle is drawn, there is no connection to the
+		// drawn rectangle and the rectangle object we used to draw it.  
+		// So to draw a 2nd one, we can modify the object's location property
+		// and then draw it again.
+
+----------------------------------------------
+Practice
+	Add code to your source file to draw a rectangle
+		Create the object before the game loop
+		Draw it between the window.clear() and display() calls
+	After your get it to successfully draw,
+		add code to modify the rectangle's location by a few pixels when the arrow keys are pressed
+		When complete, you should be able to move the rectangle around the screen by pressing the arrow keys
+ 
+----------------------------------------------
+Drawing Regular Polygons
+	All regular polygons can be drawn using a CircleShape object.   
+		Circles are drawn using lots of straight lines between points.  
+		If you specify only a few points, it doesn't look like a circle. [[img CS162/images/square.png]]
+	A square, as shown in the picture to the right, can be drawn using the code below.   
+		[[code]]
+		float radius=2;
+		int points=4;
+		sf::CircleShape rock(radius, points); 
+			
+		sf::Vector2f midpoint(radius,radius);
+		rock.setOrigin(midpoint);
+			
+		rock.setRotation(0); //angle in degrees
+		rock.setPosition(4,8); 
+			
+		rock.setFillColor(sf::Color(0, 0, 0)); 
+		rock.setOutlineThickness(1);
+		rock.setOutlineColor(sf::Color(255, 255, 255)); 
+			
+		window.draw(rock);
+	The SFML shape drawing tutorial:
+		[[http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php!http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php]]
+-------------------------------------------
+Drawing Other Polygons
+	Irregular, convex polygons can also be easily drawn.  [[img CS162/images/triangle.png]]
+	A triangle, as shown in the picture to the right, can be drawn using the code below.
+		[[code]]
+		sf::ConvexShape ship;
+		ship.setPointCount(3); [[desc There will be three points total]]
+		ship.setPoint(0, sf::Vector2f(2, 0)); [[desc This is point number 0 (counting starts at 0)]]
+		ship.setPoint(1, sf::Vector2f(0, 5)); [[desc This is point number 1 ]]
+		ship.setPoint(2, sf::Vector2f(4, 5)); [[desc This is point number 2 ]]
+			
+		sf::Vector2f midpoint(2,3);
+		ship.setOrigin(midpoint);
+			
+		ship.setRotation(45);
+		ship.setPosition(4,10); 
+			
+		ship.setFillColor(sf::Color(0, 0, 0)); 
+		ship.setOutlineThickness(1);
+		ship.setOutlineColor(sf::Color(255, 255, 255)); 
+			
+		window.draw(ship);	
+	The SFML shape drawing tutorial:
+		[[http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php!http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php]]
+	

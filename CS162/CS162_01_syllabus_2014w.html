@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head>
+<title>CS162 Syllabus - Winter 2013</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- stylesheet ================================================== -->
+<style type="text/css">
+	body {
+		margin: 0px; padding: 0px; border: 0px;
+		font-family: Arial;
+		background-color: rgb(105,127,85);
+	}
+
+	div { margin: 0px; padding: 0px; border: 0px; }
+		
+	h1, h2, h3 { margin: 0px; padding: 0px; border: 0px; }
+		
+	#Heading {
+		position: absolute;
+		left: 0px; right: 0px; top: 10px; 
+		text-align: center;
+		z-index: 2;
+		color: black;
+		min-width: 500px;
+	}
+
+	#Heading h2 { color: white; }
+	#Heading h3 { color: white; }
+  
+	#Menu {
+		position: absolute;
+		left: 10px; top: 130px; 
+		height: 30px;
+		z-index: 2;
+		min-width: 500px;
+	}
+
+
+	.MenuOffset {
+		float: left;
+		padding: 3px 1px;
+		z-index: 0;
+	}
+
+	.MenuItem {
+		float: left;
+		padding: 3px 10px;
+		background-color: #dddddd; /*also in js, constants */
+		border: 1px solid black;   
+		border-bottom: 2px solid black; /*also in js, ShowTab() */
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	
+	.MenuItem a {text-decoration: none; color: black; } 
+
+	.MenuItem a:hover {background-color: #ffffff; }
+
+	.Content {
+		position: absolute;
+		left: 10px; top: 157px;
+		width: 93%;
+		z-index: 1;
+		border: 1px solid black;
+		padding: 10px;
+		visibility: hidden;
+		background-color: white; /*also in js, contants and ShowTab() */
+		min-width: 500px;
+		border-radius: 5px;
+	}
+	
+	#Schedule table {
+		margin-left: 30px;
+	}
+	
+	#Schedule .week, #Schedule .date, .center {
+		text-align: center;
+	}
+	
+	.holiday {
+		color: red;
+	}
+		
+	#PrintButton {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 80px;
+		z-index: 10;
+	}
+	
+@media print {
+	#Heading { position: relative;display: block; }
+	#Menu { display: none; }
+	#PrintButton { display: none; }
+	.Content { position: relative; top: 10px; display: block; visibility: visible; }
+	h2, h3 {color: black; }
+
+}
+</style>
+
+<!-- javascript ================================================== -->
+<script type="text/javascript">
+//<![CDATA[
+
+// Colors (constants)
+var sColorContent="#ffffff";  //white
+var sColorTabs="#dddddd";
+
+//data
+var aContentPageIDs = []; //IDs of content pages (strings)
+var sVisibleTabID="";
+
+
+//--------------------------------------------------------------
+function Initialize()
+{
+	//get IDs of content pages
+	var x=myGetElementsByClass("Content");
+	for (var i=0; i<x.length; i++)
+		aContentPageIDs[i] = x[i].id;
+	//alert(aContentPageIDs);
+	
+	//build cooresponding menu item divs and put them inside the menu div
+	var sMenuItemTemplate = "<div id=\"MenuX\" class=\"MenuItem\" ><a href=\"Javascript: ShowTab('X')\">X<\/a><\/div>"
+	var sMenuItemText = "<div class=\"MenuOffset\">&nbsp;<\/div>"
+	for (var i=0; i<aContentPageIDs.length; i++)
+		sMenuItemText = sMenuItemText + sMenuItemTemplate.replace(/X/g, aContentPageIDs[i]);
+	document.getElementById("Menu").innerHTML=sMenuItemText;
+
+	//show the first tab
+	ShowTab(aContentPageIDs[0]);
+}
+
+//-------------------------------------------------------------
+function myGetElementsByClass(className)
+{
+	var elements = [];
+	var x=document.getElementsByTagName("div");
+	//alert(x.length);
+	for (var j=0, i=0;i<x.length;i++)
+		if (x[i].className == className)
+		{
+			elements[j] = x[i]; j++;
+		}
+	//alert(elements.length);
+	return elements;
+}
+
+//---------------------------------------------------------------
+function ShowTab(sTabToShow)
+{
+	if (sVisibleTabID != "") //only happens first time
+	{
+		//hide current content page
+		document.getElementById(sVisibleTabID).style.visibility="hidden";
+
+		//gray out menu tab and fix bottom line
+		var x = document.getElementById("Menu" + sVisibleTabID)
+		x.style.backgroundColor=sColorTabs;
+		x.style.borderBottomStyle="solid";
+		x.style.borderBottomWidth="2px";
+		x.style.borderBottomColor="black";
+	}
+
+	//show new tab
+	document.getElementById(sTabToShow).style.visibility="visible";
+
+	//update menu tab to reflect shown tab
+	var x = document.getElementById("Menu" + sTabToShow)
+	x.style.backgroundColor=sColorContent;
+	x.style.borderBottomStyle="solid";
+	x.style.borderBottomWidth="4px";
+	x.style.borderBottomColor="white";
+
+	sVisibleTabID=sTabToShow;
+
+}
+
+//---------------------------------------------------------------
+function ShowPrintingInstructions()
+{
+	alert('Papercuts are painful, so I recommend against printing a paper copy.  Consider yourself warned.\n\nFor those brave souls who really must have a paper copy, you need to print it before clicking on any of the tabs. \n\nIf you have already clicked on one of the tabs, you should reload the page before printing.  Otherwise, you will get some blank pages where there should be words.\n\nIf you only want to print one tab, do a print preview (after reloading the page) and select the page containing the tab you want.');
+}
+//---------------------------------------------------------------
+//]]>
+</script>
+</head>
+
+
+<!-- html ===================================================================== -->
+<body id="Body" onload="Initialize()">
+
+<button id="PrintButton" type="button" value="PrintingInstructions" onclick="javascript:ShowPrintingInstructions();">Printing<br />Instructions</button>
+
+<!-- ============ Heading =========== -->
+<div id="Heading">
+<h2>CS 162 - Computer Science II</h2>
+<h2>Winter 2014 Syllabus</h2>
+<h3>Section 01: MW 2:30-4:20 | Section 02: TuFri 10:30-12:20</h3>
+</div>
+
+<!-- ============ Menu =========== -->
+
+<div id="Menu">
+	<!-- note: this div is filled with MenuItem divs (each representing a "tab") via javascript when page loads -->
+</div>
+
+
+<!-- ============ Course =========== -->
+<div id="Course" class="Content">
+<h2> Course Info</h2>
+
+<p><b>Course Description:</b>  Continuation of CS 161. Effective methods of designing large programs.  Includes elementary and dynamic data structures and data abstraction.  More coverage of Object Oriented Programming using C++.  A substantial project will be required.  This course continues to overview of Computer Science started in CS 161. (4 credits)</p>
+
+<p><b>Course Objectives:</b> Upon completion of this course, each student should be able to:</p>
+<ul>
+<li>Describe and work with both C-Strings and the String datatype.</li>
+<li>Implement multi-dimensional arrays</li>
+<li>Explain the benefits of Object Oriented Design and Programming, and OO concepts such as encapsulation and abstraction.</li>
+<li>Create and manipulate objects in a program.</li>
+<li>Build projects consisting of multiple source files.</li>
+<li>Use pointers with objects effectively.</li>
+<li>Explain how dynamic memory works and implement it in a program.</li>
+<li>Become proficient at writing algorithms and experiment with other forms of design, such as using structure charts or data flow diagrams.</li>
+<li>List and explain different types of design documents and/or diagrams, and be able to create at least one for a project.</li>
+</ul>
+
+<p><b>Prerequisites:</b> CS120 and Math 111 (or 4 years of High School math)</p>
+
+<p>The class is a combination of theory and practice. The student will use the textbook, the WWW, homework assignments, and interaction with the instructor and fellow students to gain insight into the topics covered. Because of the collaborative nature of the class, and the fact that material may may be presented that is not in the textbook, regularly attending class is essential.</p>
+</div>
+
+
+<!-- =========== Instructor ============ -->
+<div id="Instructor" class="Content">
+<h2> Instructor Info</h2>
+<p><b>Name: &nbsp;</b>Richard Albers<br />
+<b>Email:&nbsp;</b> richa@clackamas.edu<br />
+<b>Office:</b> Streeter - S126<br />
+<b>Hours:</b>M,W,F 1:30-2:30, Tu,Th 1:00-2:00 or by appointment<br />
+<b>Phone:</b> 503-594-3166 (email is preferred)</p>
+
+<p>I have an A.A.S. in Data Processing, a B.S. and M.S. in Computer Systems Engineering, and am fluent in several programming languages.  Prior to becoming a full-time College Instructor, I worked as a software developer/engineer in a variety of industries on a number of different types or projects, from point-of-sale customer interfaces to systems programming on a Unix Kernel (HP-UX).</p>
+</div>
+
+<!-- =========== Materials ============ -->
+<div id="Materials" class="Content">
+<h2> Materials</h2>
+<p><b>Textbook:</b> C++ Programming: Program Design Including Data Structures by D.S. Malik.  3rd, 4th, 5th, 6th, or 7th editions are all OK)  Note: this is the same book that was used in CS161</p>
+
+<p><b>Website:</b> We will be using Moodle for announcements, distribution of class materials, quizzes, and the final exam. </p>
+
+
+<p><b>Development Environment:</b> - You'll need access to a C++ development environment.  In class we'll be using Visual Studio 2012 (Microsoft's Integrated Development Environment) to write, debug, and test our programs.  You can get a copy of the Professional version through Microsoft Developers Network Academic Alliance (of which CCC is a part) by emailing Marci Casey (who's office is here in the annex) as follows:</p>
+<blockquote>
+To: &nbsp; &nbsp; &nbsp; &nbsp; marciac@clackamas.edu<br>
+Subject: MSDNAA - CS161<br>
+The body must contain your <b>Name</b> and <b>Student ID number</b>
+</blockquote>
+
+<p>Note: Visual Studio only runs on Windows.  However, there are other C++ development environments for other platforms (linux or Mac) so you can use one those as well (at home) if you don't have a Windows machine. Please see me (the instructor) if you plan on doing that as the projects will not be compatible with the development environment I use in my office.</p>
+
+</div>
+
+<!-- =========== Grading ============ -->
+<div id="Grading" class="Content">
+<h2> Grading</h2>
+<p>Graded work will consist of assignments, quizzes, and a final exam, weighted as follows:</p>
+
+<table align="center">
+<tr><td>Assignments (mostly programs):</td>	<td>40%</td></tr>		
+<tr><td>Quizzes:</td>		<td>20%</td></tr>	
+<tr><td>Final Exam:</td>	<td>40%</td></tr>
+</table>
+
+<p><b>Assignments:</b>   There will be numerous assignments (mostly programs) given throughout the term.   Some of your work will be code-reviewed by your peers, and some will be submitted for a grade.   These assignments, ideally, will be done independently, but you may discuss the assignment with other class members to get clarification and/or assistance.  However, keep in mind the goal of the class is to learn (not just write a bunch of code) so make sure you fully understand all the code you write.  If you simply copy someone else's work, both you and the person from whom you copied will receive a zero on the assignment. Due dates and times will be posted and assignments will be submitted via Moodle.  Late programs will have a substantial penalty (at least 5% per calendar day). </b> </p>
+
+<p><b>Review Quizzes:</b> One or more review quizzes will be available on the course web site for most chapters.  These quizzes are meant primarily for review and can be taken multiple times.  Each quiz attempt will consist of 10 random questions pulled from a question back of 10-30 questions.  The highest score you receive on a quiz before the deadline is the one that will count for the recorded grade.  The quizzes are due by the first class period of the week after the content was covered.  However, they will still be available after that for review.</p></p>
+   
+<p><b>Quizzes:</b>  The week after a chapter is covered, a quiz over that chapter may be given in class.  The questions on this quiz will come from (i.e. be very similar to) the review quizzes.</p>
+
+<p><b>Exam:</b> A final exam will be given. Details of the exams will be specified in class. </p>
+
+<p>
+Grading scale: 90%-100% = A, 80%-89.9% = B, 70%-79.9% = C, 60%-69.9% = D, &lt; 60% = F
+</p>
+</div>
+
+<!-- =========== Misc ============ -->
+<div id="Misc" class="Content">
+<h2> Misc</h2>
+<p><b>Attendance:</b> Regular attendance is essential to your success in this course. Students are responsible for everything that takes place during class, whether covered in written materials or not.  Additionally, some of each class day will be devoted to hand-on activities, and if a class must be missed, there will not be time to make up those activities in the future.</p>
+
+<p><b>Professionalism:</b> All participants in the class will are required to conduct themselves in a courteous, professional manner at all times. This includes communications in person, via phone, via e-mail or through an online chat or discussion.</p>
+
+<p><b>Ethics: </b>Plagiarism or cheating of any variety will be dealt with in accordance with the policies expressed in the student handbook. Possible consequences for academic dishonesty are: receiving no credit for the assignment in question, failing the course, and/or appearing before the college disciplinary board.</p>
+
+<p><b>Food / Drink Policy:</b> Eating is not allowed while class is in session.  Drinking beverages is acceptable provided the beverage is in a sealable container and you aren't interfering with the learning environment of the class.</p>
+
+<p><b>Cell Phones:</b> Cell phones should not interfere with the learning environment of the class.  Each time your cell phone rings during class, &frac12; % will be deducted from your grade.  That's &frac12; % per ring, not per call, and if you phone plays music instead of ringing, every 3 seconds of music will be considered one ring.  If you believe you must have your phone on during class, please discuss this with the instructor before class begins to see if an exception will be allowed.  If the instructor's phone rings, everyone gets &frac12; %.</p>
+
+<p><b>Special Needs:</b> If you are a student with a disability and you believe that your opportunities to be successful in this class are affected by that disability, please contact the Clackamas CC Disability Resource Center.  Their website is <a href="http://www.clackamas.edu/DisabilityResourceCenter/" target="_blank">http://www.clackamas.edu/DisabilityResourceCenter/</a>.</p>
+
+<p><b>Incomplete Grades:</b>  An incomplete grade can be given at the discretion of the instructor if you have satisfactorily (C or better) completed at least 75% of the class work. Arrangements must be made with the instructor before finals week in order to be considered for an incomplete.</p>
+
+<p><b>Emergency Procedures:</b>  When a fire alarm sounds, all students are expected to exit the building immediately.  The security of items left behind is not guaranteed, however, so students should gather all personal belongings before proceeding to the nearest exit.</p>
+
+</div>
+
+<!-- =========== Schedule ============ -->
+<div id="Schedule" class="Content">
+<h2> Schedule</h2>
+<p>The outline below is tentative and subject to change as circumstances warrant<br>Chapter numbers may be off by one for older versions of the textbook</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+	<td class="week">Week</td>
+	<td>Topic</td>
+	<td>Reading</td>
+</tr>
+
+<tr>
+	<td class="week">1</td>
+	<td>Course Intro <br />C-Strings and Strings(reviewed/continued from 161)</td>
+	<td>Chapter 8</td>
+</tr>
+
+<tr>
+	<td class="week">2</td>
+	<td>Multi-Dimensional Arrays / Output Files</span></td>
+	<td>Chapter 8 / 3
+</tr>
+
+<tr>
+	<td class="week">3</td>
+	<td>Structs</td>
+	<td>Chapter 9</td>
+</tr>
+
+<tr>
+	<td class="week" >4</td>
+	<td>Classes and Data Abstraction<br>Multi-File Project Compilation</td>
+	<td>Chapter 10</td>
+</tr>
+
+<tr>
+	<td class="week" >5</td>
+	<td>Classes and Data Abstraction (continued)<br />Using 3rd Party Library</td>
+	<td>Chapter 10 (continued)</td>
+</tr>
+
+<tr>
+	<td class="week">6</td>
+	<td>Composition & Inheritance</td>
+	<td>Chapter 11</td>
+</tr>
+
+<tr>
+	<td class="week">7</td>
+	<td>Pointers, Classes, Virtual Functions</td>
+	<td>Chapter 12</td>
+</tr>
+
+<tr>
+	<td class="week">8</td>
+	<td>Pointers, Classes, Virtual Functions (continued)</td>
+	<td>Chapter 12</td>
+</tr>
+
+<tr>
+	<td class="week">9</td>
+	<td>File Input</td>
+	<td>Chapter 3</td>
+</tr>
+
+<tr>
+	<td class="week">10</td>
+	<td>Wrapup and Review</td>
+	<td>&nbsp;</td>
+</tr>
+
+<tr>
+	<td class="week">Finals</td>
+	<td>Final Exam</td>
+	<td>&nbsp;</td>
+</tr>
+
+</table>
+</div>
+
+</body>
+</html>

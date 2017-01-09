@@ -1,0 +1,209 @@
+------------------------------------------
+Strings (portions of Ch 8 and Ch 9)
+	This presentation covers
+		What strings and C strings are
+		How to work with C strings, including
+			Initializing
+			Doing I/O with
+			Copying
+			Comparing
+		How to work with strings, including
+			Initializing
+			Doing I/O with
+			Copying
+			Comparing			
+------------------------------------------
+C string vs string
+	C strings and strings are both used to store words (or a sequence of characters), but are very different in how they operate internally.
+	C string
+		A null terminated array of characters
+			The null character has an ASCII value of 0
+			The null character MUST appear in the array, as it designates where the "string" ends.
+		Supported by C and C++
+		Functions to operate on C strings are defined in <cstring>
+	string
+		A structured (composite) datatype (stores multiple characters)
+		Supported by C++ (and many other languages)
+		NOT supported by C
+		Functions to operate on strings are defined in <string>
+------------------------------------------
+&nbsp;
+	There is nothing to see here
+	Please move along
+-------------------------------------------
+C string Overview
+	For an array of characters to be considered a C string, it MUST be null terminated
+	A C string is an array and can be processed just like any other array, but typically it's processed using the C string functions (defined in <cstring>)
+		strcpy - string copy 
+		strcmp - string compare
+		strlen - string length
+		[[and others...!http://www.cplusplus.com/reference/cstring/]]
+	All the C string functions assume there is a null character designating the end of the string data. If it's missing, array out-of-bounds problems will occur and results are unpredictable.
+----------------------------------------------
+Initializing C strings
+	An "empty" (null) string can be declared and initialized in either of these ways:
+	[[code]]
+		char name1[10] = {'\0'};  [[desc Declares a 10 element array of characters and puts a null character (\0 is one way to write a null character) in the first element. ]]
+		char name2[10] = {0}; [[desc Declares a 10 element array of characters and puts a null character in the first element. (0, when stored in a character, is called the null character)]]
+		char name3[10] = ""; //the preferred way [[desc Declares a 10 element array of characters and initializes it to an empty (or null) string (an empty string is a string that has a null character (numeric 0) as the first element. ]]
+		&nbsp;
+	A string containing "Rich" can be created as follows:
+	[[code]]
+		char name4[10] = {'R', 'i', 'c', 'h', '\0'}; [[desc Declares a 10 element array of characters and initializes the first 5 characters, the last of which is the null character]]
+		char name5[10] = "Rich";  //the preferred way [[desc Declares a 10 element array of characters and initializes it to the literal string &quot;Rich&quot;.  Note, literal strings have a null terminating character, so after the characters R,i,c and h, a null character is also put into the character array.<br>This ends up looking just like the previous example (name4)]]
+		
+------------------------------------------
+I/O with C strings
+	Streaming operators work on C strings
+	[[code]]
+		char name[50];  [[desc Declares a 50 character array of characters.]]
+		cin >> name; [[desc Takes characters typed on the keyboard and puts them into name until a whitespace character (blank, tab, or endl) is entered. A null terminating character is added.  <br>If more than 49 characters are typed that will be a problem.]]
+		cout << name;  [[desc sends the data contained in name to cout.  Data will start with the first character in name and proceed until a null character is reached]]
+	Using the insertion operator (>>), however, has issues:
+		Spaces cannot be input, as spaces are used as delimiters with >>
+		if the user enters more characters than will fit in the string, overflow occurs and other variables can be overwritten with unexpected results.
+	So, there's a get function (similar to getline) for C string
+	[[code]]
+		char name[50];	[[desc Declares a 50 character array of characters.]]
+		cin.get(name, 50); //reads up to 49 chars [[desc Takes characters typed on the keyboard and puts them into name until an endl character is entered, or 49 characters are typed. A null terminating character is automatically added.]] 
+-------------------------------------------
+Practice
+	Write a program that
+		declares a 20 character C string named favoriteName and initializes it to "Spot".
+		declares another 20 character C string named petName, prompts the user to enter his or her pets name, and stores that in petName.
+		prints out both names, one per line.
+------------------------------------------
+Copying C strings
+	You cannot use the assignment operator to put data into a C string (except on declaration line);
+	[[code]]
+		char name[20]; //not initialized
+		name="Rich"; //NOT ALLOWED [[desc This is an error.  You can only use the assignment operator (=) to put a literal string into a C string variable when the C string is declared; never later.]]
+		&nbsp;
+	You must instead use the strcpy function
+	[[code]]
+		char name[20]; //not initialized
+		strcpy(name, "Rich"); [[desc strcpy copies the C string specified by the 2nd argument into the C string specifed by the first argument.<br>This seems backwards to most new programmers, but is likely a carryover from assembly, which has many instructions where the result is put into the first argument]]
+	If you attempt to copy more characters than will fit, they're copied anyway, which may result in other data being corrupted.  
+		[[strncpy!http://www.cplusplus.com/reference/cstring/strncpy/]] can be used to limit the total characters copied.
+		It doesn't always add the null character.  Be aware!
+---------------------------------------------
+Comparing C strings
+	You cannot use the == operator to compare two C strings (or any other array)
+	[[code]]
+		char name[20] = "Bob";
+		if (name == "Bob") //NOT ALLOWED, error [[desc comparison operator (==) cannot be used on C strings.  The compiler will flag this line as an error]]
+	You must instead use strcmp
+	[[code]]
+		char name[20] = "Bob";
+		if (strcmp(name, "Bob") == 0) //true if equal [[desc strcmp returns<br>-1 if the first string is less than the 2nd string<br>0 if the strings are equal<br>1 if the first string is greater that the 2nd string]]
+-------------------------------------------
+Practice
+	Add code to the previous program to do the following
+		display a message state whether the name entered is the same as the favorite name or not.
+		print out the first character of the entered name
+		print out the entered name backwards (strlen function will prove useful, as will a for loop)
+-------------------------------------------
+&nbsp;
+	There is nothing to see here
+	Please move along
+-------------------------------------------
+string Overview
+	The string datatype is a structured data type (object) which allows you to store and manipulate alphanumeric data (names, sentences, etc..) more easily than you could with C strings
+		It implements dynamic memory allocation and supports numerous operators
+	The string datatype exists in most languages
+		It wasn't in C
+		Prior to the ANSI/ISO C++ standard, it wasn't officially in C++ either but vendors typically provided one
+			Microsoft's was CString - very confusing because this is NOT a C string.  In this case, the C stands for class.
+		The string datatype is now part of the c++ language
+	There are numerous string methods (and operators)
+		The string class is defined in <string>
+		[[http://www.cplusplus.com/reference/string/string/!www.cplusplus.com/reference/string/string/]]
+----------------------------------------------
+Initializing strings
+	An "empty" (null) string can be declared and initialized in either of these ways:
+	[[code]]
+		string name;  [[desc This creates a null string]]
+		string name2 = ""; [[desc This also creates a null string.  The assignment really isn't necessary]]
+	A string containing "Rich" can be created as follows:
+	[[code]]
+		string name3 = "Rich"; [[desc This creates a string and initializes it to Rich]]
+		string name4; [[desc  this creates a null string]]
+		name4="Rich"; [[desc strings can be assigned values after being declared using the assignment operator]]
+------------------------------------------
+I/O with strings
+	Streaming operators work on strings
+	[[code]]
+		string name;
+		cin >> name; [[desc Takes characters typed on the keyboard and puts them into name until a whitespace character (blank, tab, or endl) is entered.]]
+		cout << name;
+	Using the insertion operator (>>), however, has issues:
+		Spaces cannot be input, as spaces are used as delimiters with >>
+	So, there's a getline function (similar to get) for strings
+	[[code]]
+		string name;
+		getline(cin, name);  [[desc Takes characters typed on the keyboard and puts them into name until an endl character is entered<br>getline can also be passed a third argument, a delimiter, that it will stop at also<br>e.g. getline(cin, name, '|');]] 
+-------------------------------------------
+Practice
+	Write a program that
+		declares a string named favoriteName and initialize it to "Spot".
+		declares another string named petName, prompt the user to enter his pets name, and store that in petName.
+		print out both names, one per line.
+------------------------------------------
+Copying strings
+	You can use the assignment operator to put data into a string;
+	[[code]]
+		string name; //not initialized
+		name="Rich"; //works as you'd expect [[desc Unlike with C strings, you can use the assignment operator (=) to put a literal string into a string variable whenever you want to]]
+		&nbsp;
+	You can also put the contents of one string into another.
+	[[code]]
+		string name2; //not initialized
+		string name3 = "Rich";
+		name2 = name3; [[desc this copies the contents of name3, into name2.  You then have two strings which contain Rich]]
+---------------------------------------------
+Comparing strings
+	You can use the comparison operators (==, <, >, <=, >=, etc.) to compare two strings 
+	[[code]]
+		string name = "Bob";
+		if (name == "Bob") 
+			cout << "Equal!\n";
+		if (name > "Bobby") 
+			cout << name << "is greater than \"Bobby\"";
+
+-------------------------------------------
+Practice
+	Add code to the previous program to do the following
+		display a message state whether the name entered is the same as the favorite name or not.
+		print out the first character of the entered name
+		print out the entered name backwards (.length() member function will prove useful, as will a for loop)
+	
+-------------------------------------------
+&nbsp;
+	There is nothing to see here
+	Please move along
+-------------------------------------------
+Comparison
+[[img CS162/images/StringComparison.png]]
+-------------------------------------------
+Advantages of each
+	Advantages of C strings
+		Compile-time allocation and determination of size. This makes them more efficient in operation (faster run-time when using them)
+		Simplest possible storage, conserves space
+	Advantages of string datatype
+		variable size
+		safer to use - no worries about overflowing array 
+		more intuitive notation (can use operators)
+		more built-in functions	
+-------------------------------------------
+Summary
+	There are two types of strings in C++
+		A C string is a null terminated array of characters
+		A string is a structured (composite) datatype (an object)
+	The C++ string datatype was created to make string processing easier
+		It allows use of +, = and ==.
+	But, C strings are still very common
+		C++ is a superset of C, so there are many system functions that accept a C string as an argument.
+	And when a programmer says "string", they may mean
+		A literal string.  E.g. "Bob".
+		A null-terminated array of characters (C string)
+		A variable of the string datatype

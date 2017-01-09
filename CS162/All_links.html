@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+<script language="javascript" type="text/javascript">
+function buildLinks() {
+	var sShowSlidesLink="https://dl.dropboxusercontent.com/u/56405057/MoodleDataStore/Presentations/ShowSlides.html";
+	var sClass="CS162";
+	var aPages=new Array(
+		"Intro",
+		"Ch08_09_Strings",
+		"Ch10_Structs",
+		"Ch11_Classes",
+		"Ch99_3rdPartyLib",
+		"Ch99_SFML_Basics",
+		"Ch99_SFML_Text",
+		"Ch12_InheritanceAndComposition",
+		"Ch13_PointersAndDynMemAlloc",
+		"Ch13_DynAllocObjects"
+	);
+	
+	var sLinks = "";
+	for (x=0; x<aPages.length; x++) {
+		var sLink = sShowSlidesLink + "?file=" + sClass + "/" + aPages[x] + ".dat";
+		var sATag = '<a href="' + sLink + '" target="_blank">' + aPages[x] + '</a>';
+		var sLine = "<li>" + sATag + "</li>";
+		sLinks+=sLine;
+	}
+	
+	document.getElementById("links").innerHTML=sLinks;
+}
+</script>
+</head>
+
+<body onload="buildLinks()">
+	<h1>CS 162 Presentation Links</h1>
+	<ul id="links"></ul>
+</body>
+</html>

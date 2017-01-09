@@ -1,0 +1,163 @@
+------------------------------------------
+Pointers and Dynamic Memory Allocation (Ch 13), Part 1
+	This presentation covers
+		Pointers
+			Declaring
+			Initializing
+			"Address of" operator
+			Dereferencing operator
+		Dynamic Memory Allocation
+			Using new and delete
+			How bad code results in memory leaks
+		Pointer operations
+------------------------------------------
+Pointers
+	A pointer is a variable that contains the memory address of a location at which data is stored.
+	This location may be
+		Another variable
+		Memory that was dynamically allocated
+	In a 32 bit application, pointers are always 32 bits (4 bytes)
+	The type of data (char, int, etc..) a pointer is pointing to is important and specified when you declare the pointer.
+	General syntax is:
+		[[code]]
+		dataType * identifier
+
+------------------------------------------
+Declaring Pointer Variables
+	Pointer variables are declared as follows
+	[[code]]
+		// The following three lines are equivalant
+		// The * must be between the type and identifer
+		// Spaces can be on either side	of the *
+		int* p1; [[desc I prefer this format<br>Because it's an integer pointer.  Pointer is part of the type.]]
+		int *p2; [[desc Textbook author prefers this method<br>Reasons are it's consistent when declaring mulitple pointers on one line.(see below)<br>I suggest just not declaring multiple on one line.]]
+		int * p3; [[desc www.cplusplus.com tutorials prefer this method.<br>Clearly they're fence sitters...]]
+			
+		//caution - If using method one, be careful when 
+		//  declaring multiple pointer variables on one line
+		int* p4, p5; // declares one int pointer and one int [[desc This does NOT declare two pointers.<br>Method 1 above kind of falls apart here...]] 
+			
+		int* p6, * p7; //declares two int pointers [[desc This declares two pointers]]
+		
+---------------------------------------------
+Initializing Pointers
+	A pointer should contain one of the following:
+		A valid memory address
+		NULL (denoting it doesn't contain a valid memory address)
+	Pointers can be initialized to NULL as follows:
+	[[code]]
+		// The following two lines declare
+		// and initialize pointers to null.
+		int* p1=NULL;	//NULL is NULL
+		int* p2=0;		//0 is NULL too.
+	Pointers that contain NULL are called null pointers.
+			
+---------------------------------------------
+"Address of" operator
+	You can get the address of an existing variable using the address of operator (&).
+	[[code]]
+		int x=5;
+		int* p;		//declares a pointer named p
+			
+		p=&x;		//stores address of x in p
+			
+---------------------------------------------
+Dereferenceing operator
+	If you want to reference (print, modify, etc..) the data a pointer points to, you need to use the dereferencing operator (*)
+	Note: The * is used for lots of things, multiplication, declaring pointers, and now dereferencing them!
+	[[code]]
+		int x=5;
+		int* p;		//declares a pointer named p
+			
+		p=&x;		//stores address of x in p
+		cout << *p; //print out what p points so
+		cout << endl;
+			
+		*p=*p+7; 	//add 7 to the location p points to
+			
+			
+		(*p)++; //Adds one more to what p points to [[desc The ( ) are to assure we add to what p points to, not to p itself<br>Because you CAN add to pointers, thereby changing what they point to.<br>And if we left off the ( ) that's exactly what would happen.]]
+		cout << *p; //print out what p points to
+		cout << endl;	
+			
+---------------------------------------------
+new operator
+	Memory can be dynamically allocated using the new operator
+		Pointer to allocated memory is returned
+	For example:
+	[[code]]
+		int* p1 = new int;
+		int* p2 = 0;
+		p2 = new int;
+		
+		*p1 = 7;
+		*p2 = 5;
+		cout << (*p1 + *p2) << endl;
+		
+---------------------------------------------
+delete operator
+	Memory allocated using new should be freed up using delete
+	[[code]]
+		int* p1 = new int;
+		int* p2 = 0;
+		p2 = new int;
+			
+		*p1 = 7;
+		*p2 = 5;
+		cout << (*p1 + *p2) << endl;	
+			
+		delete p1;
+		delete p2;
+---------------------------------------------
+Memory leaks
+	If you dynamically allocate memory and then lose track of it (by changing the pointer to something else) before freeing it up, you have a memory leak.
+	[[code]]
+		int* p1 = new int;
+		int* p2 = 0;
+		p2 = new int;
+			
+		// changing the pointers without freeing up 
+		// memory first results in memory leaks
+		p1 = new int; 	// memory leak! [[desc p1 used to contain a pointer to the memory we allocated previously (on line 1).<br>We've now replaced that pointer with a new one to some new memory<br>But we didn't free up the original memory... and now we can't... because we don't have a pointer to it anymore... oops.]]
+		p2 = 0; 		// memory leak! [[desc p2 used to contain a pointer to the memory we allocated previously (on line 2).<br>We've now replaced that with NULL.<br>But we didn't free up the original memory... and now we can't... because we don't have a pointer to it anymore... oops. ]]
+			
+	The leaked memory will be unavailable to anyone until the program ends. 
+	When the program ends, the OS will free up all memory that was allocated to it.
+
+---------------------------------------------
+Dynamic arrays
+	You can allocate memory for an array of elements as follows
+	[[code]]
+		//allocate enough memory for 100 integers!
+		int* p1 = new int[100]; [[desc This allocates 400 contiguous bytes (Each int is 4 bytes, 4*100=400), and returns the address of the beginning of the allocated block (the address of the first element)]]
+			
+		...
+			
+		//when you free it up, be sure to use the []!
+		delete [] p1; [[desc This frees up all 400 bytes.<br>The [ ] are important.  Without them it would only free up the first 4 bytes (the space occupied by a single int)]]
+--------------------------------------------------
+Pointer Operations
+	You can do math on pointers
+	Adding/subtracting 1 to/from a pointer changes it by the size of the item it points to.
+	The following example shows how this might be used
+	[[code]]
+		//allocate enough memory for 10 integers!
+		int* p1 = new int[10];
+		int* p2 = p1; [[desc We're going to use this pointer to point to the various different integers in the array<br>We start out by pointing to the first, which is what p1 points to.<br>We don't want to change p1 because we need it later to free up the memory.]]
+			
+		//put some data in our allocated memory
+		for(int x=0; x<10; x++) { [[desc We're going to fill up 10 memory locations]]
+			*p2 = x*x;
+			p2++;	[[desc Adds 4 (the size of an int) to the address stored in p2<br>So it now points to the next integer location]]
+		}
+			
+		//print out the data backwards
+		p2--; [[desc Subtracts 4 (the size of an int) from the address stored in p2<br>So it now points to the previous integer location.<br>We need this because the last time through the for loop above we incremented p2 to point ot a location beyond our allocated memory.]]
+		while (*p2 != 0) { [[desc p2 currently points at the last of our 10 memory locations.<br>We put 0 in the first location, so we're going to go back through them until we find the one with 0]] 
+			cout << *p2;
+			p2--;	[[desc Subtracts 4 (the size of an int) from the address stored in p2<br>So it now points to the previous integer location]]
+		}		
+			
+		//free it up
+		delete [] p1;		
+------------------------------------------------------------

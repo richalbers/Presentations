@@ -1,0 +1,191 @@
+------------------------------------------
+Ch 4 - Selection Structures, part 2
+	Nested ifs
+	Handling Stream I/O problems
+	Conditonal Operator
+	Switch Statements
+	Assert statements
+	Pseudocode
+
+------------------------------------------
+Nested ifs
+	If statements can be nested
+	Else's are paired with the the most recent if that doesn't have an else
+	Misleading example (indentation implies else goes with first if)
+		[[code]]
+		if (x > 5)
+			if (y > 7)
+				y++;
+		else
+			z++;
+	Proper example (indentation matches compiler interpretation)
+		[[code]]
+		if (x > 5)
+			if (y > 7)
+				y++;
+			else
+				z++;
+	Both these examples operate identically, but the first misleads the reader into thinking it behaves differently.
+------------------------------------------
+Example 2
+	If you want this to operate as the indentation implies:
+		[[code]]
+		if (x > 5)
+			if (y > 7)
+				y++;
+		else
+			z++;
+	You need to do this:
+		[[code]]
+		if (x > 5) 
+		{
+			if (y > 7)
+				y++;
+		}
+		else
+			z++;
+	Because the else won't look inside the { } for an if to match;
+------------------------------------------
+Example 3
+	When comparing the same variable to multiple values, the following format is used
+	[[code]]
+		if (score >= 90)
+			cout &lt;&lt; "Supergenius!";
+		else if (score >= 80)
+			cout &lt;&lt; "Genius";
+		else if (score >= 70)
+			cout &lt;&lt; "Lesser Genius";
+		else if (score >= 60)
+			cout &lt;&lt; "Subgenius";
+		else 
+			cout &lt;&lt; "Wannabe Genius";
+------------------------------------------
+Handling Stream I/O Problems (optional)
+	If an invalid operation is attempted on a stream, the stream variable will subsequently evaluate to false.
+	This can be used to allow the programmer to detect and handle errors as follows:
+	[[code]]
+		#include &lt;fstream&gt;
+		#include &lt;string&gt;
+		using namespace std;
+		&nbsp;
+		int main() {
+			string fileName = "myfile.txt";
+			ifstream inputData;
+			&nbsp;
+			//open the file, if error, bail out
+			inputData.open(fileName);
+			if (! inputData) {
+				cout &lt;&lt; "File " &lt;&lt; fileName &lt;&lt; " could not be opened.\n";
+				cout &lt;&lt; "program terminated.\n";
+				return -1;
+			}
+			&nbsp;
+			...
+
+------------------------------------------
+Conditional Operator
+	?: is the conditional operator
+		It allows you to write certain code more tersely.
+		It takes three arguments, as follows:
+			[[code]]
+			expression1 ? expression2 : expression 3;
+		if expression1 evaluates to true 
+			the result is expression 2
+			else the result is expression 3
+	For example, this code
+		[[code]]
+		if ( a > b )
+			max = a;
+		else
+			max = b;
+	Can be written like this
+		[[code]]
+		max = (a > b) ? a : b;
+	I'm not a big fan of this, but you should understand its operation.
+-------------------------------------------
+switch
+	This switch statement allows you to compare the same variable to multiple values
+	switch statements can always be written as nested if else statements, but using switch is cleaner
+	Format is as follows:
+		[[code]]
+		switch (grade)
+		{
+			case 'A':
+				cout &lt;&lt; "Supergenius!";
+				break;
+			case 'B':
+				cout &lt;&lt; "Genius!";
+				break;
+			case 'C':
+				cout &lt;&lt; "Lesser Genius!";
+				break;
+			case 'D':
+				cout &lt;&lt; "SubGenius!";
+				break;		
+			default:
+				cout &lt;&lt; "Wannabe Genius!";
+				break;
+		}				
+-------------------------------------------
+switch caveat
+	Once a case is matched, code will be ran until a break is reached, then the switch block is exited.
+	So, the following code prints both "Genius" and "Lesser Genius" if grade = 'B' because the break is missing
+	[[code]]
+		switch (grade)
+		{
+			case 'A':
+				cout &lt;&lt; "Supergenius!";
+				break;
+			case 'B':
+				cout &lt;&lt; "Genius!";
+			case 'C':
+				cout &lt;&lt; "Lesser Genius!";
+				break;
+			case 'D':
+				cout &lt;&lt; "SubGenius!";
+				break;		
+			default:
+				cout &lt;&lt; "Wannabe Genius!";
+				break;
+		}				
+-------------------------------------------
+Example
+	The need for breaks has the advantage of being able to run the same code for multiple values
+	Example
+	[[code]]
+		switch (grade)
+		{
+			case 'A':
+			case 'B':
+			case 'C':
+			case 'D':
+				cout &lt;&lt; "You're some kind of genius!";
+				break;		
+			default:
+				cout &lt;&lt; "Uhh... better luck next time!";
+				break;
+		}				
+-------------------------------------------
+assert (optional)
+	The assert() statement can be used during development to help catch certain problems
+	It's used to verify certain things that should be true actaully are
+	Example of use
+		[[code]]
+		#include &lt;assert&gt;
+		...
+		assert(x > 0);
+		...
+	If it catches an error, it prints out the line the failure occured on, and terminates the program
+	Very useful for developers, useless for end-users, therefore assert statements can be disabled using 
+		[[code]]
+		#define NDEBUG
+	This is automatically done in release mode
+
+-------------------------------------------
+Pseudocode
+	[[Pseudocode!http://en.wikipedia.org/wiki/Pseudocode]] is an algorithm written out in english
+	It's used during the design process in the creation of the algorithm to solve a given problem
+	It typically leaves out details such as variable declarations
+	It's programmer-language independent
+	As algorithms get more complex, pseudocode becomes more benificial
+-------------------------------------------
