@@ -99,7 +99,7 @@ Practice
 		
 ----------------------------------------------
 Arrays in memory
-	Each row of the array is actually it's own single-dimensional array. [[img CS162/images/twoDimensionalArrayInMemory.PNG]]
+	Each row of the array is actually it's own single-dimensional array. [[img CS162/images/TwoDimensionalArrayInMemory.PNG]]
 	And each row is stored contiguously one-after-another in memory.
 	So if you access an element using a column index that's "out of bounds" you might be accessing an element in a subsequent row!
 		[[code]]
