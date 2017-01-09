@@ -10,7 +10,7 @@ Ch 8, part 2 - MultiDimensional Arrays
 		
 ------------------------------------------
 Two dimensional array
-	What are they? [[img CS162/images/twoDimensionalArray.jpg]]
+	What are they? [[img CS162/images/TwoDimensionalArray.jpg]]
 		A two dimensional array is an array that looks like a spreadsheet. 
 			It has rows and columns
 			Two indexes are needed to specify an element
