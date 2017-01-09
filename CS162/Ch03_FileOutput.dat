@@ -1,6 +1,6 @@
 ------------------------------------------
 Ch 3 - File I/O
-	This presentation covers writing to a file (file output).  Reading from a file (file input) is covered later.
+	This presentation covers writing to a file (file output).  
 		Overview
 		Example
 		I/O mode
