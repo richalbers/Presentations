@@ -87,7 +87,7 @@ continued
 		[[code]]
 			class InheritedClass : private BaseClass 
 	In this case, public and protected members change to private in the inherited class
-		public members of the base class become public members of the inherited class
+		public members of the base class become private members of the inherited class
 		protected members of the base class become private members of the inherited class
 		private members of the base class remain inaccessible to the inherited class
 			
