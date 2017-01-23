@@ -1,0 +1,61 @@
+------------------------------------------
+Inheritance (Ch 11)
+	At the end of this presentation, you should be able to 
+		Explain the order in which constructors and destructors are called for base/inherited classes
+		Pass arguments to the base class constructor from the inherited class
+		Explain how access specifiers work and use them apropriately 
+------------------------------------------
+Constructor Order
+	When an object is created from an inherited class
+		the base class constructor is run
+		followed by the inherited class constructor
+	However, the inherited class constructor might accept arguments 
+		some of which need to be processed in the inherited class constructor
+		and some of which need to be passed on to the base class constructor
+		
+---------------------------------------------
+Issue
+	The following classes both have constructors that accept values:
+	[[code]]
+		class BaseClass {
+		  public:
+			BaseClass(int xVal);
+		  private:
+			int x;
+		}
+
+		class InheritedClass : public BaseClass {
+		  public:
+			InheritedClass(int xVal, int yVal);
+		  private:
+			int y;
+		}
+		
+		InheritedClass myVar(4,5);
+		
+	So there needs to be a mechanism to get data to both constructors from the instantiation of myVar.
+---------------------------------------------
+Solution
+	The following syntax is used when implementing the Inherited class constructor
+	[[code]]
+		InheritedClass::InheritedClass(int xVal, int yVal) 
+			: BaseClass(xVal)
+		{
+			y = yVal;
+		}
+	If an object of the inherited class is instantiated like this:
+			[[code]]
+				InheritedClass myVar(4,5);
+		The arguments (4,5) are stored in xVal and yVal
+		xVal is passed on the base class constructor
+		yVal is used in the inherited class constructor
+---------------------------------------------
+Destructor Order
+	When destroying an object created from an inherited class
+		the inherited class destructor is called
+		followed by the base class destructor
+---------------------------------------------
+
+---------------------------------------------
+
+---------------------------------------------
