@@ -1,15 +1,15 @@
 Static Class Members
 	At the end of this presentation, you should be able to
 		describe what a class variable is
-		distinguise between instance and class variables
-		be able to create class (static) variables and functions
+		distinguish between instance and class variables
+		be able to create and use class (static) variables and functions
 		explain which member functions (class/non-static) can and cannot access which member variables (class/non-static)
 
 -------------------------------------------------------------
-Into
-	There two types of class variables (data members)
-		instance
-		class (or static)
+Introduction
+	There two types of variables you can have in your class
+		instance variables
+		class (or static) variables
 	Instance variables are
 		used extensively
 		what you're familiar with so far
@@ -46,7 +46,7 @@ Class Variables
 	Class variables MUST also be declared outside the class, and can be initialized there.
 	[[code]]
 		bool Fraction::autoReduce=true;
-	If you have 10 instances of the Fraction class, you'll only have 1 reduce variable
+	If you have 10 instances of the Fraction class, you'll only have 1 autoReduce variable
 
 ----------------------------------------------------------------------
 Static Functions
@@ -69,11 +69,12 @@ Static Functions
 	non-static (instance) functions can access all member variables
 ------------------------------------------------------------------------
 Calling Static Functions
-	Static functions are called using Class scope identifier
+	Static functions are called using the Class scope identifier
 	They can be called regardless of wether an instance of the class has been created
 	[[code]]
 		int main() {
-			Fraction::setAutoReduce(true);
+			Fraction::setAutoReduce( true );
+			...
 			return 1;
 		}
 
