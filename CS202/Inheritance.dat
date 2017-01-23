@@ -23,14 +23,14 @@ Issue
 		  private:
 			int x;
 		}
-
+			
 		class InheritedClass : public BaseClass {
 		  public:
 			InheritedClass(int xVal, int yVal);
 		  private:
 			int y;
 		}
-		
+					
 		InheritedClass myVar(4,5);
 		
 	So there needs to be a mechanism to get data to both constructors from the instantiation of myVar.
@@ -44,8 +44,9 @@ Solution
 			y = yVal;
 		}
 	If an object of the inherited class is instantiated like this:
-			[[code]]
-				InheritedClass myVar(4,5);
+	[[code]]
+		InheritedClass myVar(4,5);
+	Then
 		The arguments (4,5) are stored in xVal and yVal
 		xVal is passed on the base class constructor
 		yVal is used in the inherited class constructor
