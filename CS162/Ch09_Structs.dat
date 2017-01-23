@@ -1,13 +1,13 @@
 ------------------------------------------
 Structs (Ch 9)
-	This presentation covers
-		What structs are
-		How to create a struct types
-		How to work with struct variables
+	At the end of this presentation, you should be able to
+		Explain what structs are
+		Create new struct types
+		Work with struct variables, including
 			using with streaming I/O
 			Copying
 			Comparing
-			using with functions
+			Using with functions
 	
 ------------------------------------------
 Overview
