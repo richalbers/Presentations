@@ -56,7 +56,47 @@ Destructor Order
 		the inherited class destructor is called
 		followed by the base class destructor
 ---------------------------------------------
-
+ - - - - -
+ 	This page intentionally left blank
 ---------------------------------------------
-
+Access Specifiers
+	The available access specifiers, in order from least to most restrictive, are:
+		public	
+		protected
+		private
+	The least and most restrictive are simple
+		Public members are available to code outside the class
+		Private members are available only to code that is a part of that class or friends of that class
+	The middle one (protected) comes into play with inheritance
+		Protected members are available to member functions AND any inherited class member functions
+			I.E. It's private to the class and any class that uses that class as a base class.
 ---------------------------------------------
+With inheritance
+	When implementing inheritance, a specifier is used and defines the minimum level of restriction
+	For example:
+		[[code]]
+			class InheritedClass : public BaseClass 
+	In this case, public and protected members stay that way in the inherited class
+		public members of the base class become public members of the inherited class
+		protected members of the base class become protected members of the inherited class
+		private members of the base class remain inaccessible to the inherited class
+			
+---------------------------------------------
+continued
+	Another, much more restrictive example is as follows:
+		[[code]]
+			class InheritedClass : private BaseClass 
+	In this case, public and protected members change to private in the inherited class
+		public members of the base class become public members of the inherited class
+		protected members of the base class become private members of the inherited class
+		private members of the base class remain inaccessible to the inherited class
+			
+---------------------------------------------
+continued
+	Lastly, the middle way:
+		[[code]]
+			class InheritedClass : protected BaseClass 
+	In this case, public members change to protected in the inherited class
+		public members of the base class become protected members of the inherited class
+		protected members of the base class become protected members of the inherited class
+		private members of the base class remain inaccessible to the inherited class
