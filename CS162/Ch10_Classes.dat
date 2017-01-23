@@ -1,12 +1,12 @@
 ------------------------------------------
 Classes (Ch 10)
-	This presentation covers
-		An Introduction to classes
-		How to create classes and objects from those classes
-		Why and how to make members public and/or private
-		How to use the scope operator (::)
-		How to separate your code into header and implementation files
-		How to use your classes in a project
+	At the end of this presentation, you should be able to
+		Explain what classes and objects are
+		Create classes and objects from those classes
+		Exmplain the access modifies public and private, and use them apropriately
+		Use the scope operator (::)
+		Explain why you should separate your code into header and implementation files
+		Use a class in a project
 ------------------------------------------
 Introduction
 	Like structs, classes allow us to group together related variables as one unit
