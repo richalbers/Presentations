@@ -1,0 +1,80 @@
+Static Class Members
+	At the end of this presentation, you should be able to
+		describe what a class variable is
+		distinguise between instance and class variables
+		be able to create class (static) variables and functions
+		explain which member functions (class/non-static) can and cannot access which member variables (class/non-static)
+
+-------------------------------------------------------------
+Into
+	There two types of class variables (data members)
+		instance
+		class (or static)
+	Instance variables are
+		used extensively
+		what you're familiar with so far
+		bound within the instance
+	Class variables are 
+		much less common
+		shared among all instances of a class.
+-------------------------------------------------------------
+Instance Variables
+	Instance variables are declared non-static.
+	Each instance of the class will contain it's own unique copy of the those variables
+	For Example:
+	[[code]]
+		class Fraction {
+		private:
+			int numerator;
+			int denominator;
+		};
+	If you have 10 instances of the Fraction class, you'll have 10 numerators and 10 denominators
+
+--------------------------------------------------------------------
+Class Variables
+	A class (or static) variable 
+		is declared with the static keyword
+		exists outside any instance of the class 
+		is shared among all instances
+		exists before any instance of the class is created
+	For Example:
+	[[code]]
+		class Fraction {
+		private:
+			static bool autoReduce;
+		};
+	Class variables MUST also be declared outside the class, and can be initialized there.
+	[[code]]
+		bool Fraction::autoReduce=true;
+	If you have 10 instances of the Fraction class, you'll only have 1 reduce variable
+
+----------------------------------------------------------------------
+Static Functions
+	A class can contain static member functions.  These
+		can access static variables, but not instance variables
+		can be called BEFORE any instance of the class is created
+	For Example:
+	[[code]]
+		class Fraction {
+		private:
+			static bool autoReduce;
+		public:
+			static void setAutoReduce(bool autoReduce);
+		};	
+
+		void Fraction::setAutoReduce(bool autoReduce) {
+			this->autoReduce = autoReduce;
+		}
+	Static functions CANNOT access any instance variables
+	non-static (instance) functions can access all member variables
+------------------------------------------------------------------------
+Calling Static Functions
+	Static functions are called using Class scope identifier
+	They can be called regardless of wether an instance of the class has been created
+	[[code]]
+		int main() {
+			Fraction::setAutoReduce(true);
+			return 1;
+		}
+
+	
