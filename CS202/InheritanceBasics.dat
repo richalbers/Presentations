@@ -20,7 +20,7 @@ Overview
 				Horse (farm has a horse)
 ------------------------------------------
 Inheritance
-	An example of an "is-a" relationship would be Animals. [[img images/classdiagram.png]]
+	An example of an "is-a" relationship would be Animals. [[img images/ClassDiagram.png]]
 	You might have the following classes
 		Animal
 			Dog
