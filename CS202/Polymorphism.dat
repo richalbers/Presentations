@@ -1,17 +1,17 @@
 
 Terms/concepts
-  Static binding 
-    also called early or compile-time binding
-	  Used when we know what function will be called at compile time
-  Dynamic binding 
-	  also called late or run-time binding
-	  Used when we don't know what function will be called until run time.
-    Implmented using virtual keyword
-  Polymorphism (greek for "many forms")
-    Using common interface to access different functions
+	Static binding 
+		also called early or compile-time binding
+		Used when we know what function will be called at compile time
+	Dynamic binding 
+		also called late or run-time binding
+		Used when we don't know what function will be called until run time.
+		Implmented using virtual keyword
+	Polymorphism (greek for "many forms")
+		Using common interface to access different functions
 		Typically means "member function overriding"
 			A call to a member function will call/execute different functions depending on the type of object that invokes the function.
-  Upcasting
-	  Using a base class pointer to point to a derived class object
-  vTable (virtual table)
-	  A method used to implement dynamic binding in many OO languages
+	Upcasting
+		Using a base class pointer to point to a derived class object
+	vTable (virtual table)
+		A method used to implement dynamic binding in many OO languages
