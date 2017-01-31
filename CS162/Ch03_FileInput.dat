@@ -43,7 +43,7 @@ Opening a file for input
 			...
 			&nbsp;		
 			//close the file
-			inputData.close();
+			inputStream.close();
 		}
 --------------------------------------------
 Practice	
@@ -55,9 +55,9 @@ Practice
 reading
 	There are several methods that can be used to read the data from in input stream
 	The ones we'll look at are:
-		Formatted
+		To read formated data:
 			>>
-		Unformatted
+		To read unformatted data:
 			getline(istream, string) - reads an entire line
 			getch() - reads a character (or possibly more)
 		There are others.  See [[ifstream documentation!http://www.cplusplus.com/reference/fstream/ifstream/]]
@@ -81,13 +81,13 @@ reading formatted data
 			...
 -------------------------------------------
 Practice
-	Problem 1
-		Modify your text file so it contains 2 the following:
+	Exercise 1
+		Modify your text file so it contains the following:
 		[[code]]
 			10 20 30
 			3.14 2.7 
 		Modify your program to read this data into 5 separate variables
-	Problem 2
+	Exercise 2
 		Modify you text file to contain a bunch of integers (at least 10), separated by white space
 		Modify your program to 
 			read the file until EOF, 
@@ -99,16 +99,17 @@ reading unformatted data
 		It's just a bunch of lines or characters
 			[[code]]
 				...
-				string strLine;
 				char cstrLine[200];
+				string strLine;				
+
+				// read a single line into a char array
+				inputStream.getline(cstrLine, 200);
 					
-				//read a single line into string
+				// read a single line into string
 				getline(inputStream, strLine);
 				
-				//read a single line into a char array
-				inputStream.getline(cstrLine, 200);
-				
-				//reads lines until end-of-file (EOF) is reached
+				// reads lines until end-of-file (EOF) is reached
+				// and sending each line to cout
 				while (getline(inputStream, strLine))
 					cout << strLine;
 ------------------------------------------
@@ -117,3 +118,11 @@ Practice
 		Modify your program to read your .cpp source file line by line and print each line out to the console.
 	Problem 2
 		Modify your program to read your .cpp source file character by character and print each character out to the console.
+------------------------------------------
+Extra
+	This presention covered how to read files using streaming IO (fstream)
+	The C langauge didn't support streaming IO so files were read using other methods
+	Those methods still work in C++ but aren't covered here
+
+
+
