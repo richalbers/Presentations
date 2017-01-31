@@ -52,7 +52,7 @@ Practice
 		Since there is no directory specified before the filename, the file will need to be in the process's "current working directory".  When running in Visual Studio, that's the same directory your project's source files (.cpp, .h, etc.)are in
 	Step through the program in the debugger to see if the open succeeds
 --------------------------------------------
-reading
+reading data
 	There are several methods that can be used to read the data from in input stream
 	The ones we'll look at are:
 		To read formated data:
@@ -101,13 +101,13 @@ reading unformatted data
 				...
 				char cstrLine[200];
 				string strLine;				
-
+					
 				// read a single line into a char array
 				inputStream.getline(cstrLine, 200);
-					
+								
 				// read a single line into string
 				getline(inputStream, strLine);
-				
+							
 				// reads lines until end-of-file (EOF) is reached
 				// and sending each line to cout
 				while (getline(inputStream, strLine))
