@@ -119,8 +119,8 @@ reading unformatted data
 			std::getline(inputStream, strLine);
 			std::cout << strLine;
 	Note: There are two versions of getline()
-		One is a member of teh istream class (reads into a char array)
-		the other is not (reads into strings)
+		One is a member of the istream class (defined in <istream> and reads into a char array)
+		the other is a member of a class (defined in <string> and reads into strings)
 ------------------------------------------
 reading until EOF
 	Many of these functions return null (false) when they reach eof
@@ -143,7 +143,9 @@ Practice
 	Problem 1
 		Modify your program to read your .cpp source file character by character and print each character out to the console.
 	Problem 2
-		Modify your program to read your .cpp source file line by line and print each line out to the console.
+		Modify your program to read your .cpp source file line by line into strings and print each line out to the console.
+	Problem 3
+		Modify your program to read you .cpp source file line by line into a character array and print each line out the console.
 ------------------------------------------
 Extra
 	This presention covered how to read files using streaming IO (fstream)
