@@ -1,14 +1,14 @@
 ------------------------------------------
 Ch 3 - File Input
 	At the end of this presentation, you should be able to
-		open a file for input as an istream (input stream)
+		open a disk file as an input stream
 		handle errors that occur on the open
 		read both formatted and unformatted data
 		read a file until EOF (end-of-file) is reached
 
 ------------------------------------------
 File Input
-	Everything we've learned about reading from cin applies to reading from a file as well.
+	Disk files can be read as a data stream just as we previoulsy read cin.
 	The only difference several things are done automatically when using cin.
 	cin is:
 		declared for us automatically in iostream
@@ -22,7 +22,7 @@ File Input
 
 --------------------------------------------
 Opening a file for input
-	This example shows how to open a file for input
+	This example shows how to open a file for processing as an input stream
 		[[code]]
 		#include &lt;fstream&gt; //for file I/O
 		#include <iostream> //for cout
