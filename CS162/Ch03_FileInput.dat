@@ -1,10 +1,10 @@
 ------------------------------------------
-Ch 3 & 4 - File Input
-	File I/O
-		declaring stream variable
-		opening
-		writing/reading
-		closing
+Ch 3 - File Input
+	At the end of this presentation, you should be able to
+		open a file for input as an istream (input stream)
+		handle errors that occur on the open
+		read both formatted and unformatted data
+		read a file until EOF (end-of-file) is reached
 
 ------------------------------------------
 File Input
