@@ -25,25 +25,28 @@ Opening a file for input
 	This example shows how to open a file for input
 		[[code]]
 		#include &lt;fstream&gt; //for file I/O
+		#include <iostream> //for cout
 		#include &lt;string&gt; // to use getline
 		&nbsp;
-		void main() {
-			ifstream inputStream;
-			string filename="filename.txt";
-			&nbsp;
+		int main() {
+			std::ifstream inputStream;
+			std::string filename="filename.txt";
+					
 			//open the file, if open fails abort
 			inputStream.open(filename);
 			if (! inputStream) {
-				cout &lt;&lt; "File " &lt;&lt; filename &lt;&lt; " could not be opened.\n";
-				cout &lt;&lt; "program terminated.\n";
+				std::cout &lt;&lt; "File " &lt;&lt; filename &lt;&lt; " could not be opened.\n";
+				std::cout &lt;&lt; "program terminated.\n";
 				return -1;
 			}
-			&nbsp;
+					
 			//read the data
 			...
-			&nbsp;		
+						
 			//close the file
 			inputStream.close();
+					
+			return 1;
 		}
 --------------------------------------------
 Practice	
@@ -97,27 +100,50 @@ Practice
 reading unformatted data
 	Unformatted data is data that isn't separated by white space (or some other delimiter)
 		It's just a bunch of lines or characters
-			[[code]]
-				...
-				char cstrLine[200];
-				string strLine;				
+	It can be read character by character, or line by line.
+		[[code]]
+			...
+			//to read a single char
+			char ch;
+			inputStream.get(ch)
+			std::cout << ch << endl;				
 					
-				// read a single line into a char array
-				inputStream.getline(cstrLine, 200);
-								
-				// read a single line into string
-				getline(inputStream, strLine);
-							
-				// reads lines until end-of-file (EOF) is reached
-				// and sending each line to cout
-				while (getline(inputStream, strLine))
-					cout << strLine;
+			// read a single line into a char array
+			char cstrLine[200];
+			inputStream.getline(cstrLine, 200);
+			std::cout << cstrLine << endl;
+					
+			// read a single line into string
+			// use getline from <string>
+			std::string strLine;
+			std::getline(inputStream, strLine);
+			std::cout << strLine;
+	Note: There are two versions of getline()
+		One is a member of teh istream class (reads into a char array)
+		the other is not (reads into strings)
+------------------------------------------
+reading until EOF
+	Many of these functions return null (false) when they reach eof
+	Reading to EOF using getch()
+		[[code]]
+			// reads lines until end-of-file (EOF) is reached
+			// and sending each line to cout
+			char ch;
+			while (inputStream.get(ch))
+				std::cout << ch;	
+	Reading to EOF using getLine() (from <string>)
+		[[code]]
+			// reads lines until end-of-file (EOF) is reached
+			// and sending each line to cout
+			std::string strLine;
+			while (getline(inputStream, strLine))
+				std::cout << strLine << std::endl;
 ------------------------------------------
 Practice
 	Problem 1
-		Modify your program to read your .cpp source file line by line and print each line out to the console.
-	Problem 2
 		Modify your program to read your .cpp source file character by character and print each character out to the console.
+	Problem 2
+		Modify your program to read your .cpp source file line by line and print each line out to the console.
 ------------------------------------------
 Extra
 	This presention covered how to read files using streaming IO (fstream)
