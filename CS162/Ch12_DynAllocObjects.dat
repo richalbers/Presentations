@@ -1,5 +1,5 @@
 ------------------------------------------
-Dynamically Allocated Objects (Ch 13), Part 2
+Dynamically Allocated Objects (Ch 12), Part 2
 	This presentation covers
 		Using new and delete with classes
 		Object Pointer Notation
