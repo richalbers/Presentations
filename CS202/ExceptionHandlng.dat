@@ -1,0 +1,127 @@
+Ch 14: Exception Handling
+	At the end of this presentation you should be able to
+		Explain what an exception is and how exception handling works
+		Implement exception handling in C++ code, properly using each of the following:
+			try
+			throw
+			catch
+		Handle exceptions thrown from STL objects.
+----------------------------------------------------------
+Background
+	An exception is an anomalous or exceptional occurrence that happens and run-time and requires special processing
+	Some things that might cause exceptions
+		divide by zero
+		memory allocation failures
+		array index out of bounds
+	Exception handling is the process of responding to the exception
+	Exception handling typically breaks the normal flow of processing
+---------------------------------------------------------------------
+Why?
+	Code is complex, sometimes "unlikely things" happen.
+		You don't want your program to crash.  
+		You want it to:
+			if possible, recover and keep on running.
+			or die elegantly, passing along useful information
+	Exception handling	
+		allows you to handle things you weren't expecting.
+		allows you to easily pass error information to higher levels of code 
+		lets you separate your "unlikely to occur" error handling from your main logic, thereby making the main logic easier to read/understand.
+	
+----------------------------------------------------------
+keywords
+	Modern programming languages typically use the following keywords to implement exception handling
+		try { ... }
+			Designates a block of code for which exception handling implemented
+		throw
+			manually generates an exception
+		catch() { }
+			designates a block of code used to handle a specific type of exception
+		finally (c++ doesn't have this one)
+			Code that runs after the try and/or catch code, regardless of whether an exception occurred or not
+			Note: C++ does not implement this functionality.
+----------------------------------------------------------
+Try Catch structure
+	In c++, a try catch structure will look like this:
+	[[code]]
+		try {	
+			// 1 to a zillion lines of code
+			// if an exception occurs in this block,
+			// system will "jump" to the appropriate catch block
+		}
+		catch ( some type ) { 
+			// this code executes only if an exception occurs in the try block
+		}
+	a catch must immediately follow the try block
+------------------------------------------------------------
+exception types
+	In c++, any data type can be "thrown" as an exception.
+	You can use the throw keyword to throw an exception.
+	For example:
+	[[code]]
+		throw 42;
+		throw "Error occurred!";
+	And the catch block specifies what type of exception it's catching
+	[[code]]
+		catch (int e) { };
+	or	
+	[[code]]
+		catch (char* msg) { };
+	or you can use ellipsis to catch any type 
+	[[code]]
+		catch (...) { };
+------------------------------------------------------------
+Example
+	Here's a simple example of using try/throw/catch
+	[[code]]
+		try {
+			//lots of code
+			if (y==0)
+				throw("Error!  Divide by zero!\n\n");
+			z=x/y;
+			//more lines of code
+		}
+		catch (int e) { 
+			cerr << "Exception occurred. Num: " << e << "\n\n";
+		}
+		catch (char* e) {
+			cerr << "Exception occurred. Msg: " << e << "\n\n";
+		}	
+		catch ( ... ) {
+			cerr << "unknown exception occurred!\n";"
+		}
+------------------------------------------------------------
+Better example
+	System functions may generate exceptions as well, and these can be dealt with
+	The documentation for the [[string .at()!http://www.cplusplus.com/reference/string/string/at/]] member states it can generate a out-of-range exception.
+	[[code]]
+		string name="Rich";
+		try {
+			cout << name[6];		//unsafe, no checking done
+			cout << name.at(6);		//safe, throws exception
+		}
+		catch (const out_of_range& oor) {
+			cerr << "Out of Range error: " << oor.what() << '\n';
+		}
+-------------------------------------------------------------------
+Unwinding call stack
+	Exceptions that occur in function can be handled by the calling function.
+	For example, supposed f1() calls f2(), which calls f3(). which generates an exception.  Rather than dealing with that in f3, it can be dealt with in f1, and the system will "undo" the call stack when it jumps to the exception handler.
+	[[code]]
+	try {
+		f1() 
+	}
+	catch ( int e) {
+		cerr << "exception occurred!";
+	}
+----------------------------------------------------------------------
+exception class
+	The standard library has an [[exception class!http://www.cplusplus.com/reference/exception/exception/]] from which all standard exceptions are derived.
+	This class includes a what() function that provides the caller info about the exception.
+	[[code]]
+		try {
+			//some code
+		}
+		catch(exception e) { //catches exception object
+			cerr << e.what() << "\n\n";
+		}
+----------------------------------------------------------------------
