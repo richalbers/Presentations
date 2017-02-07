@@ -36,9 +36,9 @@ keywords
 			manually generates an exception
 		catch() { }
 			designates a block of code used to handle a specific type of exception
-		finally (c++ doesn't have this one)
+		finally
 			Code that runs after the try and/or catch code, regardless of whether an exception occurred or not
-			Note: C++ does not implement this functionality.
+			Note: C++ does NOT implement this keyword
 ----------------------------------------------------------
 Try Catch structure
 	In c++, a try catch structure will look like this:
@@ -51,7 +51,7 @@ Try Catch structure
 		catch ( some type ) { 
 			// this code executes only if an exception occurs in the try block
 		}
-	a catch must immediately follow the try block
+	The catch must immediately follow the try block
 ------------------------------------------------------------
 exception types
 	In c++, any data type can be "thrown" as an exception.
@@ -104,15 +104,15 @@ Better example
 		}
 -------------------------------------------------------------------
 Unwinding call stack
-	Exceptions that occur in function can be handled by the calling function.
-	For example, supposed f1() calls f2(), which calls f3(). which generates an exception.  Rather than dealing with that in f3, it can be dealt with in f1, and the system will "undo" the call stack when it jumps to the exception handler.
+	Exceptions that occur in a function can be handled by the calling function.
+	For example, supposed f1() calls f2(), which calls f3(). which generates an exception.  Rather than dealing with that in f3, it can be dealt with in the code that calls f1, and the system will "undo" the call stack when it jumps to the exception handler.
 	[[code]]
-	try {
-		f1() 
-	}
-	catch ( int e) {
-		cerr << "exception occurred!";
-	}
+		try {
+			f1() 
+		}
+		catch ( int e) {
+			cerr << "exception occurred!";
+		}
 ----------------------------------------------------------------------
 exception class
 	The standard library has an [[exception class!http://www.cplusplus.com/reference/exception/exception/]] from which all standard exceptions are derived.
