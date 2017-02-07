@@ -13,8 +13,9 @@ Background
 		divide by zero
 		memory allocation failures
 		array index out of bounds
-	Exception handling is the process of responding to the exception
-	Exception handling typically breaks the normal flow of processing
+	Exception handling 
+		is the process of responding to the exception
+		typically breaks the normal flow of processing
 ---------------------------------------------------------------------
 Why?
 	Code is complex, sometimes "unlikely things" happen.
@@ -22,11 +23,10 @@ Why?
 		You want it to:
 			if possible, recover and keep on running.
 			or die elegantly, passing along useful information
-	Exception handling	
-		allows you to handle things you weren't expecting.
-		allows you to easily pass error information to higher levels of code 
+	Exception handling
+		allows you to handle unlikely situations that may occur
 		lets you separate your "unlikely to occur" error handling from your main logic, thereby making the main logic easier to read/understand.
-	
+		allows you to easily pass error information to higher levels of code 
 ----------------------------------------------------------
 keywords
 	Modern programming languages typically use the following keywords to implement exception handling
