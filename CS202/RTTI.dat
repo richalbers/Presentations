@@ -1,0 +1,44 @@
+Runtime Type Information (RTTI)
+	At the end of this presentation you should be able to
+		Explain the three things RTTI consists of
+		Explain when dynamnic_cast will and will not work and use it appropriately in a program
+		Explain what typeid and type_info are
+----------------------------------------------------------
+Basics
+	Runtime Type Information (RTTI) involves determining the type of a variable at runtime.
+	The RTTI consists of 
+		dynamic_cast
+			allows you to cast one type to another (valid) type
+		typeid
+			provides you with a variables type information 
+		type_info
+			a structure containing the type info of a variable
+----------------------------------------------------------
+dynamic_cast
+	With inheritance
+		A base class pointer can point to a derived class object
+		You can assign a derived call pointer the value of a base class point ONLY if that base class pointer points to a derived class object.
+	And dynamic_cast must be used
+	For example
+	[[code]]
+		BaseClass * bcp_dco = new DerivedClass;
+		BaseClass * bcp_bco = new BaseClass;
+		DerivedClass * dcp;
+
+		//this doesn't work because variable types aren't the same
+		//casting must be used 
+		dcp=bcp_dco;
+		
+		//this works because bcp_dco points to an instance of the derived class
+		dcp = dynamic_cast<DerivedClass *>(bcp_dco);
+
+		//this fails because bcp_bco points to an instance of the base class
+		//dcp will be NULL afterwards
+		dcp = dynamic_cast<DerivedClass *>(bcp_dco);
+----------------------------------------------------------
+typeid
+	
+----------------------------------------------------------
+type_info
+
+----------------------------------------------------------
