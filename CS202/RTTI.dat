@@ -35,10 +35,33 @@ dynamic_cast
 		//this fails because bcp_bco points to an instance of the base class
 		//dcp will be NULL afterwards
 		dcp = dynamic_cast<DerivedClass *>(bcp_dco);
+	Note: static_cast is resolved at compile-time, dynamic_cast at run-time
 ----------------------------------------------------------
 typeid
-	
+	typeid allows you to obtain information on the type of a variable at runtime
+		you need to include <type_info>
+		typeid returns a reference to a type_info structure
+	You can compare the results to see if two variabes are the same type.
+	For example:
+	[[code]]
+		int x;
+		int* y;
+		if (typeid(x) == typeid(y))
+			cout << "the same types." << endl;
+		else
+			cout << "different types." << endl;
 ----------------------------------------------------------
 type_info
-
+	type_info is a class that holds the typeid information.
+	It only has a few members, most useful ones are:
+		==
+		!=
+		name
+	See the [[documentation!http://www.cplusplus.com/reference/typeinfo/type_info/]] for more details.
+	Example of use:
+	[[code]]
+		int x;
+		int* xp=&x;
+		cout << typeid(xp).name << endl;
+		cout << typeId(*xp).name << endl;
 ----------------------------------------------------------
