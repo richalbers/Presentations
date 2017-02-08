@@ -26,7 +26,7 @@ dynamic_cast
 		DerivedClass * dcp;
 			
 		//this doesn't work because variable types aren't the same
-		//casting must be used 
+		//it doesn't even compile.  dynamic_cast must be used 
 		dcp=bcp_dco;
 				
 		//this works because bcp_dco points to an instance of the derived class
