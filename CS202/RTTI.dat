@@ -24,14 +24,14 @@ dynamic_cast
 		BaseClass * bcp_dco = new DerivedClass;
 		BaseClass * bcp_bco = new BaseClass;
 		DerivedClass * dcp;
-
+			
 		//this doesn't work because variable types aren't the same
 		//casting must be used 
 		dcp=bcp_dco;
-		
+				
 		//this works because bcp_dco points to an instance of the derived class
 		dcp = dynamic_cast<DerivedClass *>(bcp_dco);
-
+			
 		//this fails because bcp_bco points to an instance of the base class
 		//dcp will be NULL afterwards
 		dcp = dynamic_cast<DerivedClass *>(bcp_dco);
