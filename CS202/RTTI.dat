@@ -17,7 +17,7 @@ Basics
 dynamic_cast
 	With inheritance
 		A base class pointer can point to a derived class object
-		You can assign a derived call pointer the value of a base class point ONLY if that base class pointer points to a derived class object.
+		You can assign a derived class pointer the value of a base class pointer ONLY if that base class pointer points to a derived class object.
 	And dynamic_cast must be used
 	For example
 	[[code]]
