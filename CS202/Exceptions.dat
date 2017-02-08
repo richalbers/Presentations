@@ -16,6 +16,7 @@ Background
 	Exception handling 
 		is the process of responding to the exception
 		typically breaks the normal flow of processing
+	Note: both hardware and software can "throw" exceptions.  We're dealing with software thrown exceptions.
 ---------------------------------------------------------------------
 Why?
 	Code is complex, sometimes "unlikely things" happen.
@@ -36,7 +37,7 @@ keywords
 			manually generates an exception
 		catch() { }
 			designates a block of code used to handle a specific type of exception
-		finally
+		finally { }
 			Code that runs after the try and/or catch code, regardless of whether an exception occurred or not
 			Note: C++ does NOT implement this keyword
 ----------------------------------------------------------
@@ -45,7 +46,7 @@ Try Catch structure
 	[[code]]
 		try {	
 			// 1 to a zillion lines of code
-			// if an exception occurs in this block,
+			// if an exception occurs ("is thown") in this block,
 			// system will "jump" to the appropriate catch block
 		}
 		catch ( some type ) { 
@@ -60,7 +61,7 @@ exception types
 	[[code]]
 		throw 42;
 		throw "Error occurred!";
-	And the catch block specifies what type of exception it's catching
+	And the catch block specifies what type (i.e. what datatype) of exception it's catching
 	[[code]]
 		catch (int e) { };
 	or	
@@ -74,11 +75,11 @@ Example
 	Here's a simple example of using try/throw/catch
 	[[code]]
 		try {
-			//lots of code
+			//possiby lots of code
 			if (y==0)
 				throw("Error!  Divide by zero!\n\n");
 			z=x/y;
-			//more lines of code
+			//possibly lots more code
 		}
 		catch (int e) { 
 			cerr << "Exception occurred. Num: " << e << "\n\n";
