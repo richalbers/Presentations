@@ -115,7 +115,7 @@ Unwinding call stack
 			cerr << "exception occurred!";
 		}
 ----------------------------------------------------------------------
-exception class
+STL exception class
 	The standard library has an [[exception class!http://www.cplusplus.com/reference/exception/exception/]] from which all standard exceptions are derived.
 	This class includes a what() function that provides the caller info about the exception.
 	[[code]]
@@ -125,4 +125,24 @@ exception class
 		catch(exception e) { //catches exception object
 			cerr << e.what() << "\n\n";
 		}
+	You can create your own exception class from this and overrid what()
 ----------------------------------------------------------------------
+Example
+	You can create your own derived exception class from the STL version like this:
+	[[code]]
+		class myException : public exception {
+		public:
+			const char* what() const throw() {
+				return "exception description goes here";
+			}
+		};
+	And then you can use that class as follows:
+	[[code]]
+		try {
+			//some code. Oh no, it went awry!
+			throw myException();
+		}
+		catch (myException e) { //catches my exception object
+			cerr << e.what() << "\n\n";
+		}	
+--------------------------------------------------------------------
