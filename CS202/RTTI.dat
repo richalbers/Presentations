@@ -34,7 +34,7 @@ dynamic_cast
 			
 		//this fails because bcp_bco points to an instance of the base class
 		//dcp will be NULL afterwards
-		dcp = dynamic_cast<DerivedClass *>(bcp_dco);
+		dcp = dynamic_cast<DerivedClass *>(bcp_bco);
 	Note: static_cast is resolved at compile-time, dynamic_cast at run-time
 ----------------------------------------------------------
 typeid
