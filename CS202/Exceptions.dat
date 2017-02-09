@@ -125,11 +125,13 @@ STL exception class
 		catch(exception e) { //catches exception object
 			cerr << e.what() << "\n\n";
 		}
-	You can create your own exception class from this and overrid what()
+	You can create your own exception class from this and override what()
 ----------------------------------------------------------------------
 Example
 	You can create your own derived exception class from the STL version like this:
 	[[code]]
+		#include <exception>
+				
 		class myException : public exception {
 		public:
 			const char* what() const throw() {
