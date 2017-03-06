@@ -1,0 +1,63 @@
+------------------------------------------
+Recursion (Ch 16)
+	This presentation covers
+		What recrusion is
+		How it works
+		Different Types
+------------------------------------------
+Overview
+	Problems can be solved in two distinct ways
+		iteration
+			using a loop to repeat a process to come to a solution
+		recursion
+			solving a problem by reducing it to smaller versions of itself
+	Many problems can be solved with either method
+		Most problems are more easily solved with iteration
+		Some problems are more easily solved with recursion
+----------------------------------------------
+Recursive Solution	
+	Factorials can be solved recursively
+		n! = n X (n-1)!
+		Note: (n-1)! is a smaller version of n!
+	Recursive algorithms have two cases
+		General Case - solution is smaller version of original problem
+		Base Case - solution is obtained directly
+	For the example above
+		n=0 (0!) is the base case (0! = 1)
+		All other values of n are the general case
+---------------------------------------------
+Recursive algorithm rules
+	Every recursive algorithm must have one (or more) base cases
+	The general case must eventually be reduced to the base case
+	The base case stops the recursion
+---------------------------------------------
+Example
+	The following is a recursive function that does factorials:
+		[[code]]
+		int factorial(int num)
+		{
+			if (num == 0)  // Base case
+				return 1; 
+			else	           // General case
+				return num * factorial(num-1); 
+		}
+
+----------------------------------------------
+Practice
+	Write a recursive function that computes the sum of all numbers from 1 to n, where n is given as parameter.
+		[[code]]
+		//return the sum 1 + 2 + 3 ... + n
+		int sum(int n)
+	Write a recursive function that finds and returns the minimum element in an array, where the array and its size are given as parameters.
+		[[code]]
+		//return the minimum element in a[]
+		int findmin(int a[], int n)
+	Write a recursive function that computes and returns the sum of all elements in an array, where the array and its size are given as parameters.
+		[[code]]
+		//return the sum of all elements in a[]
+		int findsum(int a[], int n)
+	Write a recursive function that determines whether an array is a palindrome, where the array and its size are given as parameters.
+		[[code]]
+		//returns 1 if a[] is a palindrome, 0 otherwise
+		int ispalindrome(char a[], int n)
+
