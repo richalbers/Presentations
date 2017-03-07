@@ -1,9 +1,10 @@
 ------------------------------------------
-Recursion (Ch 16)
-	This presentation covers
-		What recrusion is
-		How it works
-		Different Types
+Recursion (Ch 15)
+	At the end of this presention you should be able to
+		Explain the difference between iteration and recursion
+		Explain how recursion works
+		Explain what the base case and general case are
+		Develop recursive algorithms to solve problems
 ------------------------------------------
 Overview
 	Problems can be solved in two distinct ways
