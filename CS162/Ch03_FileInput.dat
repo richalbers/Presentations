@@ -127,14 +127,14 @@ reading until EOF
 	Reading to EOF using getch()
 		[[code]]
 			// reads lines until end-of-file (EOF) is reached
-			// and sending each line to cout
+			// and sends each line to cout
 			char ch;
 			while (inputStream.get(ch))
 				std::cout << ch;	
 	Reading to EOF using getLine() (from <string>)
 		[[code]]
 			// reads lines until end-of-file (EOF) is reached
-			// and sending each line to cout
+			// and sends each line to cout
 			std::string strLine;
 			while (getline(inputStream, strLine))
 				std::cout << strLine << std::endl;
