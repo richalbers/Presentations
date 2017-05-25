@@ -13,7 +13,7 @@ Overview
 		The data to be stored (int, string, object, etc..)
 		A pointer to the next node
 	For example:
-		[[img https://www.tutorialspoint.com/data_structures_algorithms/images/dsa_linkedlist.jpg]]
+	[[img https://www.tutorialspoint.com/data_structures_algorithms/images/dsa_linkedlist.jpg]]
 ---------------------------------------------------------------
 Why linked lists?
 	Arrays can store multiple instances of data of the same time, but have the following limitations:
@@ -33,6 +33,7 @@ Implementation
 	A struct is defined for the Node
 	A class is defined for Linked lists.
 		The only data it has is a single pointer named head.
+	For example:
 	[[code]]
 		struct Node {
 			int data; 
