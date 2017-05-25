@@ -7,12 +7,13 @@ Ch x - Linked lists
 		implement a linked list as an ADT
 ------------------------------------------
 Overview
-	A linked list is comprised of nodes, all connected together.
+	A linked list is a dynamic data structure used to store multiple values of the same type
+	It is comprised of nodes, all connected together.
 	Each node consists of
 		The data to be stored (int, string, object, etc..)
 		A pointer to the next node
 	For example:
-		Picture of linked list
+		[[img https://www.tutorialspoint.com/data_structures_algorithms/images/dsa_linkedlist.jpg]]
 ---------------------------------------------------------------
 Why linked lists?
 	Arrays can store multiple instances of data of the same time, but have the following limitations:
@@ -29,21 +30,21 @@ The drawbacks
 ------------------------------------------------------------------
 Implementation
 	Linked lists are commonly implmented as an ADT
-	    A struct is defined for the Node
-        A class is defined for Linked lists.
-            The only data it has is a single pointer named head.
+	A struct is defined for the Node
+	A class is defined for Linked lists.
+		The only data it has is a single pointer named head.
 	[[code]]
-        struct Node {
-    		int data; 
-    		Node* next;
-    	}
-    	   
-    	Class LinkedList {
-    		Public:
-    			//insert, remove, print, etc..
-    		Private:
-    			Node* head;
-        }
+		struct Node {
+			int data; 
+			Node* next;
+		}
+		    
+		Class LinkedList {
+		Public:
+			//insert, remove, print, etc..
+		Private:
+			Node* head;
+		}
 ------------------------------------------------------------------
 Operations
 	Create (constuctor)
@@ -63,7 +64,7 @@ Constructor and print
 		while (current != NULL)
 			cout << current->data
 		current = current->next
-    	Note: when implmenting a linked list, it's good to write the print function early so you can see the results of your insertions and removals.
+	Note: when implmenting a linked list, it's good to write the print function early so you can see the results of your insertions and removals.
 --------------------------------------------------------------------
 Insert
 	[[code]]
