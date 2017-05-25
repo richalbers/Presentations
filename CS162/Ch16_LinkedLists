@@ -1,0 +1,90 @@
+------------------------------------------
+Ch x - Linked lists
+	At the end of this presentation, you should be able to
+		explain what a link list is and how it's structured
+		explain the benfits and drawbacks of a linked list
+		explain the logic of common linked list operations
+		implement a linked list as an ADT
+------------------------------------------
+Overview
+	A linked list is comprised of nodes, all connected together.
+	Each node consists of
+		The data to be stored (int, string, object, etc..)
+		A pointer to the next node
+	For example:
+		Picture of linked list
+---------------------------------------------------------------
+Why linked lists?
+	Arrays can store multiple instances of data of the same time, but have the following limitations:
+		The size is fixed
+		Keeping the data in-order when inserting may require a lot of data to be moved, which is slow.
+	Linked lists solve both these problems
+		They grow and shrink as needed
+		They keep items in-order during insertion/deletions without moving any data
+-------------------------------------------------------------
+The drawbacks
+	Random access isn’t possible (list must be accessed sequentially starting with the first node)
+	There’s higher memory requirements (an extra pointer is stored with each piece of data)
+
+------------------------------------------------------------------
+Implementation
+	Linked lists are commonly implmented as an ADT
+	    A struct is defined for the Node
+        A class is defined for Linked lists.
+            The only data it has is a single pointer named head.
+	[[code]]
+        struct Node {
+    		int data; 
+    		Node* next;
+    	}
+    	   
+    	Class LinkedList {
+    		Public:
+    			//insert, remove, print, etc..
+    		Private:
+    			Node* head;
+        }
+------------------------------------------------------------------
+Operations
+	Create (constuctor)
+	Insert new data
+	Remove data (delete a node)
+	Print
+	Search
+	Copy
+	Delete
+------------------------------------------------------------------
+Constructor and print
+	Constructor is simple
+		Just initalize head to NULL;
+	To print, just traverse the list and print out the data in each node
+	[[code]]
+		current = head;
+		while (current != NULL)
+			cout << current->data
+		current = current->next
+    	Note: when implmenting a linked list, it's good to write the print function early so you can see the results of your insertions and removals.
+--------------------------------------------------------------------
+Insert
+	[[code]]
+	Insert(data)
+		Build a node to hold the new data
+		If list is empty
+			set head to new Node
+		else if data goes first
+			newNode->next = head;
+			head = newNode
+		else
+			find node that should precede new node
+			newNode->next = prev->next;
+			prev->next = newNode
+---------------------------------------------------------------------
+Remove
+	[[code]]
+	Remove(data)
+		If list is empty
+			return
+		find node that contains data (curr), and previous node
+		prev->next = prev->next->next;
+		delete curr
+---------------------------------------------------------------------
