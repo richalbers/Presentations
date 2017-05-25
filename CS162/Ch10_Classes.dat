@@ -3,7 +3,7 @@ Classes (Ch 10)
 	At the end of this presentation, you should be able to
 		Explain what classes and objects are
 		Create classes and objects from those classes
-		Exmplain the access modifies public and private, and use them apropriately
+		Explain the access modifies public and private, and use them apropriately
 		Use the scope operator (::)
 		Explain why you should separate your code into header and implementation files
 		Use a class in a project
