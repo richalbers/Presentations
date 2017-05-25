@@ -70,25 +70,25 @@ Constructor and print
 Insert
 	Pseudocode to insert data is as follows:
 	[[code]]
-	Insert(data)
-		Build a node to hold the new data
-		If list is empty
-			set head to new Node
-		else if data goes first
-			newNode->next = head;
-			head = newNode
-		else
-			find node that should precede new node
-			newNode->next = prev->next;
-			prev->next = newNode
+		Insert(data)
+			Build a node to hold the new data
+			If list is empty
+				set head to new Node
+			else if data goes first
+				newNode->next = head;
+				head = newNode
+			else
+				find node that should precede new node
+				newNode->next = prev->next;
+				prev->next = newNode
 ---------------------------------------------------------------------
 Remove
 	Pseudocode to remove data is as follows:
 	[[code]]
-	Remove(data)
-		If list is empty
-			return
-		find node that contains data (curr), and previous node (prev)
-		prev->next = prev->next->next;
-		delete curr
+		Remove(data)
+			If list is empty
+				return
+			find node that contains data (curr), and previous node (prev)
+			prev->next = prev->next->next;
+			delete curr
 ---------------------------------------------------------------------
