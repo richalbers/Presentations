@@ -15,25 +15,24 @@ Overview
 	Many problems can be solved with either method
 		Most problems are more easily solved with iteration
 		Some problems are more easily solved with recursion
-----------------------------------------------
-Recursive Solution	
-	Factorials can be solved recursively
-		n! = n X (n-1)!
-		Note: (n-1)! is a smaller version of n!
+---------------------------------------------
+Recursive algorithms
 	Recursive algorithms have two cases
 		General Case - solution is smaller version of original problem
 		Base Case - solution is obtained directly
+	Recursive algorithm rules
+		Every recursive algorithm must have one (or more) base cases
+		The general case must eventually be reduced to the base case
+		The base case stops the recursion
+----------------------------------------------
+Recursive Solution	
+	Factorials can be solved recursively
+		n! = n * (n-1)!
+		Note: (n-1)! is a smaller version of n!
 	For the example above
 		n=0 (0!) is the base case (0! = 1)
 		All other values of n are the general case
----------------------------------------------
-Recursive algorithm rules
-	Every recursive algorithm must have one (or more) base cases
-	The general case must eventually be reduced to the base case
-	The base case stops the recursion
----------------------------------------------
-Example
-	The following is a recursive function that does factorials:
+	The recursive factorial function would look like this:
 		[[code]]
 		int factorial(int num)
 		{
@@ -42,7 +41,6 @@ Example
 			else	           // General case
 				return num * factorial(num-1); 
 		}
-
 ----------------------------------------------
 Practice
 	Write a recursive function that computes the sum of all numbers from 1 to n, where n is given as parameter.
