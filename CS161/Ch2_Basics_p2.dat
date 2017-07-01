@@ -26,10 +26,10 @@ char Data type
 	A character is a letter, digit, or symbol, etc..
 	The char datatype is used to store these values [[img AsciiTable.jpg]]
 		The data is stored as an 8 bit (one byte) number which represents the character
-		This number is the ascii value of the character
+		This number is the ASCII value of the character
 		When outputted, by default, the character will be printed, not the number
 	Literal characters are enclosed in single quotes
-		There can be only one characters in the singlequotes
+		There can be only one character in the single quotes
 		[[code]]
 			char FirstLetter = 'a';
 ------------------------------------------
@@ -103,7 +103,7 @@ Input into variables
 ------------------------------------------
 Increment and Decrement Operators
 	Performing an operation on a variable and storing the result back into the same variable is very common.
-	So there's shortcuts for doing so.
+	So there are shortcuts for doing so.
 	Post-Increment and post-decrement
 	[[code]]
 		x++;  //equivalent to x = x + 1;
@@ -186,8 +186,8 @@ Namespaces
 
 ------------------------------------------
 Misc
-	Each C statement ends in a semicolon
-	[[Curley braces!http://en.wikipedia.org/wiki/Bracket]] (or brackets) are used to segment blocks of code.  They are NOT followed by semicolons.
+	Each C++ statement ends in a semicolon
+	[[Curly braces!http://en.wikipedia.org/wiki/Bracket]] (or brackets) are used to segment blocks of code.  They are NOT followed by semicolons.
 	[[code]]
 		void main() {
 			// all the code that is a part of main goes here
