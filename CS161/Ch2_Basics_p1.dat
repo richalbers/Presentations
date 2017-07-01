@@ -33,7 +33,7 @@ Practice
 			return x;
 		}
 	Then take out a ; and see what happens.
-	And then take out a bunch of whtite space and compile/run it again
+	And then take out a bunch of white space and compile/run it again
 	[[code]]
 		int main() { int x;	x=4+3; return x; }	
 --------------------------------------------
@@ -90,14 +90,14 @@ Data Type Categories
 		Pointers
 	For most of the course, we focus on Simple Data Types
 -------------------------------------------
-Numeric Data Types
+Simple Data Types
 	Integers - numbers without a decimal point
 		char, short, int, long
 		unsigned char, unsigned short, unsigned int, unsigned long
 	Floating Point - decimal numbers
 		float, double, long double
 		Significant digits and decimal location are stored
-	Boolean (stores true(1) or false(0))
+	Boolean - stores true(1) or false(0)
 		bool
 	Enumeration - user-defined type
 		Don't worry about these now
@@ -108,7 +108,7 @@ Practice
 		Average number of students in each CCC class
 		Students letter grade
 		Whether a student is present or not
-		Distance to a destination
+		Distance to the nearest pokestop
 		Distance to a star
 -------------------------------------------
 Variable declaration and initialization
