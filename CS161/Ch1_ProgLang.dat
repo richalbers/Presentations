@@ -46,7 +46,7 @@ Evolution continued
 		An assembler is also a program
 ---------------------------------------------
 Evolution continued
-	Assembly is certainly better then machine code, but it's still very tedious to write, so high level languages have been developed
+	Assembly is certainly better than machine code, but it's still very tedious to write, so high level languages have been developed
 		"High-level language" refers to the higher level of abstraction from machine language
 		One line of a high level language might result in 10s or 100s of lines of machine code
 	Example
