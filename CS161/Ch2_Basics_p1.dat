@@ -117,11 +117,12 @@ Variable declaration and initialization
 	Variable can be initialized with a value using the assignment operator (=)
 	Examples
 		[[code]]
-		int x;	        //one integer, random value
-		int x, y, z;    //three random integers
-		int x=0, y=1;   //assigned values
-		double y = 3.0; //decimals are double by default
-		float z = 3.0f; //f makes 3.0 a float
+		int x;	        //one integer (unknown value)
+		int a, b, c;    //three integers (unknown values)
+		int y=0, z=1;   //two integers, assigned values
+		double d = 3.0; //decimals are double by default
+		float f = 3.0f; //f makes 3.0 a float
+	Note: Those are all poor names as they're not self-documenting.
 -------------------------------------------
 Arithmetic Operators
 	Operator list:
