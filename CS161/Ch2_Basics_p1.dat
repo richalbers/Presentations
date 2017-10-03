@@ -1,13 +1,15 @@
 ------------------------------------------
 Ch 2 - Basic Elements of C++, part 1
-	Comments
-	Special Symbols and Keywords
-	Identifiers
-	Data Types
-	Variable Declaration
-	Arithmetic Operators
-	Order of Precedence
-	Expressions
+	At the end of this presentation you should be able to
+		Explain the purpose of comments and insert comments into a program
+		Properly format source code
+		Explain what Special Symbols and Keywords (reserved words) are
+		Explain the naming rules for Identifiers 
+		List the different data types and explain what type of data each can store
+		Declare and initialize variables
+		Use arithmetic operators in expressions
+		Explain when integer math is done vs floating point
+		Explain the order of precedence
 ------------------------------------------
 Comments
 	Comments and white space are used to make your code more readable and understandable
