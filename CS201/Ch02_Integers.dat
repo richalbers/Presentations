@@ -84,9 +84,31 @@ Bit Operators
 		printf("%x \n", x >> 2); // prints 0x03
 		printf("%x \n", x << 2); // prints 0x3c
 	Note: for right shifts (>>) 
-		arithmetic shifts are used for signed data
 		logical shifts are used for unsigned data
-			the difference is what value fills vacated leftmost bits
+			0's fill vacated leftmost bits
+		arithmetic shifts are used for signed data
+			uppermost bit fills vacated leftmost bits
+-------------------------------------------
+Practice
+	What is the result of each of the following?
+		0x12 & 0x0f
+		0x32 & 0x11
+		'F' & 0xdf   (consult ascii chart)
+			
+		0x55 | 0x0f
+		0x31 | 0xc8
+		'a' | 0x20  (consult ascii chart)
+		
+		0x04 << 1
+		0x04 << 2
+		1 << 1
+		2 << 3 
+		
+		16 >> 1
+		8 >> 4
+		0x40 >> 4  
+		0x80 >> 1  (2 possible answers)
+		
 -------------------------------------------
 Two's Complement
 	For unsigned numbers, simple binary is used.
