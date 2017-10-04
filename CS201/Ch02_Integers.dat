@@ -93,11 +93,11 @@ Practice
 	What is the result of each of the following?
 		0x12 & 0x0f
 		0x32 & 0x11
-		'F' & 0xdf   (consult ascii chart)
+		'f' & 0xdf   (consult ascii chart)
 		
 		0x55 | 0x0f
 		0x31 | 0xc8
-		'a' | 0x20  (consult ascii chart)
+		'A' | 0x20  (consult ascii chart)
 		
 		0x04 << 1
 		0x04 << 2
