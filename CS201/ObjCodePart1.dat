@@ -20,7 +20,7 @@ CPU Internals
 ---------------------------------------------
 General Purpose Registers
 	Data the CPU is going to operate on is loaded into General Purpose Registers
-	Current IA-32 archetecture is result of evolution [[img RegisterBreakdown.jpg]]
+	Current IA-32 architecture is the result of evolution [[img RegisterBreakdown.jpg]]
 		8 bit 
 			A,B,C,D
 		16 bit (eXtended)
@@ -33,7 +33,6 @@ General Purpose Registers
 			RAX, RBX, RCX, RDX
 ---------------------------------------------
 Additional Registers
-
 	Index and Pointer
 		EIP: instruction pointer
 		ESP: stack pointer
@@ -44,7 +43,7 @@ Additional Registers
 	Segment (16 bit, used with old segmented memory model)
 		CS, DS,	SS, ES, FS, GS
 	Others..
-	[[More info on registers!https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture]]
+	[[Excellent overview of registers from wikipedia!https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture]]
 ------------------------------------------
 Assembly
 	Object code can be viewed as assembly
