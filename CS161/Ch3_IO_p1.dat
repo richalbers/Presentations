@@ -1,15 +1,12 @@
 ------------------------------------------
 Ch 3 - I/O, part 1
-	Overview
-	Using Functions and Objects
-	Using cin (an input stream)
-		Operators
-		Functions 
-		Handling Errors
-	Using cout (an output stream)
-		Operators
-		Manipulators (formatting)
-	I/O with strings
+	At the end of this presentation you should be able to
+		Explain what a function is
+		Explain what an object is
+		Use common cin operators and functions to get user input
+		Use common cout operators and functions to send output to the screen
+		Use stream manipulators to format output data
+		Explain why the extraction operator is problematic when dealing with string data and why we need the getline function.
 	
 ------------------------------------------
 Overview
@@ -104,6 +101,29 @@ More Examples
 		                      a
 		                      26.9
 --------------------------------------------
+Practice
+	Given the following declarations
+	[[code]]
+		int i1, i2, i3;
+		double d1, d2;
+		char c1, c2;
+	What would be the results of the following statements/Input
+	[[code]]
+		Statement                 Input
+		=========               =========
+		cin >> i1 >> i2;          11 22
+		cin >> c1 >> i2;          33 44
+		cin >> i1 >> d1;          55 66        
+		cin >> i1 >> d1;          77.88    
+		cin >> d1 >> d2;          11.22   
+			
+		cin >> c1 >> c2 >> c3;    a b c    
+		cin >> i1 >> c1 >> i2;    1 2 3
+			
+		cin >> d1 >> c1 >> d2;    1.2.3
+		cin >> d1 >> d2;          1.2.3
+		
+--------------------------------------------
 Input Stream Functions
 	In addition to extraction operator, the following functions are commonly used
 	[[code]]
@@ -123,7 +143,7 @@ Practice
 		Reads and stores ONLY their first initial, and ignores the rest of the line.
 		Prompts the user for their last name
 		Reads and stores ONLY their last initial, and ignores the rest of the line.
-		Prints out their intitials
+		Prints out their initials
 	Output should look like this:
 	[[code]]
 		Enter your first name: Kelly
