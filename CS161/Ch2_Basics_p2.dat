@@ -2,13 +2,13 @@
 Ch 2 - Basic Elements of C++, part 2
 	At the end of this presentation you should be able to
 		Explain what implicit and explict type conversions are and when each is done
-	Explain what the char datatype stores and use it in a program
-	Explain what the string datatypes stores and use it in a proStrings
-	Explain what constants are and use them properly
-	Use cin and cout to get user data and write it to the screen
-	Use the Increment and Decrement Operators properly
-	Understand what PreProcessor Directives are
-	Understand the need for namespaces and the syntax
+		Explain what the char datatype stores and use it in a program
+		Explain what the string datatypes stores and use it in a proStrings
+		Explain what constants are and use them properly
+		Use cin and cout to get user data and write it to the screen
+		Use the Increment and Decrement Operators properly
+		Understand what PreProcessor Directives are
+		Understand the need for namespaces and the syntax
 
 -------------------------------------------
 Type Conversions
