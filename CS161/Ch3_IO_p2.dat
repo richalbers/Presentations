@@ -1,10 +1,10 @@
 ------------------------------------------
 Ch 3 - I/O, part 2 (File I/O)
-	File I/O
-		declaring stream variable
-		opening
-		reading/writing
-		closing
+	At the end of this presentation you should be able to
+		Explain the similarities and differences between cin/cout and a file stream.
+		Read data from a file
+		Wite data to a file
+		
 
 ------------------------------------------
 File I/O
