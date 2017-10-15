@@ -1,11 +1,11 @@
 ------------------------------------------
 Ch 4 - Selection Structures, part 2
-	This presentation covers
-		Nested ifs
-		Switch Statements
-		Pseudocode
-		The Conditional Operator 
-		Handling Stream I/O problems (optional)
+	At the end of this presentation you should be able to
+		Create nested if and if/else statements
+		Use switch Statements
+		Explain the purpose of pseudocode
+		Explain and use the conditional operator  
+		Handle stream I/O problems 
 
 ------------------------------------------
 Nested ifs
@@ -201,10 +201,4 @@ Handling Stream I/O Problems (optional)
 			}
 			&nbsp;
 			...
--------------------------------------------
-Summary
-	Nested ifs
-	Switch Statements
-	Pseudocode
-	The Conditional Operator 
-	Handling Stream I/O problems (optional)
+
