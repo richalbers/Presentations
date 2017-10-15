@@ -216,5 +216,12 @@ Practice
 		Get a character from the user
 		Create an if statement that Uses a combination of logical and boolean operators to determine if it's a letter, and prints out a message stating wether or not it's a letter.
 		Use the isalpha() function to do the same thing (but don't erase the original method)
+	When run, the output will be similar to this:
+	[[code]]
+		Please enter a character: 7
+			
+		7 is not a letter
+		7 is not a letter
+
 	
 	
