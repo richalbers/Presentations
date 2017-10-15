@@ -1,36 +1,81 @@
 ------------------------------------------
 Ch 4 - Selection Structures, part 1
-	This presentation covers
-		Selection Structure Basics
-		What Relational Operators are available
-		Some basic comparison rules
-		The importance of indentation
-		The logical operators
-			Not (!)
-			And and Or (&& and ||)
-		How to specify compound statements in the if body
+	At the end of this presentation you should be able to
+		Use if statements to conditionally execute one or more lines of code
+		Explain why proper indentation is important
+		List and explain all the relational operators 
+		Explain how strings are compared
+		Explain the issue with comparing floats
+		Use the logical && (and), || (Or), and ! (not) operators
 
 ------------------------------------------
-Selection Structure Basics
-	Selection structures allow you to conditionally execute blocks of code
-	Basic Formats
+If statement
+	If allows you to conditionally execute blocks of code
+	Basic Format
 		[[code]]
-		if (expression) 
+		if (expression that evalutes to true or false) 
 			statement done if true;
-		...
-		&nbsp;
-		if (expression) 
+	Example
+		[[code]]
+		if (grade > 90)
+			cout &lt;&lt; "You earned an A! \n";
+-------------------------------------------
+Compound Statements
+	If you wish to have more than one line conditionally executed (ie. in the body of the if), you need to use { }
+	Correct Example - only prints "You're brilliant!" if grade is an A
+		[[code]]
+		if (grade=='A')
+		{
+			cout &lt;&lt; "Your grade is an 'A'";
+			cout &lt;&lt; "You're brilliant!";
+		}
+	Incorrect Examples - prints "You're brilliant!" regardless of grade value
+		[[code]]
+		if (grade > 90)
+			cout &lt;&lt; "Your grade is an 'A'";
+			cout &lt;&lt; "You're brilliant!";
+
+-------------------------------------------
+IF Else statements
+	An if statement can be followed by an else that conditially executes code when the if expression is false
+	[[code]]
+		if (some expression that evalutes to true or false) 
 			statement done if true;
 		else
 			statement done if false;
-		...
-	The expression must be something that evaluates to true or false
-		Typically, this is a boolean value
-		but integers work as well; any non-zero value is considered true;
-
+	For example:
+	[[code]]	
+		if (grade > 90)
+			cout &lt;&lt; "You earned an A! \n";
+		else
+			cout &lt;&lt; "You didn't earn an A. \n";
+			
+		if (grade > 90) {
+			cout &lt;&lt; "You earned an A! \n";
+			cout &lt;&lt; "You're brilliant!";
+		}
+		else {
+			cout &lt;&lt; "You did not earn an A\n";
+			cout &lt;&lt; "But you could still be brilliant!";	
+		}
+------------------------------------------
+Indentation
+	Indentation is for readability (which is crucial in avoiding bugs)
+	Good
+		[[code]]
+		if (x == 1)
+			cout &lt;&lt; "x is 1!";
+		else
+			cout &lt;&lt; "x is not 1.";
+	Bad
+		[[code]]
+		if (x == 1)
+		cout &lt;&lt; "x is 1!";
+		else
+		cout &lt;&lt; "x is not 1.";
 ------------------------------------------
 Relational operators
-	Expressions usually make use of a relational operator
+	The following is a list of all the available relational operators that can be used in an if statement
 		== equal to
 		!= not equal to
 		&lt; less than
@@ -48,42 +93,12 @@ Relational operators
 		if (x &lt;= 0)
 			...;
 
-------------------------------------------
-Comparison rules
-	Only similar types should be compared, integer to integer, float to float, etc. 	Comparing different types (int to float) can result in unexpected results
-	Comparing characters
-		The ascii value of the characters is used.
-		So 'a' > 'A', because 97 > 65
-		and 'A' > '9' because 65 > 57
-	Comparing strings
-		Character by character comparison is done until inequality is found.
-		"Sue" > "Sam" because u > a
-		"Bill" &lt "Billy" because null (the string terminator) is &lt; y
-	Comparing floats
-		Comparing floats for equality can be a problem.  Just don't do it.
-			(1.0)/3 * 3 should be equal to 1.0 but probably won't be...
-
-------------------------------------------
-Indentation
-	Indentation is for readability (which is crucial in avoiding bugs and lowering the cost of maintenance)
-	Good
-		[[code]]
-		if (x == 1)
-			cout &lt;&lt; "x is 1!";
-		else
-			cout &lt;&lt; "x is not 1.";
-	Bad
-		[[code]]
-		if (x == 1)
-		cout &lt;&lt; "x is 1!";
-		else
-		cout &lt;&lt; "x is not 1.";
 -------------------------------------------
 Practice
-	Enter (or cut and paste) the code below into the editor and add statements in the "do some comparisons" section to
-		print out "x is 42" if it's 42
-		print out "x is less than 0" if it's less than 0
-		or "x is greater than 0" if it's greater than 0
+	Enter (or cut and paste) the code below into the editor and the following
+		an if statement that prints out "x is 42" if it's 42
+		an if else statement that prints out "x is negative" if it's less than 0 or "x is positive" if it's not less than 0
+		an if else statement that has 2 lines in both the if body and else body.
 		[[code]]
 			#include <iostream>
 			
@@ -100,12 +115,39 @@ Practice
 				
 				
 				
-				//keep console window open
-				cin.ignore(100, '\n');
-				cin.get();
-				
+					
 				return 1;
 			}
+------------------------------------------
+Common Mistakes
+	The following exhibits common mistakes:
+	[[code]]
+		if (x=5)
+			cout &lt;&lt; "X is Five!";
+		
+		if (x>10);
+			cout &lt;&lt; "X is greater than 10";
+			
+		if (x<0)
+			cout &lt;&lt; "X is less than 0 \n";
+			cout &lt;&lt; "that means it's negative!";
+	All those examples compile and run, but don't do what is intended
+
+------------------------------------------
+Comparison rules
+	Only similar types should be compared, integer to integer, float to float, etc. 
+	Comparing different types (int to float) can result in unexpected results
+	Comparing characters
+		The ascii value of the characters is used.
+		So 'a' > 'A', because 97 > 65
+		and 'A' > '9' because 65 > 57
+	Comparing strings
+		Character by character comparison is done until inequality is found.
+		"Sue" > "Sam" because u > a
+		"Bill" &lt "Billy" because null (the string terminator) is &lt; y
+	Comparing floats
+		Comparing floats for equality can be a problem.  Just don't do it.
+			(1.0)/3 * 3 should be equal to 1.0 but probably won't be...
 
 -------------------------------------------
 Logical Operators
@@ -155,28 +197,22 @@ Not
 		[[code]]
 		if (! DataValid(x,y,z))
 			....
-
--------------------------------------------
-Compound Statements
-	If you wish to have more than one line conditionally executed (ie. in the body of the if), you need to use { }
-	Incorrect - prints "You're brilliant!" regardless of grade value
-		[[code]]
-		if (grade=='A')
-			cout &lt;&lt; "Your grade is an 'A'";
-			cout &lt;&lt; "You're brilliant!";
-	Correct - only prints "You're brilliant!" if grade is an A
-		[[code]]
-		if (grade=='A')
-		{
-			cout &lt;&lt; "Your grade is an 'A'";
-			cout &lt;&lt; "You're brilliant!";
-		}
-
--------------------------------------------
-Practice
-	Add code to the previous example to:
-		check if x is equal to y and if so 
-			print out x is equal to y
-			add them together and store the result in sum
-			print out "the sum of those numbers is " followed by the contents of sum
 --------------------------------------------
+Misc
+	The if expression typically evaluates to a boolean (true/false), but integers work as well
+		Any non-zero value is considered true
+		0 is considered false
+	The if expression doesn't need to make use of comparison operators, it could be a function call.  
+	For example:
+		[[code]]
+		if ( isUpper(letter) )
+			cout &lt;&lt; "The letter is uppercase.\n";
+
+--------------------------------------------
+Practice
+	Modify your previous example to 
+		Get a character from the user
+		Create an if statement that Uses a combination of logical and boolean operators to determine if it's a letter, and prints out a message stating wether or not it's a letter.
+		Use the isalpha() function to do the same thing (but don't erase the original method)
+	
+	
