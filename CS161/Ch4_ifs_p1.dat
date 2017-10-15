@@ -1,11 +1,11 @@
 ------------------------------------------
 Ch 4 - Selection Structures, part 1
 	At the end of this presentation you should be able to
-		Use if statements to conditionally execute one or more lines of code
+		Use if and if/else statements to conditionally execute one or more lines of code
 		Explain why proper indentation is important
 		List and explain all the relational operators 
 		Explain how strings are compared
-		Explain the issue with comparing floats
+		Explain the potential problem with comparing floats
 		Use the logical && (and), || (Or), and ! (not) operators
 
 ------------------------------------------
@@ -214,8 +214,9 @@ Misc
 Practice
 	Modify your previous example to 
 		Get a character from the user
-		Create an if statement that Uses a combination of logical and boolean operators to determine if it's a letter, and prints out a message stating wether or not it's a letter.
-		Use the isalpha() function to do the same thing (but don't erase the original method)
+		Prints out wether the entered character is a letter or not (twice)
+			The first time using an if expression that consists of a combination of logical and boolean operators
+			The 2nd time using the isalpha() function to do the same thing
 	When run, the output will be similar to this:
 	[[code]]
 		Please enter a character: 7
