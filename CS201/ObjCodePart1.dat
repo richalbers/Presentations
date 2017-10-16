@@ -71,18 +71,25 @@ Memory References
 	[[code]]
 		| Mode        | Intel                      | AT&T                        |
 		==========================================================================
-		| Immediate   | MOV EAX, [0100]            | movl           0x0100, %eax |
+		| Immediate   | MOV EAX, 0100              | movl          $0x0100, %eax |
 		| Register    | MOV EAX, [ESI]             | movl           (%esi), %eax |
 		| Reg + Off   | MOV EAX, [EBP-8]           | movl         -8(%ebp), %eax |
 		| R*W + Off   | MOV EAX, [EBX*4 + 0100]    | movl   0x100(,%ebx,4), %eax |
 		| B + R*W + O | MOV EAX, [EDX + EBX*4 + 8] | movl 0x8(%edx,%ebx,4), %eax |
 ------------------------------------------
-Basic Instructions
-	mov, mov
-	add, sub, mul, div
-	shl, shr
-	cmp
-	
+Instructions
+	Basic Instructions
+		mov, mov
+		add, sub, mul, div
+		shl, shr
+		cmp
+	The size of the operands is appended to the instruction
+		b - byte (8 bits)
+		w - word (16 bits)
+		l - long (32 bits)
+		q - quad (64 bits)
+	For example:
+		movl -8(%ebp), %eax
 ------------------------------------------
 Stack Instructions
 	push - pushes a value onto the stack by subtracting the data size from esp and then writing the value to the address contained in esp
