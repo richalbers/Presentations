@@ -361,8 +361,7 @@ array obj code
 		 804844a:       31 c0                   xor    %eax,%eax	[[desc zeros out eax (xor is the fastest way to clear a register)]]
 			 int nums[10];
 			 nums[1]=99;
-		 804844c:       c7 45 d0 63 00 00 00    movl   $0x63,-0x30(%ebp) [[desc sets nums[1] to 99]]
-
+		 804844c:       c7 45 d0 63 00 00 00    movl   $0x63,-0x30(%ebp) [[desc array element value to 99]]
 			return nums[1];
 		 8048453:       8b 45 d0                mov    -0x30(%ebp),%eax [[desc puts return value into eax]]
 		}
