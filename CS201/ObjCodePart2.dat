@@ -328,10 +328,67 @@ While Loop
 	}
 ------------------------------------------
 Switch
-	A switch statement makes makes use of a jump table to effeciently determine what code to run (multiple comparisons are NOT made)
+	A switch statement may make use of a jump table to avoid making multiple comparisons.
+	The following example shows object code generated from this:
 	[[code]]
-		code goes here....
-		
+		int function1() {
+			int x=3;
+			int y;
+
+			switch(x) {
+			    case 1:
+				y=16;
+				break;
+			    case 2:
+				y=32;
+				break;
+			    case 5:
+				y=64;
+				break;
+			    case 6:
+				y=128;
+				break;
+			    case 7:
+                		y=256;
+                		break;
+           		    case 9:
+				y=512;
+				break;
+			}
+			return y;
+		}
+-------------------------------------------
+switch obj code
+[[code]]
+		 switch(x) {
+	80483e8:       83 7d fc 09             cmpl   $0x9,-0x4(%ebp)	[[desc compares x to max case]]
+	80483ec:       77 44                   ja     8048432 <function1+0x57> [[desc if above, skip switch code]]
+	80483ee:       8b 45 fc                mov    -0x4(%ebp),%eax	[[desc move x to eax]]
+	80483f1:       c1 e0 02                shl    $0x2,%eax			[[desc multiply by 4.  Each addr in jmp table is 4 bytes]]
+	80483f4:       05 d0 84 04 08          add    $0x80484d0,%eax	[[desc add (x*4) to jump table base addr]]
+	80483f9:       8b 00                   mov    (%eax),%eax		[[desc move address pointed to by eax into eax]]
+	80483fb:       ff e0                   jmp    *%eax				[[jump to that absolute address]]
+			case 1:
+				y=16;
+	80483fd:       c7 45 f8 10 00 00 00    movl   $0x10,-0x8(%ebp)
+				break;
+	8048404:       eb 2c                   jmp    8048432 <function1+0x57>
+			case 2:
+				y=32;
+	8048406:       c7 45 f8 20 00 00 00    movl   $0x20,-0x8(%ebp)
+				break;
+	lots of code eliminated for brevity .....
+			case 9:
+				y=512;
+	04842a:       c7 45 f8 00 02 00 00    movl   $0x200,-0x8(%ebp)
+				break;
+	8048431:       90                      nop
+		 }
+	The jump table will be at 0x80484d0).
+	It's not part of the objdump assembly output
+	It will contain the addresses of the case code
+	 ? (no case 0), 80483fd (case 1), 8048406 case 2), etc..
+	
 -------------------------------------------
 Arrays
 	Array locations are accessed as offsets from the beginning of the array.
