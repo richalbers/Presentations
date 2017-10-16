@@ -427,7 +427,6 @@ array obj code
 		 8048460:       74 05                   je     8048467 <function1+0x2c> [desc if canary values matched, skip over next line]]
 		 8048462:       e8 a9 fe ff ff          call   8048310 <__stack_chk_fail@plt> [[desc call stack isssue code]]
 		 8048467:       c9                      leave			 [[desc Restores calling function’s ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.]]
-
 		 8048468:       c3                      ret		[[desc pops the address on top of the stack and jumps to that address (the address was stored by the calling function)]]
 
 -------------------------------------------
