@@ -334,7 +334,7 @@ Switch
 		int function1() {
 			int x=3;
 			int y;
-
+			
 			switch(x) {
 			    case 1:
 				y=16;
