@@ -77,9 +77,9 @@ Memory References
 		| R*W + Off   | MOV EAX, [EBX*4 + 0100]    | movl   0x100(,%ebx,4), %eax |
 		| B + R*W + O | MOV EAX, [EDX + EBX*4 + 8] | movl 0x8(%edx,%ebx,4), %eax |
 ------------------------------------------
-Instructions
-	Basic Instructions
-		mov, mov
+Basic Instructions
+	Move and Math Instructions
+		mov
 		add, sub, mul, div
 		shl, shr
 		cmp
