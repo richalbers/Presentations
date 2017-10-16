@@ -349,8 +349,8 @@ Switch
 				y=128;
 				break;
 			    case 7:
-                		y=256;
-                		break;
+				y=256;
+				break;
 			    case 9:
 				y=512;
 				break;
