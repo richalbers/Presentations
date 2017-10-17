@@ -165,7 +165,7 @@ Conditional Operator
 	Can be written like this
 		[[code]]
 		max = (a > b) ? a : b;
-	I wouldn't recommend using this in place of a typical if statement, but it does have it's uses, and you should understand its operation.
+	I would NOT recommend using this in place of a typical if statement becuase it's not as clear, but it does have it's uses, so you should understand its operation.
 ------------------------------------------
 Practice
 	Write a program that 
