@@ -149,7 +149,7 @@ Pseudocode
 ------------------------------------------
 Conditional Operator
 	?: is the conditional operator
-		It allows you to write certain code more tersely.
+		It allows you to embed if statements within other statements.
 		It takes three arguments, as follows:
 			[[code]]
 			expression1 ? expression2 : expression 3;
