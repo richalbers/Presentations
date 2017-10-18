@@ -412,7 +412,7 @@ array obj code
 		int function1() {
 		 804843b:       55                      push   %ebp		[[desc saves calling functions base pointer]]
 	 	 804843c:       89 e5                   mov    %esp,%ebp	[[desc sets up base pointer for this functions stack frame]]
-		 804843e:       83 ec 38                sub    $0x38,%esp	[[desc allocates space on stack for local variables
+		 804843e:       83 ec 38                sub    $0x38,%esp	[[desc allocates space on stack for local variables]]
 		 8048441:       65 a1 14 00 00 00       mov    %gs:0x14,%eax	[[desc puts a canary into eax (next instruction puts it on the stack]]
 		 8048447:       89 45 f4                mov    %eax,-0xc(%ebp)	[[desc puts the canary onto the stack]]
 		 804844a:       31 c0                   xor    %eax,%eax	[[desc zeros out eax (xor is the fastest way to clear a register)]]
@@ -424,7 +424,7 @@ array obj code
 		}
 		 8048456:       8b 55 f4                mov    -0xc(%ebp),%edx	[[desc puts canary value from stack into edx]]
 		 8048459:       65 33 15 14 00 00 00    xor    %gs:0x14,%edx	[[desc compares orginal canary value to carary value from stack]]
-		 8048460:       74 05                   je     8048467 <function1+0x2c> [desc if canary values matched, skip over next line]]
+		 8048460:       74 05                   je     8048467 <function1+0x2c> [[desc if canary values matched, skip over next line]]
 		 8048462:       e8 a9 fe ff ff          call   8048310 <__stack_chk_fail@plt> [[desc call stack isssue code]]
 		 8048467:       c9                      leave			 [[desc Restores calling function’s ebp from stack, leaves esp pointing to return address in preparation for execution of ret instruction.]]
 		 8048468:       c3                      ret		[[desc pops the address on top of the stack and jumps to that address (the address was stored by the calling function)]]
