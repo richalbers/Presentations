@@ -97,7 +97,7 @@ Multiple exit conditions
 		int num=0;
 		bool error=false;
 		...
-		while (num!=10 && error==false); {
+		while (num!=10 && error==false) {
 			...
 ------------------------------------------
 Practice
