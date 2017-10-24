@@ -118,7 +118,6 @@ Do while
 			x+=2;
 		} while (x &lt; 5);
 	These are not used as often as while loops
-	I personally think its nice to see the loop exit condition without scrolling down...
 	Some languages have a do until instead of a do while.
 ------------------------------------------
 For
@@ -180,6 +179,13 @@ For vs while
 		Exit will be determined by something that happens within the loop that can't be predicted ahead of time
 	A do while can be used in place of a while if you always want to execute the loop body at least once.
 -------------------------------------------
+Practice
+	What type of loop should be used for each of the following:
+		Printing all the numbers from 1 to 100
+		Printing all the numbers between -100 and 100 that are evenly divisble by 7
+		Having the user enter a number until they guess your favorite number
+	Write each of those loops	
+-------------------------------------------
 Break and continue
 	break and continue interrupt the normal loop processing
 		continue causes the current iteration of the loop to exit
@@ -240,6 +246,5 @@ Nested Loops
 Practice
 	Modify the previous code
 		To print out the multiplication table from 1x1 to 12x12
-		Format the output so the columns are right-aligned
-			review the Week 2 formatting slides if you've forgotten how to do that
+		Format the output so the columns are right-aligned (review the Week 2 formatting slides if you've forgotten how to do that)
 -------------------------------------------
