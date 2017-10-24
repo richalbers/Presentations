@@ -1,10 +1,11 @@
 ------------------------------------------
 Ch 5 - Repetition Structures, part 2
-	Using while loops to read files
-		using extraction operator (>>)
-		using get() and eof() 
-		using getline() 
-
+	At the end of this presentation you should be able to
+		use a while loop to read a files using each of the following
+			using extraction operator (>>)
+			using get() and eof() 
+			using getline() 
+		explain when of each of those methods should be used 
 ------------------------------------------
 Reading Files
 	While loops can be used to read a file until eof (end-of-file) is reached.
