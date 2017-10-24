@@ -1,14 +1,14 @@
 ------------------------------------------
 Ch 5 - Repetition Structures, part 1
-	This presentation covers
-		What repetition structures (loops) are for
-		How and when to use each of the following repetition structures
+	At the end of this presentation you will be able to
+		Explain when each of the following repetition structures should be used 
 			while
 			for
 			do while
-		How the unstructured break and continue statements work and when they should and should not be used
-		How us use multiple variables in a for loop
-		How to write nested loops
+		Implement each of those repetition structures appropriately
+		Explain how the unstructured break and continue statements work and when they should and should not be used
+		Use multiple variables in a for loop
+		Implement nested loops
 ------------------------------------------
 Overview
 	Repetition structures (loops) allow you to repeat a block of code multiple times
@@ -180,6 +180,7 @@ For vs while
 	A while loop should be used when you don't know how many times the loop will run when you begin the loop
 		i.e. it will be a sentinal controlled loop.  
 		Exit will be determined by something that happens within the loop that can't be predicted ahead of time
+	A do while can be used in place of a while if you always want to execute the loop body at least once.
 -------------------------------------------
 Break and continue
 	break and continue interrupt the normal loop processing
