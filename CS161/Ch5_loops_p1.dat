@@ -36,7 +36,7 @@ While
 		When loop exited, x was equal to 4
 -------------------------------------------
 While example 2
-	If loop body will consists of more then one line, { } need to be used.
+	If loop body consists of more than one line, { } need to be used.
 		For example:
 			[[code]]
 			int x=2;
@@ -180,7 +180,7 @@ For vs while
 	A do while can be used in place of a while if you always want to execute the loop body at least once.
 -------------------------------------------
 Practice
-	What type of loop should be used for each of the following:
+	What type of loop should be used for each of the following, and why:
 		Printing all the numbers from 1 to 100
 		Printing all the numbers between -100 and 100 that are evenly divisble by 7
 		Having the user enter a number until they guess your favorite number
