@@ -2,8 +2,8 @@
 Ch 5 - Repetition Structures, part 1
 	At the end of this presentation you will be able to
 		Explain what a repetition structure is
-		List the three types of repeition structures available in C/C++ and explain when each should be used
-		Implement each of the C++ repetition structures appropriately
+		List the three types of repetition structures available in C/C++ and explain when each should be used
+		Expalin how each of the repitition strucures works and use each appropriately
 		Explain how the unstructured break and continue statements work and when they should and should not be used
 		Use multiple variables in a for loop
 		Implement nested loops
