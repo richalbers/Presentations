@@ -1,16 +1,17 @@
 ------------------------------------------
 Ch 6 - Functions
-	This presentation covers
-		What functions are
-		How to use pre-defined functions 
-		How to write and call your own functions in C/C++
-		Function Arguments and Parameters
+	At the end of this presentation you should be able to:
+		Explain what functions are
+		Find and read the C++ function documentation for a function to determine how to use it
+		Use pre-defined functions in your program 
+		Write and call your own functions in C/C++
+		Exlain what function arguments and parameters are and use them in your functions
 
 ------------------------------------------
 Overview
 	A function is a named block of code
 	Functions
-		Can receive zero or more pieces of data (arguments/parameters)
+		Can receive zero or more pieces of data (arguments)
 		Can return either zero or one value 
 		Must be declared (defined) before they can be called (so the compiler knows what it is and if it was passed the proper data types)
 	Function synonyms
@@ -145,7 +146,7 @@ Practice
 	The function
 		accepts no arguments
 		prints your name on the screen
-		return nothing	
+		returns nothing	
 	Then call it from main 10 times using a loop.
 ------------------------------------------------
 User Defined Value Function
