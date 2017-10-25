@@ -2,10 +2,10 @@
 Ch 6 - Functions
 	At the end of this presentation you should be able to:
 		Explain what functions are
-		Find and read the C++ function documentation for a function to determine how to use it
+		Find and read the documentation for a c++ function to determine how to use it
 		Use pre-defined functions in your program 
 		Write and call your own functions in C/C++
-		Exlain what function arguments and parameters are and use them in your functions
+		Exlain what function arguments and parameters are and use them with your functions
 
 ------------------------------------------
 Overview
