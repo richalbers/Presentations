@@ -259,7 +259,7 @@ Exercises
 			for(int x=0; x<2; x++)
 				for(int y=0; y<3; y++)
 					cout << x << ' ';
-				cout << end;
+				cout << endl;
 	What does the following print out?
 		[[code]]
 			int x=0;
@@ -268,5 +268,6 @@ Exercises
 			cout << x << ' ';
 	What does the following print out?
 		[[code]]
-			for(int x=10; x<=15; x++);
+			int x=0;
+			for(x=0; x<=15; x++);
 				cout << x << ' ';
