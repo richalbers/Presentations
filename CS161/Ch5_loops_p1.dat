@@ -266,3 +266,7 @@ Exercises
 			for(int x=0; x<3; x+=2)
 				cout << x << ' ';
 			cout << x << ' ';
+	What does the following print out?
+		[[code]]
+			for(int x=10; x<=15; x++);
+				cout << x << ' ';
