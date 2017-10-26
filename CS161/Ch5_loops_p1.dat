@@ -248,3 +248,21 @@ Practice
 		To print out the multiplication table from 1x1 to 12x12
 		Format the output so the columns are right-aligned (review the Week 2 formatting slides if you've forgotten how to do that)
 -------------------------------------------
+Exercises
+	What does the following print out?
+		[[code]]
+			int x=0;
+			for(x=0; x<5; x++)
+				cout << x << ' ';
+	What does the following print out?
+		[[code]]
+			for(int x=0; x<2; x++)
+				for(int y=0; y<3; y++)
+					cout << x << ' ';
+				cout << end;
+	What does the following print out?
+		[[code]]
+			int x=0;
+			for(int x=0; x<3; x+=2)
+				cout << x << ' ';
+			cout << x << ' ';
