@@ -1,10 +1,10 @@
 ------------------------------------------
-Ch 6 - Functions
-	This presentation covers
-		What functions are
-		How to use pre-defined functions 
-		How to design and document functions
-		How to write and call your own void functions in C/C++
+Ch 6 - Functions (part 1 of 2)
+	At the end of this presentation you should be able to
+		Explain what functions are
+		Use pre-defined functions 
+		Design and document functions
+		Write and call your own C/C++ void functions
 
 ------------------------------------------
 Overview
@@ -100,7 +100,6 @@ Function Documentation
 		// &nbsp; &nbsp; true - if it is a vowel
 		// &nbsp; &nbsp; false - if it is not a vowel
 		//===========================================================
-	
 	This will be required on assignments for all functions you write
 -----------------------------------------------
 Practice
