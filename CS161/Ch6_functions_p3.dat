@@ -1,5 +1,5 @@
 ------------------------------------------
-Ch 7 - Functions Continued
+Ch 6- Functions (part 3 of 3)
 	This presentation covers the following VERY VERY important topics
 		Value vs Reference Parameters
 			Pass by Value (or call by value)
@@ -8,7 +8,6 @@ Ch 7 - Functions Continued
 	and the following less important topics
 		Function Overloading
 		Default Parameters
-	and the following much less important (optional) topic
 		Static Variables
 ------------------------------------------
 Value vs Reference Parameters
