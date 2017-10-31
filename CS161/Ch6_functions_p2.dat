@@ -1,14 +1,15 @@
 ------------------------------------------
-Ch 6 - Functions, part 2
+Ch 6 - Functions (part 2 of 3)
 	This presentation is a continuation of the function presentation begun in part 1.
 	Part 1 covered
 		What functions are
 		How to use pre-defined functions 
 		How to design and document functions
 		How to write and call your own void functions in C/C++
-	Part 2 covers
-		How to write and call your own value functions in C/C++
-		Function Arguments and Parameters
+	At the end of this presenation you should be able to
+		Write and call your own value functions in C/C++
+		Explain what Function Arguments and Parameters are
+		Use function arguments/parameters to pass data to a function
 
 ------------------------------------------------
 User Defined Value Function
