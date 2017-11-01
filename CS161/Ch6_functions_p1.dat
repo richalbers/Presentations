@@ -77,10 +77,14 @@ User Defined Function Design
 -----------------------------------------------
 Example
 	If you wanted to write a function to compute the area of a square, you'd detemine the following:
-		name: areaOfSquare  
-		return value: the area of the square
-		arguments: side length of the square
-		Logic: area = sideLength * sideLength
+		name:
+			areaOfSquare  
+		return value: 
+			the area of the square
+		arguments: 
+			side length of the square
+		Logic: 
+			area = sideLength * sideLength
 -----------------------------------------------
 Practice
 	Determine the following:
@@ -115,7 +119,7 @@ Practice
 -----------------------------------------------
 Writing User Defined Functions
 	For each function you create you'll need to:
-		Write a function prototype. THe prototype specifies:
+		Write a function prototype. The prototype specifies:
 			The function name
 			The parameter list (list of variables to store the data that is being sent to the function)
 			The type of data being returned from the function
