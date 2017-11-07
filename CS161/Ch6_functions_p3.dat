@@ -2,10 +2,10 @@
 Ch 6 - Functions (part 3 of 3)
 	At the end of this presentation you should be able to
 		Explain the difference between:
-			Pass by Value (or call by value)
-			Pass by Reference (or call by reference) 
-		Explain how each works and when you'd use each
-		Use them correctly in a program
+				Pass by Value (or call by value)
+				Pass by Reference (or call by reference) 
+			Explain how each works and when you'd use each
+			Use them correctly in a program
 		Explain the different scope levels, the issue with global variables, and why variables should be declared a locally as possible
 		Explain and use function overloading
 		Explain and use default parameters
