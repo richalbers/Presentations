@@ -232,10 +232,10 @@ Practice
 	Write the function implemenation for the addInts function.  It should add up all the given numbers and return the resulting sum (via a return statement)
 	Write a main that tests addInts() and demonstrate calling it with 2, 3, and 4 values.  Print out the results of each call to verify it works.
 -------------------------------------------
-Static Variables (optional)
+Static Variables
 	Variables can be either automatic or static
 		Automatic Variables
-			are the most common
+			are the most common (99.9%)
 			are created when declared
 				[[code]]
 				int x;
