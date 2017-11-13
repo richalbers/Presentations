@@ -68,7 +68,7 @@ Practice
 Array boundaries
 	Specifying an index that is too large results in an "out of bounds" error
 	The C/C++ compiler will NOT catch this, so it's up to the programmer to make sure the array index is not out of bounds.
-		Writing to an array elment that is out-of-bounds can alter other variables!!! 
+		Writing to an array element that is out-of-bounds can alter other variables!!! 
 		This is such a common problem that Java built bounds-checking into the system.
 		But C++ programmers are on their own.  Proceed with caution.
 	Examples:
@@ -128,7 +128,7 @@ Arrays as function parameters
 				//function prototype showing array parameter
 				void initialize(int data[], int size);
 	Note:
-		The [ ] tells the function it will be recieving an array (by ref)
+		The [ ] tells the function it will be receiving an array (by ref)
 		You do NOT specify the array size between the [ ]
 		However, the function needs to know the size so it's typically sent in as a separate variable.
 			This allows the function to operate on arrays of any size.
@@ -184,10 +184,10 @@ Practice
 		declares an array of 5 ints called dataSet1
 		calls a function to initialize them to their index * 2 (0,2,4,6 ...)
 			You'll need to write that function
-				it should recieve the array and the size as parameters
+				it should receive the array and the size as parameters
 		calls a function to print them out, space delimited, with a endl at the end.
 			You'll need to write that function
-				it should recieve the array and the size as parameters
+				it should receive the array and the size as parameters
 	Add another array of 100 ints to main called dataSet2.
 		initialize and print them using the exact same functions that were used to process dataset1.
 	Time permitting...
