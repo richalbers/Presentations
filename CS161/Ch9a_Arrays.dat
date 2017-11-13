@@ -1,12 +1,12 @@
 ------------------------------------------
 Ch 8, part 1 - Single Dimensional Arrays
-	This presentation covers Arrays, including:
-		What they are
-		Why they're used
-		How to declare them
-		How to access individual elements
-		Different ways to initialize them
-		How to pass arrays to functions
+	At the end of this presentation you should be able to
+		Explain what arrays are 
+		Implement arrays in a program, including
+			declaring and initializing them
+			accessing individual elements
+			passing them to functions
+		Explain what "out of bounds" errors are and the possible ramifications of them
 	Note: multi-dimensional arrays are not covered until next term
 
 ------------------------------------------
@@ -65,7 +65,7 @@ Practice
 	Write a for loop to 
 		put the numbers 91 through 95 in the elements of the quiz array
 ----------------------------------------------
-Array boundries
+Array boundaries
 	Specifying an index that is too large results in an "out of bounds" error
 	The C/C++ compiler will NOT catch this, so it's up to the programmer to make sure the array index is not out of bounds.
 		Writing to an array elment that is out-of-bounds can alter other variables!!! 
