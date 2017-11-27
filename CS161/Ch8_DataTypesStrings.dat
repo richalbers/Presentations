@@ -36,7 +36,7 @@ Enum Example
 		HandState hand1 = ROCK;
 		HandState hand2 = SCISSORS;
 		&nbsp;	
-
+		&nbsp;
 		if (hand1 == ROCK && hand2 == SCISSORS)
 			cout << "Rock smashes scissors!  Hand one wins!";
 		else ....
@@ -80,7 +80,7 @@ namespace example
 			void funcX();
 			...
 		}
-		
+		&nbsp;
 		void main() {
 			graphics::funcX();
 			physics::funcX();
