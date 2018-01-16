@@ -4,7 +4,7 @@ Structs (Ch 9)
 		Explain what structs are
 		Create new struct types
 		Work with struct variables, including
-			using with streaming I/O
+			Using with streaming I/O
 			Copying
 			Comparing
 			Using with functions
