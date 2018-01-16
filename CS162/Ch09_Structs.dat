@@ -12,12 +12,12 @@ Structs (Ch 9)
 ------------------------------------------
 Overview
 	Data structures are ways of storing and organizing data
-	A struct (or record) is one type of data structure, which allows us to group together elated variables (possibly of differnt types) as one unit.  
+	A struct (or record) is one type of data structure, which allows us to group together related variables (possibly of different types) as one unit.  
 	For example, for every student we may want to store:
 		name
-		address
 		id#
 		program of study
+		gpa
 	For this we could use a struct
 		Each instance of the struct would contain all that information for one student.
 ---------------------------------------------
