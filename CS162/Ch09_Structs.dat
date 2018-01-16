@@ -177,8 +177,7 @@ Practice
 	When complete, your program should show the two original Points and distance between them.
 ---------------------------------------------
 Practice
-	In math, a vector is an object that has both magnitude and direction, these can be stored 
-	as x,y values. (picture a line from (0,0) to your (x,y) value.
+	In math, a vector is an object that has both magnitude and direction, these can be stored as x,y values. (picture a line from (0,0) to your (x,y) value.
 	[[This page!http://www.mathsisfun.com/algebra/Points.html]] has some simple info on vectors. 
 	Add functions to your program to do the following
 		Create and return a Point given an angle and magnitude
@@ -192,8 +191,7 @@ Practice
 	Test each function!  
 -------------------------------------------
 More Info
-	structs 
-		are available in C and C++
+	structs are available in C and C++
 		In C they could only contain variables (as shown in this presentation)
 		In C++ they can also contains functions, but that's best done using classes, which we'll cover starting next time
 	Classes build upon the concept of structs
@@ -204,7 +202,7 @@ Summary
 		How to create struct types
 		How to work with struct variables
 			using with streaming I/O
-			Copying
-			Comparing
+			copying
+			comparing
 			using with functions
 
