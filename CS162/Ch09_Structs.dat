@@ -97,10 +97,11 @@ Assignment Operator
 -------------------------------------------------------
 Practice
 	Write a small program that does the following:
-		Creates a datatype called Point that consists of x and y values (floats)
-		Creates a Point variable (named point1) and initialize it's x and y to 1 and 7
-		Creates two more Point variables (point2 and point3) but don't initialize their data
+		Creates a datatype called Point that consists of x and y values (doubles)
+		Creates a Point variable (named point1) and initialize its x and y to 4 and 2
+		Creates two more Point variables (point2 and point3) but does't initialize their data
 		Uses the dot notation (member access operator) to assign values to the 2nd Point variable (point2)
+		Makes point3 a copy of point1 (using the assignment operator)
 	Run the code in the debugger and view the contents of all three Point variables
 
 -------------------------------------------------------
@@ -160,7 +161,7 @@ Use with functions
 -------------------------------------------
 Practice
 	Write a simple program that works with Points
-		The Points should store the components (x and y) as floats
+		The Points should store the components (x and y) as doubles
 		In main, create two Points. 
 			The first should store (1,2)
 			The second should store (4,3)
@@ -178,7 +179,7 @@ Practice
 ---------------------------------------------
 Practice
 	In math, a vector is an object that has both magnitude and direction, these can be stored as x,y values. (picture a line from (0,0) to your (x,y) value.
-	[[This page!http://www.mathsisfun.com/algebra/Points.html]] has some simple info on vectors. 
+	[[This page!http://www.mathsisfun.com/algebra/vectors.html]] has some simple info on vectors. 
 	Add functions to your program to do the following
 		Create and return a Point given an angle and magnitude
 			Name it convertAngleMagToXY()
