@@ -172,8 +172,8 @@ Practice
 				returns nothing.
 			Find the distance between two Points
 				accepts two Points as arguments
-				computes the distance between them (as a float)
-				returns the distance (a float) 
+				computes the distance between them (as a double)
+				returns the distance (a double) 
 		Call each of those functions from main
 	When complete, your program should show the two original Points and distance between them.
 ---------------------------------------------
