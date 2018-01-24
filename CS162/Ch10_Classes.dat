@@ -57,7 +57,7 @@ Public and Private members
 				...			[[desc there would be more code here... it was left off for brevity]]
 			}; [[desc This ends the class definition.<br>The ; is necessary.]]
 			
-		void main() {
+		int main() {
 			Timer timer1;		[[desc This creates and instance of the class Timer ]]
 			timer1.seconds = 0; //doesn't compile. Seconds are inaccessible here. [[desc Just as with structs, the dot (.) notation is used to access class members.<br>But this attempts to directly access a private member of the Timer class (seconds), which is not allowed.]]
 			timer1.setTimer(0); //proper way to set timer to 0.  [[desc This calls a public function of the timer class.  The public functions of a class are the interface to the class's data]]
@@ -75,7 +75,7 @@ Complete Class definition Example
 				Clock();  [[desc This is a prototype for the default contructor.<br>The default constructor is called when instances of the class are created without providing any data.  e.g.<br>Clock BigBen();]]
 					
 				//mutators [[desc Mutators are functions that allow a user of the class to set or modify (ie. mutate) internal class variables.<br>Mutators should validate the given data before using it to modify our internal class data members to maintain data integrity]]
-				bool setTime(int hour, int Minute, int Second); [[desc  This is a prototype for a mutator function that accepts data to change all our internal variables at once.<br>It's not uncommon to have a separate mutator function for each internal variable that we want users of the class to be able to modify]]
+				bool setTime(int hour, int minute, int second); [[desc  This is a prototype for a mutator function that accepts data to change all our internal variables at once.<br>It's not uncommon to have a separate mutator function for each internal variable that we want users of the class to be able to modify]]
 					
 				//accessors [[desc Accessors are functions that allow a user of the class to get copies of the values stored in internal class variables.]]
 				int getHour() const; [[desc Prototype for a function that returns the value stored in hour.<br>The keyword const at the end signifies that this function will not change the object.]]
