@@ -8,10 +8,14 @@ Terms/concepts
 		Used when we don't know what function will be called until run time.
 		Implmented using virtual keyword
 	Polymorphism (greek for "many forms")
-		Using common interface to access different functions
+		Using common interface to access different functions 
 		Typically means "member function overriding"
 			A call to a member function will call/execute different functions depending on the type of object that invokes the function.
-	Upcasting
-		Using a base class pointer to point to a derived class object
 	vTable (virtual table)
 		A method used to implement dynamic binding in many OO languages
+		Also called virtual method table (VMT), virtual function table, virtual call table, dispatch table, or vftable
+	Upcasting
+		Using a derived class pointer to point to base class object
+	Downcasting
+		Using a base class pointer to point to a derived class object
+		Requires an explict cast; not always safe
