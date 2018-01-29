@@ -39,8 +39,9 @@ What's in a 3rd Party Package
 Practice
 	We'll now download and look at an example of a 3rd party game engine: [[SFML!http://www.sfml-dev.org/]]
 		SFML is a Simple and Fast Multimedia Library for game development
-	Download the SFML game engine (use version instructor suggests)
+	Download the SFML game engine 
 		Do a Google search for SFML (or click the link above)
+		Select the version the instructor suggests (2.3.2 is what's currently installed)
 		Choose the one for building 32 bit Windows applications
 	Look at the download file to see what it contains
 		Note: SFML is open-source so in addition to the include files, libraries, and documentation, you can get all the source files used to build the libraries if you wanted to.		
@@ -49,7 +50,7 @@ Practice
 Installing SFML
 	After downloading SFML, you'd need to "install it" in order to use it
 		Google "SFML installation"
-	According to [[the SFML Visual Studio instructions!http://www.sfml-dev.org/tutorials/2.3.2/start-vc.php]]
+	According to [[the SFML Visual Studio instructions!http://www.sfml-dev.org/tutorials/2.3/start-vc.php]]
 		"You can then unpack the SFML archive wherever you like. Copying headers and libraries to your installation of Visual Studio is not recommended, it's better to keep libraries in their own separate location, especially if you intend to use several versions of the same library, or several compilers"
 	For the classroom computers
 		The entire package was unpacked into C:\SFML-2.3.2
@@ -81,7 +82,7 @@ Dynamically Linked Library Location
 -------------------------------------------
 SFML Project Configuration
 	To use SFML in your project, you'll need to configure a project as described here:
-		[[http://www.sfml-dev.org/tutorials/2.0/start-vc.php!http://www.sfml-dev.org/tutorials/2.3.2/start-vc.php]]
+		[[http://www.sfml-dev.org/tutorials/2.3/start-vc.php!http://www.sfml-dev.org/tutorials/2.3/start-vc.php]]
 		We'll do that in the following practice session
 	Notes:
 		In the example at the link above:
