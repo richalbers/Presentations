@@ -224,7 +224,7 @@ Practice
 Drawing Regular Polygons
 	All regular polygons can be drawn using a CircleShape object.   
 		Circles are drawn using lots of straight lines between points.  
-		If you specify only a few points, it doesn't look like a circle. [[img CS162/images/square.png]]
+		If you specify only a few points, it doesn't look like a circle. [[img images/Square.PNG]]
 	A square, as shown in the picture to the right, can be drawn using the code below.   
 		[[code]]
 		float radius=2;
@@ -246,7 +246,7 @@ Drawing Regular Polygons
 		[[http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php!http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php]]
 -------------------------------------------
 Drawing Other Polygons
-	Irregular, convex polygons can also be easily drawn.  [[img CS162/images/triangle.png]]
+	Irregular, convex polygons can also be easily drawn.  [[img images/Triangle.PNG]]
 	A triangle, as shown in the picture to the right, can be drawn using the code below.
 		[[code]]
 		sf::ConvexShape ship;
