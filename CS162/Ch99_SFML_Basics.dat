@@ -21,7 +21,7 @@ SFML Basics
 		Drawing rectangles and text.
 	The following slides cover those topics, and provide links to the SFML tutorial pages on each.
 	The full SFML 2.3 tutorial can be found here:
-		[[http://www.sfml-dev.org/tutorials/2.3/!http://www.sfml-dev.org/tutorials/2.3
+		[[http://www.sfml-dev.org/tutorials/2.3/!http://www.sfml-dev.org/tutorials/2.3]]
 	
 -------------------------------------------------
 Overview
@@ -100,7 +100,7 @@ Framerate
 	[[code]]
 		sf::RenderWindow window(			[[desc we're creating an object of type RenderWindow which we'll name window<br>RenderWindows is in the sf namespace, as is all SFML stuff]]
 			sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), [[desc This will set the width and height (WINDOW_WIDTH and WINDOW_HEIGHT need to be previously defined as constants)]]
-			"Tetris 2014 - A New Beginning",			[[desc This is the text that will appear in the window's title bar]]
+			"Asteroids - The Sequal",			[[desc This is the text that will appear in the window's title bar]]
 			sf::Style::Titlebar | sf::Style::Close 		[[desc This line &quot;or's&quot; together two styles.<br>We want a title bar and a standard close button in the upper right corner<br>We don't want it resizeable, which it would be if we left off this third argument.<br>Understanding this isn't essential, just use it like this.]]
 		);
 		window.setFramerateLimit(30); [[desc sets the minimum framerate to 30 frames per second<br>Caution: if it takes over 1/30 a second to create a frame, the framerate for that frame will be longer.]]
