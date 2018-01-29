@@ -87,7 +87,7 @@ Graphics Window
 	[[code]]
 		sf::RenderWindow window(			[[desc we're creating an object of type RenderWindow which we'll name window<br>RenderWindows is in the sf namespace, as is all SFML stuff]]
 			sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), [[desc This will set the width and height (WINDOW_WIDTH and WINDOW_HEIGHT need to be previously defined as constants)]]
-			"Asteroids - The Sequal",		[[desc This is the text that will appear in the window's title bar]]
+			"Asteroids - The Sequel",		[[desc This is the text that will appear in the window's title bar]]
 			sf::Style::Titlebar | sf::Style::Close 		[[desc This line &quot;or's&quot; together two styles.<br>We want a title bar and a standard close button in the upper right corner<br>We don't want it resizeable, which it would be if we left off this third argument.<br>Understanding this isn't essential, just use it like this.]]
 		);
 	Note: Everything in the SFML library is in the sf namespace, so any reference to an SFML object will be prefaced with sf::
@@ -100,7 +100,7 @@ Framerate
 	[[code]]
 		sf::RenderWindow window(			[[desc we're creating an object of type RenderWindow which we'll name window<br>RenderWindows is in the sf namespace, as is all SFML stuff]]
 			sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), [[desc This will set the width and height (WINDOW_WIDTH and WINDOW_HEIGHT need to be previously defined as constants)]]
-			"Asteroids - The Sequal",			[[desc This is the text that will appear in the window's title bar]]
+			"Asteroids - The Sequel",			[[desc This is the text that will appear in the window's title bar]]
 			sf::Style::Titlebar | sf::Style::Close 		[[desc This line &quot;or's&quot; together two styles.<br>We want a title bar and a standard close button in the upper right corner<br>We don't want it resizeable, which it would be if we left off this third argument.<br>Understanding this isn't essential, just use it like this.]]
 		);
 		window.setFramerateLimit(30); [[desc sets the minimum framerate to 30 frames per second<br>Caution: if it takes over 1/30 a second to create a frame, the framerate for that frame will be longer.]]
