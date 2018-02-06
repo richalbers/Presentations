@@ -98,11 +98,11 @@ Practice
 	What does the following print out?
 	[[code]]
 		char letter='a';
-		int* ltrPtr=&letter;
+		int* ptr=&letter;
 			
-		cout << &ltrPtr << endl;
-		cout << letPtr << endl;
-		cout << *ltrPtr << endl;
+		cout << &ptr << endl;
+		cout << ptr << endl;
+		cout << *ptr << endl;
 ---------------------------------------------
 new operator
 	Memory can be dynamically allocated using the new operator
