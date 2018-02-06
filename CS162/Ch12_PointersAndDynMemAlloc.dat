@@ -53,13 +53,16 @@ Initializing Pointers
 ---------------------------------------------
 Practice
 	For each of the lines below, tell
-		What type of variable is created
-		How much memory it occupies
-		What the contents of the variable are
+		What type of variable(s) is/are created
+		How much memory each occupies
+		What the contents of the variable(s) are after the line executes
 		[[code]]
-			int* x;
-			char* y;
-			double* z=NULL;
+			
+			int* a;
+				
+			char* b, c;
+				
+			double* d=NULL;
 ---------------------------------------------
 "Address of" operator
 	You can get the address of an existing variable using the address of operator (&).
@@ -96,6 +99,7 @@ Practice
 	[[code]]
 		char letter='a';
 		int* ltrPtr=&letter;
+			
 		cout << &ltrPtr << endl;
 		cout << letPtr << endl;
 		cout << *ltrPtr << endl;
