@@ -94,7 +94,7 @@ Dereferenceing operator
 Practice
 	Given
 		letter is at address 0x12345678;
-		letPtr is at address 0x1234567c;
+		ptr is at address 0x1234567c;
 	What does the following print out?
 	[[code]]
 		char letter='a';
@@ -170,11 +170,16 @@ Dynamic arrays
 Practice
 	How much memory is dynamically allocated by each of the following lines:
 	[[code]]
+			
 		char* cp = new char[20];
 		int* ip = new int[10];
+				
 	What is wrong with the following code?
+	[[code]]
+			
 		int* p1 = new int[10];
 		delete p1;
+			
 --------------------------------------------------
 Pointer Operations
 	You can do math on pointers
