@@ -98,7 +98,7 @@ Practice
 	What does the following print out?
 	[[code]]
 		char letter='a';
-		int* ptr=&letter;
+		char* ptr=&letter;
 			
 		cout << &ptr << endl;
 		cout << ptr << endl;
