@@ -1,14 +1,13 @@
 ------------------------------------------
 Pointers and Dynamic Memory Allocation (Ch 12), Part 1
-	This presentation covers
-		Pointers
-			Declaring
-			Initializing
-			"Address of" operator
-			Dereferencing operator
-		Dynamic Memory Allocation
-			Using new and delete
-			How bad code results in memory leaks
+	At the end of this presentation, you should be able to
+		explain what pointers are 
+		declare and intialize pointer variables
+		explain and use the "Address of" operator (&)
+		explain and use the dereferencing operator (*)
+		explain what dynamic memory allocation is
+		use new and delete properly
+		explain what a memory leak is and how to avoid them
 		Pointer operations
 ------------------------------------------
 Pointers
@@ -51,7 +50,16 @@ Initializing Pointers
 		int* p1=NULL;	//NULL is NULL
 		int* p2=0;		//0 is NULL too.
 	Pointers that contain NULL are called null pointers.
-			
+---------------------------------------------
+Practice
+	For each of the lines below, tell
+		What type of variable is created
+		How much memory it occupies
+		What the contents of the variable are
+		[[code]]
+			int* x;
+			char* y;
+			double* z=NULL;
 ---------------------------------------------
 "Address of" operator
 	You can get the address of an existing variable using the address of operator (&).
@@ -79,7 +87,18 @@ Dereferenceing operator
 		(*p)++; //Adds one more to what p points to [[desc The ( ) are to assure we add to what p points to, not to p itself<br>Because you CAN add to pointers, thereby changing what they point to.<br>And if we left off the ( ) that's exactly what would happen.]]
 		cout << *p; //print out what p points to
 		cout << endl;	
-			
+---------------------------------------------
+Practice
+	Given
+		letter is at address 0x12345678;
+		letPtr is at address 0x1234567c;
+	What does the following print out?
+	[[code]]
+		char letter='a';
+		int* ltrPtr=&letter;
+		cout << &ltrPtr << endl;
+		cout << letPtr << endl;
+		cout << *ltrPtr << endl;
 ---------------------------------------------
 new operator
 	Memory can be dynamically allocated using the new operator
@@ -109,6 +128,14 @@ delete operator
 		delete p1;
 		delete p2;
 ---------------------------------------------
+Practice
+	Write code that does the following:
+		creates a char pointer and intializes it to NULL.
+		uses new to allocate memory for a new char, storing the resulting address in the pointer var
+		sets the dynamically allocated memory to 'Z';
+		prints our the value in the dynamically allocated memory.
+		frees up the dynamiclaly allocated memory
+---------------------------------------------
 Memory leaks
 	If you dynamically allocate memory and then lose track of it (by changing the pointer to something else) before freeing it up, you have a memory leak.
 	[[code]]
@@ -135,6 +162,15 @@ Dynamic arrays
 			
 		//when you free it up, be sure to use the []!
 		delete [] p1; [[desc This frees up all 400 bytes.<br>The [ ] are important.  Without them it would only free up the first 4 bytes (the space occupied by a single int)]]
+--------------------------------------------------
+Practice
+	How much memory is dynamically allocated by each of the following lines:
+	[[code]]
+		char* cp = new char[20];
+		int* ip = new int[10];
+	What is wrong with the following code?
+		int* p1 = new int[10];
+		delete p1;
 --------------------------------------------------
 Pointer Operations
 	You can do math on pointers
