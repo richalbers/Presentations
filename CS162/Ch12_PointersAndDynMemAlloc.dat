@@ -8,7 +8,7 @@ Pointers and Dynamic Memory Allocation (Ch 12), Part 1
 		explain what dynamic memory allocation is
 		use new and delete properly
 		explain what a memory leak is and how to avoid them
-		Pointer operations
+		explain how addition/subtraction works with pointers
 ------------------------------------------
 Pointers
 	A pointer is a variable that contains the memory address of a location at which data is stored.
@@ -200,4 +200,29 @@ Pointer Operations
 			
 		//free it up
 		delete [] p1;		
+------------------------------------------------------------
+Practice
+	What does the following print out?
+	[[code]]
+			
+		char letters[] = "letters";
+		char* cp = letters;
+			
+		cp++;
+		cp++;
+			
+		cout << *cp;
+			
+------------------------------------------------------------
+Practice
+	Given the array starts at address 0x33221100, what does the following print out?
+	[[code]]
+			
+		int numbers[] = {1,2,3,4};
+		int* np = numbers;
+			
+		np++;
+		cout << *np << endl;
+		cout << np << endl;
+			
 ------------------------------------------------------------
