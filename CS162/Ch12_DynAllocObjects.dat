@@ -16,11 +16,12 @@ new and delete with classes
 			...
 		}
 		...
-		main() {
-			Cat* p1=0;	//declares a Cat pointer 
+		int main() {
+			Cat* p1=NULL;	//declares a Cat pointer 
 			p1 = new Cat;	//allocates memory for a Cat
 			...
 			delete p1;		//frees up allocated memory
+			return 0;
 		}
 ---------------------------------------------
 Practice
@@ -91,7 +92,7 @@ Practice
 	Add a destructor to your Cat class
 	In the destructor
 		free up the memory pointed to by testPtr
-		Print out "Constructor Called!\n"
+		Print out "Destructor Called!\n"
 	Run the program and step through the code, taking note of when the constructor and destructor are called
 	You might also add a function that contains a Cat object, and see when it's constructor and destructor are called.
 ---------------------------------------------
