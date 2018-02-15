@@ -79,7 +79,7 @@ reading formatted data
 					
 				//reads integers until end-of-file (EOF) is reached
 				while (inputStream >> x)
-					cout << x
+					std::cout << x;
 				
 			...
 -------------------------------------------
@@ -145,17 +145,17 @@ Practice
 	Problem 1
 		Modify your program to read your .cpp source file character by character using getch()
 			print each character out to the console
-			counting the characters
+			keep a count of the number of characters in the file
 			print the count after the file is closed
 	Problem 2
 		Modify your program to read your .cpp source file line by line into cstrings
 			print each line out to the console
-			counting the characters
+			keep a count of the number of characters in the file
 			print the count after the file is closed
 	Problem 3
 		Modify your program to read your .cpp source file line by line into strings
 			print each line out to the console
-			counting the characters
+			keep a count of the number of characters in the file
 			print the count after the file is closed
 ------------------------------------------
 Extra
