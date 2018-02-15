@@ -91,10 +91,12 @@ Practice
 			3.14 2.7 
 		Modify your program to read this data into 5 separate variables
 	Exercise 2
-		Modify you text file to contain a bunch of integers (at least 10), separated by white space
 		Modify your program to 
-			read the file until EOF, 
-			count the number of integers read
+			read your .cpp source file 
+				using streaming input ( >> )
+				character by character (until EOF)
+				printing each character
+				counting the number of characters read
 			print out the count after the file is closed
 --------------------------------------------
 reading unformatted data
@@ -141,11 +143,20 @@ reading until EOF
 ------------------------------------------
 Practice
 	Problem 1
-		Modify your program to read your .cpp source file character by character and print each character out to the console.
+		Modify your program to read your .cpp source file character by character using getch()
+			print each character out to the console
+			counting the characters
+			print the count after the file is closed
 	Problem 2
-		Modify your program to read your .cpp source file line by line into strings and print each line out to the console.
+		Modify your program to read your .cpp source file line by line into cstrings
+			print each line out to the console
+			counting the characters
+			print the count after the file is closed
 	Problem 3
-		Modify your program to read you .cpp source file line by line into a character array and print each line out the console.
+		Modify your program to read your .cpp source file line by line into strings
+			print each line out to the console
+			counting the characters
+			print the count after the file is closed
 ------------------------------------------
 Extra
 	This presention covered how to read files using streaming IO (fstream)
