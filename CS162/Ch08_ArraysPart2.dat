@@ -40,8 +40,8 @@ Practice
 			Sales amounts may contain decimals
 		an array for daily attendence for 24 students and 20 class days
 			here=true, absent=false
-		an array to represent a 9x9 [[suduku puzzle!http://en.wikipedia.org/wiki/Sudoku]]
-			Suduku puzzles contain the numbers 1-9, and blank spaces
+		an array to represent a 9x9 [[sudoku puzzle!http://en.wikipedia.org/wiki/Sudoku]]
+			Sudoku puzzles contain the numbers 1-9, and blank spaces
 ---------------------------------------------
 Accessing array elements
 	Two indexes (or subscripts) must be used to access an individual element
@@ -95,7 +95,7 @@ Initializing 2D arrays
 Practice
 	Initialize all elements of the sales array to 0 in the simplest way possible
 	Initialize all elements in the attendence array to false using nested loops
-	Initialize the suduku puzzle to mostly blanks with a few numbers here and there
+	Initialize the sudoku puzzle to mostly blanks with a few numbers here and there
 		
 ----------------------------------------------
 Arrays in memory
