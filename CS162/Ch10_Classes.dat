@@ -21,6 +21,15 @@ Introduction
 		may be hidden from the person using the class 
 	Classes are how C++ implements Object Oriented Programming
 ---------------------------------------------
+An Example
+	A digital clock consists of hour, minute, and second values.
+		The hour value can only have the values 1-12 (for a 12 hour clock)
+		The minute and second values can only be 0-59.
+	Actions you might want your clock to do are:
+		display (i.e. show the time on the screen)
+		tick (i.e. advance the clock one second)
+	To implement this clock in software, you could create a Clock class
+---------------------------------------------
 Creating classes and objects  
 	You use the class keyword to define what the class looks like. 
 		Note: this creates a new variable type, not a variable.
@@ -45,22 +54,22 @@ Public and Private members
 		The public functions of a class are how users of the class (other programmers) interact with the data.
 	For example:
 		[[code]]
-		class Timer { 		[[desc This begins the definition of our new datatype, called Timer.<br>class is a reserved word.<br>Timer is a word we made up.]]
+		class Clock { 		[[desc This begins the definition of our new datatype, called Clock.<br>class is a reserved word.<br>Timer is a word we made up.]]
 			public:			[[desc This signifies that the class members that follow will be accessible outside the class.<br>The public functions of a class are how users of the class (other programmers) interact with the data]]
-				void setTimer(int sec) { [[desc This function allows the user of the class to set the Timer.  i.e. Set the seconds value.<br>Note: while complete functions can be typed in the class definition, it's more common to just have the prototypes here]]
-					if (sec > 0)		[[desc The given data is checked for validity]]
-						seconds = sec; 	[[desc The given data is stored in the class variable]]
+				void setHour(int newhour) { [[desc This function allows the user of the class to set the Timer.  i.e. Set the seconds value.<br>Note: while complete functions can be typed in the class definition, it's more common to just have the prototypes here]]
+					if (hour >= 1 && hour <=12)		[[desc The given data is checked for validity]]
+						hour = newHour; 	[[desc The given data is stored in the class variable]]
 				}
 				...			[[desc there would be more code here... it was left off for brevity]]
 			private:		[[desc This signifies that the class members that follow will not be directly accessible outside the class<br>Typically, data members of a class are private.  This allows us to do data validation and maintain data integrity.<br><br>Note: Although usually used, the private keyword is actually optional, as members are private by default.]]
-				int seconds;
+				int hour;
 				...			[[desc there would be more code here... it was left off for brevity]]
 			}; [[desc This ends the class definition.<br>The ; is necessary.]]
 			
 		int main() {
-			Timer timer1;		[[desc This creates and instance of the class Timer ]]
-			timer1.seconds = 0; //doesn't compile. Seconds are inaccessible here. [[desc Just as with structs, the dot (.) notation is used to access class members.<br>But this attempts to directly access a private member of the Timer class (seconds), which is not allowed.]]
-			timer1.setTimer(0); //proper way to set timer to 0.  [[desc This calls a public function of the timer class.  The public functions of a class are the interface to the class's data]]
+			Clock clock1;		[[desc This creates and instance of the class Clock ]]
+			clock1.hour = 1; //doesn't compile. hour is inaccessible here. [[desc Just as with structs, the dot (.) notation is used to access class members.<br>But this attempts to directly access a private member of the Timer class (seconds), which is not allowed.]]
+			timer1.setHour(1); //proper way to set clock's hour to 1.  [[desc This calls a public function of the hour class.  The public functions of a class are the interface to the class's data]]
 			...				[[desc there would be more code here... it was left off for brevity]]
 ---------------------------------------------
 Complete Class definition Example
@@ -205,7 +214,9 @@ Sample implementation file
 		#include "clock.h"	 [[desc This includes the class definition. <br>Note the use of doublequotes in place of the < > used when including system files.<br>This is because these reside in a different location on disk.<br>The project keeps track of where they are.]]
 			
 		Clock::Clock() { 	[[desc The beginning ''Clock::'' says this is a function in the Clock Class.<br>The ''Clock()'' says this function name is Clock() (it's named the same as the class because it's the constructor)<br>The function has no return type because Constructors have no return types.]]
-			hour=0; minute=0; second=0; [[desc These lines initialize the member variables of the class. (given those variables aren't defined here, they must be member variables)]]
+			hour=12;  [[desc These lines initialize the member variables of the class. (given those variables aren't defined here, they must be member variables)]]
+			minute=0; [[desc These lines initialize the member variables of the class. (given those variables aren't defined here, they must be member variables)]]
+			second=0; [[desc These lines initialize the member variables of the class. (given those variables aren't defined here, they must be member variables)]]
 		}
 			
 		int Clock::getHour() const {	[[desc int is the return type (that always comes first).<br>''Clock::'' says this is a function in the Clock class (that immediately precedes the function name).<br>''getHour'' is the function name.]]
@@ -229,5 +240,12 @@ Using your class in a program
 		
 		
 -------------------------------------------
+Practice
+	Create a program that creates and tests the Clock class as defined in the previous "Complete Class Definition" slide
+		The program will consist of three files:
+			class.h - class defintion
+			class.cpp - class implementation 
+			classtest.cpp - test code.  Contains a main() routine that creates an instance of the Clock class and tests thoroughly tests each function.
+	Note:  When creating a class, first write the .h file, then write <b>and thorougly test</b> each member function one at a time.		
 -------------------------------------------------------
 
