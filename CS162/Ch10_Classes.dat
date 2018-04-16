@@ -103,7 +103,8 @@ Complete Class definition Example
 				int minute;   // 0-59 [[desc Private class member variable to store the minute]]
 				int second;   // 0-59 [[desc Private class member variable to store the minute]]
 		}; [[desc This ends the class definition.<br>The ; is necessary]]
-	Note: They were left off for brevity, but each of the public functions should have been prededed by a comment block describing the function, parameters, and return type
+	Note: They were left off for brevity, but each of the public functions should have been preceded by a comment block describing the function, parameters, and return type
+
 ---------------------------------------------
 Function categories
 	As shown in the previous example, a classes functions generally fall into one of the following categories
@@ -147,6 +148,10 @@ Practice
 			// 	test setMinute with both valid and invalid values
 			//	test getMinute
 		}
+---------------------------------------------
+Intermission
+	This concludes part 1 of our look at classes, which covered class and object basics.
+	In the next part, we'll look at implementing classes using multiple source files, which is how they're typically implemented
 ----------------------------------------------
 Interface and Implementation
 	A class consists of two significant parts
