@@ -23,12 +23,16 @@ Introduction
 ---------------------------------------------
 An Example
 	A digital clock consists of hour, minute, and second values.
-		The hour value can only have the values 1-12 (for a 12 hour clock)
-		The minute and second values can only be 0-59.
+		The hour can only have the values 1-12 (for a 12 hour clock)
+		The minute and second can only have the values 0-59.
 	Actions you might want your clock to do are:
 		display (i.e. show the time on the screen)
 		tick (i.e. advance the clock one second)
-	To implement this clock in software, you could create a Clock class
+	You could implement this clock functionality in software using a class
+		The Clock class 
+			would contain the clock data (hour, minute, seconds)
+			would maintain the integrety of that data (keep the variables from being set to invalid values)
+			provide an easy-to-use interface to set, display, and manipulate the clock data
 ---------------------------------------------
 Creating classes and objects  
 	You use the class keyword to define what the class looks like. 
@@ -37,7 +41,7 @@ Creating classes and objects
 			class Clock { 	[[desc This begins the definition of our new datatype, called Clock.<br>class is a reserved word.<br>Clock is a word we made up.]]
 				...			[[desc More code goes here.  We'll get to that next.]]
 			}; 				[[desc This ends the class header.<br>The ; is necessary]]
-	You can then create variables of those types.
+	You then create variables of those types.
 		[[code]]
 		Clock bigBen;	//creates a variable of type Clock named bigBen
 	Terminology
@@ -57,7 +61,7 @@ Public and Private members
 		class Clock { 		[[desc This begins the definition of our new datatype, called Clock.<br>class is a reserved word.<br>Timer is a word we made up.]]
 			public:			[[desc This signifies that the class members that follow will be accessible outside the class.<br>The public functions of a class are how users of the class (other programmers) interact with the data]]
 				void setHour(int newhour) { [[desc This function allows the user of the class to set the Timer.  i.e. Set the seconds value.<br>Note: while complete functions can be typed in the class definition, it's more common to just have the prototypes here]]
-					if (hour >= 1 && hour <=12)		[[desc The given data is checked for validity]]
+					if (newHour >= 1 && newHour <=12)		[[desc The given data is checked for validity]]
 						hour = newHour; 	[[desc The given data is stored in the class variable]]
 				}
 				...			[[desc there would be more code here... it was left off for brevity]]
@@ -69,7 +73,7 @@ Public and Private members
 		int main() {
 			Clock clock1;		[[desc This creates and instance of the class Clock ]]
 			clock1.hour = 1; //doesn't compile. hour is inaccessible here. [[desc Just as with structs, the dot (.) notation is used to access class members.<br>But this attempts to directly access a private member of the Timer class (seconds), which is not allowed.]]
-			timer1.setHour(1); //proper way to set clock's hour to 1.  [[desc This calls a public function of the hour class.  The public functions of a class are the interface to the class's data]]
+			clock1.setHour(1); //proper way to set clock's hour to 1.  [[desc This calls a public function of the hour class.  The public functions of a class are the interface to the class's data]]
 			...				[[desc there would be more code here... it was left off for brevity]]
 ---------------------------------------------
 Complete Class definition Example
@@ -99,6 +103,7 @@ Complete Class definition Example
 				int minute;   // 0-59 [[desc Private class member variable to store the minute]]
 				int second;   // 0-59 [[desc Private class member variable to store the minute]]
 		}; [[desc This ends the class definition.<br>The ; is necessary]]
+	Note: They were left off for brevity, but each of the public functions should have been prededed by a comment block describing the function, parameters, and return type
 ---------------------------------------------
 Function categories
 	As shown in the previous example, a classes functions generally fall into one of the following categories
@@ -108,7 +113,7 @@ Function categories
 			The constructor that accepts no arguments is called the default constructor.
 		Accessors
 			These functions return copies of a classes private data members to the caller.
-			These should be declared as const functions as they don't modify the object
+			These should be declared as const functions since they don't modify the object
 		Mutators
 			These functions provide an interface to modify a classes private variables.  
 			The data provided to the function is validated before being used to change the objects data.
@@ -152,7 +157,7 @@ Interface and Implementation
 			This is only needed by the person writing or maintaining the class
 	Users of a class need to know only what the class does, not how it does it.
 		This is data abstraction.
-	You've previously worked with objects of the string class, but don't really know (or care) how it operated internally.  This is good.  You don't have the time to learn the details about how everything works, you just need to know how to use it.
+		You've previously worked with objects of the string class, but don't really know (or care) how it operated internally.  This is good.  You don't have the time to learn the details about how everything works, you just need to know how to use it.
 		This is similar to a car.  People need to know how to operate a car, but don't need to know how a car accomplishes what it does. 
 ----------------------------------------------
 Source Files
@@ -190,21 +195,30 @@ scope operator
 		}
 	
 ---------------------------------------------
-Sample Header file
-
-	All header files have their contents surrounded by preprocessor directives
-		These keep the code contained within from being included twice in the event the file is included twice (which can easily happen with nesting)
-		The directives are #ifndef, #define, and #endif, and are used as follows:
-			[[code]]
-			#ifndef CLOCK_H [[desc Preprocessor directive that says: If CLOCK_H is not defined, continue.<br>CLOCK_H is a name we made up that needs to be unique.<br>And this #ifndef needs a closing #endif at the end of the file.]]
-			#define CLOCK_H [[desc Preprocessor directive that says: Define the term CLOCK_H. It's not defined as anything special, but the name is now known to the pre-processor.]]
+Sample Header File
+	All header files need to make sure the code they contain isn't included twice in the event the file is included twice (which can easily happen with nesting)
+		These are called "include gaurds"
+	The historic (and common) method to implment include gaurds is through the directives
+		#ifndef
+		#define
+		#endif
+	Which would be used as follows:
+		[[code]]
+		#ifndef CLOCK_H [[desc Preprocessor directive that says: If CLOCK_H is not defined, continue.<br>CLOCK_H is a name we made up that needs to be unique.<br>And this #ifndef needs a closing #endif at the end of the file.]]
+		#define CLOCK_H [[desc Preprocessor directive that says: Define the term CLOCK_H. It's not defined as anything special, but the name is now known to the pre-processor.]]
+	
+		class Clock { 	[[desc Entire class definition would be here. Omitted for brevity]]
+			... 		[[desc Entire class definition would be here. Omitted for brevity]]
+		};				[[desc Entire class definition would be here. Omitted for brevity]]
 			
-			class Clock { 	[[desc Entire class definition would be here. Omitted for brevity]]
-				... 		[[desc Entire class definition would be here. Omitted for brevity]]
-			};				[[desc Entire class definition would be here. Omitted for brevity]]
-				
-			#endif [[desc Preprocessor directive that closes the earlier #ifndef.<br> It says: This is the end of the stuff to be skipped if CLOCK_H was defined.]]
-	You can look at any of the system header files and see that similar directives are in them.
+		#endif [[desc Preprocessor directive that closes the earlier #ifndef.<br> It says: This is the end of the stuff to be skipped if CLOCK_H was defined.]]
+	An alternative method would be to use #pragma once at the top of the file
+		[[code]]
+		#pragma once [[desc Preprocessor directive that says: only include this file one time			
+		class Clock { 	[[desc Entire class definition would be here. Omitted for brevity]]
+			... 		[[desc Entire class definition would be here. Omitted for brevity]]
+		};				[[desc Entire class definition would be here. Omitted for brevity]]
+	You can look at any of the system header files and see that they all use these directives (usually both!)
 
 ---------------------------------------------
 Sample implementation file
