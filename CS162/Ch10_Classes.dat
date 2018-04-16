@@ -171,8 +171,8 @@ Source Files
 			It is then included in all source files that are going to use the class.
 				Note: in an ideal world (or better language?), the user of the class wouldn't be given the entire definition, but instead just the public functions (interface)
 		The implementation file (.cpp) contains the class implementation.
-			At the top it includes the header file 
-			It then contains the function implementations for all class functions
+			At the top it #includes the header file 
+			It then implements each of the class functions
 			When compiled, it produces an object file containing all the compiled class functions
 			This is then linked (via a project/makefile) in with any code using the class.
 	Anyone who is going to use your class needs the following:
@@ -188,17 +188,14 @@ Practice
 		In the "Source Files" section:
 			clock.cpp - class implementation 
 			clockTest.cpp - test code.  Will contain the main() routine (which will creates an instance of the Clock class and thoroughly test each function.
-	Note: files in the Include section aren't compiled directly.  The code in those files is only complied when it's included in a .cpp file.
+	Note: files in the Include section aren't compiled directly.  The code in those files is only complied as part of the .cpp file it's #included in.
 	
 ---------------------------------------------
 Include Guards
 	All header files need to make sure the code they contain isn't included twice in the event the file is included twice (which can easily happen with nesting)
 		These are called "include guards"
-	The historic (and common) method to implment include gaurds is through the directives
-		#ifndef
-		#define
-		#endif
-	Which would be used as follows:
+	The historic (and common) method to implment include gaurds is through the directives #ifndef, #define, #endif
+	These would be used as follows:
 		[[code]]
 		#ifndef CLOCK_H [[desc Preprocessor directive that says: If CLOCK_H is not defined, continue.<br>CLOCK_H is a name we made up that needs to be unique.<br>And this #ifndef needs a closing #endif at the end of the file.]]
 		#define CLOCK_H [[desc Preprocessor directive that says: Define the term CLOCK_H. It's not defined as anything special, but the name is now known to the pre-processor.]]
@@ -210,11 +207,11 @@ Include Guards
 		#endif [[desc Preprocessor directive that closes the earlier #ifndef.<br> It says: This is the end of the stuff to be skipped if CLOCK_H was defined.]]
 	An alternative method would be to use #pragma once at the top of the file
 		[[code]]
-		#pragma once [[desc Preprocessor directive that says: only include this file one time			
+		#pragma once [[desc Preprocessor directive that says: only include this file one time]]			
 		class Clock { 	[[desc Entire class definition would be here. Omitted for brevity]]
 			... 		[[desc Entire class definition would be here. Omitted for brevity]]
 		};				[[desc Entire class definition would be here. Omitted for brevity]]
-	You can look at any of the system header files and see that they all use these directives (usually both!)
+	You can look at any of the system header files and see that they all use these directives (usually both methods!)
 ---------------------------------------------
 Sample Header File
 	A header file for a class would look something like this:
@@ -245,17 +242,18 @@ Sample Header File
 
 ----------------------------------------------
 Practice
-	Put the Clock class definition shown on the previus slide into the clock.h file.
+	Put the Clock class definition shown on an earlier slide (Complete Class Definition Example) into the clock.h file.
+	Surround it with the #ifndef, #define, #endif directives
 	Add a file header to the file 
 		This should contain a file descrition, as well as @author and @version tags.
 	Add a function header to the setTime function
 		This should contain a function description and @param tags for each parameter, and a @return tag
-	In practice, all functions should have the funtion headers.  For this exercise we'll just to one so we know how they should look.
+	In practice, all functions should have the funtion headers.  For this exercise we'll just to one so we'll know how they should look.
 ----------------------------------------------
-scope operator
-	In the previous exercises we implemented some functions within the definition.  This is atypical.
-	The class definition doesn't typically contain functions, just function prototypes like shown in the previous example.
-	Functions would then be written after the definition, and the Scope Resolution Operator (::) is used to tell the compiler these functions are a part of the class.
+Scope Resolution Operator
+	In the part 1 exercises we implemented some functions within the definition.  This is atypical.
+	The class definition doesn't typically contain functions, just function prototypes
+	Class functions are then written in the .cpp file, and the Scope Resolution Operator (::) is used to tell the compiler these functions are a part of the class.
 		[[code]]
 		Clock::Clock() { 	[[desc The beginning ''Clock::'' says this is a function in the Clock Class.<br>The ''Clock()'' says this function name is Clock() (it's named the same as the class because it's the constructor)<br>The function has no return type becuase Constructors have no return types.]]
 			hour=0; minute=0; second=0; [[desc These lines initialize the member variables of the class. (given those variables aren't defined here, they must be member variables)]]
@@ -267,7 +265,7 @@ scope operator
 
 ----------------------------------------------------------------------------------
 Sample implementation file
-	The implementation file includes the header file and then has the implementations for all class functions.
+	The implementation file #includes the header file and then has the implementations for all class functions.
 		[[code]]
 			
 		#include "clock.h"	 [[desc This includes the class definition. <br>Note the use of doublequotes in place of the < > used when including system files.<br>This is because these reside in a different location on disk.<br>The project keeps track of where they are.]]
