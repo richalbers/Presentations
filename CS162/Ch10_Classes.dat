@@ -164,7 +164,7 @@ Source Files
 	Class code is usually put into two files
 		The header file (.h) contains the class definition (which includes the interface). 
 			It is then included in all source files that are going to use the class.
-				Note: in an ideal world, or better language, the user of the class wouldn't be given the entire definition, but instead just the public functions (interface)
+				Note: in an ideal world (or better language?), the user of the class wouldn't be given the entire definition, but instead just the public functions (interface)
 		The implementation file (.cpp) contains the class implementation.
 			At the top it includes the header file 
 			It then contains the function implementations for all class functions
@@ -175,29 +175,20 @@ Source Files
 		The object file (or library) containing the implementation
 			Users of the class don't need the source code of the implementation.
 ----------------------------------------------
-scope operator
-	In the previous exercises we implemented some functions within the definition.  This is atypical.
-	The class definition doesn't typically contain functions, just function prototypes, like this:
-		[[code]]
-		class Clock { [[desc This begins the definition of our new datatype, called Clock<br>class is a reserved word<br>Clock is a word we made up]]
-			...
-			Clock();  [[desc Prototype for the default constructor.]]
-			int getHour() const; [[desc Prototype for a function that returns the value stored in hour]]
-			...
-	Functions would then be written after the definition, and the Scope Resolution Operator (::) is used to tell the compiler these functions are a part of the class.
-		[[code]]
-		Clock::Clock() { 	[[desc The beginning ''Clock::'' says this is a function in the Clock Class.<br>The ''Clock()'' says this function name is Clock() (it's named the same as the class because it's the constructor)<br>The function has no return type becuase Constructors have no return types.]]
-			hour=0; minute=0; second=0; [[desc These lines initialize the member variables of the class. (given those variables aren't defined here, they must be member variables)]]
-		}
-			
-		int Clock::getHour() const {	[[desc int is the return type (that always comes first).<br>''Clock::'' says this is a function in the Clock class (that immediately precedes the function name).<br>''getHour'' is the function name.]]
-			return hour;
-		}
+Practice
+	Create a project that will be used to create and test a Clock class.
+	Project should have three files
+		In the "Include Files" section:
+			clock.h - class defintion
+		In the "Source Files" section:
+			clock.cpp - class implementation 
+			clockTest.cpp - test code.  Will contain the main() routine (which will creates an instance of the Clock class and thoroughly test each function.
+	Note: files in the Include section aren't compiled directly.  The code in those files is only complied when it's included in a .cpp file.
 	
 ---------------------------------------------
-Include Gaurds
+Include Guards
 	All header files need to make sure the code they contain isn't included twice in the event the file is included twice (which can easily happen with nesting)
-		These are called "include gaurds"
+		These are called "include guards"
 	The historic (and common) method to implment include gaurds is through the directives
 		#ifndef
 		#define
@@ -228,18 +219,14 @@ Sample Header File
 			
 		class Clock { [[desc This begins the definition of our new datatype, called Clock<br>class is a reserved word<br>Clock is a word we made up]]
 			public: 	[[desc This signifies that the class members that follow will be accessible outside the class.<br>The public functions of a class are how users of the class (other programmers) interact with the data]]
-				//constructor [[desc Constructors are special functions that are called when instances of the class are created (variables of the type Clock in this example).<br>Constructors have the same name as the class.<br>Constructors typically initialize the class's data members]]
 				Clock();  [[desc This is a prototype for the default contructor.<br>The default constructor is called when instances of the class are created without providing any data.  e.g.<br>Clock BigBen();]]
 					
-				//mutators [[desc Mutators are functions that allow a user of the class to set or modify (ie. mutate) internal class variables.<br>Mutators should validate the given data before using it to modify our internal class data members to maintain data integrity]]
 				bool setTime(int hour, int minute, int second); [[desc  This is a prototype for a mutator function that accepts data to change all our internal variables at once.<br>It's not uncommon to have a separate mutator function for each internal variable that we want users of the class to be able to modify]]
 					
-				//accessors [[desc Accessors are functions that allow a user of the class to get copies of the values stored in internal class variables.]]
 				int getHour() const; [[desc Prototype for a function that returns the value stored in hour.<br>The keyword const at the end signifies that this function will not change the object.]]
 				int getMinute() const; [[desc Prototype for a function that returns the value stored in minute.<br>The keyword const at the end signifies that this function will not change the object.]]
 				int getSecond() const; [[desc Prototype for a function that returns the value stored in second.<br>The keyword const at the end signifies that this function will not change the object.]]
 					
-				//other [[desc Many functions will manipulate internal variables, not just set them (mutators) or get them (accessors)]]
 				void showClock(); // Displays the clock [[desc Prototype for a function that displays the clock]]
 				void tick(); 	//add one second to the clock [[desc Prototype for a function that adds one second to the clock.  This may modify the second, minute, and hour variables]]
 			private: 	[[desc This signifies that the class members that follow will not be directly accessible outside the class<br>Typically, data members of a class are private.<br>This allows us to maintain data integrity]]
@@ -250,6 +237,29 @@ Sample Header File
 		
 		#endif
 	Note: They were left off for brevity, but the file should have a comment block at the top describing the file contents, and each of the public functions should have been prededed by a comment block describing the function, parameters, and return type
+
+----------------------------------------------
+Practice
+	Put the Clock class definition shown on the previus slide into the clock.h file.
+	Add a file header to the file 
+		This should contain a file descrition, as well as @author and @version tags.
+	Add a function header to the setTime function
+		This should contain a function description and @param tags for each parameter, and a @return tag
+	In practice, all functions should have the funtion headers.  For this exercise we'll just to one so we know how they should look.
+----------------------------------------------
+scope operator
+	In the previous exercises we implemented some functions within the definition.  This is atypical.
+	The class definition doesn't typically contain functions, just function prototypes like shown in the previous example.
+	Functions would then be written after the definition, and the Scope Resolution Operator (::) is used to tell the compiler these functions are a part of the class.
+		[[code]]
+		Clock::Clock() { 	[[desc The beginning ''Clock::'' says this is a function in the Clock Class.<br>The ''Clock()'' says this function name is Clock() (it's named the same as the class because it's the constructor)<br>The function has no return type becuase Constructors have no return types.]]
+			hour=0; minute=0; second=0; [[desc These lines initialize the member variables of the class. (given those variables aren't defined here, they must be member variables)]]
+		}
+			
+		int Clock::getHour() const {	[[desc int is the return type (that always comes first).<br>''Clock::'' says this is a function in the Clock class (that immediately precedes the function name).<br>''getHour'' is the function name.]]
+			return hour;
+		}
+
 ----------------------------------------------------------------------------------
 Sample implementation file
 	The implementation file includes the header file and then has the implementations for all class functions.
@@ -266,30 +276,12 @@ Sample implementation file
 		int Clock::getHour() const {	[[desc int is the return type (that always comes first).<br>''Clock::'' says this is a function in the Clock class (that immediately precedes the function name).<br>''getHour'' is the function name.]]
 			return hour;
 		}
-
--------------------------------------------
-Using your class in a program
-	To use your class code in another project, you'll need to do the following [[img CS162/images/ProjectMultifile.PNG]]
-		Create a project as usual
-		In the source file section
-			Add a source file (.cpp) to hold your programs main code
-			Add a source file for each class you'll be using (.cpp)
-		In the header file section
-			Add header files (.h) for each class you'll be using 
-	The example to the right shows a project named FunGame that contains
-		A .cpp file for the main code (FunGame.cpp)
-		.cpp files containing class implementations for three different classes
-		.h files for class definitions for three different classes
-	When you build this project, it will compile the 4 .cpp files into 4 .obj files, then link them together into an executable.
-		
-		
+	Note: The implementation file would contain the implementation for EVERY function that was a part of the class.  Most were left off here for brevity.
 -------------------------------------------
 Practice
-	Create a program that creates and tests the Clock class as defined in the previous "Complete Class Definition" slide
-		The program will consist of three files:
-			class.h - class defintion
-			class.cpp - class implementation 
-			classtest.cpp - test code.  Contains a main() routine that creates an instance of the Clock class and tests thoroughly tests each function.
-	Note:  When creating a class, first write the .h file, then write <b>and thorougly test</b> each member function one at a time.		
--------------------------------------------------------
-
+	In the clockTest.cpp file, add a main() routine
+		this will contain code to test the Clock class.
+		We'll add code to it as we go along to test each clock funcition after it's written.
+	In the clock.cpp file, add implementations for each function.
+		After adding each funciton implmentation, add code in main() to thoroughly test (with both valid and invalid data) the function.
+		Each function should the thoroughly tested before moving on to the next one.
