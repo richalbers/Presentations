@@ -195,7 +195,7 @@ scope operator
 		}
 	
 ---------------------------------------------
-Sample Header File
+Include Gaurds
 	All header files need to make sure the code they contain isn't included twice in the event the file is included twice (which can easily happen with nesting)
 		These are called "include gaurds"
 	The historic (and common) method to implment include gaurds is through the directives
@@ -206,7 +206,7 @@ Sample Header File
 		[[code]]
 		#ifndef CLOCK_H [[desc Preprocessor directive that says: If CLOCK_H is not defined, continue.<br>CLOCK_H is a name we made up that needs to be unique.<br>And this #ifndef needs a closing #endif at the end of the file.]]
 		#define CLOCK_H [[desc Preprocessor directive that says: Define the term CLOCK_H. It's not defined as anything special, but the name is now known to the pre-processor.]]
-	
+			
 		class Clock { 	[[desc Entire class definition would be here. Omitted for brevity]]
 			... 		[[desc Entire class definition would be here. Omitted for brevity]]
 		};				[[desc Entire class definition would be here. Omitted for brevity]]
@@ -219,8 +219,38 @@ Sample Header File
 			... 		[[desc Entire class definition would be here. Omitted for brevity]]
 		};				[[desc Entire class definition would be here. Omitted for brevity]]
 	You can look at any of the system header files and see that they all use these directives (usually both!)
-
 ---------------------------------------------
+Sample Header File
+	A header file for a class would look something like this:
+	[[code]]
+		#ifndef CLOCK_H [[desc Preprocessor directive that says: If CLOCK_H is not defined, continue.<br>CLOCK_H is a name we made up that needs to be unique.<br>And this #ifndef needs a closing #endif at the end of the file.]]
+		#define CLOCK_H [[desc Preprocessor directive that says: Define the term CLOCK_H. It's not defined as anything special, but the name is now known to the pre-processor.]]
+			
+		class Clock { [[desc This begins the definition of our new datatype, called Clock<br>class is a reserved word<br>Clock is a word we made up]]
+			public: 	[[desc This signifies that the class members that follow will be accessible outside the class.<br>The public functions of a class are how users of the class (other programmers) interact with the data]]
+				//constructor [[desc Constructors are special functions that are called when instances of the class are created (variables of the type Clock in this example).<br>Constructors have the same name as the class.<br>Constructors typically initialize the class's data members]]
+				Clock();  [[desc This is a prototype for the default contructor.<br>The default constructor is called when instances of the class are created without providing any data.  e.g.<br>Clock BigBen();]]
+					
+				//mutators [[desc Mutators are functions that allow a user of the class to set or modify (ie. mutate) internal class variables.<br>Mutators should validate the given data before using it to modify our internal class data members to maintain data integrity]]
+				bool setTime(int hour, int minute, int second); [[desc  This is a prototype for a mutator function that accepts data to change all our internal variables at once.<br>It's not uncommon to have a separate mutator function for each internal variable that we want users of the class to be able to modify]]
+					
+				//accessors [[desc Accessors are functions that allow a user of the class to get copies of the values stored in internal class variables.]]
+				int getHour() const; [[desc Prototype for a function that returns the value stored in hour.<br>The keyword const at the end signifies that this function will not change the object.]]
+				int getMinute() const; [[desc Prototype for a function that returns the value stored in minute.<br>The keyword const at the end signifies that this function will not change the object.]]
+				int getSecond() const; [[desc Prototype for a function that returns the value stored in second.<br>The keyword const at the end signifies that this function will not change the object.]]
+					
+				//other [[desc Many functions will manipulate internal variables, not just set them (mutators) or get them (accessors)]]
+				void showClock(); // Displays the clock [[desc Prototype for a function that displays the clock]]
+				void tick(); 	//add one second to the clock [[desc Prototype for a function that adds one second to the clock.  This may modify the second, minute, and hour variables]]
+			private: 	[[desc This signifies that the class members that follow will not be directly accessible outside the class<br>Typically, data members of a class are private.<br>This allows us to maintain data integrity]]
+				int hour;     // 1-12 [[desc Private class member variable to store the hour]]
+				int minute;   // 0-59 [[desc Private class member variable to store the minute]]
+				int second;   // 0-59 [[desc Private class member variable to store the minute]]
+		}; [[desc This ends the class definition.<br>The ; is necessary]]
+		
+		#endif
+	Note: They were left off for brevity, but the file should have a comment block at the top describing the file contents, and each of the public functions should have been prededed by a comment block describing the function, parameters, and return type
+----------------------------------------------------------------------------------
 Sample implementation file
 	The implementation file includes the header file and then has the implementations for all class functions.
 		[[code]]
