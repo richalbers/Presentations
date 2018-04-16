@@ -174,21 +174,9 @@ multiple constructors
 	
 ---------------------------------------------
 this
-	If there is a local variable named the same as a member variable, the system will, by default, access the local variable.
-	For example: this is problematic
-		[[code]]
-		class Clock {
-			public:
-				...
-				bool setMinute(int minute) { //parameter name is same as member name
-					minute = minute;
-				};
-				...
-			private:
-				int minute;
-		};
-	To fix that, you can use the this keyword
-		In member functions, this is a pointer to the object you're working on
+	If, in a member function, there is a local variable named the same as a member variable, the system will, by default, access the local variable.
+	This can be resolved by using the this pointer
+		this is a pointer to the object for which the function was called
 	For example:
 		[[code]]
 		class Clock {
@@ -201,7 +189,8 @@ this
 			private:
 				int minute;
 		};	
-		
+	Note: we cover pointers in detail in a few weeks.  For now just be aware of how/why you use this->
+	Note2: Other languages solve the problem in a similar way.  this is actually the commonly used name, although Visual Basic uses me instead.
 ---------------------------------------------
  - - - - - - - -
 	This concludes part 1 of our look at classes, which covered class and object basics.
