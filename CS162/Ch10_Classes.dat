@@ -149,7 +149,7 @@ Practice
 			//	test getMinute
 		}
 ---------------------------------------------
-Intermission
+ - - - - - - - -
 	This concludes part 1 of our look at classes, which covered class and object basics.
 	In the next part, we'll look at implementing classes using multiple source files, which is how they're typically implemented
 ----------------------------------------------
