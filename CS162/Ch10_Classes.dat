@@ -8,7 +8,22 @@ Classes (Ch 10)
 		Explain why you should separate your code into header and implementation files
 		Use a class in a project
 ------------------------------------------
-Introduction
+OOP
+	Object Oriented Programming is a programming paradigm that builds the program from objects that interact with one another
+	An object is an entitiy that represents something in the software.  
+		For example: in Pokemon Go, the following things would be objects:
+			trainer
+			pokemon
+			pokestops
+			gyms
+			etc..
+	Objects consist of
+		properties (variables) - these hold all the infomation about the object
+		methods (functions) - these allow the manipulation or modification of those properties
+	In most languages, objects are defined using the classes
+------------------------------------------
+Classes
+	A class is a blueprint from which objects are made
 	Like structs, classes allow us to group together related variables as one unit
 	But classes also allow us to
 		control access to that data
@@ -149,8 +164,9 @@ Practice
 			//	test getMinute
 		}
 ---------------------------------------------
-multiple constructors
+Multiple Constructors
 	Your class can have multiple constructors, as long as each has a different parameter list
+		This is an example of function overloading
 	For example:
 	[[code]]
 		class Clock {
@@ -173,23 +189,24 @@ multiple constructors
 		}	
 	
 ---------------------------------------------
-this
-	If, in a member function, there is a local variable named the same as a member variable, the system will, by default, access the local variable.
+this pointer
+	If, in a member function, there is a local variable with the same name as a member variable, the system will, by default, access the local variable.
 	This can be resolved by using the this pointer
 		this is a pointer to the object for which the function was called
+		It's available in all member functions
 	For example:
 		[[code]]
 		class Clock {
 			public:
 				...
 				bool setMinute(int minute) { //parameter name is same as member name
-					this->minute = minute;
+					this->minute = minute; [[desc this->minute refers to the memeber variable minute]]
 				};
 				...
 			private:
 				int minute;
 		};	
-	Note: we cover pointers in detail in a few weeks.  For now just be aware of how/why you use this->
+	Note: We cover pointers in detail in a few weeks.  For now just be aware of how/why you use this->
 	Note2: Other languages solve the problem in a similar way.  this is actually the commonly used name, although Visual Basic uses me instead.
 ---------------------------------------------
  - - - - - - - -
@@ -206,7 +223,7 @@ Interface and Implementation
 	Users of a class need to know only what the class does, not how it does it.
 		This is data abstraction.
 		You've previously worked with objects of the string class, but don't really know (or care) how it operated internally.  This is good.  You don't have the time to learn the details about how everything works, you just need to know how to use it.
-		This is similar to a car.  People need to know how to operate a car, but don't need to know how a car accomplishes what it does. 
+		This is analogous to a car.  People need to know how to operate a car, but don't need to know how a car accomplishes what it does. 
 ----------------------------------------------
 Source Files
 	Class code is usually put into two files
@@ -235,9 +252,9 @@ Practice
 	
 ---------------------------------------------
 Include Guards
-	All header files need to make sure the code they contain isn't included twice in the event the file is included twice (which can easily happen with nesting)
-		These are called "include guards"
-	The historic (and common) method to implment include gaurds is through the directives #ifndef, #define, #endif
+	All header files need to make sure the code they contain isn't included twice in the event the file is #included twice (which can easily happen with nesting)
+		These are called include guards
+	The standard method to implment include guards is through the pre-processor directives #ifndef, #define, #endif
 	These would be used as follows:
 		[[code]]
 		#ifndef CLOCK_H [[desc Preprocessor directive that says: If CLOCK_H is not defined, continue.<br>CLOCK_H is a name we made up that needs to be unique.<br>And this #ifndef needs a closing #endif at the end of the file.]]
@@ -248,13 +265,13 @@ Include Guards
 		};				[[desc Entire class definition would be here. Omitted for brevity]]
 			
 		#endif [[desc Preprocessor directive that closes the earlier #ifndef.<br> It says: This is the end of the stuff to be skipped if CLOCK_H was defined.]]
-	An alternative method would be to use #pragma once at the top of the file
+	An alternative (but non-standard) method (which is supported by many compilers) would be to use #pragma once at the top of the file
 		[[code]]
 		#pragma once [[desc Preprocessor directive that says: only include this file one time]]			
 		class Clock { 	[[desc Entire class definition would be here. Omitted for brevity]]
 			... 		[[desc Entire class definition would be here. Omitted for brevity]]
 		};				[[desc Entire class definition would be here. Omitted for brevity]]
-	You can look at any of the system header files and see that they all use these directives (usually both methods!)
+	The system header files in Visual Studio actually use both of these directives
 ---------------------------------------------
 Sample Header File
 	A header file for a class would look something like this:
