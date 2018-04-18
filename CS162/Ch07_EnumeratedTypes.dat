@@ -1,9 +1,9 @@
 ------------------------------------------
 Ch 7 - Enumerated Type
-  This presentation reviews enumerated types, which were covered in CS161.
-  At the end of this presenation you should be able to
-    Explain what an enumerated type is
-    Use an enumerated type in a program
+	This presentation reviews enumerated types, which were covered in CS161.
+	At the end of this presenation you should be able to
+		Explain what an enumerated type is
+		Use an enumerated type in a program
 ------------------------------------------
 Enumerated type
 	Sometimes, you'll have variables that can only have certain values, with each value having a specific meaning
