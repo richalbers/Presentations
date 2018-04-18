@@ -1,0 +1,44 @@
+------------------------------------------
+Ch 7 - Enumerated Type
+  This presentation reviews enumerated types, which were covered in CS161.
+  At the end of this presenation you should be able to
+    Explain what an enumerated type is
+    Use an enumerated type in a program
+------------------------------------------
+Enumerated type
+	Sometimes, you'll have variables that can only have certain values, with each value having a specific meaning
+		For example, in rock-paper-scissors, your hand can have one of three states: rock, paper, or sissors.
+	You could use a char variable, and store 'r', 'p', or 's' for the three states.  
+		Problems with this are:
+			'r', 'p', and 's' aren't meaningful (you'd need comments somewhere describing them)
+			There's the possibility of the state being invalid (e.g. 'z'?)
+	An Enumerated type solves those issues.  
+		An enumerated type
+			defines the datatype used for variables to hold the state
+			defines what the valid states are
+		Code looks like this
+		[[code]]
+			enum HandState {ROCK, PAPER, SCISSORS }
+		This gives meaningful names to both the type and the states
+---------------------------------------------
+Enum Example
+	Once an enumerated type is created
+		you can create variables of that type
+		assign those variables only the valid values
+		compare variables of that type
+	For example:
+	[[code]]
+		&nbsp;
+		enum HandState {ROCK, PAPER, SCISSORS};
+		...
+		&nbsp;
+		HandState hand1 = ROCK;
+		HandState hand2 = SCISSORS;
+		&nbsp;	
+		&nbsp;
+		if (hand1 == ROCK && hand2 == SCISSORS)
+			cout << "Rock smashes scissors!  Hand one wins!";
+		else ....
+	Doing other operations (such as streaming output) would require you cast the enumerated type as an int
+		Each value is actually 0, 1, 2, etc..
+------------------------------------------
