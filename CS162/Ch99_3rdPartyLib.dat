@@ -1,12 +1,12 @@
 ------------------------------------------
 Using 3rd Party Libraries
-	This presentation covers
-		Why we may want to use 3rd party libraries
-		What they contain
-		How to download and install SFML
-		Static vs Dynamic linking
-		Where Dynamic Libraries should be located
-		How to configure a project to use SFML
+	At the end of this presentation, you should be able to
+		explain why we may want to use 3rd party libraries
+		explain what files a 3rd party library would consist of, and the use of each of those files
+		download and install SFML (a 3rd party library)
+		explain the difference between static vs dynamic linking
+		explain where DLLs should be located
+		configure a project to use SFML
 ------------------------------------------
 Introduction
 	C++, like many languages, provides the basic building blocks to construct applications to do just about anything you can so with software.
