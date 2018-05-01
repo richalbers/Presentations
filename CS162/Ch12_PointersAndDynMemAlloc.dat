@@ -93,12 +93,12 @@ Dereferenceing operator
 ---------------------------------------------
 Practice
 	Given
-		letter is at address 0x12345678;
+		number is at address 0x12345678;
 		ptr is at address 0x1234567c;
 	What does the following print out?
 	[[code]]
-		char letter='a';
-		char* ptr=&letter;
+		double number=4.2;
+		double* ptr=&number;
 			
 		cout << &ptr << endl;
 		cout << ptr << endl;
