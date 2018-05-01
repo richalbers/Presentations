@@ -1,11 +1,12 @@
 ------------------------------------------
 Dynamically Allocated Objects (Ch 12), Part 2
-	This presentation covers
-		Using new and delete with classes
-		Object Pointer Notation
-		Constructors and Destructors
-		Arrays of object pointers
-		friend functions
+	At the end of this presentation you should be able to
+		use new and delete with classes
+		explain and use object pointer notation
+		explain what a destructor is for and when your class needs one
+		write a destructor
+		work with arrays of object pointers
+		pass pointers to functions
 
 ---------------------------------------------
 new and delete with classes
