@@ -58,11 +58,13 @@ Practice
 reading data
 	There are several methods that can be used to read the data from an input stream
 	The ones we'll look at are:
-		To read formated data:
+		To read formated data (i.e. data delimited by white space):
 			>>
 		To read unformatted data:
+			istream.get(char) - reads a character 
+			istream.getline(cstring, maxlength)
 			getline(istream, string) - reads an entire line
-			getch() - reads a character (or possibly more)
+ 
 		There are others.  See [[ifstream documentation!http://www.cplusplus.com/reference/fstream/ifstream/]]
 ---------------------------------------------
 reading formatted data
@@ -126,7 +128,7 @@ reading unformatted data
 ------------------------------------------
 reading until EOF
 	Many of these functions return null (false) when they reach eof
-	Reading to EOF using getch()
+	Reading to EOF using get()
 		[[code]]
 			// reads lines until end-of-file (EOF) is reached
 			// and sends each line to cout
