@@ -1,0 +1,98 @@
+--------------------------------
+Networking
+	Why layered models?
+	Protocols
+	OSI and TCP/IP Models
+	How it works
+	Ethernet 
+	TCP/IP
+--------------------------------------------
+Why layered models?
+	Networking is complicated. It addresses a large number of issues in both hardware and software.
+		What message format will be used between a browser a server?
+		How will garbled messages be handled?
+		How will addressing be handled?
+		How will I avoid sending two messages on the network cable at the same time?
+		What will the digital signals on the wire look like?
+	Complex problems are best solved by dividing them into many simpler problems
+	So we use Layers
+		Each layer handles it's particular repsonsibilties
+		Each layer communicates with the same layer at the other end of the connection
+		Each layer provides services to the layer above and utilizes services from the layer below
+------------------------------------------
+Protocols
+	Protocols (ie. standards) are rules which govern the exchange of messages between computers
+	Each layer has protocols that specify how things look and work at that layer
+	Some Common Protocols
+		Application Layer
+			HTTP, HTTPS, SMTP, FTP
+		Transport Layer
+			TCP, UDP
+		Network Layer
+			IP
+--------------------------------
+OSI and TCP/IP models
+	OSI Model
+		"Academic" model, not actually implemented
+		Appears in many network courses (textbooks) and cert exams
+		Contains 7 layers
+	TCP/IP Model
+		Used in real world
+		Has many similarities to OSI Model
+		Contains 4 layers (5 if you include the physical layer)
+			[[TCP/IP!http://en.wikipedia.org/wiki/TCP/IP_model]] doesn't actually concern itself with physical stuff like wires, but physical stuff is necessary for networks to work, so a complete networking model needs the physical layer on the bottom.
+	[[Layers listed and compared!http://docs.google.com/View?id=ddwpj9wx_332k39z6fn]]
+------------------------------------------
+How it works
+	Message originates at application layer
+	Header and Footer (maybe) are added
+	Entire message (including header and footer) are passed down to next layer
+	Message from upper layer (including header and footer) becomes the data for current layer
+	Process repeats at each layer until we get to physical layer
+	Message is transmitted across the medium
+	Message is received by recipient and passed back up the stack, unpacked as we go up
+
+--------------------------------
+Ethernet 
+	Operates at Layer 1 & 2
+	Created by Xerox in 1973 to replace sneakernet
+	Competed against Token Ring for awhile
+	Has 6 byte address
+		In the Network card's firmware
+		referred to as Ethernet, Physical, MAC address
+		1st 3 bytes identify manufacturer
+		last 3 bytes make it unique
+--------------------------------
+Why We Need Layer 3/4 Addresses and Protocols
+	Issues
+		There were (are) several different physical layers
+			Ethernet, Token Ring, etc..
+		A computer's LAN (i.e. location) can't be identified by it's physical layer address (makes routing impossible)
+		The physical layer depends on broadcasts to find each other.  This won't work with huge numbers of computers over long distances
+	Layer 3 & 4 facilitates different computers on different LANS with different data link/physical layers to communicate
+---------------------------------
+History
+	There were once 4 common layer 3/4 suites
+		TCP/IP (Unix)
+		NetBeui (Microsoft)
+		IPX/SPX (Novell)
+		Appletalk (Apple)
+	The internet (Email, then the Web) runs on TCP/IP, and everyone wants/needs those tools, so companies all dropped their suite in favor of TCP/IP
+--------------------------------
+Basic TCP/IP Properties
+	IP Address
+		provides unique address for each computer on network
+		v4 addresses are a 4 byte "dotted quad" 
+		for example: 145.62.1.36
+	Subnet Mask
+		Specifies which part of IP address is the network portion and which part is the host portion
+		In classful addressing, 255's followed by 0's
+	Gateway
+		IP address of the router that packets destined for computers not on the LAN (local network) are sent
+	All these properties are configured by the network admin
+----------------------------------
+Additional Properties
+	DNS Server
+		IP address of a computer that can determine the IP address of a computer given it's host name
+		A computer typically has several DNS server addresses listed in case one is down..
+---------------------------------
