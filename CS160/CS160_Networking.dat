@@ -140,7 +140,6 @@ CIDR
 		For Example:
 			12.34.0.0/16
 			190.24.56.0/24
-	CIDR and Subnetting are covered in more detail in CS229
 
 --------------------------------
 Static Vs Dynamic Addresses
