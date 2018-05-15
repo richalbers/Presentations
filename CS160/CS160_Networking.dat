@@ -96,3 +96,70 @@ Additional Properties
 		IP address of a computer that can determine the IP address of a computer given it's host name
 		A computer typically has several DNS server addresses listed in case one is down..
 ---------------------------------
+IP classes (Classful)
+	Class A 
+		IP: 1-126.h.h.h
+		SN: 255.0.0.0
+		126 networks, 16M+ H/N
+	Class B
+		128-191.n.h.h
+		SN: 255.255.0.0
+		16K Networks, 65K H/N
+	Class C
+		192-223.n.n.h
+		SN: 255.255.255.0
+		2M Networks, 256 H/N
+
+--------------------------------
+Private IPs
+	Private IPs NEVER appear on the internet
+	They're used only on private networks
+	Computers using them MUST use NAT to connect to the internet
+	Class A
+		10.0.0.0-10.255.255.255
+	Class B
+		172.16.0.0-172.31.255.255
+	Class C
+		192.168.0.0-192.168.255.255
+--------------------------------
+Classful Addressing Problems
+	Classes weren't flexible enough
+		There were too few Class A and B networks
+		Class A and B networks provided too many hosts
+		Class C didn't allow enough hosts
+	Solutions
+		CIDR (Classless InterDomain Routing) 
+		NAT (Network Address Translation)
+		IPv6 (IP, version 6)
+--------------------------------
+CIDR 	
+	Allows the break between Network and Host to occur somewhere other than a .
+	Resulting subnet masks (when written in Base 10), don't have just 255s and 0s.
+	Notation
+		IP Address/bits in subnet mask
+		For Example:
+			12.34.0.0/16
+			190.24.56.0/24
+	CIDR and Subnetting are covered in more detail in CS229
+
+--------------------------------
+Static Vs Dynamic Addresses
+	Static
+		Addresses that don't change
+		Used by Servers, Printers, etc..
+	Dynamic
+		Addresses that can change
+		Used by client machines
+		Typically assigned via DHCP Server
+		Or, more rarely, by APIPA (Automatic, Private IP Addressing) process
+			Assigns 169.254.x.x address
+--------------------------------
+Commands
+	IPConfig
+	Ping
+	TraceRt (trace route)
+	arp
+
+
+
+
