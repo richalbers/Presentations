@@ -60,3 +60,23 @@ Practice
 		//returns 1 if a[] is a palindrome, 0 otherwise
 		int ispalindrome(char a[], int n)
 	Note: All these are more easily solved iteratively so the recursive solution isn't intuitive (or straightforward)
+-------------------------------------------------
+Linked lists
+	Linked lists can be processed recursively, and in some instances, the recursive solution is easier than the interative solution
+	Printing list forward using recursion:
+		[[code]]
+		void printNodesForwards(Node* node) {
+			if (node==NULL)
+				return;
+			cout << node->data << ' ';
+			printNode(node->next);
+		}
+	While the former example has on advantage over an iterative solulution, if we wanted to print it backwards, the recursive solutions is far simpler that the iterative solution
+		[[code]]
+		void printNodesBackwards(Node* node) {
+			if (node==NULL)
+				return;
+			printNode(node->next);
+			cout << node->data << ' ';
+		}
+		
