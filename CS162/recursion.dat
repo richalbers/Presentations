@@ -63,7 +63,7 @@ Practice
 -------------------------------------------------
 Linked lists
 	Linked lists can be processed recursively, and in some instances, the recursive solution is easier than the interative solution
-	Printing list forward using recursion:
+	Printing list forward using recursion (no real advantage over using iteration)
 		[[code]]
 		void printNodesForwards(Node* node) {
 			if (node==NULL)
@@ -71,7 +71,7 @@ Linked lists
 			cout << node->data << ' ';
 			printNode(node->next);
 		}
-	While the former example has on advantage over an iterative solulution, if we wanted to print it backwards, the recursive solutions is far simpler that the iterative solution
+	Printing list backward using recursion (much simpler than using iteration)
 		[[code]]
 		void printNodesBackwards(Node* node) {
 			if (node==NULL)
