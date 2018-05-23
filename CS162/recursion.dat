@@ -59,4 +59,4 @@ Practice
 		[[code]]
 		//returns 1 if a[] is a palindrome, 0 otherwise
 		int ispalindrome(char a[], int n)
-
+	Note: All these are more easily solved iteratively so the recursive solution isn't intuitive (or straightforward)
