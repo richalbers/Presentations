@@ -47,14 +47,14 @@ Practice
 		[[code]]
 		//return the sum 1 + 2 + 3 ... + n
 		int sum(int n)
-	Write a recursive function that finds and returns the minimum element in an array, where the array and its size are given as parameters.
-		[[code]]
-		//return the minimum element in a[]
-		int findmin(int a[], int n)
 	Write a recursive function that computes and returns the sum of all elements in an array, where the array and its size are given as parameters.
 		[[code]]
 		//return the sum of all elements in a[]
 		int findsum(int a[], int n)
+	Write a recursive function that finds and returns the minimum element in an array, where the array and its size are given as parameters.
+		[[code]]
+		//return the minimum element in a[]
+		int findmin(int a[], int n)
 	Write a recursive function that determines whether an array is a palindrome, where the array and its size are given as parameters.
 		[[code]]
 		//returns 1 if a[] is a palindrome, 0 otherwise
@@ -69,14 +69,14 @@ Linked lists
 			if (node==NULL)
 				return;
 			cout << node->data << ' ';
-			printNode(node->next);
+			printNodesForwards(node->next);
 		}
 	Printing list backward using recursion (much simpler than using iteration)
 		[[code]]
 		void printNodesBackwards(Node* node) {
 			if (node==NULL)
 				return;
-			printNode(node->next);
+			printNodesBackwards(node->next);
 			cout << node->data << ' ';
 		}
 		
