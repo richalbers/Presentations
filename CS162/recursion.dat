@@ -50,16 +50,16 @@ Practice
 	Write a recursive function that computes and returns the sum of all elements in an array, where the array and its size are given as parameters.
 		[[code]]
 		//return the sum of all elements in a[]
-		int findsum(int a[], int n)
-	Write a recursive function that finds and returns the minimum element in an array, where the array and its size are given as parameters.
+		int sumArray(int a[], int n)
+	Write a recursive function that finds and returns the smallest element in an array, where the array and its size are given as parameters.
 		[[code]]
-		//return the minimum element in a[]
-		int findmin(int a[], int n)
+		//return the smallest element in a[]
+		int findMin(int a[], int n)
 	Write a recursive function that determines whether an array is a palindrome, where the array and its size are given as parameters.
 		[[code]]
-		//returns 1 if a[] is a palindrome, 0 otherwise
-		int ispalindrome(char a[], int n)
-	Note: All these are more easily solved iteratively so the recursive solution isn't intuitive (or straightforward)
+		//returns true if str is a palindrome, false otherwise
+		bool isPalindrome(string str);
+	Note: All these are more easily solved iteratively so the recursive solution may not seem intuitive 
 -------------------------------------------------
 Linked lists
 	Linked lists can be processed recursively, and in some instances, the recursive solution is easier than the interative solution
