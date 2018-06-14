@@ -115,7 +115,7 @@ reading unformatted data
 			// read a single line into a char array
 			char cstrLine[200];
 			inputStream.getline(cstrLine, 200);
-			std::cout << cstrLine << endl;
+			std::cout << cstrLine << std::endl;
 					
 			// read a single line into string
 			// use getline from <string>
