@@ -181,7 +181,7 @@ Drawing shapes
 			Can be done just once 
 		Actually draw the shape as specified on the frame
 			Is done each time a frame is drawn
-	Shape properties can be mofified between frames to create animation
+	Shape properties can be modified between frames to create animation
 	The SFML shape tutorial can be found [[here!http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php]]
 	A comprehensive rectangle example is given on the following slide
 ----------------------------------------------
