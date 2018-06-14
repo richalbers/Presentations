@@ -346,5 +346,5 @@ Practice
 		this will contain code to test the Clock class.
 		We'll add code to it as we go along to test each clock funcition after it's written.
 	In the clock.cpp file, add implementations for each function.
-		After adding each funciton implmentation, add code in main() to thoroughly test (with both valid and invalid data) the function.
+		After adding each function implementation, add code in main() to thoroughly test (with both valid and invalid data) the function.
 		Each function should the thoroughly tested before moving on to the next one.
