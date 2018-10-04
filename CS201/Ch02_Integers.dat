@@ -73,14 +73,18 @@ Bit Operators
 	C provides a few operators to do bit manipulation
 		& - Logical AND
 		| - logical OR
+		^ - XOR (exclusive or)
+		~ - not (i.e. ones complement) 
 		>> - shift right
 		<< - shift left
-	Examples (untested!!)
+	Examples 
 		[[code]]
 		int x=0x0f;
 		int y=0xf0;
 		printf("%x \n", x & y);  // prints 0x00
 		printf("%x \n", x | y);  // prints 0xff
+		printf("%x \n", x ^ y);  // prints 0xff
+		printf("%x \n", ~x);     // prints 0xf0
 		printf("%x \n", x >> 2); // prints 0x03
 		printf("%x \n", x << 2); // prints 0x3c
 	Note: for right shifts (>>) 
@@ -99,11 +103,15 @@ Practice
 		0x31 | 0xc8
 		'A' | 0x20  (consult ascii chart)
 		
+		0xff ^ 0xf0 		
+		0x12 ^ 0xff
+		0x31 ^ 0xc8
+						
 		0x04 << 1
 		0x04 << 2
 		1 << 1
 		2 << 3 
-		
+			
 		16 >> 1
 		8 >> 4
 		0x40 >> 4  
@@ -136,9 +144,6 @@ Practice
 		11110000	
 -------------------------------------------
 
--------------------------------------------
-
--------------------------------------------
 
 
 
