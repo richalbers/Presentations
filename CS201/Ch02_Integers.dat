@@ -71,10 +71,10 @@ Practice
 ------------------------------------------
 Bit Operators
 	C provides a few operators to do bit manipulation
-		& - Logical AND
-		| - logical OR
-		^ - XOR (exclusive or)
-		~ - not (i.e. ones complement) 
+		& - bitwise AND
+		| - bitwise OR
+		^ - bitwise XOR (exclusive or)
+		~ - bitwise not (i.e. ones complement) 
 		>> - shift right
 		<< - shift left
 	Examples 
@@ -106,12 +106,12 @@ Practice
 		0xff ^ 0xf0 		
 		0x12 ^ 0xff
 		0x31 ^ 0xc8
-						
+		
 		0x04 << 1
 		0x04 << 2
 		1 << 1
 		2 << 3 
-			
+		
 		16 >> 1
 		8 >> 4
 		0x40 >> 4  
