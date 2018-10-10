@@ -127,7 +127,7 @@ Practice
 Input Stream Functions
 	In addition to extraction operator, the following functions are commonly used
 	[[code]]
-		cin.get(x);           // reads one piece of data into x
+		cin.get(x);           // reads one character into x
 		&nbsp;
 		cin.ignore();         //ignores next character
 		cin.ignore(100);      //ignores next 100 characters
