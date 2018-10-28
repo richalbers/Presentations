@@ -4,15 +4,16 @@ Networking Essentials
 	Networking Models
 	Protocols
 	How it works
-	TCP/IP
-	Ethernet 
+		TCP/IP
+		Ethernet 
+	Summary
 --------------------------------
 Terminology (simplified)
 	LAN - Local Area Network
 		All computers on a LAN can communicate directly with one another
 	switch - physically connects the computers on the LAN 
 	router - connects 2 or more networks together.  
-	clients - requests services over the network
+	client - requests services over the network
 		e.g. web browser
 	server - provide services over the network
 		e.g. web server
@@ -38,8 +39,11 @@ OSI and TCP/IP models
 		Used in real world
 		Has many similarities to OSI Model
 		Contains 4 layers (5 if you include the physical layer)
-			[[TCP/IP!http://en.wikipedia.org/wiki/TCP/IP_model]] doesn't actually concern itself with physical stuff like wires, but physical stuff is necessary for networks to work, so a complete networking model needs the physical layer on the bottom.
-	[[Layers listed and compared!http://docs.google.com/View?id=ddwpj9wx_332k39z6fn]]	
+			Application
+			Transport
+			Network (or Internet)
+			Data Link
+			Physical [[note: doesn't actually concern itself with physical stuff like wires, but physical stuff is necessary for networks to work, so a complete networking model needs the physical layer on the bottom.
 ------------------------------------------
 Protocols
 	Protocols (ie. standards) are rules which govern the exchange of messages between computers
@@ -51,10 +55,12 @@ Protocols
 			TCP, UDP
 		Network (or Internetwork) Layer
 			IP
+		Data Link
+			Ethernet
 
 ------------------------------------------
 How it works
-	Steps taken on origninating computer [[img https://drive.google.com/open?id=1EubWYUs2voFDCBR_-htsxO8rkDADmsI_]]
+	Steps taken on originating computer [[img https://drive.google.com/open?id=1EubWYUs2voFDCBR_-htsxO8rkDADmsI_]]
 		Message originates at application layer 
 		Important Information (addresses, etc..) is added via Header and/or Footer
 		Entire message (including header and footer) are passed down to next layer
@@ -63,10 +69,10 @@ How it works
 	Steps taken outside computer
 		Message is transmitted across the medium
 		Message is received by recipient and passed back up the stack, unpacked as we go up
-	[[Diagram of the process!https://docs.google.com/drawings/d/1siHLFO9hKgkNJk6pwtuP5zgfx-3NDpkdqxinhZUDHRg/edit]]
+	[[Diagram of the process!https://drive.google.com/file/d/1EubWYUs2voFDCBR_-htsxO8rkDADmsI_/view]]
 --------------------------------
 Application layer
-	Creates/Receives application messages (i.e. the "message" that is to be sent across the network)
+	Creates/Processes application messages 
 	Examples include:
 		Simple web page requests
 		Resulting web page (.html file)
@@ -91,7 +97,7 @@ Layer details
 			a checksum is calculated and attached so if the segment gets corrupted in route that problem can be identified and resolved.
 		Protocols: TCP or UDP
 	Network layer	
-		Handles end-to-end addressing
+		Handles end-to-end computer addressing
 		Protocol: IP
 -------------------------------
 Basic TCP/IP Properties
@@ -106,6 +112,14 @@ Basic TCP/IP Properties
 	Gateway
 		IP address of the router that packets destined for computers not on the LAN (local network) are sent
 	All these properties are configured by the network admin
+----------------------------------
+Subnet Mask and Gateway use
+	Subnet mask is used to determine what part of the IP addresses (source and destination) are the network portion.
+		All computers on your LAN have the same network portion
+	Network portion of the source and destination IP addresses are compared
+		If they are the same, the packet will be sent directly to the destination computer
+		If they are different, the packet will be sent to the gateway, which then sends the packet out on the proper network
+			All packets leaving the LAN go through the gateway
 ----------------------------------
 Additional Properties
 	DNS Server
@@ -140,8 +154,10 @@ Ethernet
 	Created by Xerox in 1973 to replace sneakernet
 	Competed against Token Ring for awhile
 	Has 6 byte address
-		In the Network card's firmware
+		stored in the Network card's firmware
 		referred to as Ethernet, Physical, MAC address
 		1st 3 bytes identify manufacturer
 		last 3 bytes make it unique
 --------------------------------
+Summary
+	[[Layers listed and compared!http://docs.google.com/View?id=ddwpj9wx_332k39z6fn]]
