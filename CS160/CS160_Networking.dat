@@ -1,35 +1,33 @@
 --------------------------------
-Networking
-	Why layered models?
+Networking Essentials
+	Terminology
+	Networking Models
 	Protocols
-	OSI and TCP/IP Models
 	How it works
-	Ethernet 
 	TCP/IP
+	Ethernet 
+--------------------------------
+Terminology (simplified)
+	LAN - Local Area Network
+		All computers on a LAN can communicate directly with one another
+	switch - physically connects the computers on the LAN 
+	router - connects 2 or more networks together.  
+	clients - requests services over the network
+		e.g. web browser
+	server - provide services over the network
+		e.g. web server
 --------------------------------------------
-Why layered models?
-	Networking is complicated. It addresses a large number of issues in both hardware and software.
+Networking Models
+	Networking is complicated; it addresses a large number of issues in both hardware and software.
 		What message format will be used between a browser a server?
 		How will garbled messages be handled?
 		How will addressing be handled?
 		How will I avoid sending two messages on the network cable at the same time?
 		What will the digital signals on the wire look like?
-	Complex problems are best solved by dividing them into many simpler problems
-	So we use Layers
-		Each layer handles it's particular repsonsibilties
+	So it's implemented in layers
+		Each layer handles it's particular responsibilties
 		Each layer communicates with the same layer at the other end of the connection
 		Each layer provides services to the layer above and utilizes services from the layer below
-------------------------------------------
-Protocols
-	Protocols (ie. standards) are rules which govern the exchange of messages between computers
-	Each layer has protocols that specify how things look and work at that layer
-	Some Common Protocols
-		Application Layer
-			HTTP, HTTPS, SMTP, FTP
-		Transport Layer
-			TCP, UDP
-		Network Layer
-			IP
 --------------------------------
 OSI and TCP/IP models
 	OSI Model
@@ -41,17 +39,101 @@ OSI and TCP/IP models
 		Has many similarities to OSI Model
 		Contains 4 layers (5 if you include the physical layer)
 			[[TCP/IP!http://en.wikipedia.org/wiki/TCP/IP_model]] doesn't actually concern itself with physical stuff like wires, but physical stuff is necessary for networks to work, so a complete networking model needs the physical layer on the bottom.
-	[[Layers listed and compared!http://docs.google.com/View?id=ddwpj9wx_332k39z6fn]]
+	[[Layers listed and compared!http://docs.google.com/View?id=ddwpj9wx_332k39z6fn]]	
+------------------------------------------
+Protocols
+	Protocols (ie. standards) are rules which govern the exchange of messages between computers
+	Each layer has protocols that specify how things look and work at that layer
+	Some Common Protocols
+		Application Layer
+			HTTP, HTTPS, SMTP, FTP
+		Transport Layer
+			TCP, UDP
+		Network (or Internetwork) Layer
+			IP
+
 ------------------------------------------
 How it works
-	Message originates at application layer
-	Header and Footer (maybe) are added
-	Entire message (including header and footer) are passed down to next layer
-	Message from upper layer (including header and footer) becomes the data for current layer
-	Process repeats at each layer until we get to physical layer
-	Message is transmitted across the medium
-	Message is received by recipient and passed back up the stack, unpacked as we go up
+	Steps taken on origninating computer [[img https://drive.google.com/open?id=1EubWYUs2voFDCBR_-htsxO8rkDADmsI_]]
+		Message originates at application layer 
+		Important Information (addresses, etc..) is added via Header and/or Footer
+		Entire message (including header and footer) are passed down to next layer
+		Message from upper layer (including header and footer) becomes the data for current layer
+		Process repeats at each layer until we get to physical layer
+	Steps taken outside computer
+		Message is transmitted across the medium
+		Message is received by recipient and passed back up the stack, unpacked as we go up
+	[[Diagram of the process!https://docs.google.com/drawings/d/1siHLFO9hKgkNJk6pwtuP5zgfx-3NDpkdqxinhZUDHRg/edit]]
+--------------------------------
+Application layer
+	Creates/Receives application messages (i.e. the "message" that is to be sent across the network)
+	Examples include:
+		Simple web page requests
+		Resulting web page (.html file)
+		A picture (.jpg file)
+		A music file (.mp3 file)
+	The client/server application layer must format all messages according to the protcol being used
+--------------------------------
+Transport/Network layers	
+	There have been several protocol suites that handled these layers
+		NetBeui (Microsoft)
+		IPX/SPX (Novell)
+		TCP/IP (Unix)
+	The first two are basically obsolete, TCP/IP now is the one used by everyone
+		Transport layer is handled by TCP (or UDP)
+		Network layer is handled by IP
+--------------------------------
+Layer details
+	Transport layer
+		Handles application addressing, sequencing, and error handling
+			If message is too long it's broken into transportable sized segments
+			Sequence numbers are attached to each segment so it can be reassembled in the proper order by the recipient
+			a checksum is calculated and attached so if the segment gets corrupted in route that problem can be identified and resolved.
+		Protocols: TCP or UDP
+	Network layer	
+		Handles end-to-end addressing
+		Protocol: IP
+-------------------------------
+Basic TCP/IP Properties
+	IP Address
+		Provides unique address for each computer on network
+		v4 addresses are a 4 byte "dotted quad" 
+			for example: 145.62.1.36
+	Subnet Mask
+		Specifies which part of IP address is the network portion and which part is the host portion
+		In binary, the subnet mask is all 1's followed by all 0's
+		In classful addressing the breaks between 1's and 0's happen at the byte boundries, so in base 10 it's 255's followed by 0's
+	Gateway
+		IP address of the router that packets destined for computers not on the LAN (local network) are sent
+	All these properties are configured by the network admin
+----------------------------------
+Additional Properties
+	DNS Server
+		IP address of a computer that can determine the IP address of a computer given it's host name
+		A computer typically has several DNS server addresses listed in case one is down..
 
+--------------------------------
+IP Commands
+	ipconfig (ifconfig on Linux)
+		allows you to view/configure IP settings
+	ping
+		basic testing command to check if two computers can communicate
+		required firewall to allow command to be responded to
+	tracert (trace route on Linux)
+		traces the route across the network/internet a packet takes to reach the destination
+	arp (address resolution protocol)
+		displays and modifies current mac/IP address mappings
+----------------------------------
+Data Link/Physical Layers
+	Handles direct delivery of messages between two directly connected computers
+	Ethernet is the common technology used at these levels in a LAN
+	Ethernet has it's own addressing scheme (separate and distinct from TCP/IP)
+	Why multiple addresses?
+		There were (are) several different physical layers
+			Ethernet, Token Ring, etc..
+		A computer's LAN (i.e. location) can't be identified by it's physical layer address (makes routing impossible)
+		The physical layer depends on broadcasts to find each other.  This won't work with huge numbers of computers over long distances
+	Layer 3 & 4 facilitates different computers on different LANS with different data link/physical layers to communicate
 --------------------------------
 Ethernet 
 	Operates at Layer 1 & 2
@@ -63,102 +145,3 @@ Ethernet
 		1st 3 bytes identify manufacturer
 		last 3 bytes make it unique
 --------------------------------
-Why We Need Layer 3/4 Addresses and Protocols
-	Issues
-		There were (are) several different physical layers
-			Ethernet, Token Ring, etc..
-		A computer's LAN (i.e. location) can't be identified by it's physical layer address (makes routing impossible)
-		The physical layer depends on broadcasts to find each other.  This won't work with huge numbers of computers over long distances
-	Layer 3 & 4 facilitates different computers on different LANS with different data link/physical layers to communicate
----------------------------------
-History
-	There were once 4 common layer 3/4 suites
-		TCP/IP (Unix)
-		NetBeui (Microsoft)
-		IPX/SPX (Novell)
-		Appletalk (Apple)
-	The internet (Email, then the Web) runs on TCP/IP, and everyone wants/needs those tools, so companies all dropped their suite in favor of TCP/IP
---------------------------------
-Basic TCP/IP Properties
-	IP Address
-		provides unique address for each computer on network
-		v4 addresses are a 4 byte "dotted quad" 
-		for example: 145.62.1.36
-	Subnet Mask
-		Specifies which part of IP address is the network portion and which part is the host portion
-		In classful addressing, 255's followed by 0's
-	Gateway
-		IP address of the router that packets destined for computers not on the LAN (local network) are sent
-	All these properties are configured by the network admin
-----------------------------------
-Additional Properties
-	DNS Server
-		IP address of a computer that can determine the IP address of a computer given it's host name
-		A computer typically has several DNS server addresses listed in case one is down..
----------------------------------
-IP classes (Classful)
-	Class A 
-		IP: 1-126.h.h.h
-		SN: 255.0.0.0
-		126 networks, 16M+ H/N
-	Class B
-		128-191.n.h.h
-		SN: 255.255.0.0
-		16K Networks, 65K H/N
-	Class C
-		192-223.n.n.h
-		SN: 255.255.255.0
-		2M Networks, 256 H/N
-
---------------------------------
-Private IPs
-	Private IPs NEVER appear on the internet
-	They're used only on private networks
-	Computers using them MUST use NAT to connect to the internet
-	Class A
-		10.0.0.0-10.255.255.255
-	Class B
-		172.16.0.0-172.31.255.255
-	Class C
-		192.168.0.0-192.168.255.255
---------------------------------
-Classful Addressing Problems
-	Classes weren't flexible enough
-		There were too few Class A and B networks
-		Class A and B networks provided too many hosts
-		Class C didn't allow enough hosts
-	Solutions
-		CIDR (Classless InterDomain Routing) 
-		NAT (Network Address Translation)
-		IPv6 (IP, version 6)
---------------------------------
-CIDR 	
-	Allows the break between Network and Host to occur somewhere other than a .
-	Resulting subnet masks (when written in Base 10), don't have just 255s and 0s.
-	Notation
-		IP Address/bits in subnet mask
-		For Example:
-			12.34.0.0/16
-			190.24.56.0/24
-
---------------------------------
-Static Vs Dynamic Addresses
-	Static
-		Addresses that don't change
-		Used by Servers, Printers, etc..
-	Dynamic
-		Addresses that can change
-		Used by client machines
-		Typically assigned via DHCP Server
-		Or, more rarely, by APIPA (Automatic, Private IP Addressing) process
-			Assigns 169.254.x.x address
---------------------------------
-Commands
-	IPConfig
-	Ping
-	TraceRt (trace route)
-	arp
-
-
-
-
