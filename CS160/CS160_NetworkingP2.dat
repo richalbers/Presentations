@@ -1,0 +1,84 @@
+--------------------------------
+Networking - Part 2
+	Static/Dynamic Addresses
+	IP Classes
+	Private IPs
+	Classful Addressing Problems
+	CIDR
+	NAT 
+	IPv6
+--------------------------------
+Static Vs Dynamic Addresses
+	Static
+		Addresses that don't change
+		Used by Servers, Printers, etc..
+	Dynamic
+		Addresses that can change
+		Used by client machines
+		Typically assigned via DHCP Server
+		Or, more rarely, by APIPA (Automatic, Private IP Addressing) process
+			Assigns 169.254.x.x address
+---------------------------------
+IP classes (Classful)
+	Class A 
+		IP: 1-126.h.h.h
+		SN: 255.0.0.0
+		126 networks, 16M+ H/N
+	Class B
+		128-191.n.h.h
+		SN: 255.255.0.0
+		16K Networks, 65K H/N
+	Class C
+		192-223.n.n.h
+		SN: 255.255.255.0
+		2M Networks, 256 H/N
+
+--------------------------------
+Private IPs
+	Private IPs NEVER appear on the internet
+	They're used only on private networks
+	Computers using them MUST use NAT to connect to the internet
+	Class A
+		10.0.0.0-10.255.255.255
+	Class B
+		172.16.0.0-172.31.255.255
+	Class C
+		192.168.0.0-192.168.255.255
+--------------------------------
+Classful Addressing Problems
+	Classes weren't flexible enough
+		There were too few Class A and B networks
+		Class A and B networks provided too many hosts
+		Class C didn't allow enough hosts
+	Solutions
+		CIDR (Classless InterDomain Routing) 
+		NAT (Network Address Translation)
+		IPv6 (IP, version 6)
+--------------------------------
+CIDR 
+	CIDR stands for CLassless InterDomain Routing
+	Allows the break between Network and Host to occur somewhere other than a .
+	Resulting subnet masks (when written in Base 10), don't have just 255s and 0s.
+	Notation
+		IP Address/Number 1's in subnet mask
+		For Example:
+			12.34.0.0/16
+			190.24.56.0/24
+			203.10.2.0/23
+--------------------------------
+NAT
+	Network Address Translation
+		It's a service that runs on the gateway router
+		Allows entire LAN to be served by one public IP address
+		Hides all internal computers from the outside (nice security benefit)
+	How it works
+		Uses one public IP on outgoing side of Gateway Router
+		Uses private IPs on all computers in LAN
+		All outgoing traffic has its IP/port addresses modified so they look like they're coming directly from the gateway router
+		When replies to outgoing messages are received, gateway router translates the IP/port again before sending it on to the LAN computer
+--------------------------------
+IPv6
+	Increases size of IP addresses (to 128 bits)
+	Added additional functionality
+	Since NAT solved the "we're out of IPs" problem nobody's in a hurry to implement it
+---------------------------------
