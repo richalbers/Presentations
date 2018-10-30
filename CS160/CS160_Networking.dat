@@ -8,7 +8,7 @@ Networking Essentials
 		Ethernet 
 	Summary
 --------------------------------
-Terminology (simplified)
+Terminology 
 	LAN - Local Area Network
 		All computers on a LAN can communicate directly with one another
 	switch - physically connects the computers on the LAN 
@@ -42,7 +42,7 @@ OSI and TCP/IP models
 			Application
 			Transport
 			Network (or Internet)
-			Data Link
+			Link (or Data Link)
 			Physical [[note: doesn't actually concern itself with physical stuff like wires, but physical stuff is necessary for networks to work, so a complete networking model needs the physical layer on the bottom.
 ------------------------------------------
 Protocols
@@ -57,7 +57,6 @@ Protocols
 			IP
 		Data Link
 			Ethernet
-
 ------------------------------------------
 How it works
 	Steps taken on originating computer [[img https://drive.google.com/open?id=1EubWYUs2voFDCBR_-htsxO8rkDADmsI_]]
@@ -79,6 +78,7 @@ Application layer
 		A picture (.jpg file)
 		A music file (.mp3 file)
 	The client/server application layer must format all messages according to the protcol being used
+		All the examples above would most likely be transferred via a web brower/server using HTTP
 --------------------------------
 Transport/Network layers	
 	There have been several protocol suites that handled these layers
@@ -103,8 +103,9 @@ Layer details
 Basic TCP/IP Properties
 	IP Address
 		Provides unique address for each computer on network
-		v4 addresses are a 4 byte "dotted quad" 
+		v4 addresses are 4 bytes expressed as a "dotted quad" 
 			for example: 145.62.1.36
+		v6 addresses are 128 bits but v6 is not yet widely implemented in the U.S.
 	Subnet Mask
 		Specifies which part of IP address is the network portion and which part is the host portion
 		In binary, the subnet mask is all 1's followed by all 0's
@@ -114,9 +115,10 @@ Basic TCP/IP Properties
 	All these properties are configured by the network admin
 ----------------------------------
 Subnet Mask and Gateway use
-	Subnet mask is used to determine what part of the IP addresses (source and destination) are the network portion.
-		All computers on your LAN have the same network portion
-	Network portion of the source and destination IP addresses are compared
+	Subnet mask is used to determine what part of the IP addresses (source and destination) are the network portion (i.e. network ID).
+		All computers on your LAN have the same subnet mask and the same network ID
+		e.g. If your IP is 10.20.30.40, and your subnet mask is 255.255.255.0, the network ID 10.20.30; all the compuers on your LAN will have that same network ID.
+	Network ID of the source and destination IP addresses are compared
 		If they are the same, the packet will be sent directly to the destination computer
 		If they are different, the packet will be sent to the gateway, which then sends the packet out on the proper network
 			All packets leaving the LAN go through the gateway
@@ -127,12 +129,22 @@ Additional Properties
 		A computer typically has several DNS server addresses listed in case one is down..
 
 --------------------------------
+IP configuration
+	When a computer boots up it needs IP properties configured
+	This can be done two ways:
+		static - someone configured IP properties manually on the computer
+			When it boots up it already has it's IP properties
+		dynamic - your computer was told to use DHCP
+			When it boots it broadcasts a message looking for a DHCP server on the LAN
+			The DHCP server responds with IP configuration information (IP address, subnet mask, gateway, etc.)
+			When your computer shuts down it tells the DHCP server it's done with the info
+--------------------------------
 IP Commands
 	ipconfig (ifconfig on Linux)
 		allows you to view/configure IP settings
 	ping
 		basic testing command to check if two computers can communicate
-		required firewall to allow command to be responded to
+		(requires firewall to allow command to be responded to)
 	tracert (trace route on Linux)
 		traces the route across the network/internet a packet takes to reach the destination
 	arp (address resolution protocol)
@@ -142,12 +154,12 @@ Data Link/Physical Layers
 	Handles direct delivery of messages between two directly connected computers
 	Ethernet is the common technology used at these levels in a LAN
 	Ethernet has it's own addressing scheme (separate and distinct from TCP/IP)
-	Why multiple addresses?
+	Why multiple (IP and ethernet) addresses?
 		There were (are) several different physical layers
 			Ethernet, Token Ring, etc..
 		A computer's LAN (i.e. location) can't be identified by it's physical layer address (makes routing impossible)
 		The physical layer depends on broadcasts to find each other.  This won't work with huge numbers of computers over long distances
-	Layer 3 & 4 facilitates different computers on different LANS with different data link/physical layers to communicate
+	Layer 3 & 4 (TCP/IP) facilitates different computers on different LANS with different data link/physical layers to communicate
 --------------------------------
 Ethernet 
 	Operates at Layer 1 & 2
@@ -159,5 +171,5 @@ Ethernet
 		1st 3 bytes identify manufacturer
 		last 3 bytes make it unique
 --------------------------------
-Summary
+Layer review
 	[[Layers listed and compared!http://docs.google.com/View?id=ddwpj9wx_332k39z6fn]]
