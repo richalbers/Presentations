@@ -129,16 +129,6 @@ Additional Properties
 		A computer typically has several DNS server addresses listed in case one is down..
 
 --------------------------------
-IP configuration
-	When a computer boots up it needs IP properties configured
-	This can be done two ways:
-		static - someone configured IP properties manually on the computer
-			When it boots up it already has it's IP properties
-		dynamic - your computer was told to use DHCP
-			When it boots it broadcasts a message looking for a DHCP server on the LAN
-			The DHCP server responds with IP configuration information (IP address, subnet mask, gateway, etc.)
-			When your computer shuts down it tells the DHCP server it's done with the info
---------------------------------
 IP Commands
 	ipconfig (ifconfig on Linux)
 		allows you to view/configure IP settings
