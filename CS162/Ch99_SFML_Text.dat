@@ -55,7 +55,7 @@ SFML Font Object
 				Configuration Properties -> Debugging -> Working Directory
 				It's either the source code directory, or where the executable is (I forget)
 	After the Font object is created/configured, it is used by a Text object to draw text
-	SFML 2.5.1 Font class documentation is [[here!https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1Text.php]]
+	SFML 2.5.1 Font class documentation is [[here!https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1Font.php]]
 ---------------------------------------------
 WARNING!!
 	When using fonts, you must link the proper SFML libraries
