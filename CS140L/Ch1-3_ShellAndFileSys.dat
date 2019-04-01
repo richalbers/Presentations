@@ -1,0 +1,66 @@
+------------------------------------------
+The Shell, file system, and navigation
+	At the end of this presentation you should be able to
+		Explain what the shell is
+		Explain how the file system is organized
+		Navigate the file system with the command
+		Explain what absolute and relative paths are and use them appropriately with commands
+		
+-------------------------------------------
+The Shell
+	The shell is the interface between the user and the operating system
+		It takes keyboard commands from the user and passes them to the operating system to carry then out.
+	There are several command line shells available
+		sh - original Bourne shell
+		ksh - Korn Shell
+		bash - Bourne Again Shell
+		zsh - shell used on Macs
+	Each of these is an improvement upon the previous one, but all do the same basic job.
+
+---------------------------------------------
+File System
+	File System
+		The file system is organized in a hierarchical directory structure
+		The top of the tree is root (/)
+			All other directories are located in root, or a subdirectory below root
+				[[simple diagram!https://www.oreilly.com/openbook/debian/book/figs/deb.0403.gif]]
+		There are no drive letters (which windows uses), instead different devices are "mounted" at different points in the directory tree   
+	Commonly referred to directory terms
+		current working directory - the directory you're currently in
+		home directory - Where a user's files are located.  When logging in, the current working directory is your home directory.
+----------------------------------------------	
+Navigation commands
+	Commonly used navigation commands
+		pwd- shows (prints) your current working directory	
+		[[code]]
+			pwd
+		cd - changes to a new directory
+		[[code]]
+			cd /bin 
+			cd /home/ralbers 
+	Special directory "shorthand" names
+		. -current directory
+		.. -parent of current direcory
+		~ -your home directory
+		~someUserName -that users home direcory
+		[[code]]
+			cd ..
+			cd ~
+			cd ~ralbers
+--------------------------------------------------
+Absolute vs relative paths
+	Any command that wants a directory or file name, can take an absolute or relative path to that directory or file
+	Absolute paths are the complete path starting from root
+		They always start with /
+		Examples
+		[[code]]
+			cd /bin
+			cd /home/ralbers
+			cd /usr
+	Relative paths are relative to the current working directory
+		They do not start with /
+		Examples
+		[[code]]
+			cd bin
+			cd ..
+--------------------------------------------------
