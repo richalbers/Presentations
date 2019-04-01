@@ -1,21 +1,21 @@
 ------------------------------------------
-The Shell, file system, and navigation
+The Shell and File System
 	At the end of this presentation you should be able to
 		Explain what the shell is
 		Explain how the file system is organized
-		Navigate the file system with the command
+		Navigate the file system with the cd command
 		Explain what absolute and relative paths are and use them appropriately with commands
 		
 -------------------------------------------
 The Shell
 	The shell is the interface between the user and the operating system
-		It takes keyboard commands from the user and passes them to the operating system to carry then out.
+		A command line shell takes keyboard commands from the user and passes them to the operating system to carry then out
 	There are several command line shells available
 		sh - original Bourne shell
 		ksh - Korn Shell
 		bash - Bourne Again Shell
 		zsh - shell used on Macs
-	Each of these is an improvement upon the previous one, but all do the same basic job.
+	Each of these is an improvement upon the previous one, but they all do the same basic job
 
 ---------------------------------------------
 File System
@@ -27,7 +27,9 @@ File System
 		There are no drive letters (which windows uses), instead different devices are "mounted" at different points in the directory tree   
 	Commonly referred to directory terms
 		current working directory - the directory you're currently in
-		home directory - Where a user's files are located.  When logging in, the current working directory is your home directory.
+		home directory - Where a user's files are located.  
+			When logging in, the current working directory is your home directory.
+			This is typically the only place (other than /tmp) a user can create and modify files
 ----------------------------------------------	
 Navigation commands
 	Commonly used navigation commands
@@ -39,10 +41,10 @@ Navigation commands
 			cd /bin 
 			cd /home/ralbers 
 	Special directory "shorthand" names
-		. -current directory
-		.. -parent of current direcory
-		~ -your home directory
-		~someUserName -that users home direcory
+		. refers to current directory
+		.. refers to the parent of current direcory
+		~  refers to your home directory
+		~someUserName refers to someUserName's home direcory
 		[[code]]
 			cd ..
 			cd ~
@@ -64,3 +66,12 @@ Absolute vs relative paths
 			cd bin
 			cd ..
 --------------------------------------------------
+Practice
+	Given [[this file system!https://www.oreilly.com/openbook/debian/book/figs/deb.0403.gif]]
+	If /home/bill is your present working directory, how could you
+		cd to /home/bill/books using an absolute path
+		cd to /home/bill/books using a relative path
+	If /home/bill is your present working directory, how could you
+		cd to /bin using an absolute path
+		cd to /bin using a relative path
+---------------------------------------------------
