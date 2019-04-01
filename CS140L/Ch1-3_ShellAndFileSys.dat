@@ -75,3 +75,30 @@ Practice
 		cd to /bin using an absolute path
 		cd to /bin using a relative path
 ---------------------------------------------------
+Commands
+	All linux commands have the following format
+		command -options arguments
+			options alter the way the command works
+			arguments are what the command operates on
+	details about each command can be found with the help or man command, or --help option
+	[[code]]
+		help cd
+		man ls
+		ls --help
+---------------------------------------------------
+ls command
+	ls - lists direcory contents
+	[[code]]
+		ls
+		ls /bin
+		ls -a
+		ls -l
+	ls -l produces a long listing, showing details about each file listed
+		file type - first character
+		file permissions (9 characters for for owner, group, and other)
+		ownership info (user and group)
+		file size
+		last modified date and time
+		filename
+
+---------------------------------------------------
