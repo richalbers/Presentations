@@ -93,6 +93,8 @@ ls command
 		ls /bin
 		ls -a
 		ls -l
+	ls -a shows all files, including those that are hidden
+		a filename that begins with a . makes the file hidden
 	ls -l produces a long listing, showing details about each file listed
 		file type - first character
 		file permissions (9 characters for for owner, group, and other)
