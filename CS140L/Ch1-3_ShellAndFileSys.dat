@@ -80,14 +80,14 @@ Absolute vs relative paths
 --------------------------------------------------
 Practice
 	Given [[this file system!https://www.oreilly.com/openbook/debian/book/figs/deb.0403.gif]]
-	If /home/bill is your present working directory, how could you
+	If /home/bill is your current working directory, how could you
 		cd to /home/bill/books using an absolute path
 		cd to /home/bill/books using a relative path
-	If /home/bill is your present working directory, how could you
+	If /home/bill is your current working directory, how could you
 		cd to /bin using an absolute path
 		cd to /bin using a relative path
 ---------------------------------------------------
-Commands
+Command Format
 	All linux commands have the following format
 		command -options arguments
 			options alter the way the command works
@@ -102,27 +102,24 @@ Practice
 	Read the man page or help text for the cd command
 		Are there any mandatory arguments?
 		What optional arguments are there?
-	What optional options are there?
-
-	Read the man page for ls to determine what option you can use to sort the output file file size.
+		What optional options are there?
+	Read the man page for ls to determine what option you can use to sort the output by file size.
 	Verify it works by listing the files in /etc by file size.  What is the largest file?
 ---------------------------------------------------------------
-Caution
+Caution!
 	When running a command,
 		If the command can’t be run as entered, you’ll get an error message
 		If the command executes successfully you’ll typically get no feedback
 		i.e.“No news is good news”
-
-	Linux assumes you know what your doing.  You aren’t typically warned when doing something that is destructive.  It just does what you tell it to do.
-	For example
-		[code]
-		rm -r * 
-	will remove all files and directories from the current directory down.  
-	You won’t be warned this is a bad idea.  It’ll just happen and you’ll get no feedback.  
-	And there’s no undo button.
+	Linux assumes you know what you're doing.  You aren’t typically warned when doing something that is destructive.  It just does what you tell it to do.
+		For example
+		[[code]]
+			rm -r * 
+		will remove all files and directories from the current directory down.  
+			You won’t be warned this is a bad idea.  It’ll just happen and you’ll get no feedback.  
+			And there’s no undo button.
 ---------------------------------------------------------------
 Files
-
 	In Linux, everything’s a file
 	Filename rules
 		They are case sensitive (everyhing in Linux is case sensitive)
@@ -135,7 +132,10 @@ Files
 		Files that aren’t regular files include directories, links, drivers, etc.
 ---------------------------------------------------
 ls command
-	ls - lists direcory contents
+	ls - lists directory contents
+		by default, it lists the contents of the current directory
+		if provided a directry name, it lists the contents of that directory
+	Examples:
 	[[code]]
 		ls
 		ls /bin
@@ -153,14 +153,14 @@ ls command
 ---------------------------------------------------
 Practice
 	In your home directory run
-		Ls
+		ls
 	Then run
-		Ls -a
+		ls -a
 	How many additional files are displayed?
 	Then run
-		Ls -l
+		ls -l
 	Who owns all the files?
-		Ls -al
+		ls -al
 	Who owns all the hidden files?
 	Run ls -l on /etc/passwd
 		Who has permission to read the file?
@@ -170,20 +170,20 @@ Practice
 ----------------------------------------------------------
 File display commands
 	File [filename] - tells you a files type
-	[code]
+	[[code]]
 		file /etc/passwd
 		file .
 		file /bin/ls
 	more - allows you to a file (or program) page by page
 		use spacebar to go to next page
 		enter q to quit
-		[code]
+		[[code]]
 			more /etc/passwd
 	less  - an improved more.  Allows you to view a text file’s contents and scroll backwards and forwards. (using pageup/down and up/down arrows)
-	[code]
 		use up/down arrows to scroll by line
 		use pageup/pagedown to scroll by page
 		G goes to the end
+		[[code]]
 			less /etc/passwd
 --------------------------------------------------------
 Practice
@@ -206,12 +206,12 @@ File manipulation commands
 -----------------------------------------------------------
 cp details
 	Basic usage: cp src [dest]
-	source is mandatory
-	If the destination
-		isn’t provided it copies the src to the current directory
-		is a directory it copies the src to that directory
-		doesn’t exit it copies the src to current direcory and names it the dest
-		is a file it overwrites that file with a copy of the src
+		source is mandatory
+		If the destination
+			isn’t provided it copies the src to the current directory
+			is a directory it copies the src to that directory
+			doesn’t exit it copies the src to current direcory and names it the dest
+			is a file it overwrites that file with a copy of the src
 -----------------------------------------------------------
 Practice
 	Copy the /etc/passwd file to your home directory
@@ -220,27 +220,30 @@ Practice
 	Copy the /etc/password file into the stuff directory
 	Delete (remove) the passwdcopy file
 	Remove the stuff directory (will require use of an option, read the man page)
-	use man to find out how mv works
+	use man (and experimentation) to figure out how mv works
 -------------------------------------------------------------
 Shell Wildcards
 	You can use wildcards to enable you to type less characters
 	The shell interprets these wildcards and substitures in matchihng filenames
 		The command ran doesn't see the wildcards
 	Some commmly used wildcards (interpreted by the shell)
-		* matches any character
+		* matches zero or more characters
 		? matches a single character
 		[xyz] any single chacter x, y, or z
 		[a-z] any single lower-case letter
 	Examples
 		ls a* will list all files in the current direcotry that begin with a
 		rm * will delete all files in the current directory
-		rm -r * will recursively delete all files and directories in the current directory.  Possibly no questions asked. BE CAREFUL WITH WILDCARDS.
+		rm -r * will recursively delete all files and directories in the current directory.  Possibly no questions asked.
+			BE CAREFUL WITH WILDCARDS AND POTENTIALLY DESTRUCTIVE COMMANDS!
+			BE CAREFUL WITH WILDCARDS AND POTENTIALLY DESTRUCTIVE COMMANDS!
+			BE CAREFUL WITH WILDCARDS AND POTENTIALLY DESTRUCTIVE COMMANDS!
 ---------------------------------------------------------------------
 Practice
 	list all the files in /usr/bin 
 		that begin with s
 		that end with s
-		that begin and in with s
+		that begin and end with s
 		that begin with s and have only three letters in the name
 		that have a z anywhere in the name
 	Do the same with /etc.  
