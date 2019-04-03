@@ -166,23 +166,24 @@ Practice
 		Who has permission to read the file?
 		Who has permission to write the file?
 		Who has permission to execute the file
-	Do the same on ~ralbers/sbin/submit
+	Do the same on ~ralbers/bin/submit
 ----------------------------------------------------------
 File display commands
-	File [filename] - tells you a files type
+	file some_filename - tells you a files type
 	[[code]]
 		file /etc/passwd
 		file .
 		file /bin/ls
-	more - allows you to a file (or program) page by page
+	more - allows you to view a file (or program) page by page
 		use spacebar to go to next page
 		enter q to quit
 		[[code]]
 			more /etc/passwd
-	less  - an improved more.  Allows you to view a text file’s contents and scroll backwards and forwards. (using pageup/down and up/down arrows)
+	less  - an improved more.  Allows you to view a text file’s contents and scroll backwards and forwards.
 		use up/down arrows to scroll by line
 		use pageup/pagedown to scroll by page
 		G goes to the end
+		and other controls (listed in book)
 		[[code]]
 			less /etc/passwd
 --------------------------------------------------------
@@ -224,7 +225,7 @@ Practice
 -------------------------------------------------------------
 Shell Wildcards
 	You can use wildcards to enable you to type less characters
-	The shell interprets these wildcards and substitures in matchihng filenames
+	The shell interprets these wildcards and substitures in matching filenames
 		The command ran doesn't see the wildcards
 	Some commmly used wildcards (interpreted by the shell)
 		* matches zero or more characters
@@ -247,8 +248,8 @@ Practice
 		that begin with s and have only three letters in the name
 		that have a z anywhere in the name
 	Do the same with /etc.  
-		Since some of the matches will be directories, you'll need to provide the ls command an option to keep the contents from those directories from beign displayed
-		use man or help to figure out what that option is.
+		Since some of the matches will be directories, you'll need to provide the ls command an option to keep the contents from those directories from being displayed
+			use man or help to figure out what that option is.
 
 ---------------------------------------------------------------------
 
