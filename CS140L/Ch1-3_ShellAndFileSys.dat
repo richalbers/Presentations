@@ -30,6 +30,18 @@ File System
 		home directory - Where a user's files are located.  
 			When logging in, the current working directory is your home directory.
 			This is typically the only place (other than /tmp) a user can create and modify files
+-------------------------------------------------
+System directories
+	/ - root
+	/bin -  binaries (executable programs)
+	/sbin - system binaries
+	/usr/bin - programs used by regular users
+	/boot - linux boot and system files
+	/dev - device drivers
+	/etc -system configuration files
+	/home - typical directory for user’s home directories
+	/var - system files that change a lot (print spools, mail, etc.)
+	and others...
 ----------------------------------------------	
 Navigation commands
 	Commonly used navigation commands
@@ -85,6 +97,42 @@ Commands
 		help cd
 		man ls
 		ls --help
+---------------------------------------------------------------
+Practice
+	Read the man page or help text for the cd command
+		Are there any mandatory arguments?
+		What optional arguments are there?
+	What optional options are there?
+
+	Read the man page for ls to determine what option you can use to sort the output file file size.
+	Verify it works by listing the files in /etc by file size.  What is the largest file?
+---------------------------------------------------------------
+Caution
+	When running a command,
+		If the command can’t be run as entered, you’ll get an error message
+		If the command executes successfully you’ll typically get no feedback
+		i.e.“No news is good news”
+
+	Linux assumes you know what your doing.  You aren’t typically warned when doing something that is destructive.  It just does what you tell it to do.
+	For example
+		[code]
+		rm -r * 
+	will remove all files and directories from the current directory down.  
+	You won’t be warned this is a bad idea.  It’ll just happen and you’ll get no feedback.  
+	And there’s no undo button.
+---------------------------------------------------------------
+Files
+
+	In Linux, everything’s a file
+	Filename rules
+		They are case sensitive (everyhing in Linux is case sensitive)
+		You shouldn’t put spaces or weird characters in file names
+		If the name begins with a . it’s considered hidden (won’t show up on an ls listing)
+		File extensions aren’t as important as they are in Windows	
+	File types
+		Most files are considered regular files.  This includes text files, image files, executables, etc.
+			Any file containing readable text is a text file
+		Files that aren’t regular files include directories, links, drivers, etc.
 ---------------------------------------------------
 ls command
 	ls - lists direcory contents
@@ -102,5 +150,104 @@ ls command
 		file size
 		last modified date and time
 		filename
-
 ---------------------------------------------------
+Practice
+	In your home directory run
+		Ls
+	Then run
+		Ls -a
+	How many additional files are displayed?
+	Then run
+		Ls -l
+	Who owns all the files?
+		Ls -al
+	Who owns all the hidden files?
+	Run ls -l on /etc/passwd
+		Who has permission to read the file?
+		Who has permission to write the file?
+		Who has permission to execute the file
+	Do the same on ~ralbers/sbin/submit
+----------------------------------------------------------
+File display commands
+	File [filename] - tells you a files type
+	[code]
+		file /etc/passwd
+		file .
+		file /bin/ls
+	more - allows you to a file (or program) page by page
+		use spacebar to go to next page
+		enter q to quit
+		[code]
+			more /etc/passwd
+	less  - an improved more.  Allows you to view a text file’s contents and scroll backwards and forwards. (using pageup/down and up/down arrows)
+	[code]
+		use up/down arrows to scroll by line
+		use pageup/pagedown to scroll by page
+		G goes to the end
+			less /etc/passwd
+--------------------------------------------------------
+Practice
+	What kind of file are each of the following?
+		/etc/hosts
+		/bin/sleep
+		/bin/which
+		/dev/null
+		/usr/bin/vim
+	Use more or less to display your .bash_history file (it's in your home directory)
+		What's the first line in the file
+		What's the last line in the file
+-----------------------------------------------------------
+File manipulation commands
+	cp - copies files
+	mv - mores or renames files
+	mkdir - create a directory
+	rm remove a file or directory
+	ln create a link (hard or symbolic)
+-----------------------------------------------------------
+cp details
+	Basic usage: cp src [dest]
+	source is mandatory
+	If the destination
+		isn’t provided it copies the src to the current directory
+		is a directory it copies the src to that directory
+		doesn’t exit it copies the src to current direcory and names it the dest
+		is a file it overwrites that file with a copy of the src
+-----------------------------------------------------------
+Practice
+	Copy the /etc/passwd file to your home directory
+	Copy the /etc/passwd file to your home directory and rename it to passwdcopy
+	In your home directory, make a directory named stuff
+	Copy the /etc/password file into the stuff directory
+	Delete (remove) the passwdcopy file
+	Remove the stuff directory (will require use of an option, read the man page)
+	use man to find out how mv works
+-------------------------------------------------------------
+Shell Wildcards
+	You can use wildcards to enable you to type less characters
+	The shell interprets these wildcards and substitures in matchihng filenames
+		The command ran doesn't see the wildcards
+	Some commmly used wildcards (interpreted by the shell)
+		* matches any character
+		? matches a single character
+		[xyz] any single chacter x, y, or z
+		[a-z] any single lower-case letter
+	Examples
+		ls a* will list all files in the current direcotry that begin with a
+		rm * will delete all files in the current directory
+		rm -r * will recursively delete all files and directories in the current directory.  Possibly no questions asked. BE CAREFUL WITH WILDCARDS.
+---------------------------------------------------------------------
+Practice
+	list all the files in /usr/bin 
+		that begin with s
+		that end with s
+		that begin and in with s
+		that begin with s and have only three letters in the name
+		that have a z anywhere in the name
+	Do the same with /etc.  
+		Since some of the matches will be directories, you'll need to provide the ls command an option to keep the contents from those directories from beign displayed
+		use man or help to figure out what that option is.
+
+---------------------------------------------------------------------
+
+
+
