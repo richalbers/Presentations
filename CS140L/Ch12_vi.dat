@@ -1,29 +1,30 @@
 ------------------------------------------------
 Ch12 - Vim
-	At the end of this presentation you should
+	At the end of this presentation you should be able to
 		explain what vi and vim are
-		explain what the different vi modes are
-		use vi or vim to edit a text file 
+		explain what the different vi/vim modes are
+		use vi/vim to edit a text file 
 ------------------------------------------------
 Overview
-	What is vim?
+	What are vi and vim?
 		vi - the original full-screen text editor on unix
 		vim - An improved version of vi
-	Why learn vim?
+	Why learn vi/vim?
 		It's always available
 		It's lightweight and fast
-		Many Universities use Linux, vim is the Linux text editor
-		It's a requirement for PSUs CS program
+		Many Universities use Linux, vim is a common Linux text editor*
+		It's a requirement for PSU's CS program
 	Note
-		Emacs is the other common text Linux text editor
+		*Emacs is the other common Linux text editor
 ------------------------------------------------
 Running vim
-	If vim is ran with no arguments, it creates an empty file
+	When you run vim it displays the file you're editing in the entire screen
+	If it's ran with no arguments, it will display a blank file
 	[[code]]
-		vim
-	If vim is provided a filename, it edits that file
+		vim [[desc starts vim, shows blank screen]]
+	If it's provided a filename, it shows the contents of that file
 	[[code]]
-		vim somefile
+		vim somefile [[desc starts vim, shows contents of somefile]]
 	To exit
 		:q	-quit
 		:q!	-quit without saving changes
@@ -37,9 +38,7 @@ Modes
 		Whatever you type shows up
 ------------------------------------------------
 Changing modes
-	To get into command modes
-		Press ESC
-	To get into insert modes	
+	To get into insert mode	
 		i - insert before the current position
 		a - insert after the current position (append)
 		I - insert after first non-blank character in the current line
@@ -47,9 +46,11 @@ Changing modes
 		o - insert before current line
 		O - insert after current line
 	When in insert mode, it will say INSERT in lower left of screen
+	To get out of insert mode (back to command mode)
+		Press ESC
 ------------------------------------------------
 Cursor Movement keys
-	Moving cursor around is common, so keys to do so are under right hand on home row
+	Moving cursor around is common, so keys to do so are under your right hand on the home row
 	As with all commands, these only work in command mode
 	Keys:
 		h - move left
@@ -57,15 +58,15 @@ Cursor Movement keys
 		k - move up
 		l - move right
 	Arrow keys also work, but are less efficient
+		You're strongly encouraged to use h,j,k,l (they are mandatory for PSU's profeciency exam)
 ------------------------------------------------
-Moving to lines
-	These commands move the cursor to specific lines
-		gg takes you to the beginning
+Moving to a lines
+	These commands move the cursor to a specific line
+		gg takes you to line 1
 		G takes you to the end
 			a line number followed by G takes you to that line 
 		:10 - goes to line 10 
 			: followed by any line number takes you to that line
-	When using these, they will show up on the screen
 ------------------------------------------------
 delete/replace/join
 	Character modification
@@ -76,7 +77,7 @@ delete/replace/join
 	Line modification
 		dd - deletes a line
 		5dd - deletes 5 lines (any number can be used)
-		J - joins current line with following line
+		J - joins the current line with the following line
 ----------------------------------------------------
 Cut/Copy/Paste
 	You can delete or yank (copy) a block
@@ -85,9 +86,10 @@ Cut/Copy/Paste
 	After deleting or yanking lines, they can be pasted somewhere else
 		P pastes the selected block before the current line
 		p pastes the selected block after current line
-	Instead of specifying an number of lines to delete or yank, you can mark a line, then go to another line and delete or yank all lines between
+	Instead of specifying a number of lines to delete or yank, you can mark a line, then go to another line and delete or yank all lines between
 		ma	- marks line as a (a can be any letter)
 		y'a -yanks from current line to line marked a
+		d'a -deletes from current line to line marked a
 ------------------------------------------------
 Fix indentation
 	When programming, indentation in important, so there's a command to fix it
@@ -95,7 +97,7 @@ Fix indentation
 			gg - start at line 1
 			= - fix indentation
 			G - stop at last line
-		gg=G also works
+		G=gg also works
 ------------------------------------------------
 File operations 
 	File operations are done via command line mode
@@ -107,6 +109,7 @@ File operations
 		:q - quits (exits)
 		:wq - writes and quits
 		:q! - quits without saving changes
+		:r reads another file into the current file (adding it's contents to the current file)
 -------------------------------------------------
 Searching and Replacing
 	Searching
@@ -121,6 +124,24 @@ Searching and Replacing
 			sometext is the text to find
 			newtext is the text to replace it with
 			g means do all, not just first
-		:1,5/sometext/newtext/g
+		:1,5s/sometext/newtext/g
 			only does search/replace from lines 1-5
 ------------------------------------------------
+Editing Multiple Files
+	You can open multiple files at one time
+	[[code]]
+		vi file1 file2
+	Associated commands
+		:n -switches to next file
+		:N -switches to previous file
+		:buffers -shows you all files currently being edited
+		:b1 -switches to file 1 (listed by buffers cmd)
+			b can be followed by any valid number
+		:e -opens another file
+	You can cut, copy, and paste between the files using delete, yank, and paste		
+
+
+
+
+
+
