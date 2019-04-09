@@ -1,0 +1,126 @@
+------------------------------------------------
+Ch12 - Vim
+	At the end of this presentation you should
+		explain what vi and vim are
+		explain what the different vi modes are
+		use vi or vim to edit a text file 
+------------------------------------------------
+Overview
+	What is vim?
+		vi - the original full-screen text editor on unix
+		vim - An improved version of vi
+	Why learn vim?
+		It's always available
+		It's lightweight and fast
+		Many Universities use Linux, vim is the Linux text editor
+		It's a requirement for PSUs CS program
+	Note
+		Emacs is the other common text Linux text editor
+------------------------------------------------
+Running vim
+	If vim is ran with no arguments, it creates an empty file
+	[[code]]
+		vim
+	If vim is provided a filename, it edits that file
+	[[code]]
+		vim somefile
+	To exit
+		:q	-quit
+		:q!	-quit without saving changes
+		:wq -save changes (write) and quit
+------------------------------------------------
+Modes
+	Command Mode - All keystrokes are interpreted as commands
+		The keystokes won't show up on the screen
+		but the associated action will be done
+	Insert Mode - Almost all keystrokes are inserted as text
+		Whatever you type shows up
+------------------------------------------------
+Changing modes
+	To get into command modes
+		Press ESC
+	To get into insert modes	
+		i - insert before the current position
+		a - insert after the current position (append)
+		I - insert after first non-blank character in the current line
+		A - insert at end of current line
+		o - insert before current line
+		O - insert after current line
+	When in insert mode, it will say INSERT in lower left of screen
+------------------------------------------------
+Cursor Movement keys
+	Moving cursor around is common, so keys to do so are under right hand on home row
+	As with all commands, these only work in command mode
+	Keys:
+		h - move left
+		j - move down
+		k - move up
+		l - move right
+	Arrow keys also work, but are less efficient
+------------------------------------------------
+Moving to lines
+	These commands move the cursor to specific lines
+		gg takes you to the beginning
+		G takes you to the end
+			a line number followed by G takes you to that line 
+		:10 - goes to line 10 
+			: followed by any line number takes you to that line
+	When using these, they will show up on the screen
+------------------------------------------------
+delete/replace/join
+	Character modification
+		x - deletes character under cursor
+		rz - replaces character under cursor with z 
+			z could be any character
+		R - replaces multiple characters (ESC to exit)
+	Line modification
+		dd - deletes a line
+		5dd - deletes 5 lines (any number can be used)
+		J - joins current line with following line
+----------------------------------------------------
+Cut/Copy/Paste
+	You can delete or yank (copy) a block
+		5dd - deletes 5 lines starting with current
+		5yy	- yanks (copies) 5 lines starting with current
+	After deleting or yanking lines, they can be pasted somewhere else
+		P pastes the selected block before the current line
+		p pastes the selected block after current line
+	Instead of specifying an number of lines to delete or yank, you can mark a line, then go to another line and delete or yank all lines between
+		ma	- marks line as a (a can be any letter)
+		y'a -yanks from current line to line marked a
+------------------------------------------------
+Fix indentation
+	When programming, indentation in important, so there's a command to fix it
+		gg=G fixes indentation
+			gg - start at line 1
+			= - fix indentation
+			G - stop at last line
+		gg=G also works
+------------------------------------------------
+File operations 
+	File operations are done via command line mode
+		When in command mode, : or / will put your cursor at the bottom for command entry.
+			This is called command line mode.
+	Command line commands
+		:w - writes file to disk
+		:w filename - writes file to disk using given filename
+		:q - quits (exits)
+		:wq - writes and quits
+		:q! - quits without saving changes
+-------------------------------------------------
+Searching and Replacing
+	Searching
+		/sometext - searches forward for sometext  (sometext could be any text)
+		/	- repeats previous search forward
+		?sometext - searches backward for sometext
+		?	- repeats previous search backwards
+	Search and Replace
+		:%s/sometext/newtext/g 	 
+			% means all lines
+			s means substitute
+			sometext is the text to find
+			newtext is the text to replace it with
+			g means do all, not just first
+		:1,5/sometext/newtext/g
+			only does search/replace from lines 1-5
+------------------------------------------------
