@@ -138,7 +138,20 @@ Editing Multiple Files
 		:b1 -switches to file 1 (listed by buffers cmd)
 			b can be followed by any valid number
 		:e -opens another file
-	You can cut, copy, and paste between the files using delete, yank, and paste		
+	You can cut, copy, and paste between the files using delete, yank, and paste	
+----------------------------------------------------
+.vimrc
+	Numerous aspects of vim can be configured
+		Configuration file is ~/.vimrc
+		This file is processed when .vim is started
+	Some things that are commonly configured are
+		colorscheme - colors used on the screen
+			possibilities are in /usr/share/vim/vimXX/colors
+		tabstop	-how may spaces a tab is
+		hlsearch - highlight search matches
+	There are a lot of .vimrc config tutorials on-online (just search for .vimrc), such as this one
+		[[https://dougblack.io/words/a-good-vimrc.html!https://dougblack.io/words/a-good-vimrc.html]]
+
 
 
 
