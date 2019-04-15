@@ -1,4 +1,4 @@
-Commands and stdout/err/in
+Ch5,6: Commands and stdout/err/in
 	At the end of this presentation you should be able to
 		Explain what the different types of commands are
 		Explain how the system finds a cmd when you type it's name
@@ -10,26 +10,26 @@ Commands and stdout/err/in
 Commands
 	Commands can be
 		built into the shell (e.g. cd)
-		An compiled program
+		A compiled program
 			These are in machine code.  In windows, they'd end in .exe.  On Linux, they don't.
 		A shell script
 			A shell script is a text file containing a sequence of command-line commands that are run sequentially
 		An alias - another name for some existing command
-	Most executable programs are located in a /bin directory somewhere
+	Executable programs are typically located in a directory named bin
+		There are a number of bin directories in the file system
 ----------------------------------------------------------------------
 Cmd Location
 	When you type a command (using a relative path), the system looks in the following locations
-		The shell itself (i.e. is it a built-in command?)
+		The shell itself (a built-in command)
 			There are very few of these
-		Directories in your PATH.
+		Directories listed in your PATH.
 			This is an evironment variable that contains a : delimited list of directories
 			To see your PATH type:	
-			[[code][
+			[[code]]
 				echo $PATH
-	Note: Windows works the same way, but by defualt always looks in the current directory first; On Linux if you want to look in the currect directory, you need to add that to your path
+	Note: Windows works the same way, but by default always looks in the current directory as well; On Linux if you want to look in the currect directory, you need to add that to your path
 		[[code]]
 			PATH=$PATH:.
-		it should be added at the end, not the beginning
 ------------------------------------------------------------------
 Cmd Info
 	which shows you the location of the command you're running
@@ -51,7 +51,7 @@ Practice
 	Erase your path by executing the following:
 		PATH=""
 	Then try running the following command: pwd, ls, cd.  Do any of them work?
-	Fix you path by setting the PATH variable back to what it was originally or logging off and back on.
+	Fix your path by setting the PATH variable back to what it was originally (or logging off and back on).
 ------------------------------------------------------------------
 man pages
 	There are man(ual) pages for lots of things. 
@@ -71,27 +71,32 @@ man pages
 	[[code]]
 		man passwd
 		man 5 passwd
-	Note: The system calls are specific to *nix. 
+	Note: The system calls are specific to *nix. (Unix or Linux) 
 ---------------------------------------------------------------------
 man misc
-	whatis proides you a one-line description (from the man page) of what a command does 	
-	[[code]]
-		whatis ls
-	apropos provides you a list of commands related to a search term
-	[[code]]
-		apropos passwd
+	At the end of each man page there is a SEE ALSO section showing a list of similar or related commands
+		If there's another man page of the same name in another section it will be listed
+		G takes you to the bottom of the man page (less is used to read man pages)
+	Other man-page-related commands
+		whatis - proides you a one-line description of what a command does 	
+		[[code]]
+			whatis ls
+		apropos - provides you a list of commands related to a search term
+		[[code]]
+			apropos passwd
 --------------------------------------------------------------------
 Practice
-	Read the man page for the sleep() function.
+	Read the man page for the sleep() function (not the sleep command!).
 		What header file needs to be included?
 		How would you call it to sleep for 5 seconds?
 		Is it possible it would return before the 5 seconds was up?
 	Find all the man pages that have something to do with pid (stands for process id)
-	What function would be used inside a c/c++ program to get the process's processes id?
-	Figure out if it's possible to a users real name to their entry in the passwd file, and if so, what command (including arguments) needs to be run.
+		Which are function calls?  Comamnds?  File formats?
+		What function would be used inside a c/c++ program to get the process's processes id?
+	Figure out if it's possible to add user's real name to their entry in the passwd file, and if so, what command (including arguments) needs to be run.
 --------------------------------------------------------------------
 alias
-	Aliases are simply new, personally defined, names for existing commands
+	Aliases are simply new names for existing commands
 	They are created with the alias command, as follows:
 	[[code]]
 		alias ll='ls -l'
@@ -121,8 +126,9 @@ stdin and pipes
 		cat < /etc/passwd	#redirects stdin
 	And you can pipe stdout from one command into stdin of the next
 	[[code]]
-		cat /etc/passwd | wc   # wc is word count
-		cat /etc/passwd | sort | wc
+		ls -l | wc	 	# wc is word count
+		cat /etc/passwd | wc   
+		cat /etc/passwd | sort 
 	And you can send the output to both a file and another command using tee
 	[[code]]
 		ls -l | tee ls.out | wc
@@ -131,7 +137,7 @@ Filters
 	The following are useful utilities
 		wc - counts lines, words, characters
 		sort - sorts input
-		grep - finds lines that match text pattern
+		grep - finds lines that match a text pattern
 		head - prints first X number of lines
 		tail - prints last X number of lines
 	For examples:
@@ -146,10 +152,10 @@ Practice
 	Repeat the previous but use wc to count how many root has running.
 ----------------------------------------------------------------------
 Use in programs
-	In C++
-		cout is standard out (stdout)
-		cerr is standard error (stderr)
-		cin in standard in (stdin)
+	In C++, there are streams defined in #iostream for stdout, stderr, and stdin. They are:
+		cout -standard out (stdout)
+		cerr - standard error (stderr)
+		cin  - standard in (stdin)
 ----------------------------------------------------------------------
 Practice
 	Write a C++ program named teststd that
@@ -161,6 +167,5 @@ Practice
 		teststd > d.out
 		teststd >> d.out
 		teststd 2> d.err
-		teststd > out 2> err
-	Modify it to read from stdin and send even lines to stdout and odd lines to stderr
-
+		teststd > d.out 2> d.err
+		teststd > d.out 2>&1
