@@ -17,6 +17,7 @@ Permissions
 			chmod 750 somefile [[desc gives rwx to owner, rx to group, nothing to others]]
 			chmod 666 somefile [[desc gives rw to owner, group, and others]]
 		using symbolic notation
+		[[code]]
 			chmod u=rwx [[desc gives rwx to owner]]
 			chomd go+r [[desc Adds read to group and other]]
 			chomd o-r [[desc Removes read from other]]
@@ -36,48 +37,56 @@ umask
 		The upper octal number represents
 			setuid bit (4) - runs executable as owner instead of user 
 			setgid bit (2) - specifies files created in a dir get dir group instead of owners group
-			sticky bit (1) - on Linux, keeps users ohter than dir owner from deleting or renaming files
+			sticky bit (1) - on Linux, keeps users other than dir owner from deleting or renaming files
 ---------------------------------------------------------------------------------------
 Processes
-	They system is running many processes all at the same time
+	The system is running many processes all at the same time
 		Each process is assigned a Process ID (pid)
 		Each process is running using permissions of some user (typically whoever started it)
 		CPU goes from one the the next, each gets a small timeslice
 	Useful Process commands
-		ps - shows curreent processes
+		ps - shows running processes
+			By default, only those associated with the current process
+		Examples
 		[[code]]
+			ps [[desc shows processes associated with current process]]
 			ps -e [[desc shows processes for all users]]
 			ps -f [[desc shows more detail for each process]]
+			ps -ef [[desc shows detail on all processes]]
 		top - shows constantly-updating list of top CPU-consuming processes
-		[[code]]
-			top
+		[[code]] 
+			top [[desc displays top processes, press q to exit]]
 ---------------------------------------------------------------------------------
 Process Control
 	The kill command can terminate a process
 		kill sends the process a "signal"
 		By default it send the terminate signal
-			This politely asks the proces to end
-			Processes sometimes ignore this
-		You can send it the "kill" signal	
-			This usually cannot be ignored. 
-			The process dies.
+			This politely asks the proces to end, which processes may ignore
+		You can send it the "kill" signal (which is signal # 9)	
+			This cannot be ignored; the process dies.
 		Example
 		[[code]]
 			ps	[[desc gets list of current processes]]
 			kill 1234 [[desc sends process 1234 the term signal]]
 			kill -9 1234 [[desc sends process 1234 the kill signal]]
+		killall sends a signal to multiple processes
+		[[code]]
+			killall xlogo
 --------------------------------------------------------------------------------
 foreground & background
-	A process started from the command line runs in the foreground
-	But they can be put into the background, thereby allowing another command to be run from the command line
+	A process started from the command line runs in the foreground by default
+		This ties up the command line
+	Processes may be put into the background, thereby allowing another command to be run from the command line
+		some_command & - the & starts the job in the background
 		bg - puts job in background
 		fg - puts job in foreground
 		jobs - shows job numbers (similar to PID, but only unique per user)
 	Example
 	[[code]]
-		sleep 10 [[sleeps for 10 seconds]]
+		sleep 20 & [[desc sleeps for 20 seconds, started in background]]
+		sleep 10 [[desc sleeps for 10 seconds]]
 		 (press <cntrl Z> to pause the job)
-		bg
-		jobs
-		fg
+		bg [[desc puts paused job in background]]
+		jobs [[shows you running jobs assiated with current job]]
+		fg [[puts background job into forground]]
 -----------------------------------------------------------------------------------
