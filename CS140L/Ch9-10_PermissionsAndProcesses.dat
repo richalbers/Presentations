@@ -1,4 +1,4 @@
-Ch 9 & 10: Permissions and Processes
+Ch 9 and 10: Permissions and Processes
 	At the end of this presentation you should be able to
 		Set permissions on files using both octal and symbolic notation
 		Explain how umask works and and use it to set your default permissions
