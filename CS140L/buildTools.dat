@@ -1,0 +1,39 @@
+------------------------------------------------
+Build Tools
+	At the end of this presentation you should be able to
+		use g++ and explain it's common options 
+		create, explain, and use makefiles
+------------------------------------------------
+compiler
+	g++ is a c++ compiler commonly used on linux
+	It 
+		compiles source files into object files
+		links object files and libraries
+		creates executables
+	In it's simplest form, it's run like this
+	[[code]]
+		g++ hello.cpp
+	By default it will complile and link, and the executable is named a.out	
+------------------------------------------------
+options
+	Compile options
+		-c -compiles to .o files but does not link
+		-g -adds debugging info to results for use by gdb
+		-I<dir> -adds the directory to the list of directories searched for include files
+		-Wall -sets warning level to all, so all warnings are generated
+	Link options
+		-o specifies the name of the final executable to be created (instead of a.out)
+		-L<dir> -adds the directory the list of directoires searched for libraries
+		-l<libname> -specifies a library to search for externals
+------------------------------------------------
+Practice
+	Write a helloworld c++ program
+		compile it with and without the -o options and view the results
+		compile it with and without the -g option and view the results (take note of the file size)
+	Create a .h and .cpp files named print.h/.cpp that contains a function that prints your name.
+	Modify helloworld to include the print header file and call the print function
+		compile each .cpp with the -c option and view the output
+		compile both together and view the results
+------------------------------------------------------
+
+
