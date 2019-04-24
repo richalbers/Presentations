@@ -4,18 +4,17 @@ Build Tools
 		use g++ and explain it's common options 
 		create, explain, and use makefiles
 ------------------------------------------------
-compiler
+compiler (g++)
 	g++ is a c++ compiler commonly used on linux
-	It 
-		compiles source files into object files
-		links object files and libraries
-		creates executables
+		It compiles source files into object files
+		It links object files and libraries
+		It creates executables
 	In it's simplest form, it's run like this
 	[[code]]
 		g++ hello.cpp
-	By default it will complile and link, and the executable is named a.out	
+	By default it will complile and link, and the executable created is named a.out	
 ------------------------------------------------
-options
+common g++ options
 	Compile options
 		-c -compiles to .o files but does not link
 		-g -adds debugging info to results for use by gdb
@@ -31,9 +30,10 @@ Practice
 		compile it with and without the -o options and view the results
 		compile it with and without the -g option and view the results (take note of the file size)
 	Create a .h and .cpp files named print.h/.cpp that contains a function that prints your name.
-	Modify helloworld to include the print header file and call the print function
+	Modify helloworld to include the print.h file and call the print() function
 		compile each .cpp with the -c option and view the output
 		compile both together and view the results
 ------------------------------------------------------
+makefiles
 
 
