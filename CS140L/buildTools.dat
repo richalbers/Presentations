@@ -24,6 +24,12 @@ common g++ options
 		-o specifies the name of the final executable to be created (instead of a.out)
 		-L<dir> -adds the directory the list of directoires searched for libraries
 		-l<libname> -specifies a library to search for externals
+	Examples:
+	[[code]]
+		g++ -c hello.cpp
+		g++ -o hello hello.cpp
+		g++ -Wall -o hello hello.cpp
+		g++ -Wall -g -o hello hello.cpp print.cpp
 ------------------------------------------------
 Practice
 	Write a helloworld c++ program
