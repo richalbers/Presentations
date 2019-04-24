@@ -72,6 +72,18 @@ Process Control
 		killall sends a signal to multiple processes
 		[[code]]
 			killall xlogo
+-----------------------------------------------------------------------------------
+Practice
+	run the sleep command in the background
+	[[code]]
+		sleep 60 &	# note: & puts it in the background
+	Use ps to find it's process id, the run kill to kill it
+	[[code]]
+		ps
+		kill <process id>
+	If it didn't die, send it the kill signal (-9)
+	[[code]]
+		kill -9 <process id>
 --------------------------------------------------------------------------------
 foreground & background
 	A process started from the command line runs in the foreground by default
@@ -87,6 +99,17 @@ foreground & background
 		sleep 10 [[desc sleeps for 10 seconds]]
 		 (press <cntrl Z> to pause the job)
 		bg [[desc puts paused job in background]]
-		jobs [[shows you running jobs assiated with current job]]
-		fg [[puts background job into forground]]
+		jobs [[desc shows you running jobs assiated with current job]]
+		fg [[desc puts background job into forground]]
 -----------------------------------------------------------------------------------
+Practice
+	Moving jobs between background and foreground
+		Start several sleep jobs in the background
+		use jobs to get the list
+		bring one of them back to the foreground, the send it back to the background
+	Output from background jobs
+		Write a progran the writes your name to the screen every 5 seconds (use the sleep function)
+		Run it in the background to see what happens.
+	
+	
+		
