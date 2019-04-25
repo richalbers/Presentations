@@ -40,6 +40,126 @@ Practice
 		compile each .cpp with the -c option and view the output
 		compile both together and view the results
 ------------------------------------------------------
-makefiles
+------------------------------------------------------
+Build process
+	Typically, applications are built from multiple source files
+		Each .cpp file compiled into a separate .o (object) file
+		The object files, along with object code from libraries, are linked together to make the executable
+	If any .cpp is changed, the .o file needs to be rebuilt
+	If any .o file is rebuilt, the executable needs to be rebuilt
+	In many cases, there are include files (.h) that are included in multiple source files	
+		If a .h file is modified, all .cpp files it's included in need to be recompiled
+------------------------------------------------------
+make
+	make is a utility that allows you to easily build a complex application from many source files
+	make gets it's configuration settings from a makefile
+	The makfile is a textfile you create
+		It specifies
+			What compiler and compiler options to use
+			How to compile source code and link object files
+			What files are dependent on other files
+				What .cpp files are dependent on what .h files
+				What executable file is dependent on what .o files
+			What the name of your file executable will be
+		The default name for a makefile is makefile
+-------------------------------------------------------
+Practice
+	create a directory named mtest
+	cd into mtest
+	run make.  What message do you get?
+	[[code]]
+		make
+	Create an empty makefile
+	[[code]]
+		touch makefile
+	run make again.  What message to you get now?
+-------------------------------------------------------
+makefile
+	makefiles typically consist of	
+		Variables specifying what compiler and options to use
+		Targets 
+			Targets can executables, .o files, or other processes (clean)
+		For each target, there is
+			A dependency list - the files the target is dependent on	
+				If those files change, the target needs to be rebuilt
+			instructions on how to build the target
+--------------------------------------------------------
+Simple makefile
+	Example which builds an executable from a single source file:
+	[[code]]
+		# builds hello program 
+		
+		PROG = hello
+		CC = g++
+		FLAGS -Wall 
+		
+		hello: 
+			$(CC) $(FLAGS) -o $(PROG)
+		
+		clean:
+			rm $(PROG)
+	The "clean:" target is used to remove everything the makefile makes so next time make is run everything is rebuilt
+--------------------------------------------------------
+Practice
+	Add the text from the previous example to your makefile.
+	Create a hello.cpp file that prints your name
+	run the following commands, and look at the results each time (ls -l)
+	[[code]]
+		make
+		make
+		make clean
+		make
+--------------------------------------------------------
+Dependency lists
+	Larger projects consist of multiple source files (possibly 10s or 100s)
+	makefiles allow you to specify what files each target is dependent on
+		.o file are dependent on the source files compiled to make them
+		executables are dependent on the .o files used to make them
+	For example
+		If you change a .cpp file, you need to recompile that (creating an .o file) and then rebuild the executable by linking all the .o files together
+		If you change a .h file, you need to recompile every .cpp that included that .h file, and then rebuild the executable by linking all the .o files together
+	The system uses the date/time stamps on the targets (executable or .o files) and dependencies (.o files or source files) to know what needs to be rebuilt
+--------------------------------------------------------
+More complex makefile
+	A makefile that builds an executable from multiple source files:
+	[[code]]
+		# builds hello program from multiple source files
+		
+		PROG = hello
+		CC = g++
+		FLAGS = -Wall
+		OBJS = hello.o printname.o
+		
+		hello: hello.o printName.o
+			$(CC) $(FLAGS) -o $(PROG)  hello.o printName.o
+		
+		hello.o: hello.cpp printName.h
+			$(CC) $(FLAGS) -c hello.cpp
+		
+		printName.o: printName.cpp printName.h
+			$(CC) $(FLAGS)  -c printName.cpp
+		
+		clean:
+			rm $(PROG) *.o
+----------------------------------------------------------	
+Practice
+	Replace your makefile with the code from the previous slide
+	Create/modify your source files as follows
+		Create a printName.h file with the following prototype
+		[[code]]
+			void printName();
+		Create a printName.cpp file which contains the implmentation of the printName function which just prints your name.
+		Modify your hello.cpp file to call the printName function.
+	run the following commands, and look at the results each time (what files were built)
+	[[code]]
+		make clean
+		make
+		touch hello.cpp (updates the date/time stamp)
+		make
+		touch printName.cpp 
+		make
+		touch printName.h
+		make
+--------------------------------------------------------
 
 
