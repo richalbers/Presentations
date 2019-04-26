@@ -22,7 +22,7 @@ common g++ options
 		-Wall -sets warning level to all, so all warnings are generated
 	Link options
 		-o specifies the name of the final executable to be created (instead of a.out)
-		-L<dir> -adds the directory the list of directoires searched for libraries
+		-L<dir> -adds the directory the list of directories searched for libraries
 		-l<libname> -specifies a library to search for externals
 	Examples:
 	[[code]]
@@ -39,7 +39,6 @@ Practice
 	Modify helloworld to include the print.h file and call the print() function
 		compile each .cpp with the -c option and view the output
 		compile both together and view the results
-------------------------------------------------------
 ------------------------------------------------------
 Build process
 	Typically, applications are built from multiple source files
@@ -61,7 +60,7 @@ make
 				What .cpp files are dependent on what .h files
 				What executable file is dependent on what .o files
 			What the name of your file executable will be
-		The default name for a makefile is makefile
+	The default name for a makefile is makefile
 -------------------------------------------------------
 Practice
 	create a directory named mtest
@@ -85,7 +84,7 @@ makefile
 			instructions on how to build the target
 --------------------------------------------------------
 Simple makefile
-	Example which builds an executable from a single source file:
+	Example makefile which builds an executable from a single source file
 	[[code]]
 		# builds hello program 
 		
@@ -98,16 +97,18 @@ Simple makefile
 		
 		clean:
 			rm $(PROG)
-	The "clean:" target is used to remove everything the makefile makes so next time make is run everything is rebuilt
+	The "clean:" target is used to remove everything the makefile makes so next time make is run everything is rebuilt from scratch
 --------------------------------------------------------
 Practice
 	Add the text from the previous example to your makefile.
 	Create a hello.cpp file that prints your name
-	run the following commands, and look at the results each time (ls -l)
+	run the following commands, note what output you get, and look at the results each time (ls -l)
 	[[code]]
 		make
 		make
 		make clean
+		make
+		touch hello.cpp (updates the date/time stamp)
 		make
 --------------------------------------------------------
 Dependency lists
@@ -121,7 +122,7 @@ Dependency lists
 	The system uses the date/time stamps on the targets (executable or .o files) and dependencies (.o files or source files) to know what needs to be rebuilt
 --------------------------------------------------------
 More complex makefile
-	A makefile that builds an executable from multiple source files:
+	Example makefile that builds an executable from multiple source files:
 	[[code]]
 		# builds hello program from multiple source files
 		
