@@ -141,7 +141,7 @@ More complex makefile
 			$(CC) $(FLAGS)  -c printName.cpp
 		
 		clean:
-			rm $(PROG) *.o
+			rm $(PROG) $(OBJS)
 ----------------------------------------------------------	
 Practice
 	Replace your makefile with the code from the previous slide
