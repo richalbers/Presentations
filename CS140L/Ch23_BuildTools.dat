@@ -161,6 +161,11 @@ Practice
 		make
 		touch printName.h
 		make
+	What files get compiled and what files were created by each of those make commands?
 --------------------------------------------------------
+Final Comments
+	This was just an introductions to makefiles; there are many more features that were not covered in this presentation
+	There are books written on makefiles!
+---------------------------------------------------------
 
 
