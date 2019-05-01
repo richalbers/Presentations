@@ -92,8 +92,8 @@ Simple makefile
 		CC = g++
 		FLAGS -Wall 
 		
-		hello: 
-			$(CC) $(FLAGS) -o $(PROG)
+		hello: hello.cpp
+			$(CC) $(FLAGS) -o $(PROG) hello.cpp
 		
 		clean:
 			rm $(PROG)
@@ -131,8 +131,8 @@ More complex makefile
 		FLAGS = -Wall
 		OBJS = hello.o printname.o
 		
-		hello: hello.o printName.o
-			$(CC) $(FLAGS) -o $(PROG)  hello.o printName.o
+		hello: $(OBJS)
+			$(CC) $(FLAGS) -o $(PROG) $(OBJS)
 		
 		hello.o: hello.cpp printName.h
 			$(CC) $(FLAGS) -c hello.cpp
