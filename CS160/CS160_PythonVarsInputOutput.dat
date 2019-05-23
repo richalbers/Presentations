@@ -28,8 +28,8 @@ Creating Variables
 	Examples
 	[[code]]
 		name="bob"	#string
-		count=4		# int
-		pi=3.14		# float
+		count=4		#int
+		pi=3.14		#float
 
 ---------------------------------------------------
 Output
@@ -45,12 +45,11 @@ Output
 		print(count)
 		print(pi)
 		
-	Exercise: Enter the previous lines into a source file and run it.
+	Exercise: Enter the previous lines into a source file (using IDLE) and run it.
 ----------------------------------------------------
 Concatenation
 	You can join two strings together using the + operator
-		Joining two strings is called concatenating them (or concatenation)
-		
+		Joining two strings is called concatenating them (or concatenation)	
 	Example
 	[[code]]
 		firstName="Rich"
@@ -66,7 +65,7 @@ Concatenation
 Simple math
 	You can so math on numeric data/variables
 		+, -, *, /
-	
+
 	Example
 	[[code]]
 		sideLength=4
@@ -79,7 +78,7 @@ Simple math
 ---------------------------------------------------
 Exercise
 	Write a program that 
-		Defines the length and width of a rectangle
+		Defines the length and width of a rectangle (i.e. store values for lenght and width in variables)
 		Computes the perimeter of the rectange
 		Prints the perimeter
 ---------------------------------------------------
@@ -88,22 +87,23 @@ casting to string
 		Instead of printing "24" and assuming the user knew what that was
 		It would be better to print "The perimeter is 24"
 	But this doesn't work
-		[[code]]
-			perimeter=24
-			print("The perimeter is " + perimeter)
-		because you can't oncatenate (join) a string and an int.  You can only concatenate strings.
+	[[code]]
+		perimeter=24
+		print("The perimeter is " + perimeter)
+	because you can't oncatenate (join) a string and an int.  You can only concatenate strings.
 	But we can convert perimeter to a string by "casting" it.
+	[[code]]
 		print("The perimeter is " + str(perimeter)
 
 ---------------------------------------------------
 Exercise
-	Update your previous program (that calculates and prints the perimete of a rectangle) so the output looks like this:
+	Update your previous program (that calculates and prints the perimeter of a rectangle) so the output looks like this:
 	[[code]]
 		Rectangle Properties:
 			Length: XX
 			Width: YY
 			Perimeter: ZZ
-	Note: XX, YY, and ZZ replaced by your variables values.
+	Note: XX, YY, and ZZ will be replaced by your variables values.
 			
 ---------------------------------------------------		
 Input
@@ -124,9 +124,8 @@ Input
 		print(num1 + num2);  #concatenates strings, doesn't add numbers
 ----------------------------------------------------
 Casting to numbers
-	As we saw prevously, we can cast numberic data to strings
+	As we saw prevously, we can cast numeric data to strings
 	But we can also cast string data to numbers (providing the string contains numeric data)
-	
 	The casting functions are
 	[[code]]
 		int(string_or_float) # returns int version of given data
@@ -142,15 +141,15 @@ Casting to numbers
 Casting input
 	Whenever you get data from the user using input, it is returned as a string
 	If you want to treat it as numeric, you need to cast it
-	
 	Example:
 	[[code]]
 		num1str=input('Enter a number: ')
 		num1=int(num1str)
+			
 		num2str=input('Enter another whole number: ')
 		num2=int(num2str)
+			
 		print(num1 + num2)
-	
 	More concise example
 	[[code]]
 		num1=int( input('Enter a number: ') )
@@ -158,7 +157,7 @@ Casting input
 		print(num1+num2)
 --------------------------------------------------------
 Exercise	
-	Update your previous program so the rectangles length and width are obtained from the user.
+	Update your previous program so the rectangle's length and width are obtained from the user.
 	It should then look like this when run:
 	[[code]]
 		Enter the rectangles length: 4	
@@ -168,7 +167,6 @@ Exercise
 			Length: 4
 			Width: 3
 			Perimeter: 14	
-	
 	Note: The user may enter data other than 4 and 3
 -------------------------------------------------------------
 
