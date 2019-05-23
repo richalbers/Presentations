@@ -76,7 +76,7 @@ Simple math
 		print(squareArea)
 			
 ---------------------------------------------------
-Exercise
+Practice
 	Write a program that 
 		Defines the length and width of a rectangle (i.e. store values for lenght and width in variables)
 		Computes the perimeter of the rectange
@@ -96,7 +96,7 @@ casting to string
 		print("The perimeter is " + str(perimeter)
 
 ---------------------------------------------------
-Exercise
+Practice
 	Update your previous program (that calculates and prints the perimeter of a rectangle) so the output looks like this:
 	[[code]]
 		Rectangle Properties:
@@ -156,7 +156,7 @@ Casting input
 		num2=int( input('Enter a number: ') )
 		print(num1+num2)
 --------------------------------------------------------
-Exercise	
+Practice	
 	Update your previous program so the rectangle's length and width are obtained from the user.
 	It should then look like this when run:
 	[[code]]
@@ -169,4 +169,38 @@ Exercise
 			Perimeter: 14	
 	Note: The user may enter data other than 4 and 3
 -------------------------------------------------------------
-
+Operators
+	All languages allow you to perform mathematical operations on data 
+	Math operators supported by python are:
+		+  Addition		 		
+		*  Multiplication				 
+		/  Division
+		** Exponentiation
+		// floor division
+		% modulus
+  	 Example:  Y = X ** 2 + 6
+--------------------------------------------------------
+Practice	
+	Write a program that 
+		Get a radius value from the user
+		Computes the are of the circle with that radius
+		Prints out the area
+	Note: All User Input/Ouput should be clear
+--------------------------------------------------------
+Pseudocode
+	Pseudocode is an informal high-level description of a computer program or other algorithm.
+	It's used in the program design phase to lay out steps required
+	The process for writing a program is this
+		Figure out what you need to do
+		Write out the algorithm (In pseudocode) to accomplish the task
+		Step through the algorithm to verify it works
+		Revise the algorithm (pseudocode) as required
+		Implement the pseudocode in some programming language
+		test thorougly
+--------------------------------------------------------
+Practice	
+	Develop a program that determines how many goats you need to clear a certain amount of blackberry-covered pasture
+		Get the amount of pasture and the time available from the user
+		1 goat can clear 1/8 acre a day.
+	Follow the steps on the prevous page.	
+	Write and verify pseudocode before writing the actual program
