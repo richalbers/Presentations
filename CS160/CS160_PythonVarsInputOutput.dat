@@ -178,7 +178,7 @@ Operators
 		** Exponentiation
 		// floor division
 		% modulus
-  	 Example:  Y = X ** 2 + 6
+	Example:  Y = X ** 2 + 6
 --------------------------------------------------------
 Practice	
 	Write a program that 
