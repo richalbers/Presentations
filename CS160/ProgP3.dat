@@ -1,0 +1,118 @@
+Programming, part 3
+	At the end of this presentation you should be able to
+		Explain and implement conditional (if) statements
+		Explain how repetition statements (while and for loops) work and implement both
+		Write more complex programs using all programming concepts covered to date
+-----------------------------------------------------
+If Statements 
+	If statements are used to conditionally execute one or more lines of code
+	Format is as follows
+	[[code]]
+		if conditional expression:
+			statement(s) to execute if conditional expression is true
+	For example
+	[[code]]
+		if count > 20:
+			print('There are too many people on the elevator!')
+			print('We are Doomed!!')
+		print('Doors are closing.')
+	Indentation is important!  The indented lines are the ones conditionally executed
+-----------------------------------------------------
+Conditional Expression
+	The conditional expression is typically created using logical operators, which are
+		== Equal to
+		!= Not equal to
+		> Greater than
+		< Less than
+		>= Greater than or equal to
+		<= Less than or equal to
+	Note: double equal (==) is used for comparisions, because a single equal (=) is the assignment operator (used to assign a value to a variable).  This is common is many languages 
+---------------------------------------------------
+Example if statements
+	Example 1
+	[[code]]
+		if num == 42:
+			print('That is my favorite number!')
+		print('done')
+	Example 2
+	[[code]]
+		if age < 16:
+			print('You cannot drive')
+			print('but you will be able to next year!')
+		else:
+			print('You can drive!')
+		print('driving is fun!')
+---------------------------------------------------
+Practice
+	Write a program to 
+		prompt the user for a whole number
+		Convert the input to an integer (cast!)
+		If the number is less than zero, print “that number is negative”
+		Otherwise print “that number is positive”
+		Print “live long and prosper”
+
+---------------------------------------------------
+Loops
+	Loops are used to repeatedly run a block of code over and over again
+	Two common types of loops are
+		while -	repeats a block of statements while a condition is true
+		for - repeats a block of statements a predetermined number of times
+---------------------------------------------------	
+While loop
+	While loops repeat a block of code while the condition is true
+	[[code]]
+		while conditional expression:
+			statements to repeat while 
+			conditional expression is true
+	The conditional expression is formed just like an if conditional expression
+	While example
+	[[code]]
+		x=1
+		while x <= 5:
+			print(x)
+			x = x + 1
+		print('Five is a good place to stop')
+---------------------------------------------------
+Practice
+	Exercise 1
+		Write a program that uses a while loop to print out the numbers from 1 to 10
+	Exercise 2	
+		Modify the program so it prints the even numbers from 2 to 10
+	Exercise 3
+		Modify the program so it prints all the numbers between 0 and 100 that are evenly divisible by 7
+	Note: use a while loop to accomplish each of those tasks
+---------------------------------------------------		
+for loop
+	A for loop allows you to execute a block of code a given number of times
+	For example
+	[[code]]
+		# prints the numbers from 1 to 10
+		for x in range(1, 10)
+			print(x)
+	By default the step value is 1, but this can be changed
+	[[code]]
+		# print number from 5 to 50 by 5 (5, 10, 15 ...)
+		for y in range(5, 50, 5)
+			print(y)
+	For loops can also process array elements, but we have't covered arrays yet.	
+		
+----------------------------------------------------
+Practice
+	Exercise 1
+		Write a program that uses a for loop to print out the numbers from 5-15
+	Exercise 2	
+		Modify the program so it prints the even numbers from 2 to 10
+--------------------------------------------------------
+Practice	
+	This exercises will utilize everything we've covered so far
+		variables
+		getting data from the user
+		printing data
+		if statements
+		while loops
+		writing pseudocode
+	Write a program that prompts the user to guess a number between 1 and 100, tells them if they're too high or too low, and allows them to continue guessing until they get it right
+		First develop an algorithm and write it out as pseudocode (done as a class)
+		Then write the program in python
+-------------------------------------------------------------
+
