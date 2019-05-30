@@ -103,6 +103,17 @@ Practice
 	Exercise 2	
 		Modify the program so it prints the even numbers from 2 to 10
 --------------------------------------------------------
+Pseudocode Review
+	Pseudocode is an informal high-level description of a computer program or other algorithm.
+	It's used in the program design phase to lay out steps required
+	The process for writing a program is this
+		Figure out what you need to do
+		Write out the algorithm (In pseudocode) to accomplish the task
+		Step through the algorithm to verify it works
+		Revise the algorithm (pseudocode) as required
+		Implement the pseudocode in some programming language
+		test thorougly
+--------------------------------------------------------
 Practice	
 	This exercises will utilize everything we've covered so far
 		variables
@@ -113,6 +124,6 @@ Practice
 		writing pseudocode
 	Write a program that prompts the user to guess a number between 1 and 100, tells them if they're too high or too low, and allows them to continue guessing until they get it right
 		First develop an algorithm and write it out as pseudocode (done as a class)
-		Then write the program in python
+		Then write the program in python, test it, and make changes until it works correctly.
 -------------------------------------------------------------
 
