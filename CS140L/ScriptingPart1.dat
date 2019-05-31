@@ -20,6 +20,15 @@ Basics
 		All text after a # are ignored except for the all important #! that appears on the first line!
 	Any command that can be run from the command line can be in the script
 ------------------------------------------------------
+Practice
+	Create a bash shell script that runs the ls -l command
+		Name the script ll (that's two lowercase L's)
+		Put comments at that top (but after the first line!) saying
+			"my first script"
+			"by name_goes_here"
+		Have it run the ls command
+	Remember to change the permissions so it's executable
+------------------------------------------------------
 Commands	
 	The following commands are often used in scripts
 		echo - prints data to stdout
@@ -35,6 +44,21 @@ Commands
 		who - lists current users
 		[[code]]
 			who
+------------------------------------------------------
+Practice
+	How can you print out just the users's login shell for the user admin
+		Hint: use cat, grep, and cut
+		Hint2: cut by field
+	How can you print out the actual commands (last part of ps -ef output) currently being executed for the user admin
+		Hint: use ps, grep, cut
+	Write a shell script that prints out the following (with the x's replaced by actual data)
+	[[code]]
+		admin's shell is xxxxxx
+		admin is currently running the following processes
+		xxxx xxxx xx x xxx xxxxxxx xxxxxxx
+		xxxx xxxx xx x xxx xxxxxxx xxxxxxx
+		xxxx xxxx xx x xxx xxxxxxx xxxxxxx
+		xxxx xxxx xx x xxx xxxxxxx xxxxxxx
 ------------------------------------------------------
 Variables
 	variables are used to store information
