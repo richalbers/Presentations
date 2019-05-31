@@ -1,0 +1,113 @@
+Scripting
+	At the end of this presentation you should be able to	
+		Create a simple shell script	
+		Explain what the first line needs to contain
+		Add comments to the script
+		Explain and use the commands echo, grep, and cut
+		Create variables
+		Explain the differences between single, double, and back quotes
+		Write if and if/else statements
+		Use test on strings, integers, and files
+--------------------------------------------------------
+Basics
+	Shell script is a text file containing shell commands that are executed one after another
+	File can be named anything
+	First line specifies what shell will be used to execute the commands
+	[[code]]
+		#!/bin/bash
+	Comments are denoted by a #
+		All text after a # are ignored except for the all important #! that appears on the first line!
+	Any command that can be run from the command line can be in the script
+------------------------------------------------------
+Commands	
+	The following commands are often used in scripts
+		echo - prints data to stdout
+		grep - filters out rows of data
+		cut - filters out columns of data
+			-c, -d, and -f or common options
+		who - lists current users
+------------------------------------------------------
+Variables
+	variables are used to store information
+	standard C/C++ naming rules apply
+	[[code]]
+		name="Bob"
+		count=5
+	To read the contents of a variable, preface it with a $
+	echo will print given data to console
+	[[code]
+		echo name
+		echo count
+		echo "echo can also print literal strings, or anything else"
+----------------------------------------------------------
+Quotes
+	The different types of quotes have different functionality
+	Single quotes hide what's between them from the shell
+	[[code]]
+		echo '$name'  # prints $name on screen
+	Double quotes allow variable substitution to occur
+		[[code]]
+		echo "$name"  # prints contents of name to screen
+	Back quotes (or backticks) cause text between them to be run as a command and results of the command returned
+		name=`whoami`  # runs whoami command, puts results into name
+		name=$(whoami) # same functionality, maybe better (but only available in bash)
+--------------------------------------------------------
+Practice
+	Write a script that 
+		stores your username (results of whoami) in the userName variable
+		prints out the userName variable three times
+			ones without quotes
+			once inside double quotes
+			once inside single quotes
+--------------------------------------------------------
+If statements
+	If statements syntax is typically as follows
+	[[code]]
+		if [ "$userName" = 'bbrown' ]
+		then
+			statement(s) to run
+		fi
+	Some details
+		The [ ] actually run the test command (more on that later)
+		If you want to put the then on the end of the previous line you need to end the previos line with a ;
+		[[code]]
+			if [ "$userName" = 'bbrown' ]; then
+		The fi ends the if
+			The then and fi designate the beginning and ending of the conditionally executed statements 
+
+--------------------------------------------------------
+else
+	if statements can have an associated else
+	[[code]]
+		if [ "$userName" = 'bbrown' ]
+		then
+			statement(s) to run
+		else	
+			statement(s) to run
+		fi
+--------------------------------------------------------
+Practice	
+	Add line to your previous script 
+		to print out "Hello your_first_name" if the username is your username.
+		to print out "You're not your_first_name.  Go away" if the username is not your username.
+	Run your script.  Then run someone else's script and have them run yours.
+--------------------------------------------------------
+test
+	As stated previously, using [ ] with if really runs test.  So the previous example could have been written like this
+	[[code]]
+		if test "$userName" = 'bbrown'
+	This is important because
+		"$username", =, and 'bbrown' are all arguments to test
+			Doublequotes are used around the variable just in case it contains a blank; we want to make sure the variable's contents are treated as ONE argument
+		test can test a lot of things
+			Compare strings (=, !=)
+			compare numbers (-gt, -le, etc..)
+			do file tests (does it exist, is it readable, etc..)
+		Look at the man page to see the possibilities
+--------------------------------------------------------
+Practice
+	Look over the man page for test, then write if statements (using the [ ] syntax)to do the following.
+		Print "Hi Bob!" if the variable $userName is equal to "bbrown"
+		Print "You're not bob" if the variable $userName doesn't contain "bbrown"
+		Print "Too many!" if count is greater than 5
+		Print "$filename exists!" if the file specified by $filename exists
