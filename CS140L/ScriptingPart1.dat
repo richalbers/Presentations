@@ -23,10 +23,18 @@ Basics
 Commands	
 	The following commands are often used in scripts
 		echo - prints data to stdout
+		[[code]]
+			echo "This is a test"
 		grep - filters out rows of data
+		[[code]]
+			cat /etc/passwd | grep bbrown
 		cut - filters out columns of data
-			-c, -d, and -f or common options
+		[[code]]
+			ls -l | cut -c30-33,47-	
+			cat /etc/passwd | cut -d: -f1
 		who - lists current users
+		[[code]]
+			who
 ------------------------------------------------------
 Variables
 	variables are used to store information
@@ -115,3 +123,11 @@ Practice
 		Print "You're not bob" if the variable $userName doesn't contain "bbrown"
 		Print "Too many!" if count is greater than 5
 		Print "$filename exists!" if the file specified by $filename exists
+--------------------------------------------------------
+Practice
+	Write a shell script named friend that prints a messege regarding if your friend is logged on.
+	It should do the following
+		Put your friend's username in a variable
+		use who, cut, and grep to see if he/she is logged on (store the results in a variable)
+		If he/she is logged on, print "friends_user_id is logged on!"
+		If he/she is not logged on print ""Friends_user_id is not logged on.  Get to work!"
