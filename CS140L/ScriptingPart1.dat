@@ -1,4 +1,4 @@
-Scripting
+Scripting Part 1
 	At the end of this presentation you should be able to	
 		Create a simple shell script	
 		Explain what the first line needs to contain
@@ -12,6 +12,7 @@ Scripting
 Basics
 	Shell script is a text file containing shell commands that are executed one after another
 	File can be named anything
+	File execute permission needs to be set in order for the OS to attempt to execute it
 	First line specifies what shell will be used to execute the commands
 	[[code]]
 		#!/bin/bash
@@ -29,15 +30,15 @@ Commands
 ------------------------------------------------------
 Variables
 	variables are used to store information
-	standard C/C++ naming rules apply
 	[[code]]
 		name="Bob"
 		count=5
+	Standard C/C++ naming rules apply
 	To read the contents of a variable, preface it with a $
 	echo will print given data to console
-	[[code]
-		echo name
-		echo count
+	[[code]]
+		echo $name
+		echo $count
 		echo "echo can also print literal strings, or anything else"
 ----------------------------------------------------------
 Quotes
@@ -46,11 +47,12 @@ Quotes
 	[[code]]
 		echo '$name'  # prints $name on screen
 	Double quotes allow variable substitution to occur
-		[[code]]
+	[[code]]
 		echo "$name"  # prints contents of name to screen
 	Back quotes (or backticks) cause text between them to be run as a command and results of the command returned
+	[[code]]
 		name=`whoami`  # runs whoami command, puts results into name
-		name=$(whoami) # same functionality, maybe better (but only available in bash)
+		name=$(whoami) # same functionality (but not available is sh)
 --------------------------------------------------------
 Practice
 	Write a script that 
@@ -61,7 +63,7 @@ Practice
 			once inside single quotes
 --------------------------------------------------------
 If statements
-	If statements syntax is typically as follows
+	If statement syntax is typically as follows
 	[[code]]
 		if [ "$userName" = 'bbrown' ]
 		then
@@ -69,7 +71,7 @@ If statements
 		fi
 	Some details
 		The [ ] actually run the test command (more on that later)
-		If you want to put the then on the end of the previous line you need to end the previos line with a ;
+		If you want to put the then on the end of the previous line you need to end the previous line with a ;
 		[[code]]
 			if [ "$userName" = 'bbrown' ]; then
 		The fi ends the if
@@ -89,15 +91,17 @@ else
 Practice	
 	Add line to your previous script 
 		to print out "Hello your_first_name" if the username is your username.
+			replace "your_first_hame" with your actual first name
 		to print out "You're not your_first_name.  Go away" if the username is not your username.
-	Run your script.  Then run someone else's script and have them run yours.
+			replace "your_first_hame" with your actual first name
+	Run your script.  Then run someone else's version of the script and have them run yours.
 --------------------------------------------------------
 test
 	As stated previously, using [ ] with if really runs test.  So the previous example could have been written like this
 	[[code]]
 		if test "$userName" = 'bbrown'
 	This is important because
-		"$username", =, and 'bbrown' are all arguments to test
+		"$username", =, and 'bbrown' are actually arguments to test
 			Doublequotes are used around the variable just in case it contains a blank; we want to make sure the variable's contents are treated as ONE argument
 		test can test a lot of things
 			Compare strings (=, !=)
