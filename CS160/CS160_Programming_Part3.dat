@@ -87,12 +87,12 @@ for loop
 	For example
 	[[code]]
 		# prints the numbers from 1 to 10
-		for x in range(1, 10)
+		for x in range(1, 10):
 			print(x)
 	By default the step value is 1, but this can be changed
 	[[code]]
 		# print number from 5 to 50 by 5 (5, 10, 15 ...)
-		for y in range(5, 50, 5)
+		for y in range(5, 50, 5):
 			print(y)
 	For loops can also process array elements, but we have't covered arrays yet.	
 		
