@@ -1,11 +1,11 @@
 Scripting Part 2
 	At the end of this presentation you should be able to	
-		Use while loop with numeric counter
-		Use while loop with read to process data from file or command
-		Use for loop to process a list
+		Use a while loop with numeric counter
+		Use a while loop with read to process data from file or command
+		Use a for loop to process a list
 		Process command line arguments sent to the script
 -----------------------------------------------
-reading data
+Reading data
 	The read command reads a line of data
 	It be used to
 		read data from stdin
@@ -16,7 +16,7 @@ reading data
 		read name
 		echo "Hello $name"
 -------------------------------------------------
-Loops
+loops
 	The supported loop structures are	
 		while
 		until
@@ -34,18 +34,18 @@ while
 			echo $count
 			count=$((count+1))
 		done
-		echo "This concludes our counting to 5".
+		echo "This concludes our counting to 5"
 
 --------------------------------------------------------------------
 while read
 	Example of using while to process a file
 	[[code]]
-		cat /etc/passwd | while read line
-		do
+		cat /etc/passwd | 
+		while read line; do
 			echo $line
 		done
 ------------------------------------------------------
-Practice
+practice
 	Try out the previous example
 	Use cut to extract just the username and shell and save that data into two separate variables in the loop
 	
@@ -64,10 +64,8 @@ until
 for
 	Simple for example
 	[[code]]
-		for filename in $(ls)
-		do
+		for filename in $(ls); do
 			echo $filename
-			chmod 600 $filename
 		done
 	Output of ls in processed one line at a time
 ----------------------------------------------------
