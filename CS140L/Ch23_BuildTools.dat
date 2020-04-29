@@ -76,12 +76,13 @@ Practice
 makefile
 	makefiles typically consist of	
 		Variables specifying what compiler and options to use
-		Targets 
+		Rules specifying targets and the commands related to that target
+		Targets are things to make or do
 			Targets can executables, .o files, or other processes (clean)
 		For each target, there is
 			A dependency list - the files the target is dependent on	
 				If those files change, the target needs to be rebuilt
-			instructions on how to build the target
+			instructions on how to build the target (commands)
 --------------------------------------------------------
 Simple makefile
 	Example makefile which builds an executable from a single source file
@@ -127,18 +128,18 @@ More complex makefile
 		# builds hello program from multiple source files
 		
 		PROG = hello
-		CC = g++
+		CXX = g++
 		FLAGS = -Wall
-		OBJS = hello.o printname.o
+		OBJS = hello.o printName.o
 		
 		hello: $(OBJS)
-			$(CC) $(FLAGS) -o $(PROG) $(OBJS)
+			$(CXX) $(FLAGS) -o $(PROG) $(OBJS)
 		
 		hello.o: hello.cpp printName.h
-			$(CC) $(FLAGS) -c hello.cpp
+			$(CXX) $(FLAGS) -c hello.cpp
 		
 		printName.o: printName.cpp printName.h
-			$(CC) $(FLAGS)  -c printName.cpp
+			$(CXX) $(FLAGS)  -c printName.cpp
 		
 		clean:
 			rm $(PROG) $(OBJS)
