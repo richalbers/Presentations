@@ -52,7 +52,7 @@ Build process
 make
 	make is a utility that allows you to easily build a complex application from many source files
 	make gets it's configuration settings from a makefile
-	The makfile is a textfile you create
+	The makefile is a textfile you create
 		It specifies
 			What compiler and compiler options to use
 			How to compile source code and link object files
