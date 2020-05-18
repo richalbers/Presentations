@@ -29,7 +29,9 @@ The drawbacks
 
 ------------------------------------------------------------------
 Implementation
-	Linked lists are commonly implmented as an ADT
+	Linked lists are commonly implmented as an Abstract Data Type.  
+		An ADT is a class that provides an interface that can be used without the user knowing how the details are implemented.  (this is really true of all classes).
+		A linked list is a type of container (it contains multiples of something). There are lots of different kinds of containers and they all have a very similar (if not identical) interface.
 	A struct is defined for the Node
 	A class is defined for Linked lists.
 		The only data it has is a single pointer named head.
@@ -48,13 +50,14 @@ Implementation
 		}
 ------------------------------------------------------------------
 Operations
-	Create (constuctor)
-	Insert new data
-	Remove data (delete a node)
-	Print
-	Search
-	Copy
-	Delete
+	The following operations are commonly implemented for a linked list
+		Create (constuctor)
+		Insert new data
+		Remove data (delete a node)
+		Print
+		Search
+		Copy
+		Delete
 ------------------------------------------------------------------
 Constructor and print
 	Constructor is simple
