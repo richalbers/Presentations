@@ -78,7 +78,7 @@ Constructor and print
 	To print, traverse the list and print out the data in each node
 		[[code]]
 			void LinkedList::print() const {
-				current = head;
+				Node* current = head;
 				while (current != NULL) {
 					cout << current->data << ' ';
 					current = current->next;
