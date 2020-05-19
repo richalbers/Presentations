@@ -31,16 +31,17 @@ The drawbacks
 Implementation
 	In OOP (Object Oriented Programming), Linked lists are commonly implmented as an Abstract Data Type (i.e. a class).  
 		An ADT provides an interface that can be used without the user knowing how the details are implemented. This is what a class does.
-	A struct is defined for the Node
-	A class is defined for the Linked list.
-		The only data it has is a single pointer named head.
-	For example:
+	A struct is defined for the Node.
 	[[code]]
 		struct Node {
 			int data; 
 			Node* next;
 		}
-		    
+		 
+	A class is defined for the Linked list
+		The only data it has is a single pointer named head.
+	For example:
+	[[code]]  
 		class LinkedList {
 		public:
 			//insert, remove, print, etc..
@@ -60,17 +61,24 @@ Operations
 ------------------------------------------------------------------
 Constructor and print
 	Constructor is simple
-		Just initalize head to NULL;
+		Just initalize head to NULL (or nullptr);
+			[[code]]
+			LinkedList::LinkedList() {
+				head=nullptr;
+			}
 	To print, traverse the list and print out the data in each node
-	[[code]]
-		current = head;
-		while (current != NULL) {
-			cout << current->data << ' ';
-			current = current->next;
-		}
+		[[code]]
+			void LinkedList::print() {
+				current = head;
+				while (current != NULL) {
+					cout << current->data << ' ';
+					current = current->next;
+				}
+			}
 	Note: when implmenting a linked list, it's good to write the print function early so you can see the results of your insertions and removals.
 --------------------------------------------------------------------
 Insert
+	Insertion into a list is a bit more complex and there are several special cases to consider. 
 	Pseudocode to insert data is as follows:
 	[[code]]
 		Insert(data)
@@ -86,12 +94,31 @@ Insert
 				prev->next = newNode
 ---------------------------------------------------------------------
 Remove
+	Remove also has a few special cases to consider
 	Pseudocode to remove data is as follows:
 	[[code]]
 		Remove(data)
 			If list is empty
-				return
-			find node that contains data (curr), and previous node (prev)
-			prev->next = prev->next->next;
-			delete curr
+				return false (we were unsuccessful)
+			else if item to remove is first item
+				move head pointer to 2nd item
+				delete first item
+				return true (success!)
+			else
+				find node that contains data (curr), and previous node (prev)
+				prev->next = curr->next;
+				delete curr
+				return true (success!)
+			else
+				return false
 ---------------------------------------------------------------------
+Destructor
+	Since the LinkedList object will contain a pointer to dynamically allocated memory, we MUST have a destructor.
+	The destructor will traverse the list and free up all the memory used for the nodes
+	Pseudocode is as follows:
+		curr=head
+		while (curr != NULL)
+			nodeToDelete=curr
+			curr = curr->next
+			delete nodeToDelete
+	
