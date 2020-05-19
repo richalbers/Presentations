@@ -8,7 +8,7 @@ Ch 16 - Linked lists
 ------------------------------------------
 Overview
 	A linked list is a dynamic data structure used to store multiple values of the same type
-	It is comprised of nodes, with each node pointing to the next node in the list.
+	It is comprised of nodes connected together
 	Each node consists of
 		The data to be stored (int, string, object, etc..)
 		A pointer to the next node
@@ -32,22 +32,20 @@ Implementation
 	In OOP (Object Oriented Programming), Linked lists are commonly implmented as an Abstract Data Type (i.e. a class).  
 		An ADT provides an interface that can be used without the user knowing how the details are implemented. This is what a class does.
 	A struct is defined for the Node.
-	[[code]]
-		struct Node {
-			int data; 
-			Node* next;
-		}
-		 
+		[[code]]
+			struct Node {
+				int data; 
+				Node* next;
+			}
 	A class is defined for the Linked list
 		The only data it has is a single pointer named head.
-	For example:
-	[[code]]  
-		class LinkedList {
-		public:
-			//insert, remove, print, etc..
-		private:
-			Node* head;
-		}
+		[[code]]  
+			class LinkedList {
+			public:
+				//insert, remove, print, etc..
+			private:
+				Node* head;
+			}
 ------------------------------------------------------------------
 Operations
 	The following operations are commonly implemented for a linked list
@@ -58,6 +56,17 @@ Operations
 		Search
 		Copy
 		Delete
+------------------------------------------------------------------
+List Traversal
+	Traversing the list means visiting each node
+	Many operations require the list be traversed
+	Pseudocode to traverse a list is as follows:
+	[[code]]
+		current=head;
+		while (current!=nullptr)
+			operate on the node pointed to by current
+			current=current->next
+			
 ------------------------------------------------------------------
 Constructor and print
 	Constructor is simple
