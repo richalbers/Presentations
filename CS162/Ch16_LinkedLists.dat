@@ -66,7 +66,9 @@ List Traversal
 		while (current!=nullptr)
 			operate on the node pointed to by current
 			current=current->next
-			
+	[[img LinkedListTraversal.png]]	
+	[[img images/LinkedListTraversal.png]]	
+	[[img CS162/images/LinkedListTraversal.png]]	
 ------------------------------------------------------------------
 Constructor and print
 	Constructor is simple
@@ -101,6 +103,7 @@ Insert
 				find node that should precede new node
 				newNode->next = prev->next;
 				prev->next = newNode
+	[[Diagram showing different insertion Cases!https://docs.google.com/drawings/d/1XHV9n0FsdzXZYdjh4nKsXBUyeSZ1zm4vNRiC5RpM-L4/edit?usp=sharing]]
 ---------------------------------------------------------------------
 Remove
 	Remove also has a few special cases to consider
