@@ -66,9 +66,7 @@ List Traversal
 		while (current!=nullptr)
 			operate on the node pointed to by current
 			current=current->next
-	[[img LinkedListTraversal.png]]	
-	[[img images/LinkedListTraversal.png]]	
-	[[img CS162/images/LinkedListTraversal.png]]	
+[[img images/LinkedListTraversal.png]]	
 ------------------------------------------------------------------
 Constructor and print
 	Constructor is simple
