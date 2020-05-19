@@ -59,7 +59,7 @@ Operations
 ------------------------------------------------------------------
 List Traversal
 	Traversing the list means visiting each node
-	Many operations require the list be traversed
+		Many operations require the list be traversed
 	Pseudocode to traverse a list is as follows:
 	[[code]]
 		current=head;
@@ -77,14 +77,14 @@ Constructor and print
 			}
 	To print, traverse the list and print out the data in each node
 		[[code]]
-			void LinkedList::print() {
+			void LinkedList::print() const {
 				current = head;
 				while (current != NULL) {
 					cout << current->data << ' ';
 					current = current->next;
 				}
 			}
-	Note: when implmenting a linked list, it's good to write the print function early so you can see the results of your insertions and removals.
+	Note: when implementing a linked list, it's wise to write the print function early so you can see the results of your insertions and removals.
 --------------------------------------------------------------------
 Insert
 	Insertion into a list is a bit more complex and there are several special cases to consider. 
