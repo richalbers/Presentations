@@ -126,8 +126,9 @@ Destructor
 	Since the LinkedList object will contain a pointer to dynamically allocated memory, we MUST have a destructor.
 	The destructor will traverse the list and free up all the memory used for the nodes
 	Pseudocode is as follows:
+	[[code]]
 		curr=head
-		while (curr != NULL)
+		while (curr != nullptr)
 			nodeToDelete=curr
 			curr = curr->next
 			delete nodeToDelete
