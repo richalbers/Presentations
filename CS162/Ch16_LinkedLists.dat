@@ -37,7 +37,7 @@ Implementation
 				int data; 
 				Node* next;
 			}
-	A class is defined for the Linked list
+	A class is defined for the Linked list [[img images/LinkedListExamples.png]]
 		The only data it has is a single pointer named head.
 		[[code]]  
 			class LinkedList {
