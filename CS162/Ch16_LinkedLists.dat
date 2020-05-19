@@ -2,13 +2,13 @@
 Ch 16 - Linked lists
 	At the end of this presentation, you should be able to
 		explain what a link list is and how it's structured
-		explain the benfits and drawbacks of a linked list
+		explain the benefits and drawbacks of a linked list
 		write pseudocode for common linked list operations
 		implement a linked list as an ADT
 ------------------------------------------
 Overview
 	A linked list is a dynamic data structure used to store multiple values of the same type
-	It is comprised of nodes connected together
+	It is comprised of nodes linked together
 	Each node consists of
 		The data to be stored (int, string, object, etc..)
 		A pointer to the next node
