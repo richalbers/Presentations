@@ -8,7 +8,7 @@ Ch 16 - Linked lists
 ------------------------------------------
 Overview
 	A linked list is a dynamic data structure used to store multiple values of the same type
-	It is comprised of nodes, all connected together.
+	It is comprised of nodes, with each node pointing to the next node in the list.
 	Each node consists of
 		The data to be stored (int, string, object, etc..)
 		A pointer to the next node
@@ -29,11 +29,10 @@ The drawbacks
 
 ------------------------------------------------------------------
 Implementation
-	Linked lists are commonly implmented as an Abstract Data Type.  
-		An ADT is a class that provides an interface that can be used without the user knowing how the details are implemented.  (this is really true of all classes).
-		A linked list is a type of container (it contains multiples of something). There are lots of different kinds of containers and they all have a very similar (if not identical) interface.
+	In OOP (Object Oriented Programming), Linked lists are commonly implmented as an Abstract Data Type (i.e. a class).  
+		An ADT provides an interface that can be used without the user knowing how the details are implemented. This is what a class does.
 	A struct is defined for the Node
-	A class is defined for Linked lists.
+	A class is defined for the Linked list.
 		The only data it has is a single pointer named head.
 	For example:
 	[[code]]
@@ -65,9 +64,10 @@ Constructor and print
 	To print, traverse the list and print out the data in each node
 	[[code]]
 		current = head;
-		while (current != NULL)
-			cout << current->data
-		current = current->next
+		while (current != NULL) {
+			cout << current->data << ' ';
+			current = current->next;
+		}
 	Note: when implmenting a linked list, it's good to write the print function early so you can see the results of your insertions and removals.
 --------------------------------------------------------------------
 Insert
