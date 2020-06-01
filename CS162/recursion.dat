@@ -68,16 +68,16 @@ Practice
 	Write a recursive function that computes and returns the sum of all elements in an array, where the array and its size are given as parameters.
 		[[code]]
 		//return the sum of all elements in a[]
-		int sumArray(int a[], int n)
+		int sumArray(const int a[], int n)
 	Write a recursive function that finds and returns the smallest element in an array, where the array and its size are given as parameters.
 		[[code]]
 		//return the smallest element in a[]
-		int findMin(int a[], int n)
+		int findMin(const int a[], int n)
 	Write a recursive function that determines whether an array is a palindrome, where the array and its size are given as parameters.
 		[[code]]
 		//returns true if str is a palindrome, false otherwise
-		bool isPalindrome(string str);
-	Note: All these are more easily solved iteratively so the recursive solution may not seem intuitive 
+		bool isPalindrome(const string str);
+	Note: All of these are easily solved iteratively, so the recursive solution may not seem intuitive 
 -------------------------------------------------
 Linked lists
 	Linked lists can be processed recursively, and in some instances, the recursive solution is easier than the interative solution
@@ -101,11 +101,11 @@ Linked lists
 Recursive problems
 	Some problems lend themselves to be solved recursively
 		Playing a turn-based game (tic-tac-toe, chess, etc..)
-			For these game computers play by trying out all (or many) possibilties and evaluating each, then choosing the one that leads to be best outcome.
+			For these games, computers play by trying out all (or many) possibilities and evaluating each, then choosing the one that leads to the best outcome.
 			They take the board as is, and then try every possible move, and take each of of those resulting boards, and try each possible move, repeat, etc..
-			For tic-tac-toe, they could play every potential game to the end, then see which next-move leads to the best outcome.
-			For chess, there are too many possibilties, so it only plays a few moves ahead, then analyzies the resulting board.  The higher the level of difficulty, the more moves ahead it plays (which is why it takes so long)
-		Other common recusive problems often looked at in CS classes are
+			For tic-tac-toe, every potential game could be played to the end, then see which available next-move leads to the best outcome.
+			For chess, there are too many possibilties, so it only plays a few moves ahead, then analyzes the resulting board.  The higher the level of difficulty, the more moves ahead it plays (which is why it takes so long)
+		Other common recursive problems are
 			[[8 queens puzzle!https://en.wikipedia.org/wiki/Eight_queens_puzzle]]
 			[[Knights tour!https://en.wikipedia.org/wiki/Knight%27s_tour]]
 			[[Tower of Hanoi!https://en.wikipedia.org/wiki/Tower_of_Hanoi]]
