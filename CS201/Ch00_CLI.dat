@@ -35,7 +35,7 @@ Practice
 		Available inclass in the CS201 folder
 	Connect to progdev.streetercs.net using ssh
 	Log in using the following credentials
-		Username: first initial + last name
+		Username: first name + last initial (all lowercase)
 		Password: supplied in class
 	When you get logged in
 		Change your password using the passwd command
@@ -51,8 +51,7 @@ Practice
 		Updated sh with new features (like history!)
 	csh (C-shell)
 		A shell with C-like scripting utilities developed by Sun Microsystems (they no longer matter)
-		It kinda sucked. 
-		Lets not ever speak of it again	
+		It kinda sucked, lets not ever speak of it again	
 	bash (Bourne Again Shell)
 		An improved ksh!  Even more features!
 		It's what we'll be using.  
@@ -144,7 +143,7 @@ path
 	To see your path, type
 		[[code]]
 		path
-	The current directory is NOT in your path by default, so to execute a file from the current direcory, you'll need to preface it with ./
+	The current directory is NOT in your path by default, so to execute a file from the current directory, you'll need to preface it with ./
 		[[code]]
 		gcc hello.c 	[[desc compiles the file hello.c<br>output file is named a.out by default]] 
 		./a.out 		[[desc executes the file a.out from the current directory]]
