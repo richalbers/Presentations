@@ -21,7 +21,8 @@ function StyleControl()
 		"Blackboard2", "url(./PresentationResources/Chalkboard.jpg)", "white", "transparent", "#ffff66", "#ffff66",
 		"Blue", "DarkBlue", 				 "white", "LightBlue", "black", "black",
 		"Green", "DarkGreen",			 	 "white", "LightGreen", "black", "black",
-		"Aurora Borealis", "url(./PresentationResources/AuroraBorealis.jpg)", "white", "transparent", "white", "white"
+		"Aurora Borealis", "url(./PresentationResources/AuroraBorealis.jpg)", "white", "transparent", "white", "white",
+		"White", "white",			 	 "black", "white", "black", "black"
 	);
 
 	//add style selector to page and populate it with style selections
