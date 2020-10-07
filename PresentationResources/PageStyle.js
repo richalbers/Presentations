@@ -22,7 +22,7 @@ function StyleControl()
 		"Blue", "DarkBlue", 				 "white", "LightBlue", "black", "black",
 		"Green", "DarkGreen",			 	 "white", "LightGreen", "black", "black",
 		"Aurora Borealis", "url(./PresentationResources/AuroraBorealis.jpg)", "white", "transparent", "white", "white",
-		"White", "white",			 	 "black", "white", "black", "black"
+		"White", "#f5f5f5",			 	 "black", "#ffff66", "black", "black"
 	);
 
 	//add style selector to page and populate it with style selections
