@@ -79,8 +79,8 @@ Bit Operators
 		<< - shift left
 	Examples 
 		[[code]]
-		int x=0x0f;
-		int y=0xf0;
+		int x=0x0f;	// 0000 1111
+		int y=0xf0;	// 1111 0000
 		printf("%x \n", x & y);  // prints 0x00
 		printf("%x \n", x | y);  // prints 0xff
 		printf("%x \n", x ^ y);  // prints 0xff
