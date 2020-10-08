@@ -119,67 +119,70 @@ Practice
 		
 -------------------------------------------
 Example
-[[code]]
-	/* ------------------------------------------------------------------------- 
-	* Prints IP address as Dotted Quad (in base 10) twice. 
-	*   @param ipAddr - IP address to print
-	--------------------------------------------------------------------------- */
-	void showIpAsDottedQuad(unsigned int ipAddr) {
- 	   //method 1: shift then mask
- 	   printf("%d.%d.%d.%d \n",
- 	       (ipAddr >> 24) & 0x000000ff,
- 	       (ipAddr >> 16) & 0x000000ff,
- 	       (ipAddr >> 8) & 0x000000ff,
- 	       ipAddr & 0x000000ff
- 	   );
-	
- 	   // method 2: mask then shift
- 	   printf("%d.%d.%d.%d \n",
- 	       (ipAddr & 0xff000000) >> 24,
-		(ipAddr & 0x00ff0000) >> 16,
-	        (ipAddr & 0x0000ff00) >> 8,
-	        ipAddr & 0x000000ff
-	    );
-	}
+	Printing individual bytes of 4 byte number
+	[[code]]
+		/* ----------------------------------------------------
+		* Prints IP address as Dotted Quad (in base 10) twice. 
+		*   @param ipAddr - IP address to print
+		------------------------------------------------------ */
+		void showIpAsDottedQuad(unsigned int ipAddr) {
+	 	   //method 1: shift then mask
+	 	   printf("%d.%d.%d.%d \n",
+		       (ipAddr >> 24) & 0x000000ff,
+	 	       (ipAddr >> 16) & 0x000000ff,
+ 		       (ipAddr >> 8) & 0x000000ff,
+ 		       ipAddr & 0x000000ff
+ 		   );
+		
+ 		   // method 2: mask then shift
+ 		   printf("%d.%d.%d.%d \n",
+ 		       (ipAddr & 0xff000000) >> 24,
+			(ipAddr & 0x00ff0000) >> 16,
+		        (ipAddr & 0x0000ff00) >> 8,
+		        ipAddr & 0x000000ff
+		    );
+		}
 -------------------------------------------
 Example 2
+	Example processing a set of 1 bit flags
 	[[code]]
-	/* ----------------------------------------------------------------------------------
-	* Prints status of each of the 9 engines
-	*   @param engineFlags - 9 Engine Flags in lower 9 bits. 0=OK; 1=failed
-	----------------------------------------------------------------------------------- */
-	void printEngineStatus(unsigned short engineFlags) {
-	 
-	    unsigned short nineFlags = engineFlags & 0x1ff;
+		/* ------------------------------------------------------------------
+		* Prints status of each of the 9 engines
+		*   @param engineFlags - 9 Engine Flags in lower 9 bits. 0=OK; 1=failed
+		---------------------------------------------------------------------- */
+		void printEngineStatus(unsigned short engineFlags) {
+		 
+		    unsigned short nineFlags = engineFlags & 0x1ff;
 		
-	    if ( !(nineFlags) )
-	        printf("All engines are OK\n");
-	    else {
-	        for (int x = 0; x <= 8; x++)
-		    if ((nineFlags >> x) & 0x1)
-	                printf("Engine %d: failed.\n", x);
-	       	    else
-		      	printf("Engine %d: OK\n", x);
-	    }
-	}
+		    if ( !(nineFlags) )
+		        printf("All engines are OK\n");
+		    else {
+		        for (int x = 0; x <= 8; x++)
+			    if ((nineFlags >> x) & 0x1)
+		                printf("Engine %d: failed.\n", x);
+		       	    else
+			      	printf("Engine %d: OK\n", x);
+		    }
+		}
 ----------------------------------------------------
 Example 2, take 2
-[[code]]
-	/* ----------------------------------------------------------------------------------
-	* Prints status of each of the 9 engines
-	*   @param engineFlags - 9 Engine Flags in lower 9 bits. 0=OK; 1=failed
-	----------------------------------------------------------------------------------- */
-	void printEngineStatus(unsigned short engineFlags) {
-	printf("\n");
+	Another take on prevous example (same functionality)
+	[[code]]
+		/* -------------------------------------------------------------------
+		* Prints status of each of the 9 engines
+		*   @param engineFlags - 9 Engine Flags in lower 9 bits. 0=OK; 1=failed
+		---------------------------------------------------------------------- */
+		void printEngineStatus(unsigned short engineFlags) {
+		printf("\n");
 
-	    /* OR */
-	    if (!(nineFlags))
-		printf("All engines are OK\n");
-	    else {
-		for (int x = 0; x <= 8; x++)
-		    printf("Engine %d: %s.\n", x, ((nineFlags >> x) & 0x1)? "failed":"OK");
-	    }
-	}
+		if (!(nineFlags))
+			printf("All engines are OK\n");
+		else {
+			for (int x = 0; x <= 8; x++)
+				printf("Engine %d: %s.\n", x, 
+					((nineFlags >> x) & 0x1)? "failed":"OK");
+		    }
+		}
 -------------------------------------------
 Two's Complement
 	For unsigned numbers, simple binary is used.
