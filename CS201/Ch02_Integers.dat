@@ -156,13 +156,13 @@ Example 2
 			
 			if ( !(nineFlags) )
 			        printf("All engines are OK\n");
-			    else {
-			        for (int x = 0; x <= 8; x++)
-				    if ((nineFlags >> x) & 0x1)
-			                printf("Engine %d: failed.\n", x);
-			       	    else
-				      	printf("Engine %d: OK\n", x);
-		 	   }
+			else {
+				for (int x = 0; x <= 8; x++)
+					if ((nineFlags >> x) & 0x1)
+						printf("Engine %d: failed.\n", x);
+					else
+						printf("Engine %d: OK\n", x);
+			}
 		}
 ----------------------------------------------------
 Example 2, take 2
@@ -180,7 +180,8 @@ Example 2, take 2
 				printf("All engines are OK\n");
 			else {
 				for (int x = 0; x <= 8; x++)
-					printf("Engine %d: %s.\n", x, 
+					printf("Engine %d: %s.\n", 
+						x, 
 						((nineFlags >> x) & 0x1)? "failed":"OK");
 			}
 		}
