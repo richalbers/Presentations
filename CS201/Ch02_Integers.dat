@@ -182,7 +182,8 @@ Example 2, take 2
 				for (int x = 0; x <= 8; x++)
 					printf("Engine %d: %s.\n", 
 						x, 
-						((nineFlags >> x) & 0x1)? "failed":"OK");
+						((nineFlags >> x) & 0x1)? "failed" : "OK"
+					);
 			}
 		}
 -------------------------------------------
