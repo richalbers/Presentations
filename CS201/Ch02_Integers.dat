@@ -121,10 +121,10 @@ Practice
 Example
 	Printing individual bytes of 4 byte number
 	[[code]]
-		/* ----------------------------------------------------
+		/* ***************************************************
 		* Prints IP address as Dotted Quad (in base 10) twice. 
 		*   @param ipAddr - IP address to print
-		------------------------------------------------------ */
+		***************************************************** */ 
 		void showIpAsDottedQuad(unsigned int ipAddr) {
 	 	   //method 1: shift then mask
 	 	   printf("%d.%d.%d.%d \n",
@@ -146,10 +146,10 @@ Example
 Example 2
 	Example processing a set of 1 bit flags
 	[[code]]
-		/* ------------------------------------------------------------------
-		* Prints status of each of the 9 engines
-		*   @param engineFlags - 9 Engine Flags in lower 9 bits. 0=OK; 1=failed
-		---------------------------------------------------------------------- */
+		// ------------------------------------------------------------------
+		// Prints status of each of the 9 engines
+		//   @param engineFlags - 9 Engine Flags in lower 9 bits. 0=OK; 1=failed
+		// ------------------------------------------------------------------
 		void printEngineStatus(unsigned short engineFlags) {
 		 
 		    unsigned short nineFlags = engineFlags & 0x1ff;
@@ -168,10 +168,10 @@ Example 2
 Example 2, take 2
 	Another take on prevous example (same functionality)
 	[[code]]
-		/* -------------------------------------------------------------------
-		* Prints status of each of the 9 engines
-		*   @param engineFlags - 9 Engine Flags in lower 9 bits. 0=OK; 1=failed
-		---------------------------------------------------------------------- */
+		// **********************************************************************
+		// Prints status of each of the 9 engines
+		//   @param engineFlags - 9 Engine Flags in lower 9 bits. 0=OK; 1=failed
+		// **********************************************************************
 		void printEngineStatus(unsigned short engineFlags) {
 		printf("\n");
 
