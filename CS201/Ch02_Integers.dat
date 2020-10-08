@@ -152,18 +152,17 @@ Example 2
 		*                        0=OK; 1=failed
 		******************************************************** 
 		void printEngineStatus(unsigned short engineFlags) {
-		
-		unsigned short nineFlags = engineFlags & 0x1ff;
-		
-		if ( !(nineFlags) )
-		        printf("All engines are OK\n");
-		    else {
-		        for (int x = 0; x <= 8; x++)
-			    if ((nineFlags >> x) & 0x1)
-		                printf("Engine %d: failed.\n", x);
-		       	    else
-			      	printf("Engine %d: OK\n", x);
-		    }
+			unsigned short nineFlags = engineFlags & 0x1ff;
+			
+			if ( !(nineFlags) )
+			        printf("All engines are OK\n");
+			    else {
+			        for (int x = 0; x <= 8; x++)
+				    if ((nineFlags >> x) & 0x1)
+			                printf("Engine %d: failed.\n", x);
+			       	    else
+				      	printf("Engine %d: OK\n", x);
+		 	   }
 		}
 ----------------------------------------------------
 Example 2, take 2
@@ -175,14 +174,15 @@ Example 2, take 2
 		*                        0=OK; 1=failed
 		******************************************************** 
 		void printEngineStatus(unsigned short engineFlags) {
-		
-		if (!(nineFlags))
-			printf("All engines are OK\n");
-		else {
-			for (int x = 0; x <= 8; x++)
-				printf("Engine %d: %s.\n", x, 
-					((nineFlags >> x) & 0x1)? "failed":"OK");
-		    }
+			unsigned short nineFlags = engineFlags & 0x1ff;
+			
+			if (!(nineFlags))
+				printf("All engines are OK\n");
+			else {
+				for (int x = 0; x <= 8; x++)
+					printf("Engine %d: %s.\n", x, 
+						((nineFlags >> x) & 0x1)? "failed":"OK");
+			}
 		}
 -------------------------------------------
 Two's Complement
