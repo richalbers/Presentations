@@ -126,35 +126,36 @@ Example
 		*   @param ipAddr - IP address to print
 		***************************************************** */ 
 		void showIpAsDottedQuad(unsigned int ipAddr) {
-	 	   //method 1: shift then mask
-	 	   printf("%d.%d.%d.%d \n",
-		       (ipAddr >> 24) & 0x000000ff,
-	 	       (ipAddr >> 16) & 0x000000ff,
- 		       (ipAddr >> 8) & 0x000000ff,
- 		       ipAddr & 0x000000ff
- 		   );
+			//method 1: shift then mask
+			printf("%d.%d.%d.%d \n",
+				(ipAddr >> 24) & 0x000000ff,
+				(ipAddr >> 16) & 0x000000ff,
+				(ipAddr >> 8) & 0x000000ff,
+				ipAddr & 0x000000ff
+			);
 		
- 		   // method 2: mask then shift
- 		   printf("%d.%d.%d.%d \n",
- 		       (ipAddr & 0xff000000) >> 24,
-			(ipAddr & 0x00ff0000) >> 16,
-		        (ipAddr & 0x0000ff00) >> 8,
-		        ipAddr & 0x000000ff
-		    );
+			// method 2: mask then shift
+			printf("%d.%d.%d.%d \n",
+				(ipAddr & 0xff000000) >> 24,
+				(ipAddr & 0x00ff0000) >> 16,
+				(ipAddr & 0x0000ff00) >> 8,
+				ipAddr & 0x000000ff
+			);
 		}
 -------------------------------------------
 Example 2
 	Example processing a set of 1 bit flags
 	[[code]]
-		// ------------------------------------------------------------------
-		// Prints status of each of the 9 engines
-		//   @param engineFlags - 9 Engine Flags in lower 9 bits. 0=OK; 1=failed
-		// ------------------------------------------------------------------
+		/* ****************************************************
+		* Prints status of each of the 9 engines
+		*   @param engineFlags - 9 Engine Flags in lower 9 bits.
+		*                        0=OK; 1=failed
+		******************************************************** 
 		void printEngineStatus(unsigned short engineFlags) {
-		 
-		    unsigned short nineFlags = engineFlags & 0x1ff;
 		
-		    if ( !(nineFlags) )
+		unsigned short nineFlags = engineFlags & 0x1ff;
+		
+		if ( !(nineFlags) )
 		        printf("All engines are OK\n");
 		    else {
 		        for (int x = 0; x <= 8; x++)
@@ -168,13 +169,13 @@ Example 2
 Example 2, take 2
 	Another take on prevous example (same functionality)
 	[[code]]
-		// **********************************************************************
-		// Prints status of each of the 9 engines
-		//   @param engineFlags - 9 Engine Flags in lower 9 bits. 0=OK; 1=failed
-		// **********************************************************************
+		/* ****************************************************
+		* Prints status of each of the 9 engines
+		*   @param engineFlags - 9 Engine Flags in lower 9 bits.
+		*                        0=OK; 1=failed
+		******************************************************** 
 		void printEngineStatus(unsigned short engineFlags) {
-		printf("\n");
-
+		
 		if (!(nineFlags))
 			printf("All engines are OK\n");
 		else {
