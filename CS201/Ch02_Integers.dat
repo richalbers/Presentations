@@ -195,7 +195,7 @@ Two's Complement
 		00000001 (binary) = 1 (base 10)
 		11111111 (binary) = -1 (base 10)
 	This system was chosen because it made the electrical circuitry simpler
-	In two's complment
+	In two's complement
 		if the high order bit is 1, it's negative
 		to go between + and -, toggle the bits and add 1
 -------------------------------------------
