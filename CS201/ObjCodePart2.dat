@@ -17,10 +17,15 @@ Overview/Tools
 		what values those registers and memory locations end up with
 	To begin our understanding of assembly we first look at examples that show the assembly along with the C that it was generated from.
 	The following slides show the assembly generated from a variety of different types of C statements/structures.
-		The complete source code is [[here!demo.txt]]
+		The complete source code (demo.c) located on progdev in [[~ralbers/CS201/demo!http://progdev.streetercs.net/CS201Demo/demo.c]]
 		It was compiled as follows
 		[[code]]
-			> gcc -m32 -std=gnu99 -Wall -g demo.c -o demo [[desc -m32 - generate 32 bit executable<br>-std=gnu99 -use ISO 1990 C standard with GNU extensions<br> -g - include debugger info<br>-o demo - name the output file demo]]
+			> gcc -m32 -std=gnu99 -g -Wall demo.c d-o demo [[desc -m32 - generate 32 bit executable<br>-std=gnu99 -use ISO 1990 C standard with GNU extensions<br> -g - include debugger info<br>-o demo - name the output file demo]]
+		But the compiler has sense been updated.  To get similar assembly you now need to add the -no-pie option as follows:
+		[[code]]
+			> gcc -m32 -std=gnu99 -no-pie -g -Wall demo.c -o demo [[desc -m32 - generate 32 bit executable<br>-std=gnu99 -use ISO 1990 C standard with GNU extensions<br> -g - include debugger info<br>-no-pie Don't generate position-independent code<br>-o demo - name the output file demo]]
+		
+		
 		The object code/assembly was generated as follows:
 		[[code]]
 			> objdump -S demo > demo.od [[desc -S - intermix source code with disassembly<br>Send the output to a file named demo.od (object dump)]]
