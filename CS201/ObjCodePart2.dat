@@ -79,7 +79,7 @@ Entering/Leaving Function
 	[[code]]
 		int funcArgs(int p1, int p2) {
 		 804849e:	55                   	push   %ebp	[[desc Saves the current base pointer value, which the calling function is using to reference it's local variables]]
-		 804849f:	89 e5                	mov    %esp,%ebp [[desc saves the current "top-of-stack" as the base pointer for this functions stack frame]]
+		 804849f:	89 e5                	mov    %esp,%ebp [[desc saves the current top-of-stack as the base pointer for this functions stack frame]]
 		 80484a1:	83 ec 10             	sub    $0x10,%esp [[desc gives us some working space at the top of the stack for our local variables]]
 			int x=0;
 		 80484a4:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp) [[desc x will be at ebp-8, this sets the value of x]]
