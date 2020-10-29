@@ -393,14 +393,14 @@ switch obj code
 	 ? (no case 0), 80483fd (case 1), 8048406 case 2), etc..
 	
 -------------------------------------------
-Arrays
+Arrays & Canaries
 	Array locations are accessed as offsets from the beginning of the array.
 	Out-of-bounds index values allow code to change data anywhere on the stack
 		This allows the code to overwire the return address that was put on the stack
-		This provides the opportunity for malicous code to be run 
+		This provides the opportunity for malicious code to be run 
 			gcc tries to detect this using a canary.  
 				A canary is a value placed on the stack before the array (between the array and return address)
-				Before the function returns, it then verfies the canary value hasn't changed.
+				Before the function returns, it then verifies the canary value hasn't changed.
 	The following c code's assembly is shown on the next page
 	[[code]]
 		int function1() {
