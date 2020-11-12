@@ -46,16 +46,21 @@ Pipelining
 		Memory Access
 		WriteBack
 	A different part of the CPU is used for each of these steps, so the processor can be working a 5 different instructions at the same time, as shown in the diagram to the right
-	[[Process is described in detail on wikipedia|https://en.wikipedia.org/wiki/Instruction_pipelining]]
+	[[|https://en.wikipedia.org/wiki/Instruction_pipelining|Process is described in detail on wikipedia]]
 -----------------------------------------------------------------------
 CISC RISC Comparison
-	[[img CISC_RISC_Comparison.JPG]]
+[[img RISC_CISC_Comparison.JPG]]
 -----------------------------------------------------------------------
 The winner is?
 	CISC v RISC is largely a historical debate, modern processors are, at their core, all RISC.  
 	Ever since the Pentium Pro (1995), the CISC instruction sets (x86-64) is translated to RISC microcode (MicroOps) on chip prior to execution, so they can be pipelined
 	So the assembly provides a "CISC interface" to a RISC architecture.
 		This allowed for backwards compatibility
-
-Superscaler Processor, out-of-order execution, speculative execution
-https://en.wikipedia.org/wiki/Superscalar_processor
+------------------------------------------------------------------------
+Misc
+	[[https://en.wikipedia.org/wiki/Superscalar_processor|Superscaler Processor]]
+	out-of-order execution
+	speculative execution
+	Multiple cores
+	Memory Cache
+	https://en.wikipedia.org/wiki/Superscalar_processor
