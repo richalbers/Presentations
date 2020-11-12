@@ -1,0 +1,61 @@
+Ch04 - CPU Architecture
+--------------------------------------------------------------------
+Intel architectures:
+	IA32 - 32 Bit Intel Architecture 
+		more commonly known as x86 
+	IA64 - 64 Bit Intel Architecture
+		Itanium architecture
+		Probably better, but incompatible with x86.
+		Used in some servers. 
+		Discontinued in 2019.
+	X64 - 64 bit extension to IA32 (x86)
+		The 64 bit architecture used by most 64 bit Intel chips
+		Created by AMD, adopted by Intel.
+		Backwards compatible with x86 (the winning strategy)
+---------------------------------------------------------------------
+CISC & RISC
+General Differences:
+	CISC - Complex Instruction Set Computer
+		A single Instruction can encompass multiple low-level operations
+		Has a large number of instructions and addressing modes
+		Most Notable Example: 
+			Intel x86 processors used in desktops/servers
+	RISC - Reduced Instruction Set Computer
+		Smaller, simpler instructions
+		Most notable example: 
+			ARM processors used in smartphones
+-----------------------------------------------------------------------
+CISC
+	Feature-rich assembly language with lots of addressing modes
+	One line of assembly might, for example, load two values from memory, multiply them, and store the result
+	So you end up with fewer lines of assembly to accomplish a task
+	But complex instructions take longer (more clock cycles) than simple instructions
+-----------------------------------------------------------------------
+RISC
+	Composed of simple instructions
+	It would require 4 lines of assembly to load two values from memory, multiply them, and store the result
+	But all instructions take the same amount of time so they can be pipelined efficiently
+	Also early RISC chips were able to run at higher clock speeds then CISC chips
+-----------------------------------------------------------------------
+Pipelining
+	Pipelining involves executing multiple sequential instructions at the same time [[img RISC_Pipeline.PNG]]
+	For example: a classic RISC instruction involves a few steps
+		Fetch
+		Decode
+		Execute
+		Memory Access
+		WriteBack
+	A different part of the CPU is used for each of these steps, so the processor can be working a 5 different instructions at the same time, as shown in the diagram to the right
+	[[Process is described in detail on wikipedia|https://en.wikipedia.org/wiki/Instruction_pipelining]]
+-----------------------------------------------------------------------
+CISC RISC Comparison
+	[[img CISC_RISC_Comparison.JPG]]
+-----------------------------------------------------------------------
+The winner is?
+	CISC v RISC is largely a historical debate, modern processors are, at their core, all RISC.  
+	Ever since the Pentium Pro (1995), the CISC instruction sets (x86-64) is translated to RISC microcode (MicroOps) on chip prior to execution, so they can be pipelined
+	So the assembly provides a "CISC interface" to a RISC architecture.
+		This allowed for backwards compatibility
+
+Superscaler Processor, out-of-order execution, speculative execution
+https://en.wikipedia.org/wiki/Superscalar_processor
