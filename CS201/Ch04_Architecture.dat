@@ -58,9 +58,11 @@ The winner is?
 		This allowed for backwards compatibility
 ------------------------------------------------------------------------
 Misc
+	[[https://en.wikipedia.org/wiki/Execution_unit|Functional Units]]	[[img CoreLayout.PNG]]
+	[[https://en.wikipedia.org/wiki/Superscalar_processor|Superscaler Processor]] 
+	[[https://en.wikipedia.org/wiki/Out-of-order_executionout-of-order execution]]
+	[[speculative execution|https://en.wikipedia.org/wiki/Speculative_execution]] [[img I7_Layout.PNG]]
 	[[https://en.wikipedia.org/wiki/Superscalar_processor|Superscaler Processor]]
-	out-of-order execution
-	speculative execution
-	Multiple cores
-	Memory Cache
-	https://en.wikipedia.org/wiki/Superscalar_processor
+	Multiple cores & memory cache
+		Top Picuture - an example of what's in one core
+		2nd Picture - an Intel i7 chip layout
