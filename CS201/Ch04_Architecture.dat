@@ -1,6 +1,10 @@
 Ch04 - CPU Architecture
+	Intel Architectures
+	CISC & RISC
+	Pipelining
+	Other features of modern Processors
 --------------------------------------------------------------------
-Intel architectures
+Intel Architectures
 	IA32 - 32 Bit Intel Architecture 
 		more commonly known as x86 
 	IA64 - 64 Bit Intel Architecture
