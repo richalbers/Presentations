@@ -12,13 +12,12 @@ Intel Architectures
 		Probably better, but incompatible with x86.
 		Used in some servers. 
 		Discontinued in 2019.
-	X64 - 64 bit extension to IA32 (x86)
+	x64 - 64 bit extension to IA32 (x86)
 		The 64 bit architecture used by most 64 bit Intel chips
 		Created by AMD, adopted by Intel.
 		Backwards compatible with x86 
 ---------------------------------------------------------------------
 CISC & RISC
-General Differences:
 	CISC - Complex Instruction Set Computer
 		Has many, sometimes complex, instructions
 			A single Instruction can encompass multiple low-level operations
@@ -65,9 +64,9 @@ The winner is?
 ------------------------------------------------------------------------
 Other features of modern CPUs
 	[[Functional Units!https://en.wikipedia.org/wiki/Execution_unit]]	
-	[[Out of order execution!https://en.wikipedia.org/wiki/Out-of-order_executionout-of-order execution]]
+	[[Out of order execution!https://en.wikipedia.org/wiki/Out-of-order_execution]]
 	[[speculative execution!https://en.wikipedia.org/wiki/Speculative_execution]] [[img CoreLayout.PNG]]
-	[[Superscaler Processor!https://en.wikipedia.org/wiki/Superscalar_processor|Superscaler Processor]]
+	[[Superscaler Processor!https://en.wikipedia.org/wiki/Superscalar_processor]]
 	Multiple cores & memory cache [[img I7_Layout.PNG]]
 		Top Picuture - an example of what's in one core
 		2nd Picture - an Intel i7 chip layout
