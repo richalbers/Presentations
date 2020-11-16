@@ -29,9 +29,9 @@ Programmer optimizations
 		Do inline substitution (manually or with inline keyword) 
 	Loop Unrolling
 		reduce number of iterations in loop by increasing number of elements processed on each iteration 
-		demonstrated in [[optimize.c!http://progdev.streetercs.net/CS201Demo/perftest.c]]
+		demonstrated in [[optimize.c!http://progdev.streetercs.net/CS201Demo/optimize.c]]
 	Multiple Accumulators
-		demonstrated in [[optimize.c!http://progdev.streetercs.net/CS201Demo/perftest.c]]
+		demonstrated in [[optimize.c!http://progdev.streetercs.net/CS201Demo/optimize.c]]
 -----------------------------------------------------------------------
 Premature Optimization
 	From [[wikipedia!https://en.wikipedia.org/wiki/Program_optimization]]
