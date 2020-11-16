@@ -34,9 +34,9 @@ Programmer optimizations
 		demonstrated in [[optimize.c!http://progdev.streetercs.net/CS201Demo/perftest.c]]
 -----------------------------------------------------------------------
 Premature Optimization
+	From [[wikipedia!https://en.wikipedia.org/wiki/Program_optimization]]
 	"Premature optimization" is a phrase used to describe a situation where a programmer lets performance considerations affect the design of a piece of code. This can result in a design that is not as clean as it could have been or code that is incorrect, because the code is complicated by the optimization and the programmer is distracted by optimizing  .
 	When deciding whether to optimize a specific part of the program, Amdahl's Law should always be considered: the impact on the overall program depends very much on how much time is actually spent in that specific part, which is not always clear from looking at the code without a performance analysis.
-	From [[wikipedia!https://en.wikipedia.org/wiki/Program_optimization]]
 -----------------------------------------------------------------------
 The best approach
 	A better approach
@@ -47,5 +47,5 @@ The best approach
 -----------------------------------------------------------------------
 Words of Wisdom
 	Donald Knuth made the following two statements on optimization:
-		We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. 
+		We should forget about small inefficiencies, say about 97% of the time: premature optimization is the root of all evil. 
 		Yet we should not pass up our opportunities in that critical 3%
