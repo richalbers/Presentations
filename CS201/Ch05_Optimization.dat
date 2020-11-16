@@ -16,12 +16,12 @@ Performance Testing
 		Command: gprof
 		Shows:
 			How much time was spent in each function of your program
-			Using it is a [[!multistep process!https://docs.google.com/document/d/1XFASP4cVYvABV-lJNgyNtX6T8duB8SXAHNjdIYf340g/edit?usp=sharing]]
+			Using it is a [[multistep process!https://docs.google.com/document/d/1XFASP4cVYvABV-lJNgyNtX6T8duB8SXAHNjdIYf340g/edit?usp=sharing]]
 -----------------------------------------------------------------------		
 Compiler optimizations
 	Typically very good
 	Gcc has numerous optimization levels
-		Go to [[the man page for gcc!https://linux.die.net/man/1/gcc!]], search for Optimization or O2
+		Go to [[the man page for gcc!https://linux.die.net/man/1/gcc]], search for Optimization or O2
 -----------------------------------------------------------------------
 Programmer optimizations 
 	Reduce functions calls 
