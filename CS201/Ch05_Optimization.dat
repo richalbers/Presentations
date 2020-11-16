@@ -6,10 +6,17 @@ Ch05 - Optimization
 	Best Practices
 -----------------------------------------------------------------------
 Performance Testing
-	Timing (how long does it take to run)
-		time command
+	Timing (time spent on the process)
+		Command: time
+		Shows:
+			real - total time from start to finish
+			user - CPU time in user mode
+			sys  - CPU time in kernel mode
 	Profiling (where is the time spent)
-		gprof
+		Command: gprof
+		Shows:
+			How much time was spent in each function of your program
+			Using it is a [[!multistep process!https://docs.google.com/document/d/1XFASP4cVYvABV-lJNgyNtX6T8duB8SXAHNjdIYf340g/edit?usp=sharing]]
 -----------------------------------------------------------------------		
 Compiler optimizations
 	Typically very good
@@ -18,7 +25,6 @@ Compiler optimizations
 -----------------------------------------------------------------------
 Programmer optimizations 
 	Reduce functions calls (inline substitution) 
-		demonstrated in [[perftest.c!http://progdev.streetercs.net/CS201Demo/perftest.c]]
 	Multiple Accumulators
 		demonstrated in [[optimize.c!http://progdev.streetercs.net/CS201Demo/perftest.c]]
 	Loop Unrolling (reduce iterations in loop) 
