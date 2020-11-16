@@ -24,10 +24,13 @@ Compiler optimizations
 		Go to [[the man page for gcc!https://linux.die.net/man/1/gcc!]], search for Optimization or O2
 -----------------------------------------------------------------------
 Programmer optimizations 
-	Reduce functions calls (inline substitution) 
-	Multiple Accumulators
+	Reduce functions calls 
+		Make function call outside of loop if possible
+		Do inline substitution (manually or with inline keyword) 
+	Loop Unrolling
+		reduce number of iterations in loop by increasing number of elements processed on each iteration 
 		demonstrated in [[optimize.c!http://progdev.streetercs.net/CS201Demo/perftest.c]]
-	Loop Unrolling (reduce iterations in loop) 
+	Multiple Accumulators
 		demonstrated in [[optimize.c!http://progdev.streetercs.net/CS201Demo/perftest.c]]
 -----------------------------------------------------------------------
 Premature Optimization
