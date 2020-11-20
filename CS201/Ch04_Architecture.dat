@@ -37,7 +37,7 @@ CISC
 	And not all instructions take the same amount of time to execute
 -----------------------------------------------------------------------
 RISC
-	A smaller set of simple rinstructions
+	A smaller set of simpler instructions
 	It would require 4 lines of assembly to load two values from memory, multiply them, and store the result
 	But all instructions take the same amount of time so they can be pipelined efficiently
 	Also early RISC chips were able to run at higher clock speeds then CISC chips
@@ -68,5 +68,5 @@ Other features of modern CPUs
 	[[speculative execution!https://en.wikipedia.org/wiki/Speculative_execution]] [[img CoreLayout.PNG]]
 	[[Superscaler Processor!https://en.wikipedia.org/wiki/Superscalar_processor]]
 	Multiple cores & memory cache [[img I7_Layout.PNG]]
-		Top Picuture - an example of what's in one core
+		Top Picture - an example of what's in one core
 		2nd Picture - an Intel i7 chip layout
