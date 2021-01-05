@@ -63,7 +63,7 @@ Static Functions
 		};	
 			
 		void Fraction::setAutoReduce(bool autoReduce) {
-			this->autoReduce = autoReduce;
+			Fraction::autoReduce = autoReduce;
 		}
 	Static functions CANNOT access any instance variables
 	non-static (instance) functions can access all member variables
