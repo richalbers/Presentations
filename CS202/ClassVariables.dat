@@ -32,7 +32,7 @@ Instance Variables
 
 --------------------------------------------------------------------
 Class Variables
-	A class (or static) variable 
+	A class (or static) variable [[img images/InstanceVsClassVariable.PNG]]
 		is declared with the static keyword
 		exists outside any instance of the class 
 		is shared among all instances
