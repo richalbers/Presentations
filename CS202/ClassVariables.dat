@@ -1,4 +1,4 @@
-Static Class Members
+Class vs Instance variables
 	At the end of this presentation, you should be able to
 		describe what a class variable is
 		distinguish between instance and class variables
@@ -61,7 +61,7 @@ Static Functions
 		public:
 			static void setAutoReduce(bool autoReduce);
 		};	
-
+			
 		void Fraction::setAutoReduce(bool autoReduce) {
 			this->autoReduce = autoReduce;
 		}
