@@ -41,7 +41,7 @@ Practice
 		SFML is a Simple and Fast Multimedia Library for game development
 	Download the SFML game engine 
 		Do a Google search for SFML (or click the link above)
-		Select the version the instructor suggests (2.3.2 is what's currently installed)
+		Select the version the instructor suggests (2.5.1 is what's currently installed)
 		Choose the one for building 32 bit Windows applications
 	Look at the download file to see what it contains
 		Note: SFML is open-source so in addition to the include files, libraries, and documentation, you can get all the source files used to build the libraries if you wanted to.		
@@ -53,7 +53,7 @@ Installing SFML
 	According to [[the SFML Visual Studio instructions!http://www.sfml-dev.org/tutorials/2.3/start-vc.php]]
 		"You can then unpack the SFML archive wherever you like. Copying headers and libraries to your installation of Visual Studio is not recommended, it's better to keep libraries in their own separate location, especially if you intend to use several versions of the same library, or several compilers"
 	For the classroom computers
-		The entire package was unpacked into C:\SFML-2.3.2
+		The entire package was unpacked into C:\SFML-2.5.1
 		The DLLs were put into C:\Windows\SysWOW64
 			DLLs are discussed next
 ---------------------------------------------
@@ -82,7 +82,7 @@ Dynamically Linked Library Location
 -------------------------------------------
 SFML Project Configuration
 	To use SFML in your project, you'll need to configure a project as described here:
-		[[http://www.sfml-dev.org/tutorials/2.3/start-vc.php!http://www.sfml-dev.org/tutorials/2.3/start-vc.php]]
+		[[http://www.sfml-dev.org/tutorials/2.5/start-vc.php!http://www.sfml-dev.org/tutorials/2.5/start-vc.php]]
 		We'll do that in the following practice session
 	Notes:
 		In the example at the link above:
@@ -96,20 +96,20 @@ SFML Project Configuration
 Practice
 	If you haven't already done so, verify the location of the SFML header files and .dlls. 
 		On the classroom computers:
-			header files are in C:\SFML-2.3.2\include
+			header files are in C:\SFML-2.5.1\include
 			copies of the .dlls are in C:\Windows\SysWOW64
 				Go there and look for files beginning with "sfml-"
 -------------------------------------------
 Practice
 	Now we'll configure an SFML project step by step and see the results of each step.
 		Step 1: Create a console project
-		Step 2: Cut and paste the example code from the end of [[SFML Visual Studio Page!http://www.sfml-dev.org/tutorials/2.3/start-vc.php]] 
+		Step 2: Cut and paste the example code from the end of [[SFML Visual Studio Page!http://www.sfml-dev.org/tutorials/2.5/start-vc.php]] 
 			Note that a lot text turns red, including the #include file. That's because it can't find the include file, which defines a bunch of stuff the code uses (all the stuff that's red!).
-		Step 3: Update the project configuration with the location of the include files, as shown near the top of [[SFML VS Page!http://www.sfml-dev.org/tutorials/2.3/start-vc.php]]. 
+		Step 3: Update the project configuration with the location of the include files, as shown near the top of [[SFML VS Page!http://www.sfml-dev.org/tutorials/2.5/start-vc.php]]. 
 			Note: Your path may be a bit different; it references D:, you'll most likely be using C:
 		Step 4: After you've properly configured the include directory setting (text will no long be red), try compiling.  
 			Note that you now get linker errors.  That's becuase it can't find the libraries that implemented all items (classes, functions, etc..) in the include files.
-		Step 5: Update the project configuration with the location and list of libraries as shown near the top of [[SFML VS Page!http://www.sfml-dev.org/tutorials/2.3/start-vc.php]]. 
+		Step 5: Update the project configuration with the location and list of libraries as shown near the top of [[SFML VS Page!http://www.sfml-dev.org/tutorials/2.5/start-vc.php]]. 
 			BUT COMMA DELIMIT the library list! (the instructions have them space delimited), And don't delete the libraries already in the list!
 			Your code should now compile and link.
 		Step 6: If you now get a "missing dll" error, make sure the SFML .dlls are in the SysWOW64 folder
