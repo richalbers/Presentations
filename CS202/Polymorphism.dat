@@ -6,7 +6,7 @@ Terms/concepts
 	Dynamic binding 
 		also called late or run-time binding
 		Used when we don't know what function will be called until run time.
-		Implmented using virtual keyword
+		Implemented using virtual keyword
 	Polymorphism (greek for "many forms")
 		Using common interface to access different functions 
 		Typically means "member function overriding"
