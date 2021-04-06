@@ -54,6 +54,6 @@ I/O Mode
 Practice
 	Modify the original program 
 		if it appended by default, add a parameter to the open statement so it overwrites
-		if it overwrote by default, add a parameter to the open statement to it appends
+		if it overwrote by default, add a parameter to the open statement so it appends
 
 ------------------------------------------
