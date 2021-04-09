@@ -23,7 +23,7 @@ Cmd Location
 		The shell itself (a built-in command)
 			There are very few of these
 		Directories listed in your PATH.
-			This is an evironment variable that contains a : delimited list of directories
+			This is an environment variable that contains a : delimited list of directories
 			To see your PATH type:	
 			[[code]]
 				echo $PATH
@@ -78,7 +78,7 @@ man misc
 		If there's another man page of the same name in another section it will be listed
 		G takes you to the bottom of the man page (less is used to read man pages)
 	Other man-page-related commands
-		whatis - proides you a one-line description of what a command does 	
+		whatis - provides you a one-line description of what a command does 	
 		[[code]]
 			whatis ls
 		apropos - provides you a list of commands related to a search term
@@ -93,7 +93,6 @@ Practice
 	Find all the man pages that have something to do with pid (stands for process id)
 		Which are function calls?  Comamnds?  File formats?
 		What function would be used inside a c/c++ program to get the process's processes id?
-	Figure out if it's possible to add user's real name to their entry in the passwd file, and if so, what command (including arguments) needs to be run.
 --------------------------------------------------------------------
 alias
 	Aliases are simply new names for existing commands
