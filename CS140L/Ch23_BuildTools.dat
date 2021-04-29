@@ -91,7 +91,7 @@ Simple makefile
 		
 		PROG = hello
 		CC = g++
-		FLAGS -Wall 
+		FLAGS = -Wall 
 		
 		hello: hello.cpp
 			$(CC) $(FLAGS) -o $(PROG) hello.cpp
