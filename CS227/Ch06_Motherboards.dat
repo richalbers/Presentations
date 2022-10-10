@@ -33,16 +33,11 @@ Components on Motherboard
 
 -----------------------------------
 Chipset Evolution
-	Chipsets used to consist of two primary chips, Northbridge and Southbridge
-		Northbridge 									
-			Originally was mostly a memory controller	[[img https://www.targetpc.com/hardware/motherboards/dfiwt70/850_block_diagram.gif]]
-			Then high speed I/O was added to it			[[img https://images.anandtech.com/reviews/cpu/intel/SNBE/X79_blockdiagram.jpg]]
-			Then memory controller was moved to CPU		[[img https://www.techpowerup.com/review/intel-core-i7-10700k/images/arch6.jpg]]
-		Southbridge
-			Low speed I/O hub
-			Originally connected to northbridge
-			Now directly connected to CPU (because northbridge is gone!)
-				And now sometimes called the northbridge...
+	Chipsets used to consist of two primary chips
+		Northbridge originally handled RAM						[[img https://www.targetpc.com/hardware/motherboards/dfiwt70/850_block_diagram.gif]]
+		Southbridge handled expansion devices	[[img https://images.hothardware.com/static/articleimages/Item845/p965_block.png]]
+	and a Super I/O chip for legacy devices			[[img https://images.anandtech.com/reviews/cpu/intel/SNBE/X79_blockdiagram.jpg]]
+	CPU now handles a lot of what the chipset used to		[[img https://www.techpowerup.com/review/intel-core-i7-10700k/images/arch6.jpg]]
 	Block diagrams on the right show the evolution of the chipsets
 		Intel
 			Pentium 4
@@ -65,7 +60,7 @@ Expansion Busses/Slots
 			Utilizes from 1 to 32 "lanes"
 ---------------------------------------
 Expansion Busses/Slots Continued
-	Obsolete 		[[img http://www.csepedia.com/Images/Peripherals/AGP_PCA_ISA.jpg]]
+	Obsolete 		[[img https://3c6809fb-a-62cb3a1a-s-sites.googlegroups.com/site/joyceassignment2/question-2-b/expansionslot.jpg?attachauth=ANoY7cokM-h4m1c97hGb5THtPdnryXO2yXG9h1jKqkxbFm1QXBwrXsqPjeyrIMcdzMnPP7pa_Zafj7TnSu7W4zOGM1uRkkwEnqquYeYnCxoIjqjLkrAH8OB6QqRw4HL6OP4SYSBOhdTVubEYrHaC3bdTLswft2s15yr0M9rNn4G_vsLuGu8NAOvLHffaCEsGtBf-af3Q8tEH9FX7nDkApqyWkbGyOoXJ6HWpmp1dGUBiRP_9LAQXnZM%3D&attredirects=0]]
 		ISA - Industry Standard Architecture
 			Original expansion slot.  
 		AGP - Accelerated Graphics port
