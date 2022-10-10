@@ -1,5 +1,5 @@
 -----------------------------------
-Ch 6 - BIOS and CMOS
+Ch 5 - Firmware
 	Components on Motherboard
 	Terms: Hardware/Software/Firmware
 	BIOS
@@ -20,13 +20,14 @@ Hardware/Software /Firmware
 	Hardware - Stuff you can touch
 	Software - 
 		Instructions for processor
-		Typically stored in volatile memory
+		Typically stored on disk, loaded into RAM to run
 		Usually high-level, fairly large 
 	Firmware
-		Very low-level code
-		Simple programs stored in less-volatile media
-		Often ROM or EEPROM
-
+		Code stored on hardware (such as the motherboard)
+		Typpically stored in ROM or EEPROM 
+			ROM - Read Only Memory
+			EEPROM - Electronically Erasable, Programmable ROM
+		
 ---------------------------------------
 BIOS
 	Stores 
@@ -52,8 +53,7 @@ EFI/UEFI
 	[[Wikipedia has lots more info if you're interested!http://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface]]
 -----------------------------------
 CMOS
-	Often on Southbridge
-	Stores configuration settings 
+	Stores hardware configuration settings 
 	Modified via CMOS Setup
 	Volatile - requires power to remember
 		That's why there's a battery on the motherboard
@@ -72,7 +72,6 @@ Misc
 	POST - Power on Self Test
 	Beep Codes
 		Communicate info during POST before video is ready
-
 	Drivers
 		Software OS uses to communicate with hardware
 
