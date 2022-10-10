@@ -1,5 +1,5 @@
 -----------------------------------
-Ch 7 - Motherboards
+Ch 6 - Motherboards
 	Form Factor 				[[img http://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/386_Baby_AT_motherboard_view.jpg/800px-386_Baby_AT_motherboard_view.jpg]]
 	Components on Motherboard  	
 	Chipset Evolution 			[[img http://www.ixbt.com/mainboard/gigabyte/ma790xt-ud4p/board.jpg]]
@@ -23,31 +23,32 @@ Form Factor
 	[[Wikipedia page has lots more great info!http://en.wikipedia.org/wiki/Computer_form_factor]]	
 -----------------------------------
 Components on Motherboard
-	BIOS/CMOS			[[img http://static.ddmcdn.com/gif/motherboard-callouts.jpg]]
+	BIOS/EUFI & CMOS			
 	Processor Socket
 	Chipset
-		Northbridge/Southbridge
-	Memory Slots 	[[img http://www.computer-hardware-explained.com/images/motherboard-labelled5.jpg]]
+	Memory Slots 
 	Disk Drive Connectors (SATA/PATA)
 	Expansion Busses/Slots
-	Integrated components
+	Integrated components 
 
 -----------------------------------
 Chipset Evolution
-	Northbridge 									[[img http://media.bestofmicro.com/K/S/116092/original/P35_Block_Diagram.jpg]]
-		Originally was mostly a memory controller	[[img http://techreport.com/r.x/core-i7/system-block-diagram.gif]]
-		Then high speed I/O was added to it			[[img http://zapp5.staticworld.net/images/article/2011/11/x79_blockdiagram-5236050.jpg]]
-		Then memory controller was moved to CPU		[[img http://techreport.com/r.x/llano-mobos/block.jpg]]
-	Southbridge
-		Low speed I/O hub
-		Originally connected to northbridge
-		Now directly connected to CPU (because northbridge is gone!)
-			And now sometimes called the northbridge...
+	Chipsets used to consist of two primary chips, Northbridge and Southbridge
+		Northbridge 									
+			Originally was mostly a memory controller	[[img https://www.targetpc.com/hardware/motherboards/dfiwt70/850_block_diagram.gif]]
+			Then high speed I/O was added to it			[[img https://images.anandtech.com/reviews/cpu/intel/SNBE/X79_blockdiagram.jpg]]
+			Then memory controller was moved to CPU		[[img https://www.techpowerup.com/review/intel-core-i7-10700k/images/arch6.jpg]]
+		Southbridge
+			Low speed I/O hub
+			Originally connected to northbridge
+			Now directly connected to CPU (because northbridge is gone!)
+				And now sometimes called the northbridge...
 	Block diagrams on the right show the evolution of the chipsets
 		Intel
+			Pentium 4
 			Core 2
-			First Generation i7
-			Second Generation i7
+			2nd  Generation i7
+			10th Generation i7
 		AMD
 			APU (Accelerated Processing Unit)
 				APUs a marketing term for a combined CPU/GPU 
