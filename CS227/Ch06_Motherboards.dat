@@ -11,7 +11,7 @@ Form Factor
 		the size of the motherboard
 		general location of components and ports
 	Form Factors 	
-		Obsolete		[[img http://library.thinkquest.org/C0115420/Cyber-club%20800x600/Gif/pics/PC%20Tech%20Guide/MB%20NLX.gif]]
+		Obsolete		
 			AT - The Original!
 			LPX & NLX - slimline
 			BTX - designed to address P4 heat issues, but was shortlived
@@ -34,13 +34,12 @@ Components on Motherboard
 -----------------------------------
 Chipset Evolution
 	Chipsets used to consist of two primary chips
-		Northbridge originally handled RAM						[[img https://www.targetpc.com/hardware/motherboards/dfiwt70/850_block_diagram.gif]]
+		Northbridge originally handled RAM						
 		Southbridge handled expansion devices	[[img https://images.hothardware.com/static/articleimages/Item845/p965_block.png]]
 	and a Super I/O chip for legacy devices			[[img https://images.anandtech.com/reviews/cpu/intel/SNBE/X79_blockdiagram.jpg]]
 	CPU now handles a lot of what the chipset used to		[[img https://www.techpowerup.com/review/intel-core-i7-10700k/images/arch6.jpg]]
 	Block diagrams on the right show the evolution of the chipsets
 		Intel
-			Pentium 4
 			Core 2
 			2nd  Generation i7
 			10th Generation i7
