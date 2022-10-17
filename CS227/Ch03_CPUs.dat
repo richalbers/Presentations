@@ -60,7 +60,7 @@ CPU Sockets
 			Pins are on processor
 			Small lever causes socket to grip pins
 				ZIF - zero insertion force
-		LGA - land grid array [[img http://www.pcstats.com/articleimages/200801/LGA775install_a3a.jpg]]
+		LGA - land grid array [[img https://upload.wikimedia.org/wikipedia/en/d/db/LGA1200_Socket.jpg]]
 			Pins are on socket (processor has lands)
 			Allows higher density of pins
 			Utilizes Surface plate to distribute force
