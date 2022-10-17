@@ -1,5 +1,5 @@
 --------------------------------
-Ch 4 - Microprocessors (CPUs)
+Ch 3 - CPUs
 	Overview
 	Core Components
 	Items Affecting Performance
@@ -35,10 +35,10 @@ CPU Components
 -----------------------------------
 Clock Speed
 	The CPU executes instructions according to a clock
-	The clock signal is by a quartz osciallator on the MB [[img http://common.ziffdavisinternet.com/encyclopedia_images/CLOCK.GIF]]
+	The clock signal is by a quartz osciallator on the MB [[img https://www.computerhope.com/cdn/crystal.jpg]]
 	This signal is then increased to the CPU's maximum speed via a multiplier
 		This allows a Motherboard to support CPUs of various speeds
-	The multipiler is set via factory/CMOS/Jumpers
+	The multipiler is set via factory/CMOS/Jumpers/CPU
 ------------------------------------
 Speeds
 	1 Hz - one cycle per second
@@ -70,43 +70,43 @@ Intel Desktop CPUs
 		Core i7, i5, i3 [[img http://www.guru3d.com/miraserver/images/2009/corei5/IMG_9021.jpg]]
 		Core 2 duo
 		Pentium/Celeron
-	Sockets (partial list) [[img http://cdn.makeuseof.com/wp-content/uploads/2013/01/computersocket2.jpg?c28e1e]]
-		LGA 2011
-		LGA 1366
-		LGA 1156
-		LGA 1155
-		LGA 775
-		PGA 478	
+	Sockets (partial list) 
+		LGA 2066
+		LGA 1700
+		LGA 1200
+		LGA 1151
+		and many others (with both fewer and more pins)
 ---------------------------------------
 AMD Desktop CPUs
 	Product Lines	[[img http://hothardware.com/articleimages/Item1307/amd-phenom-ii-x4-955.jpg]]
+		Ryzen 3,5,7,9,Threadripper
 		FX
-		Phenom II 
 		A-Series
 		Phenom
 		Athlon X2, X3, X4
-	Sockets (All PGA) [[img http://images.highspeedbackbone.net/skuimages/large/A79-1045_chiclet01_aa_1724262.jpg]]
-		FM2
-		FM1
+		and others
+	Sockets (All PGA) [[img https://i.pcmag.com/imagery/reviews/03rEdEqzjUQgOTwlFpvmL1T-15..v1569469959.jpg]]
+		AM5
+		AM4
 		AM3+
 		AM3
 		AM2
-		939
+		FM2
+		and many others (with both fewer more sockets)
 -----------------------------------
 Other CPUs
 	Mobile (Only) [[img http://www.blogcdn.com/www.engadget.com/media/2012/02/intel-rosepoint.jpg]]
-		Atom
 		Mobile versions of many of the desktop chips.  They generally run slower/cooler.
-	Server [[img http://starmicroinc.net/images/xeon.jpg]]
+	Server [[img https://6lli539m39y3hpkelqsm3c2fg-wpengine.netdna-ssl.com/wp-content/uploads/2021/04/Intel-Ice-Lake-3rd-Gen-Xeon-CPU-front-back-300x275.png]]
 		Intel Xeon/Itanium
 		AMD Opteron
 --------------------------------------
 Cooling
-	CPUs generate a lot of heat, which must be transferred away from the CPU [[img http://img.tomshardware.com/us/2008/03/03/cpu_cooler_charts_2008/cpu_cooler_charts_2008_part_iii___e6300_e6400_box.jpg]]
+	CPUs generate a lot of heat, which must be transferred away from the CPU [[img https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/AMD_heatsink_and_fan.jpg/1200px-AMD_heatsink_and_fan.jpg]]
 	Common techniques
 		Heat Sink and Fan - cheap and easy
-		Liquid Cooling - more effective but expensive and more complex [[img http://content.hwigroup.net/images/products/xl/116639/larkooler_ku3241_cpu_liquid_cooling_kit_g14.jpg]]
-	Thermal Compound/Paste/Grease must be put between CPU and Heat Sink [[img http://images.xs-pc.com/product_images/large/ARTS5-02.jpg]]
+		Liquid Cooling - more effective but expensive and more complex [[img https://cdn.coolermaster.com/media/assets/1003/hyper-212-evo-v2-380x380-2-hover.png]]
+	Thermal Compound/Paste/Grease must be put between CPU and Heat Sink 
 		Don't use too much... or too little
 	Heat sink must be installed flat against CPU
 	Modern CPUs generally shut down before they overheat and burn themselves up
@@ -116,17 +116,15 @@ Misc
 	Throttling
 	Turbo
 	64-bit processing
-	Connection between CPU and RAM
-		Frontside Bus / Backside Bus
-		QPI - Quick Path Interconnect
 	Overclocking
+	virtualization support
 	Retail vs OEM (Original Equipment Manufacturer)
 	[[CPUz!http://download.cnet.com/cpu-z-64-bit/3028-2086_4-75173045.html?c=SEM&s=fivemill&pid=dlcom_sem&aid=free%20cpu%20z%2064%20bit-&dlc=n&part=fivemill]]
 --------------------------------------
 Installation
 	Videos (all need sound - watch at home!)
-		[[Replacing PGA CPU!http://www.youtube.com/watch?v=vLVHFaokdgA]] (5:24)
-		[[Installing LGA CPU!http://www.youtube.com/watch?v=CifChFeIBR4]] (1:20)
+		[[Replacing PGA CPU!https://www.youtube.com/watch?v=MEHdOPRD0UQ]] (5:41)
+		[[Installing LGA CPU!https://www.youtube.com/watch?v=lXeL9w2q2zs]] (13:03)
 		[[Applying Thermal Paste!http://www.youtube.com/watch?v=nbm06Rm5kIM]] (1:06)
 --------------------------------------
 Additional Reading
