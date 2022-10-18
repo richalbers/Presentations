@@ -47,12 +47,12 @@ SDRAM (SDR)
 
 -----------------------------------
 DDR 2/3/4/5
-	Double Data Rate SDRAM [[img http://www.intel.com/support/motherboards/desktop/sb/img/ddr.jpg]]
+	Double Data Rate SDRAM [[img https://www.computerhope.com/jargon/m/memory-ddr4.png]]
 	Each new version 
-		had more pins
-		was keyed slightly differently
-		provided higher bandwith 
-		provided higher capacities
+		has more pins
+		iss keyed slightly differently
+		provides higher bandwidth 
+		provides higher capacities
 
 --------------------------------------
 Identifying Modules
