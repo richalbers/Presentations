@@ -62,9 +62,10 @@ SDDs continued
 			SATA or PCIe/NVMe interface
 -------------------------------------------
 Terms
+	IDE - Integrated Device Electronics
 	ATA - Advanced Technology Atachment
 	PATA - Parallel ATA (ribbon cables)
-		sometimes called IDE (Integrated Device Electronics)
+		sometimes called IDE
 	SATA - Serial ATA (much smaller cable)
 		much faster than PATA
 		eSATA - external version
