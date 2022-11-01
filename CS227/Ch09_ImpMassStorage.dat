@@ -25,7 +25,7 @@ Partitioning Basics
 		To provide a non-accessible-to-the-user partition for essential system files 
 
 ------------------------------------------
-Partitioning Types
+Partitioning Schemes
 	Three partitioning schemes
 		MBR - Industry standard
 		Dynamic Disks - Proprietary Microsoft Technology
@@ -74,7 +74,7 @@ Dynamic Disk Volume Types
 		RAID 5
 -------------------------------------------
 GPT Disks
-	Globally Unique Identifer Partition Table
+	Globally Unique Identifer (GUID) Partition Table
 	Similar to MBR but limitations have been fixed
 		Lots of Partitions (128 on MS systems)
 		Maximum Partition size in Zettabytes!
@@ -138,11 +138,11 @@ NTFS Features
 Disk Partitioning and Managment tools
 	3rd party Tools (partition magic)
 	Windows XP/Vista/7 install process
-		XP's is primative looking (VGA)
+		XP's is primative looking (VGA Grapics)
 		Vista/7s looks nicer (GUI), but works the same
 	Disk Managment Tool
 		GUI tool available since Win2K+
-		diskmgmt.msc
+		diskmgmt.msc or diskmgr.exe
 
 --------------------------------------------
 Disk Management Tool 
