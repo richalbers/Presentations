@@ -1,5 +1,5 @@
 ------------------------------------------
-Ch 11b - Multimedia
+Ch 10b - Multimedia
 	Digitizing Sound Waves
 	Sound File Formats
 	Sound Card
@@ -13,10 +13,10 @@ Ch 11b - Multimedia
 
 ------------------------------------------
 Digitizing Sound Waves
-	Sound waves properties [[img http://content.answcdn.com/main/content/img/CDE/WAVELEN.GIF]]
+	Sound waves properties [[img images/audio_sampling.gif]]]
 		Amplitude
 		Frequency
-	To digitize, wave is "sampled" at periodic intervals [[img images/audio_sampling.gif]]
+	To digitize, wave is "sampled" at periodic intervals 
 		Sampling rate is measured in Khz
 		Bit Depth is number of bits per sample 
 	Tracks
@@ -63,17 +63,10 @@ Lossy Sound File Formats
 		others...
 
 ------------------------------------------
-Sound Card Basics
-	Sound cards contain [[img http://ixbtlabs.com/articles/geniussoundmakerlive51/geniuscardview.jpg]]
-		D/A (Digital/Analog) and A/D converters
-		Numerous external ports for speakers, microphone, etc..
-		Possible internal ports for connection to other internal devices
-			In the past it was common to connect the CD Drive directly to the sound card via a cable and one of these ports for the purpose of playing audio CDs using the CD Drive's built-in D/A converter
-			Now, music is treated like any other data and sent to the sound card digitally via the PCI (or PCIe) bus
-
-------------------------------------------
-Sound Card Jacks
-	Mini-audio connectors [[img http://4.bp.blogspot.com/_6QR_qOso91Y/S_ZolTka23I/AAAAAAAAAZo/_OI4VXtjivc/s1600/example+sound+card.jpg]]
+Sound Cards
+	Sound card functionality is typically built into motherboard, but can be upgraded
+	Sound ports
+		Mini-audio connectors [[img http://4.bp.blogspot.com/_6QR_qOso91Y/S_ZolTka23I/AAAAAAAAAZo/_OI4VXtjivc/s1600/example+sound+card.jpg]]
 		Line out 
 		Line in 
 		Rear out 
@@ -82,10 +75,10 @@ Sound Card Jacks
 	DB connector (15 pin)	
 		Joystick/MIDI port
 	S/PDIF Connector [[img http://images.americas.creative.com/images/products/inline/1010_card_tour.jpg]]
-		allows direct digitial connection to 5.1/7.1 speaker system 
+			allows direct digitial connection to 5.1/7.1 speaker system 
 	Examples
-		[[Example1!http://www.newegg.com/Product/ShowImage.aspx?CurImage=29-128-001-01.jpg&Image=29-128-001-02.jpg%2c29-128-001-01.jpg&S7ImageFlag=0&WaterMark=1&Item=N82E16829128001&Depa=1&Description=StarTech%20PCISOUND4CH%20Sound%20Card]]
-		[[Example2!http://www.newegg.com/Product/ShowImage.aspx?CurImage=29-126-004-07.jpg&Image=29-126-004-04.jpg%2c29-126-004-05.jpg%2c29-126-004-07.jpg%2c29-126-004-06.jpg%2c29-126-004-03.jpg%2c29-126-004-02.jpg&S7ImageFlag=0&WaterMark=1&Item=N82E16829126004&Depa=1&Description=PPA%201417v%20Sound%20Card]]
+		[[Example1!https://www.newegg.com/sedna-model-se-pci-sc-02/p/17Z-0001-00076]]
+		[[Example2!https://www.amazon.com/Creative-Blaster-Audigy-Performance-Headphone/dp/B00EO6X7PG/ref=sr_1_fkmr1_1?ie=UTF8&qid=1509933722&sr=8-1-fkmr1&keywords=studio+audio+capture+pcie]]
 
 ---------------------------------------------
 Speaker Standards	
@@ -146,9 +139,7 @@ Video Codecs
 Summary
 	Sound Capture
 	Sound File Formats
-	Sound Card
-		Basics 
-		Jacks
+	Sound Cards
 	Speaker Standards
 	Sound Card Installation
 	Common Sound Problems
