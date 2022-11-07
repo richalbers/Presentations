@@ -8,7 +8,7 @@ Ch 10- Removeable Media
 ------------------------------------------
 USB thumb drives
 	The defacto standard for portable storage [[img http://upload.wikimedia.org/wikipedia/commons/1/11/USB_flash_drives.jpg]]
-	Commonly called [[img http://www.technicaljones.com/FlashDrives_Oct%202008.jpg]]
+	Commonly called
 		thumb drives
 		flash drives
 		USB drives
@@ -45,9 +45,9 @@ Optical Disks
 	
 --------------------------------------------
 Optical Drives
-	Fit in standard 5 1/4" bay		[[img http://www.txcesssurplus.com/catalog/16659-Philips-DT490-Front.jpg]]
-	Both PATA and SATA are available
-		Most new ones are SATA
+	Fit in standard 5 1/4" bay		[[img https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Sony_CRX310S-Internal-PC-DVD-Drive-Opened.jpg/800px-Sony_CRX310S-Internal-PC-DVD-Drive-Opened.jpg]]
+	Old ones could be PATA, new ones are SATA
+		External USB ones are also available
 	New drives typically process both CDs and DVDs
 	Types	
 		CD-ROM, CD-R, CD-RW
