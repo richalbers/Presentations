@@ -1,19 +1,19 @@
 ------------------------------------------
-Ch 11c- Storage Devices
-	USB flash drives
+Ch 10- Removeable Media
+	USB thumb drives
 	Flash Cards
 	Optical Disks
 	Optical Drives
 	Miscellaneous
 ------------------------------------------
-USB flash drives
+USB thumb drives
 	The defacto standard for portable storage [[img http://upload.wikimedia.org/wikipedia/commons/1/11/USB_flash_drives.jpg]]
 	Commonly called [[img http://www.technicaljones.com/FlashDrives_Oct%202008.jpg]]
 		thumb drives
 		flash drives
 		USB drives
-	Capacities up to 64GB (or more)
-	Versions implementing encryption are available (but expensive)
+	Capacities into TB
+	Versions implementing encryption are available 
 	Can be made bootable
 
 -------------------------------------------
@@ -56,26 +56,10 @@ Optical Drives
 	Burners aren't much (if any) more expensive then readers
 
 --------------------------------------------
-Miscellaneous
-	Vista/7 can burn both CDs and DVDs
-	Windows 7 also enables you to burn an iso image
-		An .iso file is an exact image of an optical disk saved as a disk file
-		To burn the .iso to a CD/DVD, right click on it and select "burn disk image".
-	Several 3rd party packages are available for both OSs 
-		NERO
-		Roxio
-		etc..
-	Lightscribe lets you burn a "label" onto the label side of a (lightscribe) CD or DVD
-	autorun.inf file is used to provide autoplay/autorun functionality
-		See [[this link!http://www.techrepublic.com/blog/windows-and-office/how-do-i-create-the-autoruninf-file-for-my-cds-and-dvds/]] for details
-	
-	
---------------------------------------------
 Summary
 	USB flash drives
 	Flash Cards
 	Optical Disks
 	Optical Drives
-	Miscellaneous
 
 --------------------------------------------
