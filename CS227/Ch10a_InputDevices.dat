@@ -1,5 +1,5 @@
 ------------------------------------------
-Ch 11a - Input Devices
+Ch 10a - Input Devices
 	USB
 	Firewire
 	Thunderbolt
@@ -64,15 +64,15 @@ Keyboards
 	Connect via PS/2 or USB [[img images/Classic_Keyboard.png]]
 	Minor configuration can be done via Keyboard Control Panel Applet
 		repeat delay
-		repeat rate [[img https://superuser.com/questions/1058474/increase-keyboard-repeat-rate-beyond-control-panel-limits-in-windows-10]]
+		repeat rate [[img https://i.stack.imgur.com/Nfh25.png]]
 	If dirty, can be cleaned with rag and soapy water or isopropyl alchohol
 	Disconnect before cleaning, make sure it's dry before reconnecting
 
 ------------------------------------------
 Mice & Pointing Devices
-	Connect via PS/2 or USB			[[img http://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/3-Tastenmaus_Microsoft.jpg/233px-3-Tastenmaus_Microsoft.jpg]]
+	Connect via PS/2 or USB			[[img http://www.logitech.com/assets/32954/3/logitech-wireless-trackball-m570.png]]
 	Configuration can be done via Mouse Control Panel Applet
-	Two types						[[img http://www.logitech.com/assets/32954/3/logitech-wireless-trackball-m570.png]]
+	Two types						
 		Ball (obsolete, collects dirt)
 		Optical
 	Mouse substitutes: 		[[img images/Wacom_Touch.jpg]]
@@ -81,7 +81,7 @@ Mice & Pointing Devices
 		Digitizing Tablet (with touch)
 -------------------------------------------
 Other devices
-	Biometric Devices 	[[img http://www.payroll-software.in/images/Device.png]]
+	Biometric Devices 	[[img https://www.reviewgeek.com/p/uploads/2021/04/fb5c81ed-1.png]]
 		Used for security (fingerprints, retina, etc.)
 	Smart Card readers
 		Used for security
