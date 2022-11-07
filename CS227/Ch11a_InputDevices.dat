@@ -10,10 +10,10 @@ Ch 11a - Input Devices
 --------------------------------------------
 USB - Universal Serial Bus
 	Multiple devices on a single connection; single IRQ & Data I/O
-	Share bus via requests; bandwidth and power allocation.  
-	Originally low speed. 					[[img http://upload.wikimedia.org/wikipedia/commons/d/d6/Usb_connectors.JPG]]
-	Designed to replace serial, parallel, PS/2, & SCSI.
-	Versions 						[[img images/dual-bus-usb3-cables.jpg]]
+	Share bus via requests; bandwidth and power allocation. [[img http://upload.wikimedia.org/wikipedia/commons/d/d6/Usb_connectors.JPG]]
+	Originally low speed. 					
+	Designed to replace serial, parallel, & PS/2	.     [[img https://www.reviewgeek.com/p/uploads/2020/09/d6e91d51.jpg]]
+	Versions 						
 		1.1 - 1.5M, 12Mbps (lowspeed, fullspeed)	
 		2.0 - 480 Mbps (highspeed)			[[img images/USB DVI VGA HDMI DisplayPort.jpg]]
 		3.0 - 5 Gbps (superspeed)
@@ -34,6 +34,8 @@ USB Specs
 	Max Power provided per port
 		500ma for 2.0
 		900ma for 3.0
+		1500mA for 3.1
+		3000mA for FastCharger (upto 20V)
 
 ------------------------------------------
 Firewire
@@ -48,7 +50,7 @@ Firewire
 		Max devices: 63
 ------------------------------------------
 Thunderbolt
-	high-speed alternative to USB, Firewire, and DisplayPort
+	high-speed alternative to USB, Firewire, and DisplayPort [[img https://wpmedia-lib.larryjordan.com/wp-content/uploads/2020/11/OWC01-768x354.jpg]]
 	Taps the PCI Express bus for up to six external peripherals
 	Supports video upto 4K
 	Thunderbolt 1 & 2 connect with Mini-DisplayPort connector
@@ -62,7 +64,7 @@ Keyboards
 	Connect via PS/2 or USB [[img images/Classic_Keyboard.png]]
 	Minor configuration can be done via Keyboard Control Panel Applet
 		repeat delay
-		repeat rate [[img http://s3.hubimg.com/u/2425774_f520.jpg]]
+		repeat rate [[img https://superuser.com/questions/1058474/increase-keyboard-repeat-rate-beyond-control-panel-limits-in-windows-10]]
 	If dirty, can be cleaned with rag and soapy water or isopropyl alchohol
 	Disconnect before cleaning, make sure it's dry before reconnecting
 
