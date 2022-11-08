@@ -1,5 +1,6 @@
 ------------------------------------------
 Ch 10a - Input Devices
+	Serial
 	USB
 	Firewire
 	Thunderbolt
@@ -8,16 +9,21 @@ Ch 10a - Input Devices
 	Other Devices
 
 --------------------------------------------
+Serial Ports
+	Old, but simple and functional
+	Still used to interface with modems, some networking eqipment, or industrial hardware
+	Uses 9pin male connector
+		If your motherboard does not have this connector, it still may support serial via header pins on the board (to which a 9 pin connector could be attached)
+	Replaced by USB for computer peripherals
+--------------------------------------------
 USB - Universal Serial Bus
-	Multiple devices on a single connection; single IRQ & Data I/O
-	Share bus via requests; bandwidth and power allocation. [[img http://upload.wikimedia.org/wikipedia/commons/d/d6/Usb_connectors.JPG]]
-	Originally low speed. 					
-	Designed to replace serial, parallel, & PS/2	.     [[img https://www.reviewgeek.com/p/uploads/2020/09/d6e91d51.jpg]]
+	Multiple devices on a single connection[[img http://upload.wikimedia.org/wikipedia/commons/d/d6/Usb_connectors.JPG]]
+	Designed to replace serial, parallel, & PS/2	     [[img https://www.reviewgeek.com/p/uploads/2020/09/d6e91d51.jpg]]
 	Versions 						
-		1.1 - 1.5M, 12Mbps (lowspeed, fullspeed)	
-		2.0 - 480 Mbps (highspeed)			[[img images/USB DVI VGA HDMI DisplayPort.jpg]]
-		3.0 - 5 Gbps (superspeed)
-		3.1 - 10Gbps (superspeed USB 10 or USB 3.1 Gen 2)
+		1.1 - White, 1.5M, 12Mbps (lowspeed, fullspeed)	
+		2.0 - Black, 480 Mbps (highspeed)			[[img images/USB DVI VGA HDMI DisplayPort.jpg]]
+		3.0 - Blue, 5 Gbps (superspeed)
+		3.1 - Teal, 10Gbps (superspeed USB 10 or USB 3.1 Gen 2)
 		All are backwards compatible
 	Connectors 		
 		Computer - Type A, mini A, micro A, Type C
@@ -50,14 +56,16 @@ Firewire
 		Max devices: 63
 ------------------------------------------
 Thunderbolt
-	high-speed alternative to USB, Firewire, and DisplayPort [[img https://wpmedia-lib.larryjordan.com/wp-content/uploads/2020/11/OWC01-768x354.jpg]]
-	Taps the PCI Express bus for up to six external peripherals
-	Supports video upto 4K
-	Thunderbolt 1 & 2 connect with Mini-DisplayPort connector
+	high-speed alternative to USB, Firewire, and DisplayPort [[img https://wpmedia-lib.larryjordan.com/wp-content/uploads/2020/11/OWC01-768x354.jpg]] 
+	Supports high speed data and video in one port
+	Speeds:
 		Thunderbolt 1 - upto 10 Gbps
 		Thunderbolt 2 - upto 20 Gbps
-	Thunderbolt 3 connects with USB Type C connector
 		Thunderbolt 3 - upto 40 Gbps, 3m on copper, 60m on fiber
+	Connectors
+		Thunderbolt 1 & 2 connect with Mini-DisplayPort connector
+		Thunderbolt 3 connects with USB Type C connector
+			Allows data transfer, video ouput, and charging through the same cable
 	
 ------------------------------------------
 Keyboards
@@ -97,6 +105,7 @@ Other devices
 		Uses pen or puck
 --------------------------------------------
 Summary
+	Serial
 	USB
 	Firewire
 	Thunderbolt
