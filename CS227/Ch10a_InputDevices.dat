@@ -11,9 +11,10 @@ Ch 10a - Input Devices
 --------------------------------------------
 Serial Ports
 	Old, but simple and functional
-	Still used to interface with modems, some networking eqipment, or industrial hardware
+	Still used to interface with modems, some networking equipment, or industrial hardware
 	Uses 9pin male connector
-		If your motherboard does not have this connector, it still may support serial via header pins on the board (to which a 9 pin connector could be attached)
+		If your motherboard does not have this connector, it still may support serial via header pins on the board to which a 9 pin connector could be attached
+	Referred to as COM ports in software
 	Replaced by USB for computer peripherals
 --------------------------------------------
 USB - Universal Serial Bus
@@ -65,7 +66,9 @@ Thunderbolt
 	Connectors
 		Thunderbolt 1 & 2 connect with Mini-DisplayPort connector
 		Thunderbolt 3 connects with USB Type C connector
+			Will have thunderbolt symbol next to it
 			Allows data transfer, video ouput, and charging through the same cable
+			
 	
 ------------------------------------------
 Keyboards
