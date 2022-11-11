@@ -1,8 +1,11 @@
 ------------------------------------------
 Ch 17 - Video
-	Basics
-	Busses / Expansion Slots
+	Display Types
+	LCD Monitors
+	LCD Properties
 	Monitor connections
+	Video Cards
+	Busses / Expansion Slots
 	Replacing Video Card
 	Supporting Multiple Displays
 	Multiple GPUs with one Display
@@ -10,7 +13,7 @@ Ch 17 - Video
 	Troubleshooting
 
 -------------------------------------------
-Displays
+Display Types
 	LCD Monitors
 	Projectors
 	Virtual Reality Headsets
@@ -105,26 +108,26 @@ Replacing Video card
 
 ---------------------------------------------
 Multiple Displays
-	XP/Vista/7 support multiple displays
+	Windows supports multiple displays since XP
 	Many video cards support dual displays (some quad)
 		Referred to as "dual head"
-		multiple VGA/DVI ports
+		multiple VGA, DVI, HDMI, or DisplayPort connections
 	You can also use multiple video cards
 		You may need to modify video settings in BIOS
-	
 -------------------------------------------
 Multiple GPUs - one display
 	High-end video cards can use multiple video cards/GPUs to drive one display
 	Each card shares part of the workload to create the image
 	Two cards are installed and connected with a bridge
 	Nvidia technology 
-		SLI - Scalable Link Interface
+		SLI - Scalable Link Interface (obsolete)
+		NVLink - replaces SLI
 		Allows 2-4 GPUs
 		GPUs MUST be same series
 	AMD (previously ATI) technology
-		CrossFire
-		Allows up to 4 GPUs
-
+		CrossFire / CrossfireX
+		still supported, but no longer made
+	Not very common, modern cards are very good
 -------------------------------------------
 Direct X
 	A set of programming APIs for handling multimedia tasks used in game programming
@@ -143,14 +146,16 @@ Troubleshooting
 
 --------------------------------------------
 Summary
-	Basics
+	Display Types
+	LCD Monitors
+	LCD Properties
+	Monitor connections
+	Video Cards
 	Busses / Expansion Slots
-	Monitor Connections
 	Replacing Video Card
 	Supporting Multiple Displays
 	Multiple GPUs with one Display
 	Direct X
 	Troubleshooting
-
 --------------------------------------------
 
