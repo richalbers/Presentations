@@ -1,5 +1,5 @@
 ------------------------------------------
-Ch 19b - Video Cards
+Ch 17 - Video
 	Basics
 	Busses / Expansion Slots
 	Monitor connections
@@ -9,21 +9,77 @@ Ch 19b - Video Cards
 	Direct X
 	Troubleshooting
 
+-------------------------------------------
+Displays
+	LCD Monitors
+	Projectors
+	Virtual Reality Headsets
+--------------------------------------------
+LCD Monitors
+	Components
+		backlight (and diffuser) lights up the panel
+			CCFL, require high AC voltage, provided by inverter
+				Now obsolete
+			LED, lower power, thinner, brighter
+				All monitors now have LED backlights
+		Liquid Crystal Panel - creates the image
+-------------------------------------------------
+LCD Properties
+	Resolution - horizontal pixels x vertical pixels [[img https://i.rtings.com/assets/pages/A6Sdhc3U/monitor-aspect-ratio-large.jpg]]
+		This also determines aspect ratio
+	Brightness - how bright is image
+	Viewing angle - how far off center can image be viewed [[img https://www.schoolmarquee.com/wp-content/uploads/2020/05/Different-Viewing-Angle-of-LED-screen-600x311.jpg]]
+	Response rate - time to go from black to white (ms)
+	Refresh rate - how often screen updates (Hz)
+	Contrast ratio - difference between darkest and brightest
+	Color depth - number of different colors (bits)
 ------------------------------------------
-Basics
-	Video cards generate and Output images to a display
+Monitor Connections
+	VGA (RGB, DSub15)  [[img images/VideoConnectors.png]]
+	DVI (Digital Video Interface) 
+		Several Flavors
+			DVI-A - analog
+			DVI-D - digital
+			DVI-I - integrated (both)
+			Single link and Dual Link version
+		DVI-I and D
+			Single link - lower resolutions
+			Dual Link - higher resolutions
+	DMS-59
+		Provided 2 DVI (or VGA) connections with a single port [[img images/DMS_59.jpg]]
+		Mentioned here because it's easily mistaken for DVI
+------------------------------------------
+Monitor Connections (continued)
+	HDMI (High-Definition Multimedia Interface) [[img images/VideoConnectors.png]]
+		Loosely described as: Single-link DVI + Audio
+		Associated software includes HDCP (high-def Content Protection)
+	DisplayPort
+		Supports higher bandwidth than HDMI [[img images/VideoConnectors.png]]
+		Manufacturers can use it "royalty free" (HDMI requires royalties)
+	Thunderbolt
+		Thunderbolt 1 and 2 use Mini DisplayPort connector
+		Thunderbolt 3 uses USB Type-C
+	For other video devices [[img images/VideoAdapters.jpg]]
+		[[S-Video!http://en.wikipedia.org/wiki/S-Video]] 
+		[[Composite!http://en.wikipedia.org/wiki/RCA_connector]] (RCA port)
+		[[Others!http://en.wikipedia.org/wiki/List_of_display_interfaces]]
+	An adapter can sometimes be used to convert from one type to another (but not always)
+------------------------------------------
+Video Cards
+	Video cards (i.e. display adapters) generate and Output images to a display
 	Video
 		Deals with lots of information
 		requires very high bandwidth
 		requires lots of processing power
 	Video card Contains 
 		Video Circuitry
-			Evolved into specialized GPU
-			ATI and NVIDIA make most GPUs
+			Evolved into specialized GPU (Graphics Processing Unit)
+			NVIDIA, AMD, and Intel make most current GPUs
 		Memory
 			Typically faster than system RAM
 			DDR, DDR2, GDDR3/4/5
-
+	Some motherboards have integrated video
+	Many modern CPUs also have integrated video
 --------------------------------------------
 Busses / Expansion Slots
 	PCI
@@ -32,44 +88,11 @@ Busses / Expansion Slots
 		Video often requires more bandwidth
 	AGP
 		Dedicated to Video
-		2x, 4x, 8x flavors
-		2-16 times faster then PCI
 		Not general purpose
 		Now obsolete
-	PCIe-16
-		2-8 times faster then AGP 8x
+	PCIe x 16
+		Current standard
 
-------------------------------------------
-Monitor Connections
-	VGA (RGB, HD15)  [[img http://s11.postimg.org/5mvy7xi0z/vga_dvi_card.jpg]]
-		15 pins, in three rows
-		Analog signal
-		Optimal for CRTs
-	DVI (Digital Video Interface) [[img images/DVI_Connectors.png]]
-		Several Flavors
-			DVI-A - analog
-			DVI-D - digital
-			DVI-I - integrated (both) [[img images/DMS_59.jpg]]
-		DVI-I and D
-			Single link - lower resolutions
-			Dual Link - higher resolutions
-	DMS-59 typically offers two DVI connectors 
-------------------------------------------
-Monitor Connections (continued)
-	HDMI (High-Definition Multimedia Interface) [[img images/DVI_HDMI_DisplayPort.jpg]]
-		Loosely described as: Single-link DVI + Audio
-		Associated software includes HDCP (high-def Content Protection)
-	DisplayPort
-		Supports higher bandwidth than HDMI [[img images/VideoConnectors.png]]
-		Manufacturers can use it "royalty free" (HDMI requires royalties)
-	[[Thunderbolt!https://en.wikipedia.org/wiki/Thunderbolt_(interface)]] [[img http://www.intel.com/content/dam/www/public/us/en/images/illustrations/RWD/thunderbolt-3-illustration-rwd.png.rendition.intel.web.416.234.png]]
-		Thunderbolt 1 and 2 use the same connector as Mini DisplayPort
-		Thunderbolt 3 uses USB Type-C
-	For other video devices [[img images/VideoAdapters.jpg]]
-		[[S-Video!http://en.wikipedia.org/wiki/S-Video]] 
-		[[Composite!http://en.wikipedia.org/wiki/RCA_connector]] (RCA port)
-		[[Others!http://en.wikipedia.org/wiki/List_of_display_interfaces]]
-	An adapter can sometimes be used to convert from one type to another (but not always)
 ------------------------------------------
 Replacing Video card
 	Remove any software related to your old card
