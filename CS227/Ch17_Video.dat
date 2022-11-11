@@ -20,7 +20,7 @@ Display Types
 --------------------------------------------
 LCD Monitors
 	Components
-		backlight (and diffuser) lights up the panel
+		backlight (and diffuser) lights up the panel [img LCD_Panel.png]]
 			CCFL, require high AC voltage, provided by inverter
 				Now obsolete
 			LED, lower power, thinner, brighter
@@ -39,7 +39,7 @@ LCD Properties
 ------------------------------------------
 Monitor Connections
 	VGA (RGB, DSub15)  [[img images/VideoConnectors.png]]
-	DVI (Digital Video Interface) 
+	DVI (Digital Video Interface) [[img images/DMS_59.jpg]]
 		Several Flavors
 			DVI-A - analog
 			DVI-D - digital
@@ -49,7 +49,7 @@ Monitor Connections
 			Single link - lower resolutions
 			Dual Link - higher resolutions
 	DMS-59
-		Provided 2 DVI (or VGA) connections with a single port [[img images/DMS_59.jpg]]
+		Provided 2 DVI (or VGA) connections with a single port 
 		Mentioned here because it's easily mistaken for DVI
 ------------------------------------------
 Monitor Connections (continued)
@@ -57,7 +57,7 @@ Monitor Connections (continued)
 		Loosely described as: Single-link DVI + Audio
 		Associated software includes HDCP (high-def Content Protection)
 	DisplayPort
-		Supports higher bandwidth than HDMI [[img images/VideoConnectors.png]]
+		Supports higher bandwidth than HDMI [[img images/VideoConnectors2.png]]
 		Manufacturers can use it "royalty free" (HDMI requires royalties)
 	Thunderbolt
 		Thunderbolt 1 and 2 use Mini DisplayPort connector
@@ -69,8 +69,8 @@ Monitor Connections (continued)
 	An adapter can sometimes be used to convert from one type to another (but not always)
 ------------------------------------------
 Video Cards
-	Video cards (i.e. display adapters) generate and Output images to a display
-	Video
+	Video cards (i.e. display adapters) generate and Output images to a display [[img VideCard1.jpg]]
+	Video									[[img VideoCard2.png]]
 		Deals with lots of information
 		requires very high bandwidth
 		requires lots of processing power
