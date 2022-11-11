@@ -69,8 +69,8 @@ Monitor Connections (continued)
 	An adapter can sometimes be used to convert from one type to another (but not always)
 ------------------------------------------
 Video Cards
-	Video cards (i.e. display adapters) generate and Output images to a display [[img VideCard1.jpg]]
-	Video									[[img VideoCard2.png]]
+	Video cards (i.e. display adapters) generate and Output images to a display [[img images/VideoCard1.jpg]]
+	Video									[[img images/VideoCard2.png]]
 		Deals with lots of information
 		requires very high bandwidth
 		requires lots of processing power
