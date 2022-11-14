@@ -54,12 +54,12 @@ Monitor Connections
 ------------------------------------------
 Monitor Connections (continued)
 	HDMI (High-Definition Multimedia Interface) [[img images/VideoConnectors.png]]
-		Loosely described as: Single-link DVI + Audio
-		Associated software includes HDCP (high-def Content Protection)
+		Loosely described as: DVI + Audio
 	DisplayPort
-		Supports higher bandwidth than HDMI [[img images/VideoConnectors2.png]]
-		Manufacturers can use it "royalty free" (HDMI requires royalties)
+		Carries video, audio, and data [[img images/VideoConnectors2.png]]
+		Can support multiple monitors
 	Thunderbolt
+		Carries video, audio, and data 
 		Thunderbolt 1 and 2 use Mini DisplayPort connector
 		Thunderbolt 3 uses USB Type-C
 	For other video devices [[img images/VideoAdapters.jpg]]
