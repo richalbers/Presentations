@@ -1,5 +1,5 @@
 ------------------------------------------
-Ch 27 - Printers
+Ch 26 - Printers and Multifunction Devices
 	Printer Types
 	Laser Printer Parts and Process
 	Printer Languages
@@ -17,7 +17,7 @@ Printer Types
 	Laser
 ------------------------------------------
 Impact
-	Create an image on paper by physcially strikin gan ink ribbon against the paper's surface [[img http://images.highspeedbackbone.net/skuimages/large/E17-3470-main2.jpg]]
+	Create an image on paper by physcially striking an ink ribbon against the paper's surface [[img http://images.highspeedbackbone.net/skuimages/large/E17-3470-main2.jpg]]
 	Last type standing: Dot matrix
 	Didn't these things die in the 90s?
 		No!  Because they can do multipart forms!
@@ -46,12 +46,6 @@ Dye Sublimation
 	Prints very high-quality color documents or photos
 	Requires one pass for each color
 	Generally, slow and expensive to operate
-------------------------------------------
-Solid Ink
-	Prints color
-	Utilizes solid sticks of ink
-	Prints in one pass
-	Very expensive
 ------------------------------------------
 Thermal Printer
 	Direct thermal printer [[img http://www.slxntech.com/images/products/printers/srp350g.gif]]
@@ -123,15 +117,9 @@ Windows Printing Systems
 		Improvements to Windows GDI process
 -------------------------------------------
 Printer Connectivity
-	Parallel (IEEE1284)
-		Port Types (configurable in BIOS)
-			SPP - Standard Parallel Port
-			EPP - Enhanced Parallel Port (bidirectional)
-			ECP - Extended Capabilities Port (bidirectional, faster)
-		Uses DB25 and Centronics connector
+	Parallel (IEEE1284) - old and obsolete
 	USB
-	Network
-	Firewire (rare)
+	Network (wired or wireless)
 -------------------------------------------
 Terminology
 	The terms "printer" and "network printer" don't mean the same thing to all people
