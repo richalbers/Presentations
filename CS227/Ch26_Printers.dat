@@ -73,11 +73,10 @@ Laser Printer Parts
 	Fuser
 ------------------------------------------
 Laser Process
-	1. Drum is Cleaned [[img images/laser-printer-internals.jpg]]
-		Particles and charge are removed 
+	1. Computer processes image, sends it to printer [[img images/laserPrintProcess.jpg]]
 	2. Charge Applied to drum (Condition)
 		-600 volt charge is applied to drum via primary corona wire
-	3. Write Image to drum
+	3. Expose Image to drum
 		Laser removes negative charge on drum where image goes
 	4. Develop
 		Negatively charged toner sticks to drum where charge was removed
@@ -85,6 +84,8 @@ Laser Process
 		Toner particles are transferred to the paper (which is postively charged)
 	6. Fuse
 		Toner is burned onto paper via fuser
+	7. Drum is Cleaned
+		Particles and charge are removed 
 ------------------------------------------
 Laser Printer Maintenance
 	Toner and paper dust build up over time 
