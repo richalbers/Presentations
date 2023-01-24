@@ -200,7 +200,7 @@ this pointer
 			public:
 				...
 				bool setMinute(int minute) { //parameter name is same as member name
-					this->minute = minute; [[desc this->minute refers to the memeber variable minute]]
+					this->minute = minute; [[desc this->minute refers to the member variable minute<br>minute by itself refers to the local variable minute]]
 				};
 				...
 			private:
