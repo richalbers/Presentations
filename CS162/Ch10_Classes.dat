@@ -75,9 +75,9 @@ Public and Private members
 		[[code]]
 		class Clock { 		[[desc This begins the definition of our new datatype, called Clock.<br>class is a reserved word.<br>Timer is a word we made up.]]
 			public:			[[desc This signifies that the class members that follow will be accessible outside the class.<br>The public functions of a class are how users of the class (other programmers) interact with the data]]
-				void setHour(int newhour) { [[desc This function allows the user of the class to set the Timer.  i.e. Set the seconds value.<br>Note: while complete functions can be typed in the class definition, it's more common to just have the prototypes here]]
+				void setHour(int newHour) { [[desc This function allows the user of the class to set the Timer.  i.e. Set the hour value.<br>Note: while complete functions can be typed in the class definition, it's more common to just have the prototypes here]]
 					if (newHour >= 1 && newHour <=12)		[[desc The given data is checked for validity]]
-						hour = newHour; 	[[desc The given data is stored in the class variable]]
+						hour = newHour; 	[[desc The given data is stored in the class member variable]]
 				}
 				...			[[desc there would be more code here... it was left off for brevity]]
 			private:		[[desc This signifies that the class members that follow will not be directly accessible outside the class<br>Typically, data members of a class are private.  This allows us to do data validation and maintain data integrity.<br><br>Note: Although usually used, the private keyword is actually optional, as members are private by default.]]
@@ -126,7 +126,7 @@ Function categories
 		Constructors
 			A constructor is called when an object is instantiated.
 			Constructors are named the same as the class and have no return type.
-			The constructor that accepts no arguments is called the default constructor.
+			The constructor that can be called without arguments is called the default constructor.
 		Accessors
 			These functions return copies of a classes private data members to the caller.
 			These should be declared as const functions since they don't modify the object
