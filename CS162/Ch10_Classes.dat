@@ -3,14 +3,14 @@ Classes (Ch 10)
 	At the end of this presentation, you should be able to
 		Explain what classes and objects are
 		Create classes and objects from those classes
-		Explain the access modifies public and private, and use them apropriately
+		Explain the access modifiers public and private, and use them appropriately
 		Use the scope operator (::)
 		Explain why you should separate your code into header and implementation files
 		Use a class in a project
 ------------------------------------------
 OOP
 	Object Oriented Programming is a programming paradigm that builds the program from objects that interact with one another
-	An object is an entitiy that represents something in the software.  
+	An object is an entity that represents something in the software.  
 		For example: in Pokemon Go, the following things would be objects:
 			trainer
 			pokemon
@@ -128,13 +128,13 @@ Function categories
 			Constructors are named the same as the class and have no return type.
 			The constructor that can be called without arguments is called the default constructor.
 		Accessors
-			These functions return copies of a classes private data members to the caller.
+			These functions return copies of a class's private data members to the caller.
 			These should be declared as const functions since they don't modify the object
 		Mutators
-			These functions provide an interface to modify a classes private variables.  
-			The data provided to the function is validated before being used to change the objects data.
+			These functions provide an interface to modify a class's private variables.  
+			The data provided to the function is validated before being used to change the object's data.
 		Other
-			There may be other functions that manipulate the objects data in some way.
+			There may be other functions that manipulate the object's data in some way.
 ----------------------------------------------
 Practice
 	Starting with the code below (partial clock class), write the constructor and accessor/mutator for minute.  Then test it by running it the debugger
