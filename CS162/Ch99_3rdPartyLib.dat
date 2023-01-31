@@ -9,7 +9,7 @@ Using 3rd Party Libraries
 		configure a project to use SFML
 ------------------------------------------
 Introduction
-	C++, like many languages, provides the basic building blocks to construct applications to do just about anything you can so with software.
+	C++, like many languages, provides the basic building blocks to construct applications to do just about anything you can do with software.
 		But the stuff provided by the language is fairly low-level (relatively simple).
 		Doing complex (high-level) things, such as those listed here, requires lots of low-level code.
 			Graphics (2D and/or 3D)
