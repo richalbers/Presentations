@@ -71,7 +71,7 @@ Static vs Dynamic Linking
 		You can change the method during development.
 ---------------------------------------------
 Dynamically Linked Library Location
-	When using dynamic linking, Windows will look is certain locations for the .dlls as described here:
+	When using dynamic linking, Windows will look in certain locations for the .dlls as described here:
 		[[http://msdn.microsoft.com/en-us/library/7d83bc18.aspx!http://msdn.microsoft.com/en-us/library/7d83bc18.aspx]]
 		Note: the "PATH" can be viewed using the path command from the cmd prompt
 	On 64 bit machines, 32bit and 64bit .dlls are stored in different locations
@@ -102,15 +102,15 @@ Practice
 -------------------------------------------
 Practice
 	Now we'll configure an SFML project step by step and see the results of each step.
-		Step 1: Create a console project
+		Step 1: Create a console project; set the solution platform to x86 (it defaults to x64 in Visual Studio 2022) 
 		Step 2: Cut and paste the example code from the end of [[SFML Visual Studio Page!http://www.sfml-dev.org/tutorials/2.5/start-vc.php]] 
-			Note that a lot text turns red, including the #include file. That's because it can't find the include file, which defines a bunch of stuff the code uses (all the stuff that's red!).
+			Note that a lot of text turns red, including the #include file. That's because it can't find the include file, which defines a bunch of stuff the code uses (all the stuff that's red!).
 		Step 3: Update the project configuration with the location of the include files, as shown near the top of [[SFML VS Page!http://www.sfml-dev.org/tutorials/2.5/start-vc.php]]. 
 			Note: Your path may be a bit different; it references D:, you'll most likely be using C:
 		Step 4: After you've properly configured the include directory setting (text will no long be red), try compiling.  
-			Note that you now get linker errors.  That's becuase it can't find the libraries that implemented all items (classes, functions, etc..) in the include files.
+			Note that you now get linker errors.  That's because it can't find the libraries that implemented all items (classes, functions, etc..) in the include files.
 		Step 5: Update the project configuration with the location and list of libraries as shown near the top of [[SFML VS Page!http://www.sfml-dev.org/tutorials/2.5/start-vc.php]]. 
-			BUT COMMA DELIMIT the library list! (the instructions have them space delimited), And don't delete the libraries already in the list!
+			Add the SFML libraries to the beginning of the list (comma delimited), and don't delete the libraries already in the list!
 			Your code should now compile and link.
 		Step 6: If you now get a "missing dll" error, make sure the SFML .dlls are in the SysWOW64 folder
 -------------------------------------------------------
