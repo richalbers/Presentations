@@ -110,7 +110,7 @@ Practice
 		Step 4: After you've properly configured the include directory setting (text will no long be red), try compiling.  
 			Note that you now get linker errors.  That's because it can't find the libraries that implemented all items (classes, functions, etc..) in the include files.
 		Step 5: Update the project configuration with the location and list of libraries as shown near the top of [[SFML VS Page!http://www.sfml-dev.org/tutorials/2.5/start-vc.php]]. 
-			Add the SFML libraries to the beginning of the list (comma delimited), and don't delete the libraries already in the list!
+			Add the SFML libraries to the beginning of the list (semicolon delimited), and don't delete the libraries already in the list!
 			Your code should now compile and link.
 		Step 6: If you now get a "missing dll" error, make sure the SFML .dlls are in the SysWOW64 folder
 -------------------------------------------------------
