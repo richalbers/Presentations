@@ -16,7 +16,7 @@ Overview
 [[img https://www.tutorialspoint.com/data_structures_algorithms/images/dsa_linkedlist.jpg]]
 ---------------------------------------------------------------
 Why linked lists?
-	Arrays can store multiple instances of data of the same time, but have the following limitations:
+	Arrays can store multiple instances of data of the same type, but have the following limitations:
 		The size is fixed
 		Keeping the data in-order when inserting may require a lot of data to be moved, which is slow.
 	Linked lists solve both these problems
