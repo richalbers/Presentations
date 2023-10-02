@@ -112,6 +112,11 @@ ATX 2.x versions
 	ATX 12V 2.3
 		Increased efficiency (70% min, 80% recommended)
 ---------------------------------------------------
+ATX 3.0
+	The latest specification [[img images/HPWR_Connector.jpg]]
+	Reqiures a 16 pin High Power connector that can supply up to 600W for video cards.
+
+---------------------------------------------------
 ATX Wire Colors
 	Wire colors indicate voltages [[img images/ATX_ConnectorRef.png]]
 		Orange: 3.3v
@@ -126,9 +131,11 @@ ATX Wire Colors
 ---------------------------------------------------
 Misc
 	Rails [[img images/ATX_Rails.png]]
-		12v lines are current-limited to approximately 18A total
-		Multiple rails provided multiple "groups" of 18A sources
-		Many power supplies now just have one "higher than 18A" rail (and sometimes claim they have mulitple rails anyway!)
+		In the past
+			12v lines used to be current-limited to approximately 18A total
+			Multiple rails provided multiple "groups" of 18A sources
+		Rails can now provide much more, into the 100s of amps
+		Many power supplies now just have one higher capacity rail
 	Modular Power Supplies  [[img images/ATX_Modular.jpg]]
 		You plug in the wires you want
 		Eliminates extra wires hanging around inside Case
