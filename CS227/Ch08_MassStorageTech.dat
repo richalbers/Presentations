@@ -1,6 +1,6 @@
 ------------------------------------------
 Ch 8- Mass Storage Tech
-	Overview 		[[img http://images.wisegeek.com/hard-drive.jpg]]
+	Storage Mechanism		[[img http://images.wisegeek.com/hard-drive.jpg]]
 	Form Factors
 	SSDs
 	Common Terms
@@ -9,14 +9,13 @@ Ch 8- Mass Storage Tech
 	SCSI
 	RAID
 ------------------------------------------
-Overview
-	Storage Mechanism [[img images/Drives.jpg]]
-		Hard Disk Drive (HDD)
-			Magnetic Platters
-			Cheaper per GB, but slower
-		Solid State Drive (SSD)
-			Flash memory
-			More expensive, but faster
+Storage Mechanism [[img images/Drives.jpg]]
+	Hard Disk Drive (HDD)
+		Magnetic Platters
+		Cheaper per GB, but slower
+	Solid State Drive (SSD)
+		Flash memory
+		More expensive, but faster
 
 ------------------------------------------
 Form Factors
@@ -132,6 +131,7 @@ RAID Misc
 		BIOS RAID - Cheap.  May be less fast.  Not transferable.
 --------------------------------------------
 Summary
+	Storage Mechanism
 	Form Factors
 	SSDs
 	Common Terms
