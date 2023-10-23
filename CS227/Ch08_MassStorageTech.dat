@@ -1,39 +1,35 @@
 ------------------------------------------
 Ch 8- Mass Storage Tech
 	Overview 		[[img http://images.wisegeek.com/hard-drive.jpg]]
-	Drive Basics
-		Magnetic Platter Drives
-		Solid State Drives
+	Form Factors
+	SSDs
 	Common Terms
-	ATA History
-	Interfaces & Technologies
-		Parallel ATA
-		Serial ATA
-		Solid State
-		SCSI
+	Connecting Drives
+	Drive Communication
+	SCSI
 	RAID
 ------------------------------------------
 Overview
 	Storage Mechanism [[img images/Drives.jpg]]
-		Traditional Hard Disk Drive (HDD)
-			Magnetic Platters 
+		Hard Disk Drive (HDD)
+			Magnetic Platters
+			Cheaper per GB, but slower
 		Solid State Drive (SSD)
 			Flash memory
+			More expensive, but faster
 
 ------------------------------------------
-Magnetic Platter Drives (HDD)
-	Drives Geometry consists of [[img http://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Cylinder_Head_Sector.svg/360px-Cylinder_Head_Sector.svg.png]]
-		Heads (platters * 2)
-		Cylinders (tracks)
-		Sectors
-	Spindle Speeds
-		5400
-		7200
-		10000
-		15000
-	Form Factors
+Form Factors
+	HDDs
 		3.5" - desktop systems
 		2.5" - laptops or desktops
+	SSD
+		2.5" - same as HDDs 	[[img images/mSata_M2.JPG]]
+			SATA interface
+		mSata (not common)
+		M.2 - small circuit board
+			Multiple sizes: 2242,2260,2280,22110
+			SATA or PCIe/NVMe interface
 -------------------------------------------
 Solid State Drives (SSD)
 	Have no moving parts [[img images/SSD.jpg]]
@@ -52,20 +48,10 @@ Solid State Drives (SSD)
 	Lifespan is determined by maximum# read operations per cell
 		When it reaches EOL, you'll still be able to read it
 -------------------------------------------
-SDDs continued
-	Form Factors			[[img images/mSata_M2.JPG]]
-		2.5" (same is HDD)
-			SATA interface
-		mSATA
-			SATA interface
-		M.2
-			SATA or PCIe/NVMe interface
--------------------------------------------
 Terms
 	IDE - Integrated Device Electronics
-	ATA - Advanced Technology Atachment
 	PATA - Parallel ATA (ribbon cables)
-		sometimes called IDE
+		term used interchangably with IDE
 	SATA - Serial ATA (much smaller cable)
 		much faster than PATA
 		eSATA - external version
@@ -76,21 +62,14 @@ Terms
 		Used with some M.2 drives
 
 --------------------------------------------
-PATA overview 
-	Utilizes 40 or 80 wire cable [[img images/PATA_Cable.png]]
-	Motherboard may have two interfaces (channels) [[img images/PATA_Cable2.jpg]]
-		Primary
-		Secondary
-	Each interface supports two drives
-		Master
-		Slave
-	Cable Length - 18 inches
-	Setting the drive to "CS" allowed would cause it to be configured as either Master or Slave depending on it's position on the Cable (assuming it was a Cable Select cable)
-	Handling - Remove connector via handle, or distribute force across cable.
-	Problems - Ribbon cable air flow, performance limit
-
+Connecting Drives 
+	2.5" & 3.5" drives
+		PATA/IDE - ribbon cable (2 drives per cable)
+		SATA - Thin cable (1 drive per cable)
+	M.2
+		mounts on Motherboard
 --------------------------------------------
-SATA overview
+SATA details
 	Utilizes thin data cable [[img https://www.cgdirector.com/wp-content/uploads/media/2022/04/Types-of-SATA-Cables.jpg]]
 	Potentially Hot-swappable
 	Much faster than PATA
@@ -102,6 +81,16 @@ SATA overview
 		SATA 3.2 - 16 Gb/s (2 GB/s)
 		Cable Length - 1 meter
 		eSATA - external SATA, 2 meter shielded cable
+------------------------------------------
+Drive Communication
+	Parallal ATA Emulation (may be called compatibility mode)
+		primairly for backwards compatibility
+	AHCI - Advanced Host Controller Interface
+		Necessary for hot-swapability
+		Used by most SATA drives, some M.2 Drives
+	NVMe - Non-Volatile Memory Express
+		Allows commmunication through PCIe bus, provides much higher speeds
+		Common with M.2 drives
 -------------------------------------------
 SCSI (scuzzy)
 	Small Computer Systems Interface
@@ -114,37 +103,6 @@ SCSI (scuzzy)
 		SCSI based drive commands
 		Hot-swappable
 		Normally plugs into backplane, no cables
-------------------------------------------
-Interfaces/Busses
-	Bus (data connnection or interface)
-		HDD
-			IDE (EIDE, ATAPI, PATA - Parallel ATA)
-			SATA (Serial ATA)
-			eSATA  (External SATA, this is not SATAe)
-			SCSI (typically in Servers)
-			Serial Attached SCSI, (SAS)
-			Fiber Channel (typically only on Servers)
-			USB
-		SSD
-			IDE (PATA - Parallel ATA)
-			SATA (Serial ATA)
-			USB
-			SATAe (SATA 3.2, PCIe lanes on SATA connectors)
-			mSATA (mini-SATA, PCIe lanes on special slot)
-			M.2 (replaces mSATA, uses PCIe lanes on special slot)
-			U.2, (was SFF-8639, uses PCIe 3.0 x4, better thermal)
-			NVMe (protocol, replaces AHCI)
----------------------------------------------
-AHCI
-	BIOS can support SATA drives typically in three modes
-		Parallal ATA Emulation (may be called compatibility mode)
-		AHCI - [[Advanced Host Controller Interface!http://en.wikipedia.org/wiki/AHCI]]
-		RAID - Redundant Array of Inexpensive Disks
-	AHCI 
-		is configured in BIOS
-		supported in Vista/7/8/10
-		necessary for hot-swappablility
-
 -------------------------------------------
 RAID
 	Redundant Array of Inexpensive Disks [[img images/raid0.png]]
@@ -174,16 +132,12 @@ RAID Misc
 		BIOS RAID - Cheap.  May be less fast.  Not transferable.
 --------------------------------------------
 Summary
-	Overview
-	Drive Basics
-		Magnetic Platter Drives
-		Solid State Drives
+	Form Factors
+	SSDs
 	Common Terms
-	Interfaces/Busses
-		ATA History / Versions
-		Parallel ATA
-		Serial ATA
-		SCSI
+	Connecting Drives
+	Drive Communication
+	SCSI
 	RAID
 
 --------------------------------------------
