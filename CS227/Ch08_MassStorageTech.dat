@@ -9,8 +9,8 @@ Ch 8- Mass Storage Tech
 	SCSI
 	RAID
 ------------------------------------------
-Storage Mechanism [[img images/Drives.jpg]]
-	Hard Disk Drive (HDD)
+Storage Mechanism 
+	Hard Disk Drive (HDD)	[[img images/Drives.jpg]]
 		Magnetic Platters
 		Cheaper per GB, but slower
 	Solid State Drive (SSD)
