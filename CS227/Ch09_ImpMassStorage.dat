@@ -101,7 +101,6 @@ Vocabulary/Terms Summary
 	Microsoft Disk Types
 		Basic - MBR & GPT
 		Dynamic 
-
 	* The term Volume is used for two different things
 --------------------------------------------
 File System Basics
@@ -137,9 +136,7 @@ NTFS Features
 --------------------------------------------
 Disk Partitioning and Managment tools
 	3rd party Tools (partition magic)
-	Windows XP/Vista/7 install process
-		XP's is primative looking (VGA Grapics)
-		Vista/7s looks nicer (GUI), but works the same
+	Windows install process
 	Disk Managment Tool
 		GUI tool available since Win2K+
 		diskmgmt.msc or diskmgr.exe
@@ -158,13 +155,10 @@ Disk Management Tool
 Disk Maintenance
 	Error Checking (ScanDisk, Chkdsk)
 		Finds bad clusters and denotes them as such
-	Defragmentation
-		Moves data around so files use contiguous clusters
-	Disk Cleanup
-		Deletes the deleted and/or temporary files off your drive
-			Files in the recycle bin
-			Temporary Files
-
+	Defragmentation (optimize drives)
+		Can analyze and/or optimize drives
+		Moves data around so files use contiguous clusters (important on HDD)
+	To access, right click on drive in File Explorer and select Properties
 ---------------------------------------------
 Summary
 	Partitioning Basics 
