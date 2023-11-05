@@ -27,8 +27,7 @@ Digitizing Sound Waves
 --------------------------------------------
 Sound File Formats
 	Sound can be stored in a variety of file formats [[img images/Audio_Formats.jpg]]
-	To process/interpret a sound file requires a codec
-		On Windows 7, use [[Media player!http://windows.microsoft.com/en-us/windows/codecs-frequently-asked-questions#codecs-frequently-asked-questions=windows-7]]	to find what codecs are installed (warning: technical info ahead!)
+	To process/interpret a sound file requires a codec (software)
 	Uncompressed formats 		[[img images/Audio_Data_Sizes.gif]]
 		.wav
 			common on PCs
