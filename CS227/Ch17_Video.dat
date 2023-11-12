@@ -1,20 +1,30 @@
 ------------------------------------------
 Ch 17 - Video
+	Display Properties
 	Display Types
-	LCD Monitors
-	LCD Properties
-	Monitor connections
-	Video Cards
+	Monitor connections & Mounts
+	Display Adapters (Video Cards)
 	Busses / Expansion Slots
 	Replacing Video Card
 	Supporting Multiple Displays
-	Multiple GPUs with one Display
 	Direct X
 	Troubleshooting
 
+-------------------------------------------------
+Display Properties
+	Resolution - horizontal pixels x vertical pixels [[img https://i.rtings.com/assets/pages/A6Sdhc3U/monitor-aspect-ratio-large.jpg]]
+		This also determines aspect ratio
+	Brightness - how bright is image
+	Viewing angle - how far off center can image be viewed [[img https://www.schoolmarquee.com/wp-content/uploads/2020/05/Different-Viewing-Angle-of-LED-screen-600x311.jpg]]
+	Response rate - time to go from black to white (ms)
+	Refresh rate - how often screen updates (Hz)
+	Contrast ratio - difference between darkest and brightest
+	Color depth - number of different colors (bits)
 -------------------------------------------
 Display Types
-	LCD Monitors
+	Flat Panel Displayes
+		LCD 
+		OLED
 	Projectors
 	Virtual Reality Headsets
 --------------------------------------------
@@ -24,20 +34,46 @@ LCD Monitors
 			CCFL, require high AC voltage, provided by inverter
 				Now obsolete
 			LED, lower power, thinner, brighter
-				All monitors now have LED backlights
-		Liquid Crystal Panel - creates the image
+				All LCD Monitors now have LED backlights
+		Liquid Crystal Display Panel - creates the image
 -------------------------------------------------
-LCD Properties
-	Resolution - horizontal pixels x vertical pixels [[img https://i.rtings.com/assets/pages/A6Sdhc3U/monitor-aspect-ratio-large.jpg]]
-		This also determines aspect ratio
-	Brightness - how bright is image
-	Viewing angle - how far off center can image be viewed [[img https://www.schoolmarquee.com/wp-content/uploads/2020/05/Different-Viewing-Angle-of-LED-screen-600x311.jpg]]
-	Response rate - time to go from black to white (ms)
-	Refresh rate - how often screen updates (Hz)
-	Contrast ratio - difference between darkest and brightest
-	Color depth - number of different colors (bits)
+OLED Monitors
+	OLED panels create their own light, so no backlight is necessary
+	Advantages over LCD (LED) panels:
+		Deeper blacks
+		Higher contrast
+		Larger viewing angles
+		Thinner
+		Can be transparent when off
+	Disadvantages
+		Cost
 ------------------------------------------
-Monitor Connections
+Projectors
+	Project image onto screen
+	Technologies
+		LCD (light shines through LCD panel)
+			Less expensive
+		DLP (Tiny mirrors project image)
+			Better image / less maintenance 
+--------------------------------------------
+Projector Properties
+	Lumens - brightness
+		1000-1500 sufficient for small dark room
+		2000+ for mid-sized lighted room
+		10000+ large lighted rooms	
+	Throw - distance of projector from screen
+		Ultra-short / short / normal
+	Light Source
+		Lamps
+			get hot, need fans
+			lamps last aprox 3000 hours and are expensive
+		LED-based
+			much less heat, quieter
+			30,000+ hour lifespan
+		laser
+			expensive
+------------------------------------------
+Monitor Connections - legacy
 	VGA (RGB, DSub15)  [[img images/VideoConnectors.png]]
 	DVI (Digital Video Interface) [[img images/DMS_59.jpg]]
 		Several Flavors
@@ -51,8 +87,9 @@ Monitor Connections
 	DMS-59
 		Provided 2 DVI (or VGA) connections with a single port 
 		Mentioned here because it's easily mistaken for DVI
+	An adapter can sometimes be used to convert from one type to another (but not always)
 ------------------------------------------
-Monitor Connections (continued)
+Monitor Connections - current
 	HDMI (High-Definition Multimedia Interface) [[img images/VideoConnectors.png]]
 		Loosely described as: DVI + Audio
 	DisplayPort
@@ -62,14 +99,23 @@ Monitor Connections (continued)
 		Carries video, audio, and data 
 		Thunderbolt 1 and 2 use Mini DisplayPort connector
 		Thunderbolt 3 uses USB Type-C
-	For other video devices [[img images/VideoAdapters.jpg]]
+	An adapter can sometimes be used to convert from one type to another (but not always)
+---------------------------------------------
+Monitor Connections - other devices
+	Legacy [[img images/VideoAdapters.jpg]]
 		[[S-Video!http://en.wikipedia.org/wiki/S-Video]] 
 		[[Composite!http://en.wikipedia.org/wiki/RCA_connector]] (RCA port)
-		[[Others!http://en.wikipedia.org/wiki/List_of_display_interfaces]]
-	An adapter can sometimes be used to convert from one type to another (but not always)
+		[[Others!http://en.wikipedia.org/wiki/List_of_display_interfaces]]	
+	HDBaseT
+		Used by some projectors
+		Allows logn-range connectivity over Cat 5a or 6 network cables	
 ------------------------------------------
-Video Cards
-	Video cards (i.e. display adapters) generate and Output images to a display [[img images/VideoCard1.jpg]]
+Monitor Mounts
+	VESA mounts - standardized bracket for mounting monitors [[img images/VesaMount.png]]
+		Adapters are available				[[img images/VesaAdapter.png]]
+------------------------------------------
+Display Adapter
+	Display Adapters (i.e. video cards) generate and Output images to a display [[img images/VideoCard1.jpg]]
 	Video									[[img images/VideoCard2.png]]
 		Deals with lots of information
 		requires very high bandwidth
@@ -80,7 +126,7 @@ Video Cards
 			NVIDIA, AMD, and Intel make most current GPUs
 		Memory
 			Typically faster than system RAM
-			DDR, DDR2, GDDR3/4/5
+			GDDR 4/5/5x/6/6x
 	Some motherboards have integrated video
 	Many modern CPUs also have integrated video
 --------------------------------------------
@@ -99,13 +145,13 @@ Busses / Expansion Slots
 ------------------------------------------
 Replacing Video card
 	Remove any software related to your old card
-	Uninstall the driver for the old card
+	Uninstall the driver for the old card (device mgr)
 	Shut off PC
 	Remove old card, install new card
 	Reboot (system will use generic VGA driver to boot)
 	Install new driver & Software
+		From Optical media or network (best)
 	Configure video properties
-
 ---------------------------------------------
 Multiple Displays
 	Windows supports multiple displays since XP
@@ -115,46 +161,29 @@ Multiple Displays
 	You can also use multiple video cards
 		You may need to modify video settings in BIOS
 -------------------------------------------
-Multiple GPUs - one display
-	High-end video cards can use multiple video cards/GPUs to drive one display
-	Each card shares part of the workload to create the image
-	Two cards are installed and connected with a bridge
-	Nvidia technology 
-		SLI - Scalable Link Interface (obsolete)
-		NVLink - replaces SLI
-		Allows 2-4 GPUs
-		GPUs MUST be same series
-	AMD (previously ATI) technology
-		CrossFire / CrossfireX
-		still supported, but no longer made
-	Not very common, modern cards are very good
--------------------------------------------
 Direct X
 	A set of programming APIs for handling multimedia tasks used in game programming
 	Almost all Windows games use DirectX and video cards support it
 	Latest version: DirectX 12
 		Only works with Win 10
+		Successor is Vulcan
 	To determine the version on your PC, run DxDiag from run menu
 
 -------------------------------------------
 Troubleshooting
 	Video cards rarely fail
-	Version 1 AGP cards could creep out of slot
-		Simply reseat
 	Wrong driver will cause problems
 		You can boot into safe mode and update driver
 
 --------------------------------------------
 Summary
+	Display Properties
 	Display Types
-	LCD Monitors
-	LCD Properties
-	Monitor connections
-	Video Cards
+	Monitor connections & Mounts
+	Display Adapters (Video Cards)
 	Busses / Expansion Slots
 	Replacing Video Card
 	Supporting Multiple Displays
-	Multiple GPUs with one Display
 	Direct X
 	Troubleshooting
 --------------------------------------------
