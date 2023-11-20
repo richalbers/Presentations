@@ -11,8 +11,6 @@ Ch 26 - Printers and Multifunction Devices
 Printer Types
 	Impact (Dot Matrix)
 	Inkjet
-	Dye-Sublimation
-	Solid Ink
 	Thermal
 	Laser
 ------------------------------------------
@@ -39,13 +37,6 @@ Inkjet
 		Print Resolution - density of ink (dpi)
 		Print speed (pages per minute)
 	Cheap to buy, expensive to operate
-------------------------------------------
-Dye Sublimation
-	Uses heat to change solid ink to vapor and place on paper [[img images/dye-sublimation-printer.jpg]]
-	Uses roll of heat sensitive plastic film embeded with page sized sections of each color
-	Prints very high-quality color documents or photos
-	Requires one pass for each color
-	Generally, slow and expensive to operate
 ------------------------------------------
 Thermal Printer
 	Direct thermal printer [[img images/Thermal_Transfer_Printing.png]]
