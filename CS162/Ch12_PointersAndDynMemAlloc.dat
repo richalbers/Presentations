@@ -42,14 +42,15 @@ Declaring Pointer Variables
 Initializing Pointers
 	A pointer should contain one of the following:
 		A valid memory address
-		NULL (denoting it doesn't contain a valid memory address)
+		nullptr (0 - denoting it doesn't contain a valid memory address)
 	Pointers can be initialized to NULL as follows:
 	[[code]]
 		// The following two lines declare
-		// and initialize pointers to null.
-		int* p1=NULL;	//NULL is NULL
-		int* p2=0;		//0 is NULL too.
-	Pointers that contain NULL are called null pointers.
+		// and initialize pointers to 0/NULL/nullptr.
+		// 0 or NULL work, but nullptr is better
+		int* p1=nullptr;	//best
+		int* p2=0;		//works
+	Pointers that contain 0/NULL/nullptr are called null pointers.
 ---------------------------------------------
 Practice
 	For each of the lines below, tell
@@ -62,7 +63,7 @@ Practice
 				
 			char* b, c;
 				
-			double* d=NULL;
+			double* d=nullptr;
 ---------------------------------------------
 "Address of" operator
 	You can get the address of an existing variable using the address of operator (&).
