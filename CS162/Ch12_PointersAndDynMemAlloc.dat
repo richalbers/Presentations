@@ -42,7 +42,8 @@ Declaring Pointer Variables
 Initializing Pointers
 	A pointer should contain one of the following:
 		A valid memory address
-		nullptr (0 - denoting it doesn't contain a valid memory address)
+		0 (denoting it doesn't contain a valid memory address)
+			0, NULL, and nullptr are all 0, but nullptr is preferred when dealing with pointers.
 	Pointers can be initialized to NULL as follows:
 	[[code]]
 		// The following two lines declare
