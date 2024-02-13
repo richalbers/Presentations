@@ -433,7 +433,7 @@ function ColorCodeAsCPP(sLine)
 		"if", "else", "switch", "case", "default", "default:", "break", "break;", "continue;", "true", "false",
 		"do", "for", "while",
 		"struct", "class", "private:", "public:", "protected:",
-		"int*", "char*", "float*", "long*", "new", "delete"
+		"int*", "char*", "float*", "double*","long*", "new", "delete", "nullptr"
 	);
 	var aWords=sCode.split(" ");
 	var sSep="";
