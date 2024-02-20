@@ -83,7 +83,7 @@ Dereferenceing operator
 		int* p;		//declares a pointer named p
 			
 		p=&x;		//stores address of x in p
-		cout << *p; //print out what p points so
+		cout << *p; 	//print out what p points to
 		cout << endl;
 			
 		*p=*p+7; 	//add 7 to the location p points to
