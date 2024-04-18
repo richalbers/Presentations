@@ -247,7 +247,7 @@ Practice
 			clock.h - class defintion
 		In the "Source Files" section:
 			clock.cpp - class implementation 
-			clockTest.cpp - test code.  Will contain the main() routine (which will creates an instance of the Clock class and thoroughly test each function.
+			clockTest.cpp - test code.  Will contain the main() routine which will creates an instance of the Clock class and thoroughly test each function.
 	Note: files in the Include section aren't compiled directly.  The code in those files is only complied as part of the .cpp file it's #included in.
 	
 ---------------------------------------------
@@ -305,10 +305,10 @@ Practice
 	Put the Clock class definition shown on an earlier slide (Complete Class Definition Example) into the clock.h file.
 	Surround it with the #ifndef, #define, #endif directives
 	Add a file header to the file 
-		This should contain a file descrition, as well as @author and @version tags.
+		This should contain a file description, as well as @author and @version tags.
 	Add a function header to the setTime function
 		This should contain a function description and @param tags for each parameter, and a @return tag
-	In practice, all functions should have the funtion headers.  For this exercise we'll just to one so we'll know how they should look.
+	In practice, all functions should have the function headers.  For this exercise we'll just do one so we'll know how they should look.
 ----------------------------------------------
 Scope Resolution Operator
 	In the part 1 exercises we implemented some functions within the definition.  This is atypical.
@@ -344,7 +344,7 @@ Sample implementation file
 Practice
 	In the clockTest.cpp file, add a main() routine
 		this will contain code to test the Clock class.
-		We'll add code to it as we go along to test each clock funcition after it's written.
+		We'll add code to it as we go along to test each clock function after it's written.
 	In the clock.cpp file, add implementations for each function.
 		After adding each function implementation, add code in main() to thoroughly test (with both valid and invalid data) the function.
 		Each function should the thoroughly tested before moving on to the next one.
