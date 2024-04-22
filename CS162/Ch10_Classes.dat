@@ -137,7 +137,7 @@ Function categories
 			There may be other functions that manipulate the object's data in some way.
 ----------------------------------------------
 Practice
-	Starting with the code below (partial clock class), write the constructor and accessor/mutator for minute.  Then test it by running it the debugger
+	Starting with the code below (partial clock class), write the constructor and accessor/mutator for minute.  Then test it by running it in the debugger
 	[[code]]
 		class Clock {
 			public:
@@ -254,7 +254,7 @@ Practice
 Include Guards
 	All header files need to make sure the code they contain isn't included twice in the event the file is #included twice (which can easily happen with nesting)
 		These are called include guards
-	The standard method to implment include guards is through the pre-processor directives #ifndef, #define, #endif
+	The standard way to implement include guards is through the pre-processor directives #ifndef, #define, #endif
 	These would be used as follows:
 		[[code]]
 		#ifndef CLOCK_H [[desc Preprocessor directive that says: If CLOCK_H is not defined, continue.<br>CLOCK_H is a name we made up that needs to be unique.<br>And this #ifndef needs a closing #endif at the end of the file.]]
