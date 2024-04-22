@@ -46,7 +46,7 @@ An Example
 	You could implement this clock functionality in software using a class
 		The Clock class 
 			would contain the clock data (hour, minute, seconds)
-			would maintain the integrety of that data (keep the variables from being set to invalid values)
+			would maintain the integrity of that data (keep the variables from being set to invalid values)
 			provide an easy-to-use interface to set, display, and manipulate the clock data
 ---------------------------------------------
 Creating classes and objects  
