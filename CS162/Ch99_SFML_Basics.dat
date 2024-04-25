@@ -20,8 +20,8 @@ SFML Basics
 		Handling events (window closing, key presses, etc..)
 		Drawing rectangles and text.
 	The following slides cover those topics, and provide links to the SFML tutorial pages on each.
-	The full SFML 2.3 tutorial can be found here:
-		[[http://www.sfml-dev.org/tutorials/2.3/!http://www.sfml-dev.org/tutorials/2.3]]
+	The full SFML 2.6 tutorial can be found here:
+		[[http://www.sfml-dev.org/tutorials/2.6/!http://www.sfml-dev.org/tutorials/2.6]]
 	
 -------------------------------------------------
 Overview
@@ -134,7 +134,7 @@ Events
 				doSomething();
 		}	
 	The SFML Events tutorial:
-		[[http://sfml-dev.org/tutorials/2.3/window-events.php!http://sfml-dev.org/tutorials/2.3/window-events.php]]
+		[[http://sfml-dev.org/tutorials/2.6/window-events.php!http://sfml-dev.org/tutorials/2.6/window-events.php]]
 ---------------------------------------------
 Practice
 	Add code to your source file to handle
@@ -160,7 +160,7 @@ Status of keys
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 			doSomething();
 	The SFML Keyboard, Mouse, and Joystick tutorial:
-		[[http://sfml-dev.org/tutorials/2.3/window-inputs.php!http://sfml-dev.org/tutorials/2.3/window-inputs.php]]
+		[[http://sfml-dev.org/tutorials/2.6/window-inputs.php!http://sfml-dev.org/tutorials/2.6/window-inputs.php]]
 ---------------------------------------------
 Practice
 	Add code to your source file to detect
@@ -243,7 +243,7 @@ Drawing Regular Polygons
 			
 		window.draw(rock);
 	The SFML shape drawing tutorial:
-		[[http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php!http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php]]
+		[[http://www.sfml-dev.org/tutorials/2.6/graphics-shape.php!http://www.sfml-dev.org/tutorials/2.6/graphics-shape.php]]
 -------------------------------------------
 Drawing Other Polygons
 	Irregular, convex polygons can also be easily drawn.  [[img images/Triangle.PNG]]
@@ -267,5 +267,5 @@ Drawing Other Polygons
 			
 		window.draw(ship);	
 	The SFML shape drawing tutorial:
-		[[http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php!http://www.sfml-dev.org/tutorials/2.3/graphics-shape.php]]
+		[[http://www.sfml-dev.org/tutorials/2.6/graphics-shape.php!http://www.sfml-dev.org/tutorials/2.6/graphics-shape.php]]
 	
