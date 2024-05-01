@@ -139,8 +139,8 @@ Practice
 		creates a char pointer and intializes it to NULL.
 		uses new to allocate memory for a new char, storing the resulting address in the pointer var
 		sets the dynamically allocated memory to 'Z';
-		prints our the value in the dynamically allocated memory.
-		frees up the dynamiclaly allocated memory
+		prints out the value in the dynamically allocated memory.
+		frees up the dynamically allocated memory
 ---------------------------------------------
 Memory leaks
 	If you dynamically allocate memory and then lose track of it (by changing the pointer to something else) before freeing it up, you have a memory leak.
