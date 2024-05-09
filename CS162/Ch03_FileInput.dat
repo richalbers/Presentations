@@ -52,13 +52,13 @@ Opening a file for input
 Practice	
 	Create a program containing the code on the previous slide
 	Create a text file for it to read 
-		Since there is no directory specified before the filename, the file will need to be in the process's "current working directory".  When running in Visual Studio, that's the same directory your project's source files (.cpp, .h, etc.)are in
+		Since there is no directory specified before the filename, the file will need to be in the process's "current working directory".  When running in Visual Studio, that's the same directory your project's source files (.cpp, .h, etc.) are in
 	Step through the program in the debugger to see if the open succeeds
 --------------------------------------------
 reading data
 	There are several methods that can be used to read the data from an input stream
 	The ones we'll look at are:
-		To read formated data (i.e. data delimited by white space):
+		To read formatted data (i.e. data delimited by white space):
 			>>
 		To read unformatted data:
 			istream.get(char) - reads a character 
@@ -124,7 +124,7 @@ reading unformatted data
 			std::cout << strLine;
 	Note: There are two versions of getline()
 		One is a member of the istream class (defined in <istream> and reads into a char array)
-		the other is a member of a class (defined in <string> and reads into strings)
+		The other is not a member of a class (defined in <string> and reads into strings)
 ------------------------------------------
 reading until EOF
 	Many of these functions return null (false) when they reach eof
