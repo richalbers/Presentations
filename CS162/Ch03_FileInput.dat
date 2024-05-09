@@ -109,8 +109,8 @@ reading unformatted data
 			...
 			//to read a single char
 			char ch;
-			inputStream.get(ch)
-			std::cout << ch << endl;				
+			inputStream.get(ch);
+			std::cout << ch << std::endl;				
 					
 			// read a single line into a char array
 			char cstrLine[200];
@@ -161,7 +161,7 @@ Practice
 			print the count after the file is closed
 ------------------------------------------
 Extra
-	This presention covered how to read files using streaming IO (fstream)
+	This presentation covered how to read files using streaming IO (fstream)
 	The C langauge didn't support streaming IO so files were read using other methods
 	Those methods still work in C++ but aren't covered here
 
