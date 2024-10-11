@@ -27,7 +27,7 @@ Components on Motherboard
 	Processor Socket
 	Chipset
 	Memory Slots 
-	Disk Drive Connectors (SATA/PATA)
+	Disk Drive Connectors (PATA/SATA/M.2)
 	Expansion Busses/Slots
 	Integrated components 
 
@@ -37,12 +37,12 @@ Chipset Evolution
 		Northbridge originally handled RAM						
 		Southbridge handled expansion devices	[[img https://images.hothardware.com/static/articleimages/Item845/p965_block.png]]
 	and a Super I/O chip for legacy devices			[[img https://images.anandtech.com/reviews/cpu/intel/SNBE/X79_blockdiagram.jpg]]
-	CPU now handles a lot of what the chipset used to		[[img https://www.techpowerup.com/review/intel-core-i7-10700k/images/arch6.jpg]]
+	CPU now handles a lot of what the chipset used to		[[img https://www.servethehome.com/wp-content/uploads/2021/10/Intel-Z690-chipset-block-diagram.jpg]]
 	Block diagrams on the right show the evolution of the chipsets
 		Intel
 			Core 2
-			2nd  Generation i7
-			10th Generation i7
+			2nd  Generation 
+			12th Generation
 		AMD
 			APU (Accelerated Processing Unit)
 				APUs a marketing term for a combined CPU/GPU 
@@ -56,10 +56,10 @@ Expansion Busses/Slots
 		PCIe - PCI Express  [[img http://ww2.justanswer.com/uploads/operab/2010-07-08_021703_PCI_PCIe_Slots.jpg]]
 			Newest expansion bus - general purpose
 			Works in software like PCI, but hardware is completely different
-			Utilizes from 1 to 32 "lanes"
+			Utilizes from 1 to 32 "lanes" (1/4/8/16/32)
 ---------------------------------------
 Expansion Busses/Slots Continued
-	Obsolete 		[[img https://3c6809fb-a-62cb3a1a-s-sites.googlegroups.com/site/joyceassignment2/question-2-b/expansionslot.jpg?attachauth=ANoY7cokM-h4m1c97hGb5THtPdnryXO2yXG9h1jKqkxbFm1QXBwrXsqPjeyrIMcdzMnPP7pa_Zafj7TnSu7W4zOGM1uRkkwEnqquYeYnCxoIjqjLkrAH8OB6QqRw4HL6OP4SYSBOhdTVubEYrHaC3bdTLswft2s15yr0M9rNn4G_vsLuGu8NAOvLHffaCEsGtBf-af3Q8tEH9FX7nDkApqyWkbGyOoXJ6HWpmp1dGUBiRP_9LAQXnZM%3D&attredirects=0]]
+	Obsolete 		[[img images/AGP_PCI_ISA.jpg]]
 		ISA - Industry Standard Architecture
 			Original expansion slot.  
 		AGP - Accelerated Graphics port
@@ -87,8 +87,8 @@ Onboard Components
 
 ----------------------------------------
 Motherboard Summary
-	Form Factor 				[[img http://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/386_Baby_AT_motherboard_view.jpg/800px-386_Baby_AT_motherboard_view.jpg]]
+	Form Factor 				
 	Components on Motherboard  	
-	Chipset Evolution 			[[img http://www.ixbt.com/mainboard/gigabyte/ma790xt-ud4p/board.jpg]]
+	Chipset Evolution 			
 	Expansion Busses
 	Onboard (Integrated) Components
