@@ -33,16 +33,15 @@ Components on Motherboard
 
 -----------------------------------
 Chipset Evolution
-	Chipsets used to consist of two primary chips
-		Northbridge originally handled RAM						
-		Southbridge handled expansion devices	[[img https://images.hothardware.com/static/articleimages/Item845/p965_block.png]]
-	and a Super I/O chip for legacy devices			[[img https://images.anandtech.com/reviews/cpu/intel/SNBE/X79_blockdiagram.jpg]]
-	CPU now handles a lot of what the chipset used to		[[img https://www.servethehome.com/wp-content/uploads/2021/10/Intel-Z690-chipset-block-diagram.jpg]]
+	Chipsets used to consist of two primary chips  	[[img https://images.hothardware.com/static/articleimages/Item845/p965_block.png]]
+		Northbridge originally handled RAM	[[img https://www.servethehome.com/wp-content/uploads/2021/10/Intel-Z690-chipset-block-diagram.jpg]]					
+		Southbridge handled expansion devices	
+	and a Super I/O chip for legacy devices			
+	CPU now handles a lot of what the chipset used to		
 	Block diagrams on the right show the evolution of the chipsets
 		Intel
 			Core 2
-			2nd  Generation 
-			12th Generation
+			12th Generation i series
 		AMD
 			APU (Accelerated Processing Unit)
 				APUs a marketing term for a combined CPU/GPU 
