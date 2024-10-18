@@ -25,11 +25,11 @@ Overview
 ------------------------------------
 CPU Components
 	Core Components
-		Registers [[img http://static.commentcamarche.net/en.kioskea.net/faq/images/KjBt8WVH4Epro7ik.png]]
+		Registers [[img images/CPU_Components.png]]
 		ALU (Arithmetic Logic Unit)
 		FPU (Floating Point Unit)
 		Address/Data Bus	
-		Cache (L1, L2, L3) [[img http://tutorial.programming4.us/image/1207/CPU%20architecture.jpg]]
+		Cache (L1, L2, L3) 
 	Modern CPUs often include 2-8 (or more!) separate "cores", with each core being almost a "separate" CPU and consisting of all the above items (although L2 or L3 cache may be shared) 
 
 -----------------------------------
@@ -95,9 +95,9 @@ AMD Desktop CPUs
 		and many others (with both fewer more sockets)
 -----------------------------------
 Other CPUs
-	Mobile (Only) [[img http://www.blogcdn.com/www.engadget.com/media/2012/02/intel-rosepoint.jpg]]
+	Mobile (Only) 
 		Mobile versions of many of the desktop chips.  They generally run slower/cooler.
-	Server [[img https://6lli539m39y3hpkelqsm3c2fg-wpengine.netdna-ssl.com/wp-content/uploads/2021/04/Intel-Ice-Lake-3rd-Gen-Xeon-CPU-front-back-300x275.png]]
+	Server 
 		Intel Xeon/Itanium
 		AMD Opteron
 --------------------------------------
@@ -131,7 +131,7 @@ Additional Reading
 	System performance depends on more than one component or factor
 	To get real-world system performance, tests need to be run
 	Sites commonly performing and publishing test results (as well as general hardware reviews) are
-		[[Anandtech!http://www.anandtech.com/]]
+		[[Anandtech!http://www.anandtech.com/]] (stopped in 2024)
 		[[Toms Hardware Guide!http://www.tomshardware.com/]]
 
 ----------------------------------------
