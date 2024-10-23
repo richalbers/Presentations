@@ -77,7 +77,12 @@ RIMMs (obsolete)
 Misc
 	ECC vs non-ECC
 	Registered (Buffered) vs Unbuffered
-
+	Running RAM faster than JDEC Standards)
+		Set in BIOS
+		XMP - eXtreme Memory Profile - Intel)
+		AMP/EXPO - AMD Memory Profile, Extended Profiles for Overclocking
+		DOCP or EOCP - DRAM/Extended Overclocking Profile (ASUS & Gigabyte)
+	Task Manager can also show RAM information
 ----------------------------------------
 Summary 
 	Types
