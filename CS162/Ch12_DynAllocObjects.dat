@@ -18,10 +18,10 @@ new and delete with classes
 		}
 		...
 		int main() {
-			Cat* p1=NULL;	//declares a Cat pointer 
-			p1 = new Cat;	//allocates memory for a Cat
+			Cat* p1=nullptr; //declares a Cat pointer 
+			p1 = new Cat;	 //allocates memory for a Cat
 			...
-			delete p1;		//frees up allocated memory
+			delete p1;	 //frees up allocated memory
 			return 0;
 		}
 ---------------------------------------------
@@ -129,7 +129,7 @@ Using loops to process arrays of pointers
 		...
 		//free up all the non-null cat pointers
 		for (int x=0; x<10; x++) [[desc Look at all elements of the array]]
-			if (pCat[x] != NULL) [[desc But skip those that are null]]
+			if (pCat[x] != 0) [[desc But skip those that are null]]
 				delete pCat[x]; //free up memory allocated with new
 			
 ----------------------------------------------------------------
