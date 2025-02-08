@@ -1,0 +1,31 @@
+Binary Analysis Tools
+
+ELF
+	ELF - Executable and Linkable Format
+		A format used for executables, object code, shared libraries, and core dumps
+	
+	Sections
+		.init - initialization code
+		.text - executable code (your code)
+		.fini - termination code
+
+		.rodata - read only data (string literals)
+		.data - read/write data
+
+		.dynamic - dlls the executable needs to load
+		.dynstr - external symbols
+
+		and others
+--------------------------------------------------------
+Tools
+	readelf - display info about ELF files
+		readelf
+		readelf -a binary_file
+		readelf -x section binary_file
+	objdump - displayes information from object files
+		objdump -s binary_file	
+	ltrace - dynamic library call tracer
+		ltrace binary_file
+	radar2 - an open source reverse engineering framework used for static and dynamic analysis, digital forensics or software exploitation
+		r2 -d binary_file
+------------------------------------------------------
