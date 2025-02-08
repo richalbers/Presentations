@@ -171,7 +171,7 @@ PreProcessor Directives
 Namespaces 
 	Your program can include 3rd party code from multiple sources
 	Namespaces are used to deal with the possibility of having two things named the same (a possibility if they're coming from different libraries)
-	Specifying a namespace is done with ::namespace_name
+	Specifying a namespace is done with namespace_name::
 	[[code]]
 		void main() {
 			...
