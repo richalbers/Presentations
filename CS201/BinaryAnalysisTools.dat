@@ -1,6 +1,7 @@
 Binary Analysis Tools
 	ELF
 	Tools
+-------------------------------------------------------------
 ELF
 	ELF - Executable and Linkable Format
 		A format used for executables, object code, shared libraries, and core dumps
