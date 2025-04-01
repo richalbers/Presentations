@@ -38,7 +38,7 @@ Practice
 	Create a main() and declare the following in it:
 		an array to store monthly sales totals for 3 salespeople (12 months)
 			Sales amounts may contain decimals
-		an array for daily attendence for 24 students and 20 class days
+		an array for daily attendance for 24 students and 20 class days
 			here=true, absent=false
 		an array to represent a 9x9 [[sudoku puzzle!http://en.wikipedia.org/wiki/Sudoku]]
 			Sudoku puzzles contain the numbers 1-9, and blank spaces
