@@ -71,8 +71,8 @@ Intel Desktop CPUs
 		Core 2 duo
 		Pentium/Celeron
 	Sockets (partial list) 
-		LGA 2066
 		LGA 1700
+		LGA 2066
 		LGA 1200
 		LGA 1151
 		and many others (with both fewer and more pins)
@@ -85,8 +85,8 @@ AMD Desktop CPUs
 		Phenom
 		Athlon X2, X3, X4
 		and others
-	Sockets (All PGA) [[img https://i.pcmag.com/imagery/reviews/03rEdEqzjUQgOTwlFpvmL1T-15..v1569469959.jpg]]
-		AM5
+	Sockets (PGA unless specified otherwise) [[img https://i.pcmag.com/imagery/reviews/03rEdEqzjUQgOTwlFpvmL1T-15..v1569469959.jpg]]
+		AM5 - LGA
 		AM4
 		AM3+
 		AM3
@@ -147,3 +147,4 @@ Summary
 	Installation
 	Additional Reading
 --------------------------------
+
