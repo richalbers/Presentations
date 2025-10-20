@@ -30,8 +30,17 @@ CPU Components
 		FPU (Floating Point Unit)
 		Address/Data Bus	
 		Cache (L1, L2, L3) 
-	Modern CPUs often include 2-8 (or more!) separate "cores", with each core being almost a "separate" CPU and consisting of all the above items (although L2 or L3 cache may be shared) 
-
+	Modern CPUs often include multiple (2-24, or more!) separate "cores", with each core being almost a "separate" CPU and consisting of all the above items (although L2 or L3 cache may be shared) 
+--------------------------------------
+Core types
+	Modern CPUs often have Cores optimized for different types of tasks
+		P-cores are designed for performance
+			Physically larger
+			Run at higher Clock speeds
+			Support Hyperthreading
+		E-cores are designed for energy efficiency
+			Smaller
+			Run at lower clock speeds
 -----------------------------------
 Clock Speed
 	The CPU executes instructions according to a clock
@@ -39,6 +48,7 @@ Clock Speed
 	This signal is then increased to the CPU's maximum speed via a multiplier
 		This allows a Motherboard to support CPUs of various speeds
 	The multipiler is set via factory/CMOS/Jumpers/CPU
+	Running your CPU faster then it was specified is called overclocking
 ------------------------------------
 Speeds
 	1 Hz - one cycle per second
@@ -67,7 +77,8 @@ CPU Sockets
 -----------------------------------
 Intel Desktop CPUs
 	Product lines
-		Core i7, i5, i3 [[img http://www.guru3d.com/miraserver/images/2009/corei5/IMG_9021.jpg]]
+		Core i3, i5, i7, i9 [[img http://www.guru3d.com/miraserver/images/2009/corei5/IMG_9021.jpg]]
+			latest are designated Ultra
 		Core 2 duo
 		Pentium/Celeron
 	Sockets (partial list) 
@@ -105,7 +116,7 @@ Cooling
 	CPUs generate a lot of heat, which must be transferred away from the CPU [[img https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/AMD_heatsink_and_fan.jpg/1200px-AMD_heatsink_and_fan.jpg]]
 	Common techniques
 		Heat Sink and Fan - cheap and easy
-		Liquid Cooling - more effective but expensive and more complex [[img https://cdn.coolermaster.com/media/assets/1003/hyper-212-evo-v2-380x380-2-hover.png]]
+		Liquid Cooling - more effective but expensive and more complex 
 	Thermal Compound/Paste/Grease must be put between CPU and Heat Sink 
 		Don't use too much... or too little
 	Heat sink must be installed flat against CPU
@@ -118,6 +129,8 @@ Misc
 	64-bit processing
 	Overclocking
 	virtualization support
+	GPU - Graphics Processing Unit (for video)
+	NPU - Neural Processing Unit (for AI)
 	Retail vs OEM (Original Equipment Manufacturer)
 	[[CPUz!https://www.techpowerup.com/download/cpu-z/]]
 --------------------------------------
@@ -147,4 +160,5 @@ Summary
 	Installation
 	Additional Reading
 --------------------------------
+
 
