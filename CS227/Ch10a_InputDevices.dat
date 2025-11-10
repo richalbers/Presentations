@@ -18,14 +18,17 @@ Serial Ports
 	Replaced by USB for computer peripherals
 --------------------------------------------
 USB - Universal Serial Bus
-	Multiple devices on a single connection[[img http://upload.wikimedia.org/wikipedia/commons/d/d6/Usb_connectors.JPG]]
+	Multiple devices on a single connection[[img https://res.cloudinary.com/rspoc/image/upload/f_auto/q_auto/v1543497710/L8950515-01.jpg]]
 	Designed to replace serial, parallel, & PS/2	     [[img https://www.reviewgeek.com/p/uploads/2020/09/d6e91d51.jpg]]
 	Versions 						
 		1.1 - White, 1.5M, 12Mbps (lowspeed, fullspeed)	
 		2.0 - Black, 480 Mbps (highspeed)			[[img images/USB DVI VGA HDMI DisplayPort.jpg]]
 		3.0 - Blue, 5 Gbps (superspeed)
-		3.1 - Teal, 10Gbps (superspeed USB 10 or USB 3.1 Gen 2)
+		3.x - Teal, 10Gbps (superspeed USB 10 or USB 3.1 Gen 2)
 		All are backwards compatible
+	Other colors
+		Red - 3.1 or 3.2 - Always on
+		Yellow 2.x or 3.x - Always on
 	Connectors 		
 		Computer - Type A, mini A, micro A, Type C
 		Device - Type B, mini B (5 or 8 pin), micro B, Type C
@@ -60,12 +63,14 @@ Thunderbolt
 	high-speed alternative to USB, Firewire, and DisplayPort [[img https://wpmedia-lib.larryjordan.com/wp-content/uploads/2020/11/OWC01-768x354.jpg]] 
 	Supports high speed data and video in one port		[[img https://c1.neweggimages.com/ProductImageCompressAll1280/15-293-048-V03.jpg]]
 	Speeds:
-		Thunderbolt 1 - upto 10 Gbps
-		Thunderbolt 2 - upto 20 Gbps
-		Thunderbolt 3 - upto 40 Gbps, 3m on copper, 60m on fiber
+		Thunderbolt 1 - up to 10 Gbps
+		Thunderbolt 2 - up to 20 Gbps
+		Thunderbolt 3 - up to 40 Gbps, 3m on copper, 60m on fiber
+		Thunderbolt 4 - same speed, but dual 4k displays
+		Thunderbolt 5 - up to 120 Gbps for displays (dual 8K)
 	Connectors
 		Thunderbolt 1 & 2 connect with Mini-DisplayPort connector
-		Thunderbolt 3 connects with USB Type C connector
+		Thunderbolt 3+ connects with USB Type C connector
 			Will have thunderbolt symbol next to it
 			Allows data transfer, video ouput, and charging through the same cable
 			
@@ -117,3 +122,4 @@ Summary
 	Other Devices
 
 --------------------------------------------
+
