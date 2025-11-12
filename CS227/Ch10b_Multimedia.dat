@@ -96,8 +96,8 @@ Speaker Standards
 Sound Card installation
 	Since sound is a basic requirement, many motherboards have integrated sound cards
 	You may want to install a separate card for better sound
-	If upgrading [[img http://img.tomshardware.com/us/2001/07/25/bios_tuning/io_2.gif]]
-		Disable the on-board sound in the BIOS [[img http://h10025.www1.hp.com/ewfrf-JAVA/Doc/images/993/c00377507.jpg]]
+	If upgrading 
+		Disable the on-board sound in the BIOS
 		Install the new card & drivers
 		Plug speakers into the proper jacks in new card
 		Enjoy
@@ -145,5 +145,6 @@ Summary
 	A/V Capture
 	Codecs
 --------------------------------------------
+
 
 
