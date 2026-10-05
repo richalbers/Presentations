@@ -3,8 +3,9 @@ Electricity and Power Supplies
 	Safety
 	Basics
 	Electrical Testing Tools
-	Power Equipment
-	Power Supply Connectors
+	Power Supplies
+	Power Supply Inputs
+	Power Supply Outputs
 	Power Supply Versions
 	Misc
 	Troubleshooting
@@ -48,24 +49,35 @@ Electrical Testing Tools
 		Outlets can be easily tested using an outlet tester
 	For all tools, read the instructions before using
 ---------------------------------------------------
-Power Equipment
-	Surge Suppressors [[img images/PowerStrip.jpg]]
-		Protect your equipment from voltage spikes
-		Oftentimes built into power strips
-	Power Conditioner
-		Clean up all the noise on the power line
-	UPS - Uninterruptable Power Supply [[img images/UPSSmall.jpg]]
-		Provide temporary power in the event of a power failure
-			Typically only 5-20 minutes of power, long enough for a backup generator to start or the system to shut down
-		Also include surge suppression and power conditioning
-		Use a power-calculator or on-line selection tools to determine the proper size
-			Companies that sell UPSs typically provide such tools (e.g. www.apc.com)
+Power Supplies
+	Convert high voltage AC to low voltage DC
+	Mostly solid state, but do have a cooling fan
+		Fan exhausts air from the case (through the PS)
+	Not user servicable.  If they break, they're replaced, not fixed
+	They've evolved over time from the orignal AT to the current ATX 3.1.
+		Each evolution added output and increased output power
+	In general any ATX power supply will fit any ATX case and power any ATX motherboard
+		They're rated in watts (300-1000+)
+		But needs to provide enough power for the components
 ---------------------------------------------------
-Power Supply Connectors
-	P1 - Main connector to motherboard [[img images/PowerConnectors.jpg]]
-		20 or 24 pins
-	P4 - Additional power for motherboard
-		Needed for Pentium 4 CPUs (hence the name)
+Power Supply Inputs
+	Power supplies are univeral (ie. i.e. work anywhere on planet)
+	Power grids are not the same everywhere, in general:
+		Americas: 110/120v 60hz
+		Other places: 240v 50Hz
+	Outlets are also different
+		So cord is separate (detachable from PS)
+		There may be a switch to change the input from 115v to 230v, or it may autosense the input voltage
+	They also have a power switch that turns the Power supply on/off
+		Note: this is different then turning the computer on/off
+---------------------------------------------------
+Power Supply Outputs
+	P1 (Main Power) connector to motherboard [[img images/PowerConnectors.jpg]]
+		Orinally 20 pins
+		Now 24 pins (20+4)
+	12V connector for CPU (plugs into motherboard)
+		originally 4 pin (P4)
+		Now 4+4 (EPS)
 	Molex - Disk Drives 
 		4 pin, rectangular
 	SATA - Newer SATA disk drives
@@ -74,6 +86,17 @@ Power Supply Connectors
 	PCIe Connectors
 		6 or 8 pin
 		Primarily for video cards
+---------------------------------------------------
+ATX Wire Colors
+	Wire colors indicate voltages [[img images/ATX_ConnectorRef.png]]
+		Orange: 3.3v
+		Red: 5v
+		Yellow: 12v
+		Blue -12v
+		Purple 5v (standby)
+	Signal wires
+		Green: PS_ON
+		Gray: PWR_ON
 ---------------------------------------------------
 Soft Power Feature
 	All ATX power supplies use soft power [[img images/ATX_PS_signals.png]]
@@ -112,21 +135,9 @@ ATX 2.x versions
 	ATX 12V 2.3
 		Increased efficiency (70% min, 80% recommended)
 ---------------------------------------------------
-ATX 3.0
+ATX 3.1
 	This is the latest specification [[img images/HPWR_Connector.jpg]]
 	It Requires a 16 pin High Power connector that can supply up to 600W (for video cards).
-
----------------------------------------------------
-ATX Wire Colors
-	Wire colors indicate voltages [[img images/ATX_ConnectorRef.png]]
-		Orange: 3.3v
-		Red: 5v
-		Yellow: 12v
-		Blue -12v
-		Purple 5v (standby)
-	Signal wires
-		Green: PS_ON
-		Gray: PWR_ON
 		
 ---------------------------------------------------
 Misc
@@ -139,7 +150,19 @@ Misc
 	Modular Power Supplies  [[img images/ATX_Modular.jpg]]
 		You plug in the wires you want
 		Eliminates extra wires hanging around inside Case
-
+---------------------------------------------------
+Power Equipment
+	Surge Suppressors [[img images/PowerStrip.jpg]]
+		Protect your equipment from voltage spikes
+		Oftentimes built into power strips
+	Power Conditioner
+		Clean up all the noise on the power line
+	UPS - Uninterruptable Power Supply [[img images/UPSSmall.jpg]]
+		Provide temporary power in the event of a power failure
+			Typically only 5-20 minutes of power, long enough for a backup generator to start or the system to shut down
+		Also include surge suppression and power conditioning
+		Use a power-calculator or on-line selection tools to determine the proper size
+			Companies that sell UPSs typically provide such tools (e.g. www.apc.com)
 ---------------------------------------------------
 Troubleshooting
 	Verify PS is getting power before replacing.  Check:
