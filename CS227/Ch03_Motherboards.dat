@@ -7,7 +7,7 @@ Ch 3 (2nd half) - Motherboards
 	Onboard (Integrated) Components
 -----------------------------------
 Form Factor
-	Form factor defines 	[[img https://en.wikipedia.org/wiki/File:ATX_ITX_AT_Motherboard_Compatible_Dimensions.svg]]
+	Form factor defines 	[[img https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/ATX_ITX_AT_Motherboard_Compatible_Dimensions.svg/960px-ATX_ITX_AT_Motherboard_Compatible_Dimensions.svg.png]]
 		the size of the motherboard
 		general location of components and ports
 	Form Factors 	
@@ -22,14 +22,15 @@ Form Factor
 				Mini, Nano, pico
 	[[Wikipedia page has lots more great info!http://en.wikipedia.org/wiki/Computer_form_factor]]	
 -----------------------------------
-Components on Motherboard
-	BIOS/EUFI & CMOS			
-	Processor Socket
+Components on Motherboard		
+	Processor Socket		[[img images/motherboard_components.png]]
 	Chipset
 	Memory Slots 
-	Disk Drive Connectors (PATA/SATA/M.2)
 	Expansion Busses/Slots
-	Integrated components 
+	Disk Drive Connectors (PATA, SATA, M.2)
+	BIOS/EUFI & CMOS
+	Integrated components (Sound, I/O, LAN, etc..)
+	Various headers (for switches,LEDs,USB,etc..)
 
 -----------------------------------
 Chipset Evolution
