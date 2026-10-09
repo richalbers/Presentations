@@ -1,13 +1,13 @@
 -----------------------------------
 Ch 6 - Motherboards
-	Form Factor 				[[img http://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/386_Baby_AT_motherboard_view.jpg/800px-386_Baby_AT_motherboard_view.jpg]]
+	Form Factor 				[[img images/new_motherboard.jpg]]
 	Components on Motherboard  	
-	Chipset Evolution 			[[img images/new_motherboard.jpg]]
+	Chipset Evolution 			
 	Expansion Busses
 	Onboard (Integrated) Components
 -----------------------------------
 Form Factor
-	Form factor defines 	[[img http://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Motherboards_form_factors.svg/719px-Motherboards_form_factors.svg.png]]
+	Form factor defines 	[[https://en.wikipedia.org/wiki/File:ATX_ITX_AT_Motherboard_Compatible_Dimensions.svg]]
 		the size of the motherboard
 		general location of components and ports
 	Form Factors 	
@@ -48,11 +48,12 @@ Chipset Evolution
 ---------------------------------------
 Expansion Busses/Slots
 	Expansion busses/slots allow you to "expand" the capabilities of your computer
-	Current Common Ones			
+	Current Ones
 		PCI - Peripheral Component Interconnect [[img images/PCI_Keying.png]]
 			General purpose, been around a long time
 			3.3v (uncommon), 5.0v (common), or Universal
-		PCIe - PCI Express  [[img http://ww2.justanswer.com/uploads/operab/2010-07-08_021703_PCI_PCIe_Slots.jpg]]
+			Largely replaced by PCIe
+		PCIe - PCI Express  [[img https://upload.wikimedia.org/wikipedia/commons/3/3e/PCI-E_%26_PCI_slots_on_DFI_LanParty_nF4_SLI-DR_20050531.jpg]]
 			Newest expansion bus - general purpose
 			Works in software like PCI, but hardware is completely different
 			Utilizes from 1 to 32 "lanes" (1/4/8/16/32)
@@ -61,8 +62,9 @@ Expansion Busses/Slots Continued
 	Obsolete 		[[img images/AGP_PCI_ISA.jpg]]
 		ISA - Industry Standard Architecture
 			Original expansion slot.  
-		AGP - Accelerated Graphics port
-			Only used for video 
+		AGP - Accelerated Graphics port  
+			Only used for video
+			Newer than PCI, but replaced by PCIe
 	Others 		[[img images/pci-slots.jpg]]
 		[[PCI-X!http://en.wikipedia.org/wiki/PCI-X]] - PCI extended 
 			64-bit PCI bus used in high-end workstations and servers
