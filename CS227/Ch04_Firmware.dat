@@ -1,11 +1,12 @@
 -----------------------------------
-Ch 5 - Firmware
+Ch 4 (first part) - Firmware
 	Components on Motherboard
 	Terms: Hardware/Software/Firmware
 	BIOS
 	EFI/UEFI
 	CMOS
 	BIOS/CMOS Setup screens
+	TPM
 	Misc
 -----------------------------------
 Components on Motherboard
@@ -24,7 +25,7 @@ Hardware/Software /Firmware
 		Usually high-level, fairly large 
 	Firmware
 		Code stored on hardware (such as the motherboard)
-		Typpically stored in ROM or EEPROM 
+		Typically stored in ROM or EEPROM 
 			ROM - Read Only Memory
 			EEPROM - Electronically Erasable, Programmable ROM
 		
@@ -37,17 +38,18 @@ BIOS
 	Usually on EEPROM
 		Can be changed by "flashing"
 	Separate chip on motherboard
-	Major BIOS manufacturers
-		AMI
-		Award (/Phoenix)
 	Old technology - being replaced by EFI/UEFI
+	Major BIOS/EUFI manufacturers
+		AMI
+		Award/Phoenix 
 -----------------------------------
 EFI/UEFI
 	(Unified) Extensible Firmware Interface
 	Direct replacement for BIOS; allows more functionality
 	Runs in 32 or 64 bit mode (BIOS runs in 16 bit mode)
 	Necessary to boot off drives larger than 2.2TB
-	Usually has fancy GUI setup screens
+	Usually has fancy GUI setup screens 
+		Allows use of mouse
 	Linus Torvalds thinks poorly of it
 		"Not that I'd ever claim that the BIOS is wonderful either, but at least everybody knows that the BIOS is just a bootloader, and doesn't try to make it anything else."
 	[[Wikipedia has lots more info if you're interested!http://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface]]
@@ -68,11 +70,18 @@ BIOS/CMOS setup
 		Default settings can be loaded if unwanted changes are made
 		If it's so messed up it won't boot even far enough to get to the Setup Screens, clear the CMOS via hardware as per the manual	
 --------------------------------------
+TPM
+	Trusted Platform Module
+	Firmware 
+		May be a separate chip or integraded into the CPU 
+		Generates/stores cryptgrapic keys and passwords
+		Enables secure boot
+	Required in order to install/use Windows 11
+--------------------------------------
 Misc
 	POST - Power on Self Test
 	Beep Codes
 		Communicate info during POST before video is ready
 	Drivers
 		Software OS uses to communicate with hardware
-
 ----------------------------------------
