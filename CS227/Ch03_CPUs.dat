@@ -1,5 +1,5 @@
 --------------------------------
-Ch 3 - CPUs
+Ch 3 (first half) - CPUs
 	Overview
 	Core Components
 	Items Affecting Performance
@@ -77,7 +77,7 @@ CPU Sockets
 -----------------------------------
 Intel Desktop CPUs
 	Product lines
-		Core i3, i5, i7, i9 [[img http://www.guru3d.com/miraserver/images/2009/corei5/IMG_9021.jpg]]
+		Core i3, i5, i7, i9 
 			latest are designated Ultra
 		Core 2 duo
 		Pentium/Celeron
@@ -113,7 +113,7 @@ Other CPUs
 		AMD Opteron
 --------------------------------------
 Cooling
-	CPUs generate a lot of heat, which must be transferred away from the CPU [[img https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/AMD_heatsink_and_fan.jpg/1200px-AMD_heatsink_and_fan.jpg]]
+	CPUs generate a lot of heat, which must be transferred away from the CPU 
 	Common techniques
 		Heat Sink and Fan - cheap and easy
 		Liquid Cooling - more effective but expensive and more complex 
