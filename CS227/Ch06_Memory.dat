@@ -1,5 +1,5 @@
 --------------------------------
-Ch 4 - RAM
+Ch 6 - Memory
 	Types
 	Packages
 		SIMMs (obsolete)
@@ -37,7 +37,7 @@ Packages
 		Now obsolete
 ---------------------------------------
 SDRAM (SDR)
-	Syncronous Dynamic RAM [[img http://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/SDR_SDRAM-1.jpg/800px-SDR_SDRAM-1.jpg]]
+	Syncronous Dynamic RAM [[img https://en.wikipedia.org/wiki/Synchronous_dynamic_random-access_memory#/media/File:SDR_SDRAM-1.jpg]]
 	32-512 MB
 	168 pins
 	PC100, 133 (clock speed)
