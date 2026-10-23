@@ -1,34 +1,28 @@
 ------------------------------------------
-Ch 8- Mass Storage Tech
+Ch 7- Storage Devices
 	Storage Mechanism		[[img http://images.wisegeek.com/hard-drive.jpg]]
 	Form Factors
-	SSDs
-	Common Terms
-	Connecting Drives
-	Drive Communication
-	SCSI
+	Interfaces
 	RAID
 ------------------------------------------
 Storage Mechanism 
-	Hard Disk Drive (HDD)	[[img images/Drives.jpg]]
+	HDD - Hard Disk Drive 	[[img images/Drives.jpg]]
 		Magnetic Platters
 		Cheaper per GB, but slower
-	Solid State Drive (SSD)
+	SSD - Solid State Drive 
 		Flash memory
 		More expensive, but faster
-
+	SSHD - Solid State Hybrid Drive
+		Combines platters and flash
+		Stores most commonly accessed data on flash, the rest on platters
 ------------------------------------------
-Form Factors
-	HDDs
-		3.5" - desktop systems
-		2.5" - laptops or desktops
-	SSD
-		2.5" - same as HDDs 	[[img images/mSata_M2.JPG]]
-			SATA interface
-		mSata (not common)
-		M.2 - small circuit board
-			Multiple sizes: 2242,2260,2280,22110
-			SATA or PCIe/NVMe interface
+HDD
+	Uses magnetic platters to store data [[img https://ntfs.com/images/screenshots/recover-hard-drive.gif]]
+	Platters and R/W heads
+		If head touches platter (head crash) drive is done.
+	Speeds
+		5400, 7200, 10,000, 15,000 RPM
+	MTBF - mean time between failure
 -------------------------------------------
 Solid State Drives (SSD)
 	Have no moving parts [[img images/SSD.jpg]]
@@ -46,27 +40,41 @@ Solid State Drives (SSD)
 			Longer life-span
 	Lifespan is determined by maximum# read operations per cell
 		When it reaches EOL, you'll still be able to read it
+------------------------------------------
+Form Factors
+	3.5" - desktop systems
+		HDDs
+		Mounted to the case, connected to MB via cable
+	2.5" - laptops or desktops
+		HDDs or SSDs
+		Mounted to the case, connected to MB via cable 
+	M.2	- laptops or desktops	[[img images/mSata_M2.JPG]]
+		SSDs
+		Small circuit board mounted directory on Motherboard
+		Multiple sizes: 2242,2260,2280,22110
+			SATA or PCIe/NVMe interface	
+	mSata (not common)
+		Used in space-constrained portable devices
+		replaced by M.2
 -------------------------------------------
-Terms
-	IDE - Integrated Device Electronics
-	PATA - Parallel ATA (ribbon cables)
-		term used interchangably with IDE
-	SATA - Serial ATA (much smaller cable)
-		much faster than PATA
-		eSATA - external version
-	AHCI - Advanced Host Controller Interface
-		Used with SATA drives
-		Enable it in BIOS before installing OS
-	NVMe - Nonvolatile Memory Express
-		Used with some M.2 drives
-
+Interfaces/Protocols
+	IDE/PATA (obsolete)
+		ribbon cable (obsolete)
+		2.5 and 3.5" drives
+		Connected drive to disk controller on MB
+	SATA 
+		2.5", 3.5", and M.2 drives
+		Connected drive to disk controller on MB
+	NVME (Non-volatile Memory express)
+		M.2 drives (some)
+		Uses PCIe lanes connected directly to CPU
+		Faster than SATA
+	SAS - Serial attached SCSI (used in servers)
 --------------------------------------------
-Connecting Drives 
-	2.5" & 3.5" drives
-		PATA/IDE - ribbon cable (2 drives per cable)
-		SATA - Thin cable (1 drive per cable)
-	M.2
-		mounts on Motherboard
+PATA details
+	Synonomous with IDE
+	Utilizes ribbon cable
+	Obsolete
 --------------------------------------------
 SATA details
 	Utilizes thin data cable [[img https://www.cgdirector.com/wp-content/uploads/media/2022/04/Types-of-SATA-Cables.jpg]]
@@ -80,28 +88,37 @@ SATA details
 		SATA 3.2 - 16 Gb/s (2 GB/s)
 		Cable Length - 1 meter
 		eSATA - external SATA, 2 meter shielded cable
-------------------------------------------
-Drive Communication
-	Parallal ATA Emulation (may be called compatibility mode)
-		primairly for backwards compatibility
-	AHCI - Advanced Host Controller Interface
-		Necessary for hot-swapability
-		Used by most SATA drives, some M.2 Drives
-	NVMe - Non-Volatile Memory Express
-		Allows commmunication through PCIe bus, provides much higher speeds
-		Common with M.2 drives
+--------------------------------------------------
+NVME details
+	Non-volatile Memory express)
+	Uses with fastest M.2 drives
+	Uses PCIe lanes connected directly to CPU
+	Faster than SATA
 -------------------------------------------
-SCSI (scuzzy)
-	Small Computer Systems Interface
-	Commonly used on Servers to support large numbers of drives
-	Supports 8 or 16 devices on one bus
-	Devices are identified by a SCSI ID, oftentimes set using dip switches
-	Ends of the bus need Termination
-	There are numerous versions, types of cables, connectors, and terminators.
+SCSI/SAS
+	Server technologies
+	SCSI - Small Computer Systems Interface
+		Old tech
+		Commonly used on Servers to support large numbers of drives
+		There are numerous versions, types of cables, connectors, and terminators.
 	SAS - Serial Attached SCSI
-		SCSI based drive commands
-		Hot-swappable
-		Normally plugs into backplane, no cables
+		Modern High speed serial implementaion of SCSI 
+		Cleaner bus (cabling/connecting), same SCSI command set
+		Used in servers and storage arrays
+-------------------------------------------
+Term Review
+	Obsolete:
+		IDE - Integrated Device Electronics
+		PATA - Parallel ATA (ribbon cables)
+			term used interchangably with IDE
+	SATA - Serial ATA (much smaller cable)
+		much faster than PATA
+		eSATA - external version
+	AHCI - Advanced Host Controller Interface
+		Used with SATA drives
+		Enable it in BIOS before installing OS
+	NVMe - Nonvolatile Memory Express
+		Used with some M.2 drives
 -------------------------------------------
 RAID
 	Redundant Array of Inexpensive Disks [[img images/raid0.png]]
@@ -131,13 +148,8 @@ RAID Misc
 		BIOS RAID - Cheap.  May be less fast.  Not transferable.
 --------------------------------------------
 Summary
-	Storage Mechanism
+	Storage Mechanism	
 	Form Factors
-	SSDs
-	Common Terms
-	Connecting Drives
-	Drive Communication
-	SCSI
+	Interfaces
 	RAID
-
 --------------------------------------------
