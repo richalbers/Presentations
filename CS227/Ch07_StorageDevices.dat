@@ -42,7 +42,7 @@ Solid State Drives (SSD)
 		When it reaches EOL, you'll still be able to read it
 ------------------------------------------
 Form Factors
-	3.5" - desktop systems	[[img https://en.wikipedia.org/wiki/Hard_disk_drive#/media/File:2019_Rozebrane_dyski_twarde.jpg]]
+	3.5" - desktop systems	[[img https://www.integralmemory.com/wp-content/uploads/2024/08/HDD-v-SSD.png]]
 		HDDs
 		Mounted to the case, connected to MB via cable
 	2.5" - laptops or desktops
@@ -62,10 +62,10 @@ Interfaces/Protocols
 		ribbon cable (obsolete)
 		2.5 and 3.5" drives
 		Connected drive to disk controller on MB
-	SATA 	[[img https://en.wikipedia.org/wiki/SATA#/media/File:2.5-inch_SATA_drive_on_top_of_a_3.5-inch_SATA_drive,_close-up_of_data_and_power_connectors.jpg]]
+	SATA 	[[img https://www.datalab247.com/images/sata-connector.jpg]]
 		2.5", 3.5", and M.2 drives
 		Connected drive to disk controller on MB
-	NVME (Non-volatile Memory express)	[[img https://en.wikipedia.org/wiki/NVM_Express#/media/File:A_SANDISK_DPN-06DJG6_T-NVME_R-A02_M-PC_SN7100S_MN-SDFPTSK-256G-1012_FW-76012003_S-26070S802206_D-11FEB2026_C-256GB.jpg]]
+	NVME (Non-volatile Memory express)	[[img https://www.atpinc.com/upload/images/2022/05-10/62f88b9e3dfd4ce79adfcaaa8ed335ce.jpg]]
 		M.2 drives (some)
 		Uses PCIe lanes connected directly to CPU
 		Faster than SATA
