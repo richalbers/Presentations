@@ -1,16 +1,19 @@
 ------------------------------------------
 Ch 07 - Partitions and file systems
-	Partitioning Basics 
-	Partitioning Types
-		MBR
-		GPT
-		Dynamic
-	File System Basics
-	Windows File Systems
-		FAT
-		NTFS
-	Disk Partitioning and Managment tools
-	Disk Maintenance
+	Partitions
+		Basics 
+		Types
+			MBR
+			GPT
+			Dynamic
+	File Systems
+		Basics
+		Types
+			FAT (16 & 32)
+			NTFS
+	Tools
+		Disk Partitioning and Managment tools
+		Disk Maintenance
 ------------------------------------------
 Partitioning Basics
 	A Partition is a subdivision of a disk that can be used to store files (via a file system)
@@ -148,7 +151,8 @@ Disk Management Tool
 		Failed - damaged or corrupted
 		Offline - corrupted?
 --------------------------------------------
-Disk Maintenance
+Disk Maintenance Tools
+	Useful for HDDs
 	Error Checking (ScanDisk, Chkdsk)
 		Finds bad clusters and denotes them as such
 	Defragmentation (optimize drives)
