@@ -1,10 +1,10 @@
 ------------------------------------------
-Ch 09 - Implementing Mass Storage
+Ch 07 - Partitions and file systems
 	Partitioning Basics 
 	Partitioning Types
 		MBR
-		Dynamic
 		GPT
+		Dynamic
 	File System Basics
 	Windows File Systems
 		FAT
@@ -27,9 +27,9 @@ Partitioning Basics
 ------------------------------------------
 Partitioning Schemes
 	Three partitioning schemes
-		MBR - Industry standard
-		Dynamic Disks - Proprietary Microsoft Technology
+		MBR - Industry standard (Legacy)
 		GPT - Industry standard replacement for MBR
+		Dynamic Disks - Proprietary Microsoft Technology
 	Microsoft refers to MBR and GPT partitioned disks as basic disks, a name they created after they invented Dynamic Disks
 	Only Microsoft supports Dynamic Disks
 -------------------------------------------
@@ -54,24 +54,6 @@ MBR Disks continued
 		MBR program is loaded
 		MBR program loads volume boot sector from active partition 
 		Partition Boot Sector loads first O.S. boot program
-
---------------------------------------------
-Dynamic Disks
-	Proprietary Microsoft technology introduced with Windows 2K and supported only by Microsoft OSs
-	Partitions replaced with Volumes, no logical drives
-	MBR still there for backwards compatibilty
-	Volume info is stored in a small hidden volume at the end of the disk
-
---------------------------------------------
-Dynamic Disk Volume Types
-	Non-redundant - Supported by Windows Client OSs since 2K
-		Simple - similar to an old primary partition
-		Spanned - allows volume to span multiple disks (32)
-		Striped (RAID 0)
-	Redundant - Supported only by Windows Server OSs since 2K
-		Mirrored (RAID 1)
-			Also supported in Windows 7 Pro or better!
-		RAID 5
 -------------------------------------------
 GPT Disks
 	Globally Unique Identifer (GUID) Partition Table
@@ -82,6 +64,22 @@ GPT Disks
 		Eliminates LBA->CHS trickery
 	Utilizes GPT Header in place of MBR sector
 		Has a copy of this header at the beginning and ending of the disk for redundancy.
+--------------------------------------------
+Dynamic Disks
+	Proprietary Microsoft technology introduced with Windows 2K and supported only by Microsoft OSs
+	Partitions replaced with Volumes, no logical drives
+	MBR still there for backwards compatibilty
+	Volume info is stored in a small hidden volume at the end of the disk
+--------------------------------------------
+Dynamic Disk Volume Types
+	Non-redundant - Supported by Windows Client OSs since 2K
+		Simple - similar to an old primary partition
+		Spanned - allows volume to span multiple disks (32)
+		Striped (RAID 0)
+	Redundant - Supported only by Windows Server OSs since 2K
+		Mirrored (RAID 1)
+			Also supported in Windows 7 Pro or better!
+		RAID 5
 --------------------------------------------
 Other Partition Types
 	Hidden partition - A partition that is hidden from the OS
@@ -120,12 +118,10 @@ Windows File Systems
 		FAT32 supports partitions up to 2 TB
 			but Windows can only format FAT partitions up to 32GB
 	NTFS
-		Introduced with NT, and supported by all versions of NT (NT/2K/XP/Vista/7/10)
+		Introduced with NT, and supported by all versions of NT (NT/2K/XP/Vista/7/10/11)
 		Very similar to UFS (Unix File System)
 		Utilizes Master File table
-		Usable on partitions up to
-			2 TB on basic disks
-			16 TB on dynamic disks
+		Usable on large partitions (16+TB)
 -------------------------------------------
 NTFS Features
 	More efficient use of space (smaller clusters)
@@ -135,7 +131,7 @@ NTFS Features
 	Disk Quotas
 --------------------------------------------
 Disk Partitioning and Managment tools
-	3rd party Tools (partition magic)
+	3rd party Tools (gparted)
 	Windows install process
 	Disk Managment Tool
 		GUI tool available since Win2K+
@@ -164,8 +160,8 @@ Summary
 	Partitioning Basics 
 	Partitioning Types
 		MBR
-		Dynamic
 		GPT
+		Dynamic
 	File System Basics
 	Windows File Systems
 		FAT
